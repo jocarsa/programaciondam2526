@@ -65,4 +65,10 @@ Además contiene un sistema de gestión de ventanas GNOME-Metacity
 - RAM: 8GB
 - Disco duro: 100GB
 
+# Rúbrica de evaluación
+https://github.com/jocarsa/documentos/blob/main/R%C3%BAbrica%20de%20evaluaci%C3%B3n.md
+
+# Buenas prácticas en programación
+https://github.com/jocarsa/documentos/blob/main/Buenas%20pr%C3%A1cticas%20en%20programaci%C3%B3n.md
+
 
