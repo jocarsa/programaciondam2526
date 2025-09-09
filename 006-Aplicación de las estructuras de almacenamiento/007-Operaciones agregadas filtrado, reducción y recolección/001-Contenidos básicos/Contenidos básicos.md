@@ -1,0 +1,15 @@
+En el vasto terreno de la programación, las estructuras de almacenamiento desempeñan un papel fundamental como los pilares que sostienen una construcción. En esta subunidad didáctica, nos adentramos en el fascinante mundo de las operaciones agregadas, filtrado, reducción y recolección, explorando cómo estas técnicas pueden transformar nuestros datos con eficiencia y precisión.
+
+La primera de estas técnicas es la **operación agregada**, que permite realizar cálculos sobre un conjunto de datos para obtener un valor único. Imagina una gran pileta de números; las operaciones agregadas son como los luchadores de sumas, multiplicaciones, promedios y conteos que nos permiten reducir esta multitud a un solo número, revelando patrones y tendencias ocultos.
+
+El **filtrado** es otro poderoso aliado en este viaje. Este proceso selecciona elementos del conjunto original basándose en ciertas condiciones, como si estuviéramos recogiendo las flores de un jardín que cumplen con determinados criterios. El filtrado nos permite concentrarnos en lo relevante y descartar el resto, simplificando así la información a nuestro alcance.
+
+La **reducción** es una técnica que lleva aún más lejos la idea del filtrado. No solo selecciona elementos, sino que también combina o reduce estos elementos hasta obtener un único resultado. Es como si estuviéramos juntando cientos de libros en una sola caja, reduciendo así su volumen y facilitando su manejo.
+
+Finalmente, la **recolección** es el proceso inverso a la creación de estructuras de almacenamiento. Nos permite organizar y recuperar los datos que hemos procesado, asegurándonos de que estén disponibles cuando las necesitemos. Es como recoger los juguetes después del juego para poder jugar nuevamente.
+
+Estas técnicas son esenciales en la programación moderna, ya que nos permiten manejar grandes volúmenes de datos con eficiencia y precisión. Al combinarlas, podemos realizar tareas complejas como análisis de datos, inteligencia artificial y aprendizaje automático, transformando información raw en conocimiento valioso.
+
+En esta subunidad, hemos explorado cómo estas operaciones pueden ser aplicadas en diferentes contextos, desde la manipulación de listas simples hasta el procesamiento de grandes conjuntos de datos. Cada una de ellas es un puente que nos lleva a nuevas posibilidades y descubrimientos, demostrando que con las estructuras de almacenamiento y las operaciones adecuadas, podemos hacer de los datos una herramienta poderosa para resolver problemas complejos.
+
+Así, al adentrarnos en el mundo de las operaciones agregadas, filtrado, reducción y recolección, nos encontramos con un conjunto de habilidades que nos permiten transformar nuestros datos con eficiencia y precisión. Cada una de estas técnicas es un paso importante en nuestro viaje por la programación, demostrando que con el conocimiento adecuado, podemos hacer de los datos una herramienta poderosa para resolver problemas complejos y descubrir patrones ocultos en la información.

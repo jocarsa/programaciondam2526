@@ -1,0 +1,19 @@
+La jerarquía de clases es un concepto fundamental en la programación orientada a objetos (POO), que permite organizar y reutilizar el código de manera eficiente. En esta subunidad, exploraremos cómo definir superclases y subclases, así como cómo utilizarlas para crear una estructura lógica y coherente en nuestros programas.
+
+En primer lugar, es importante entender qué son las superclases y las subclases. Una superclase, también conocida como clase base o clase padre, es aquella que define un conjunto de atributos y métodos comunes para varias clases relacionadas. Por otro lado, una subclase, también llamada clase derivada o clase hija, hereda los atributos y métodos de la superclase y puede añadir nuevos o modificar los existentes.
+
+La creación de una jerarquía de clases empieza con la definición de la superclase. Esta clase actúa como un molde que proporciona las características básicas que serán compartidas por todas las subclases. Por ejemplo, si estamos desarrollando un sistema para gestionar diferentes tipos de vehículos, podríamos crear una superclase llamada "Vehículo" con atributos como marca, modelo y año de fabricación.
+
+Una vez definida la superclase, podemos crear subclases que hereden sus características. Por ejemplo, podríamos crear una subclase llamada "Coche" que herede de "Vehículo". La clase "Coche" podría añadir atributos específicos como número de puertas y color, o incluso sobrescribir métodos de la superclase para adaptarlos a las necesidades particulares del coche.
+
+La jerarquía de clases no se limita a una sola nivel. Es posible tener subclases que hereden de otras subclases, creando así una estructura jerárquica. Por ejemplo, si tenemos una superclase "Automóvil" y dos subclases "Coche" y "Motocicleta", podríamos crear una subclase adicional llamada "SUV" que herede de "Coche". De esta manera, la clase "SUV" tendría todos los atributos y métodos de la superclase "Coche", además de los específicos de un SUV.
+
+La utilización de jerarquías de clases ofrece varias ventajas. En primer lugar, permite una mayor reutilización del código, ya que las subclases pueden heredar los atributos y métodos comunes definidos en la superclase. Esto reduce la redundancia y facilita el mantenimiento del código.
+
+Además, la jerarquía de clases mejora la organización lógica del programa. Al agrupar clases relacionadas bajo una superclase común, se facilita su comprensión y uso. Las subclases pueden ser vistas como extensiones o variaciones de la superclase, lo que hace que el código sea más intuitivo y fácil de navegar.
+
+La herencia también permite la sobrescritura de métodos en las subclases. Esto significa que una subclase puede modificar el comportamiento de un método definido en su superclase para adaptarlo a sus necesidades específicas. Por ejemplo, si tenemos un método "arrancar" en la superclase "Vehículo", podemos sobrescribirlo en la subclase "Coche" para añadir funcionalidades adicionales como encender el aire acondicionado.
+
+La utilización de jerarquías de clases también facilita la implementación de polimorfismo. El polimorfismo es un concepto que permite tratar objetos de diferentes clases de manera uniforme, siempre y cuando compartan una interfaz común definida en su superclase. Esto significa que podemos escribir código que funcione con cualquier objeto que herede de la superclase, independientemente del tipo específico de subclase.
+
+En resumen, la jerarquía de clases es un poderoso mecanismo en la programación orientada a objetos que permite organizar y reutilizar el código de manera eficiente. Al definir superclases y subclases, podemos crear una estructura lógica y coherente que facilita la comprensión y uso del programa. La utilización de jerarquías de clases ofrece ventajas como la reutilización del código, la organización lógica del programa y el soporte para el polimorfismo, lo que hace que nuestro código sea más robusto, escalable y fácil de mantener.

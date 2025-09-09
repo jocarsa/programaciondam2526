@@ -1,0 +1,11 @@
+En el mundo de la programación, las aserciones son una herramienta poderosa que nos permite verificar la integridad del programa durante su ejecución. Estas declaraciones condicionales permiten comprobar si ciertas condiciones son verdaderas o no, y en caso de que no lo sean, detienen la ejecución del programa para evitar errores inesperados.
+
+Las aserciones se utilizan principalmente para asegurar que el estado interno de un programa sea correcto antes de continuar con las operaciones. Son especialmente útiles durante el desarrollo y la depuración, ya que nos permiten identificar rápidamente dónde algo sale mal en nuestro código. En su forma más básica, una aserción se compone de una expresión booleana que debe evaluarse como verdadera para que el programa continúe ejecutándose.
+
+La implementación de aserciones en la programación es relativamente sencilla. Se utiliza un comando específico dependiendo del lenguaje de programación utilizado, pero generalmente sigue el patrón: "si la expresión es falsa, detén la ejecución". Esta estructura permite que los desarrolladores se aseguren de que ciertos invariants o precondiciones sean cumplidos antes de avanzar.
+
+Es importante destacar que las aserciones no deben usarse como un mecanismo principal para el control del flujo normal del programa. Su uso debe estar limitado a situaciones excepcionales, donde la violación de una condición implica un error grave o una inconsistencia interna que no puede ser manejada de otra manera. En su lugar, las aserciones deben complementar otras técnicas como el manejo de errores y excepciones para proporcionar una mayor robustez al programa.
+
+La práctica del uso de aserciones en la programación es un aspecto fundamental de la metodología ágil y la ingeniería de software moderna. Algunas prácticas recomendadas incluyen la activación de las aserciones durante el desarrollo, pero su desactivación o supresión durante la fase de producción para evitar interrupciones inesperadas del programa.
+
+En resumen, las aserciones son una herramienta valiosa en el arsenal del programador que nos permite asegurar la integridad y consistencia de nuestro código. Aunque deben usarse con precaución y no como un reemplazo del manejo de errores, su uso judicioso puede mejorar significativamente la calidad y confiabilidad de nuestros programas.

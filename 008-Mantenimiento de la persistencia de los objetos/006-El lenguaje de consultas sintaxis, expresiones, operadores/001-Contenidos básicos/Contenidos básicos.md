@@ -1,0 +1,17 @@
+En el mundo de la programación, mantener la persistencia de los objetos es una tarea fundamental que requiere un lenguaje de consultas poderoso y flexible. Este lenguaje nos permite interactuar con las bases de datos de manera eficiente, recuperando, modificando y eliminando información de manera segura y precisa.
+
+El primer paso para entender el mantenimiento de la persistencia es familiarizarse con el lenguaje de consultas que se utiliza en la base de datos. Este lenguaje, conocido como SQL (Structured Query Language), es un estándar internacional que permite a los programadores realizar operaciones complejas sobre las bases de datos.
+
+La sintaxis de SQL es rica y detallada, permitiendo a los usuarios definir consultas precisas para acceder a la información necesaria. Desde la sencilla consulta SELECT hasta las complejas sentencias UPDATE y DELETE, cada una con su propia estructura y reglas específicas, SQL nos proporciona las herramientas necesarias para interactuar con los datos de manera eficiente.
+
+Las expresiones en SQL son otro aspecto crucial del lenguaje. Las expresiones permiten realizar cálculos y manipulaciones sobre los datos antes de que sean recuperados o almacenados. Desde la suma de valores hasta el filtrado de resultados, las expresiones en SQL ofrecen una gran flexibilidad para procesar los datos según nuestras necesidades.
+
+Los operadores son el núcleo del lenguaje de consultas. Son símbolos y palabras clave que nos permiten definir las condiciones y acciones a realizar en nuestras consultas. Desde los operadores relacionales (como =, >, <) hasta los operadores lógicos (AND, OR, NOT), cada uno con su propia funcionalidad y reglas de precedencia, los operadores son esenciales para construir consultas complejas.
+
+La importancia de conocer bien el lenguaje de consultas no se limita a la recuperación de datos. También es fundamental para la modificación y eliminación de información en las bases de datos. Las sentencias UPDATE y DELETE, junto con los operadores y expresiones adecuados, nos permiten realizar cambios precisos en nuestros datos.
+
+Además, el lenguaje de consultas también incluye funciones que pueden ser utilizadas dentro de nuestras consultas para realizar cálculos o manipulaciones adicionales. Desde las funciones agregadas (como SUM, AVG, COUNT) hasta las funciones de texto (como UPPER, LOWER, SUBSTRING), estas funciones ofrecen una gran potencia en el procesamiento de datos.
+
+La comprensión del lenguaje de consultas es crucial para cualquier programador que trabaje con bases de datos. No solo nos permite interactuar eficientemente con los datos, sino que también nos proporciona la capacidad de realizar operaciones complejas y precisas sobre ellos. Con el conocimiento adecuado del lenguaje de consultas, podemos mantener la persistencia de los objetos de manera segura y efectiva, lo que es fundamental para el desarrollo de aplicaciones robustas y eficientes.
+
+En resumen, el mantenimiento de la persistencia de los objetos en una base de datos requiere un lenguaje de consultas poderoso y flexible. Conocer bien el lenguaje de consultas nos permite interactuar con las bases de datos de manera eficiente, recuperando, modificando y eliminando información de manera segura y precisa. Desde la sencilla consulta SELECT hasta las complejas sentencias UPDATE y DELETE, cada una con su propia estructura y reglas específicas, el lenguaje de consultas nos proporciona las herramientas necesarias para interactuar con los datos de manera eficiente.

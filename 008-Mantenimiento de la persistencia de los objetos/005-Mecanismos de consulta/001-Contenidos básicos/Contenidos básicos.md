@@ -1,0 +1,17 @@
+En el mundo digital de la programación, mantener la persistencia de los objetos es una tarea fundamental que permite a las aplicaciones almacenar y recuperar información con eficiencia. Este proceso implica la creación y gestión de mecanismos que permitan la manipulación de datos en un entorno persistente, como bases de datos o sistemas de archivos.
+
+La carpeta `005-Mecanismos de consulta` del curso de programación se centra específicamente en cómo realizar estas operaciones. Aquí, los estudiantes aprenderán a formular y ejecutar consultas que permitan recuperar información almacenada de manera eficiente y segura. El contenido aborda desde la sintaxis básica hasta técnicas avanzadas, proporcionando una comprensión profunda del manejo de datos en aplicaciones.
+
+La primera lección introduce los conceptos básicos de consulta, explicando cómo estructurar sentencias que permitan seleccionar, filtrar y ordenar información. Los estudiantes aprenderán a utilizar operadores lógicos y comparativos para crear consultas precisas y eficientes. Además, se discute la importancia de la optimización de consultas para mejorar el rendimiento de las aplicaciones.
+
+La siguiente lección profundiza en los tipos de consultas más comunes, como las proyecciones y agrupamientos. Se explica cómo utilizar estas técnicas para obtener información resumida y estructurada, facilitando la toma de decisiones basadas en datos. Los estudiantes también aprenderán a combinar múltiples consultas para realizar tareas complejas.
+
+La carpeta continúa con lecciones sobre el manejo de subconsultas, que son consultas anidadas dentro de otras. Esta técnica es crucial para resolver problemas complejos y obtener información detallada en aplicaciones empresariales y científicas. Los estudiantes aprenderán cómo utilizar subconsultas para realizar operaciones avanzadas y cómo optimizarlas para mejorar el rendimiento.
+
+La lección sobre la combinación de múltiples selecciones es una extensión natural del tema anterior, enseñando a los estudiantes cómo combinar diferentes consultas para obtener información completa y precisa. Se discute la importancia de la coherencia en las consultas y cómo utilizar operadores lógicos para unir resultados de manera efectiva.
+
+La carpeta también aborda el tema de la optimización de consultas, una cuestión crítica en cualquier sistema persistente. Los estudiantes aprenderán técnicas avanzadas para mejorar el rendimiento de las consultas, como el uso de índices y la minimización del uso de recursos. Se discute cómo analizar y optimizar consultas complejas para asegurar un rendimiento óptimo.
+
+La lección final en esta carpeta se centra en el manejo de excepciones durante las consultas. Aprender a gestionar errores y excepciones es fundamental para la robustez de cualquier aplicación. Los estudiantes aprenderán cómo detectar, capturar y manejar excepciones que puedan surgir durante el proceso de consulta, asegurando una experiencia de usuario fluida y segura.
+
+En resumen, la carpeta `005-Mecanismos de consulta` del curso de programación ofrece una visión completa y detallada del manejo de datos en aplicaciones. Desde los conceptos básicos hasta técnicas avanzadas, proporciona a los estudiantes las herramientas necesarias para realizar consultas eficientes y seguras. Este conocimiento es esencial para desarrollar aplicaciones robustas y escalables que puedan manejar grandes volúmenes de datos con facilidad y precisión.
