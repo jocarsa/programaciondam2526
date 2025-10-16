@@ -1,0 +1,26 @@
+[
+  {
+    "titulo":"Primer artículo",
+    "fecha":"2025-10-16",
+    "autor":"Jose Vicente Carratala",
+    "contenido":"Este es el contenido del primer artículo"
+  },
+  {
+    "titulo":"Segundo artículo",
+    "fecha":"2025-10-17",
+    "autor":"Jose Vicente Carratala",
+    "contenido":"Este es el contenido del segundo artículo"
+  },
+  {
+    "titulo":"Tercer artículo",
+    "fecha":"2025-10-16",
+    "autor":"Jose Vicente Carratala",
+    "contenido":"Este es el contenido del tercer artículo"
+  },
+  {
+    "titulo":"Cuarto artículo",
+    "fecha":"2025-10-16",
+    "autor":"Jose Vicente Carratala",
+    "contenido":"Este es el contenido del cuarto artículo"
+  }
+]
