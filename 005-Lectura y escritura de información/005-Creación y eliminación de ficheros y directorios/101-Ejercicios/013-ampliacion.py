@@ -4,6 +4,10 @@ import shutil
 import sys
 import time
 
+#### CUIDADO CON ESTE PROGRAMA
+#### USALO BIEN
+#### UN GRAN PODER CONLLEVA  UNA GRAN RESPONSABILIDAD
+
 '''
   Quiero:
   1.-Pedir al usuario una ruta de una carpeta con input
