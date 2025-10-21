@@ -1,0 +1,968 @@
+/var/www/html/programaciondam2526/001-Resumen.md
+/var/www/html/programaciondam2526/README.md
+/var/www/html/programaciondam2526/000-Resumen.md
+/var/www/html/programaciondam2526/peticiones.py
+/var/www/html/programaciondam2526/006-Aplicación de las estructuras de almacenamiento/000-Resumen.md
+/var/www/html/programaciondam2526/006-Aplicación de las estructuras de almacenamiento/Criterios de evaluacion.md
+/var/www/html/programaciondam2526/006-Aplicación de las estructuras de almacenamiento/001-Estructuras estáticas y dinámicas/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/006-Aplicación de las estructuras de almacenamiento/001-Estructuras estáticas y dinámicas/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/006-Aplicación de las estructuras de almacenamiento/004-Genericidad/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/006-Aplicación de las estructuras de almacenamiento/004-Genericidad/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/006-Aplicación de las estructuras de almacenamiento/003-Matrices (arrays) multidimensionales/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/006-Aplicación de las estructuras de almacenamiento/003-Matrices (arrays) multidimensionales/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/006-Aplicación de las estructuras de almacenamiento/005-Cadenas de caracteres. Expresiones regulares/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/006-Aplicación de las estructuras de almacenamiento/005-Cadenas de caracteres. Expresiones regulares/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/006-Aplicación de las estructuras de almacenamiento/002-Creación de matrices (arrays)/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/006-Aplicación de las estructuras de almacenamiento/002-Creación de matrices (arrays)/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/006-Aplicación de las estructuras de almacenamiento/006-Colecciones Listas, Conjuntos y Diccionarios/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/006-Aplicación de las estructuras de almacenamiento/006-Colecciones Listas, Conjuntos y Diccionarios/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/006-Aplicación de las estructuras de almacenamiento/007-Operaciones agregadas filtrado, reducción y recolección/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/006-Aplicación de las estructuras de almacenamiento/007-Operaciones agregadas filtrado, reducción y recolección/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/001-Introduccion.md
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/000-Resumen.md
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/Criterios de evaluacion.md
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/101-Ejercicio de final de unidad/101-Ejercicios/013-constantes.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/101-Ejercicio de final de unidad/101-Ejercicios/014-Diferencia.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/101-Ejercicio de final de unidad/101-Ejercicios/009-Entradas.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/101-Ejercicio de final de unidad/101-Ejercicios/014-operadores aritmeticos.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/101-Ejercicio de final de unidad/101-Ejercicios/019-Calculadora.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/101-Ejercicio de final de unidad/101-Ejercicios/003-salidas.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/101-Ejercicio de final de unidad/101-Ejercicios/011-Cambio de tipo de dato.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/101-Ejercicio de final de unidad/101-Ejercicios/010-Entrada y problema.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/101-Ejercicio de final de unidad/101-Ejercicios/021-Calculo de IVA.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/101-Ejercicio de final de unidad/101-Ejercicios/017-operadores booleanos.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/101-Ejercicio de final de unidad/101-Ejercicios/004-variar una variable.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/101-Ejercicio de final de unidad/101-Ejercicios/001-Holamundo.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/101-Ejercicio de final de unidad/101-Ejercicios/012-literales.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/101-Ejercicio de final de unidad/101-Ejercicios/020-Calculadora.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/101-Ejercicio de final de unidad/101-Ejercicios/005-identificadores permitidos.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/101-Ejercicio de final de unidad/101-Ejercicios/007-Explicacion del codigo.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/101-Ejercicio de final de unidad/101-Ejercicios/008-Tipos de datos.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/101-Ejercicio de final de unidad/101-Ejercicios/018-Ejercicio1-Calculadora de impuestos.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/101-Ejercicio de final de unidad/101-Ejercicios/002-variables.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/101-Ejercicio de final de unidad/101-Ejercicios/006-comentarios.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/101-Ejercicio de final de unidad/101-Ejercicios/016-operadores arimeticos abreviados.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/101-Ejercicio de final de unidad/101-Ejercicios/015-operadores de comparacion.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/101-Ejercicio de final de unidad/201-Criterios de evaluación/001-actividad.md
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/001-Estructura y bloques fundamentales/101-Ejercicios/001-Holamundo.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/001-Estructura y bloques fundamentales/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/001-Estructura y bloques fundamentales/001-Contenidos básicos/Introduccion.md
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/001-Estructura y bloques fundamentales/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/002-Variables/101-Ejercicios/003-salidas.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/002-Variables/101-Ejercicios/004-variar una variable.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/002-Variables/101-Ejercicios/005-identificadores permitidos.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/002-Variables/101-Ejercicios/007-Explicacion del codigo.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/002-Variables/101-Ejercicios/002-variables.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/002-Variables/101-Ejercicios/006-comentarios.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/002-Variables/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/002-Variables/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/005-Constantes/101-Ejercicios/013-constantes.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/005-Constantes/101-Ejercicios/014-Diferencia.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/005-Constantes/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/005-Constantes/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/004-Literales/101-Ejercicios/012-literales.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/004-Literales/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/004-Literales/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/006-Operadores y expresiones/101-Ejercicios/014-operadores aritmeticos.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/006-Operadores y expresiones/101-Ejercicios/019-Calculadora.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/006-Operadores y expresiones/101-Ejercicios/021-Calculo de IVA.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/006-Operadores y expresiones/101-Ejercicios/017-operadores booleanos.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/006-Operadores y expresiones/101-Ejercicios/020-Calculadora.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/006-Operadores y expresiones/101-Ejercicios/018-Ejercicio1-Calculadora de impuestos.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/006-Operadores y expresiones/101-Ejercicios/016-operadores arimeticos abreviados.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/006-Operadores y expresiones/101-Ejercicios/015-operadores de comparacion.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/006-Operadores y expresiones/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/006-Operadores y expresiones/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/003-Tipos de datos/101-Ejercicios/009-Entradas.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/003-Tipos de datos/101-Ejercicios/011-Cambio de tipo de dato.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/003-Tipos de datos/101-Ejercicios/010-Entrada y problema.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/003-Tipos de datos/101-Ejercicios/008-Tipos de datos.py
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/003-Tipos de datos/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/001-Identificación de los elementos de un programa informático/003-Tipos de datos/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/009-Gestión de bases de datos/000-Resumen.md
+/var/www/html/programaciondam2526/009-Gestión de bases de datos/Criterios de evaluacion.md
+/var/www/html/programaciondam2526/009-Gestión de bases de datos/002-Establecimiento de conexiones/101-Ejercicios/001-ejercicio.md
+/var/www/html/programaciondam2526/009-Gestión de bases de datos/002-Establecimiento de conexiones/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/009-Gestión de bases de datos/002-Establecimiento de conexiones/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/009-Gestión de bases de datos/003-Almacenamiento, recuperación, actualización y eliminación de información en bases de datos/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/009-Gestión de bases de datos/003-Almacenamiento, recuperación, actualización y eliminación de información en bases de datos/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/009-Gestión de bases de datos/001-Acceso a bases de datos. Estándares. Características/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/009-Gestión de bases de datos/001-Acceso a bases de datos. Estándares. Características/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/007-Utilización avanzada de clases/000-Resumen.md
+/var/www/html/programaciondam2526/007-Utilización avanzada de clases/Criterios de evaluacion.md
+/var/www/html/programaciondam2526/007-Utilización avanzada de clases/006-Sobreescritura de métodos/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/007-Utilización avanzada de clases/006-Sobreescritura de métodos/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/007-Utilización avanzada de clases/005-Interfaces/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/007-Utilización avanzada de clases/005-Interfaces/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/007-Utilización avanzada de clases/001-Composición de clases/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/007-Utilización avanzada de clases/001-Composición de clases/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/007-Utilización avanzada de clases/007-Constructores y herencia/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/007-Utilización avanzada de clases/007-Constructores y herencia/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/007-Utilización avanzada de clases/003-Jerarquía de clases Superclases y subclases/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/007-Utilización avanzada de clases/003-Jerarquía de clases Superclases y subclases/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/007-Utilización avanzada de clases/004-Clases y métodos abstractos y finales/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/007-Utilización avanzada de clases/004-Clases y métodos abstractos y finales/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/007-Utilización avanzada de clases/002-Herencia y polimorfismo/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/007-Utilización avanzada de clases/002-Herencia y polimorfismo/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/000-Resumen.md
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/Criterios de evaluacion.md
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/002-Estructuras de repetición/101-Ejercicios/006-ahora los impares.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/002-Estructuras de repetición/101-Ejercicios/004-mas anidacion.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/002-Estructuras de repetición/101-Ejercicios/002-estructura for.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/002-Estructuras de repetición/101-Ejercicios/001-ineficiente.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/002-Estructuras de repetición/101-Ejercicios/007-while.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/002-Estructuras de repetición/101-Ejercicios/0005-saltos.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/002-Estructuras de repetición/101-Ejercicios/009-Ejercicio propuesto patitos.md
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/002-Estructuras de repetición/101-Ejercicios/008-incremento.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/002-Estructuras de repetición/101-Ejercicios/003-anidacion.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/002-Estructuras de repetición/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/002-Estructuras de repetición/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/001-Estructuras de selección/101-Ejercicios/003-varios if.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/001-Estructuras de selección/101-Ejercicios/004-varios if.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/001-Estructuras de selección/101-Ejercicios/006-anidacion.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/001-Estructuras de selección/101-Ejercicios/002-else.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/001-Estructuras de selección/101-Ejercicios/001-Condicional.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/001-Estructuras de selección/101-Ejercicios/007-Ejercicio en clase.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/001-Estructuras de selección/101-Ejercicios/005-particula elif.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/001-Estructuras de selección/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/001-Estructuras de selección/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/005-Aserciones/101-Ejercicios/004-combinacion.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/005-Aserciones/101-Ejercicios/002-el chivato salta.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/005-Aserciones/101-Ejercicios/001-chivato.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/005-Aserciones/101-Ejercicios/003-ejemplo no tan traumatico.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/005-Aserciones/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/005-Aserciones/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/003-Estructuras de salto/101-Ejercicios/funcionsuma.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/003-Estructuras de salto/101-Ejercicios/008-llamada a la funcion de suma.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/003-Estructuras de salto/101-Ejercicios/002-uso de la funcion.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/003-Estructuras de salto/101-Ejercicios/006-las funcione retornan.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/003-Estructuras de salto/101-Ejercicios/005-varios parametros.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/003-Estructuras de salto/101-Ejercicios/004-Llamada correcta.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/003-Estructuras de salto/101-Ejercicios/007-funcion de sumar.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/003-Estructuras de salto/101-Ejercicios/003-parametros.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/003-Estructuras de salto/101-Ejercicios/001-Funciones.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/003-Estructuras de salto/101-Ejercicios/__pycache__/funcionsuma.cpython-312.pyc
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/003-Estructuras de salto/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/003-Estructuras de salto/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/006-Prueba, depuración y documentación de la aplicación/101-Ejercicios/010-ejercicio propuesto.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/006-Prueba, depuración y documentación de la aplicación/101-Ejercicios/005-cadenas.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/006-Prueba, depuración y documentación de la aplicación/101-Ejercicios/008-documentacion de la funcion.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/006-Prueba, depuración y documentación de la aplicación/101-Ejercicios/003-nuevo fallo.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/006-Prueba, depuración y documentación de la aplicación/101-Ejercicios/002-mejora.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/006-Prueba, depuración y documentación de la aplicación/101-Ejercicios/006-mejoro cadenas.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/006-Prueba, depuración y documentación de la aplicación/101-Ejercicios/009-extraccion de funcion.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/006-Prueba, depuración y documentación de la aplicación/101-Ejercicios/004-nuevo fallo mas.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/006-Prueba, depuración y documentación de la aplicación/101-Ejercicios/001-funcion de division.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/006-Prueba, depuración y documentación de la aplicación/101-Ejercicios/011-tres en raya.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/006-Prueba, depuración y documentación de la aplicación/101-Ejercicios/funciondivision.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/006-Prueba, depuración y documentación de la aplicación/101-Ejercicios/007-depuracion.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/006-Prueba, depuración y documentación de la aplicación/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/006-Prueba, depuración y documentación de la aplicación/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/004-Control de excepciones/101-Ejercicios/002-error.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/004-Control de excepciones/101-Ejercicios/003-error con try except.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/004-Control de excepciones/101-Ejercicios/001-tryexcept.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/004-Control de excepciones/101-Ejercicios/004-pseudocodigo.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/004-Control de excepciones/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/004-Control de excepciones/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/007-Ejercicio/101-Ejercicios/001-ejercicio for.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/007-Ejercicio/101-Ejercicios/004-dragones.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/007-Ejercicio/101-Ejercicios/004-enunciado.md
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/007-Ejercicio/101-Ejercicios/005-magos.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/007-Ejercicio/101-Ejercicios/002-ejercicio escalones.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/007-Ejercicio/101-Ejercicios/003-subir escalones de dos en dos.py
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/007-Ejercicio/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/003-Uso de estructuras de control/007-Ejercicio/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/002-Utilización de objetos/000-Resumen.md
+/var/www/html/programaciondam2526/002-Utilización de objetos/Criterios de evaluacion.md
+/var/www/html/programaciondam2526/002-Utilización de objetos/006-Constructores/101-Ejercicios/000-Nota importante.md
+/var/www/html/programaciondam2526/002-Utilización de objetos/006-Constructores/101-Ejercicios/007-propiedades de la fecha.py
+/var/www/html/programaciondam2526/002-Utilización de objetos/006-Constructores/101-Ejercicios/006-fechas en python.py
+/var/www/html/programaciondam2526/002-Utilización de objetos/006-Constructores/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/002-Utilización de objetos/006-Constructores/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/002-Utilización de objetos/007-Destrucción de objetos y liberación de memoria/101-Ejercicios/000-Nota importante.md
+/var/www/html/programaciondam2526/002-Utilización de objetos/007-Destrucción de objetos y liberación de memoria/101-Ejercicios/011-entrada calculo y salida.py
+/var/www/html/programaciondam2526/002-Utilización de objetos/007-Destrucción de objetos y liberación de memoria/101-Ejercicios/012-libreria matematica.py
+/var/www/html/programaciondam2526/002-Utilización de objetos/007-Destrucción de objetos y liberación de memoria/101-Ejercicios/010-propiedades.py
+/var/www/html/programaciondam2526/002-Utilización de objetos/007-Destrucción de objetos y liberación de memoria/101-Ejercicios/008-destruccion de objetos.py
+/var/www/html/programaciondam2526/002-Utilización de objetos/007-Destrucción de objetos y liberación de memoria/101-Ejercicios/009-caballos en la cuadra.py
+/var/www/html/programaciondam2526/002-Utilización de objetos/007-Destrucción de objetos y liberación de memoria/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/002-Utilización de objetos/007-Destrucción de objetos y liberación de memoria/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/002-Utilización de objetos/001-Características de los objetos/101-Ejercicios/000-Nota importante.md
+/var/www/html/programaciondam2526/002-Utilización de objetos/001-Características de los objetos/101-Ejercicios/001-objeto math.py
+/var/www/html/programaciondam2526/002-Utilización de objetos/001-Características de los objetos/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/002-Utilización de objetos/001-Características de los objetos/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/002-Utilización de objetos/003-Utilización de métodos. Parámetros/101-Ejercicios/000-Nota importante.md
+/var/www/html/programaciondam2526/002-Utilización de objetos/003-Utilización de métodos. Parámetros/101-Ejercicios/003-llamada a metodos.py
+/var/www/html/programaciondam2526/002-Utilización de objetos/003-Utilización de métodos. Parámetros/101-Ejercicios/004-sparse is better than dense.py
+/var/www/html/programaciondam2526/002-Utilización de objetos/003-Utilización de métodos. Parámetros/101-Ejercicios/004-sparse.py
+/var/www/html/programaciondam2526/002-Utilización de objetos/003-Utilización de métodos. Parámetros/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/002-Utilización de objetos/003-Utilización de métodos. Parámetros/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/002-Utilización de objetos/002-Instanciación de objetos/101-Ejercicios/000-Nota importante.md
+/var/www/html/programaciondam2526/002-Utilización de objetos/002-Instanciación de objetos/101-Ejercicios/002-namespace.py
+/var/www/html/programaciondam2526/002-Utilización de objetos/002-Instanciación de objetos/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/002-Utilización de objetos/002-Instanciación de objetos/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/002-Utilización de objetos/005-Utilización de métodos estáticos/101-Ejercicios/000-Nota importante.md
+/var/www/html/programaciondam2526/002-Utilización de objetos/005-Utilización de métodos estáticos/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/002-Utilización de objetos/005-Utilización de métodos estáticos/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/002-Utilización de objetos/004-Utilización de propiedades/101-Ejercicios/000-Nota importante.md
+/var/www/html/programaciondam2526/002-Utilización de objetos/004-Utilización de propiedades/101-Ejercicios/005-propiedades.py
+/var/www/html/programaciondam2526/002-Utilización de objetos/004-Utilización de propiedades/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/002-Utilización de objetos/004-Utilización de propiedades/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/000-Resumen.md
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/Criterios de evaluacion.md
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/Carpeta sin título/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/004-Utilización de los sistemas de ficheros./101-Ejercicios/004-suma del tamaño.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/004-Utilización de los sistemas de ficheros./101-Ejercicios/007-condicion.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/004-Utilización de los sistemas de ficheros./101-Ejercicios/005-recorrer.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/004-Utilización de los sistemas de ficheros./101-Ejercicios/001-listar contenido de carpeta.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/004-Utilización de los sistemas de ficheros./101-Ejercicios/006-tamaño recursivo.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/004-Utilización de los sistemas de ficheros./101-Ejercicios/008-escribir en archivo el contenido de la carpeta.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/004-Utilización de los sistemas de ficheros./101-Ejercicios/003-formateo el resultado.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/004-Utilización de los sistemas de ficheros./101-Ejercicios/010-minibuscador.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/004-Utilización de los sistemas de ficheros./101-Ejercicios/009-sobreescribir cada vez.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/004-Utilización de los sistemas de ficheros./101-Ejercicios/mapa.txt
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/004-Utilización de los sistemas de ficheros./101-Ejercicios/011-busca en mapa.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/004-Utilización de los sistemas de ficheros./101-Ejercicios/002-atributos.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/009-Creación de controladores de eventos/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/009-Creación de controladores de eventos/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/007-Interfaces gráficas/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/007-Interfaces gráficas/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/005-Creación y eliminación de ficheros y directorios/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/005-Creación y eliminación de ficheros y directorios/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/006-Entrada desde teclado. Salida a pantalla. Formatos de visualización/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/006-Entrada desde teclado. Salida a pantalla. Formatos de visualización/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/003-Apertura y cierre de ficheros. Modos de acceso. Escritura y lectura de información en ficheros/101-Ejercicios/001-escribir.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/003-Apertura y cierre de ficheros. Modos de acceso. Escritura y lectura de información en ficheros/101-Ejercicios/007-pickle escribir.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/003-Apertura y cierre de ficheros. Modos de acceso. Escritura y lectura de información en ficheros/101-Ejercicios/010-guardo con pickle a binario.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/003-Apertura y cierre de ficheros. Modos de acceso. Escritura y lectura de información en ficheros/101-Ejercicios/009-crear cliente.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/003-Apertura y cierre de ficheros. Modos de acceso. Escritura y lectura de información en ficheros/101-Ejercicios/basededatos.txt
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/003-Apertura y cierre de ficheros. Modos de acceso. Escritura y lectura de información en ficheros/101-Ejercicios/002-apendizar.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/003-Apertura y cierre de ficheros. Modos de acceso. Escritura y lectura de información en ficheros/101-Ejercicios/011-recupero los datos.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/003-Apertura y cierre de ficheros. Modos de acceso. Escritura y lectura de información en ficheros/101-Ejercicios/datos.bin
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/003-Apertura y cierre de ficheros. Modos de acceso. Escritura y lectura de información en ficheros/101-Ejercicios/004-leer una linea.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/003-Apertura y cierre de ficheros. Modos de acceso. Escritura y lectura de información en ficheros/101-Ejercicios/005-leer varias lineas.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/003-Apertura y cierre de ficheros. Modos de acceso. Escritura y lectura de información en ficheros/101-Ejercicios/003-añadir salto de linea.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/003-Apertura y cierre de ficheros. Modos de acceso. Escritura y lectura de información en ficheros/101-Ejercicios/008-leer pickle.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/003-Apertura y cierre de ficheros. Modos de acceso. Escritura y lectura de información en ficheros/101-Ejercicios/clientes.bin
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/003-Apertura y cierre de ficheros. Modos de acceso. Escritura y lectura de información en ficheros/101-Ejercicios/006-recorrer la lista.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/003-Apertura y cierre de ficheros. Modos de acceso. Escritura y lectura de información en ficheros/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/003-Apertura y cierre de ficheros. Modos de acceso. Escritura y lectura de información en ficheros/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/001-Flujos. Tipos bytes y caracteres. Clases relacionadas/101-Ejercicios/003-creador agenda.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/001-Flujos. Tipos bytes y caracteres. Clases relacionadas/101-Ejercicios/clientes.txt
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/001-Flujos. Tipos bytes y caracteres. Clases relacionadas/101-Ejercicios/001-escribir texto a archivo.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/001-Flujos. Tipos bytes y caracteres. Clases relacionadas/101-Ejercicios/002-ahora leemos.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/001-Flujos. Tipos bytes y caracteres. Clases relacionadas/101-Ejercicios/agenda.txt
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/001-Flujos. Tipos bytes y caracteres. Clases relacionadas/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/001-Flujos. Tipos bytes y caracteres. Clases relacionadas/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/002-Ficheros de datos. Registros/101-Ejercicios/005-una pequeña decoracion.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/002-Ficheros de datos. Registros/101-Ejercicios/004-ahora accedemos a las parejas.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/002-Ficheros de datos. Registros/101-Ejercicios/007-secciones.html
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/002-Ficheros de datos. Registros/101-Ejercicios/003-leemos linea a linea.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/002-Ficheros de datos. Registros/101-Ejercicios/001-leer archivo.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/002-Ficheros de datos. Registros/101-Ejercicios/012-frankenstein.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/002-Ficheros de datos. Registros/101-Ejercicios/008-articulo.html
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/002-Ficheros de datos. Registros/101-Ejercicios/blog.txt
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/002-Ficheros de datos. Registros/101-Ejercicios/011-arranco flask.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/002-Ficheros de datos. Registros/101-Ejercicios/002-leer json.py
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/002-Ficheros de datos. Registros/101-Ejercicios/blog.json
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/002-Ficheros de datos. Registros/101-Ejercicios/006-blog.html
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/002-Ficheros de datos. Registros/101-Ejercicios/010-Instalar servidor.md
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/002-Ficheros de datos. Registros/101-Ejercicios/009-estilos minimos.html
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/002-Ficheros de datos. Registros/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/002-Ficheros de datos. Registros/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/008-Concepto de evento/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/005-Lectura y escritura de información/008-Concepto de evento/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/.git/ORIG_HEAD
+/var/www/html/programaciondam2526/.git/COMMIT_EDITMSG
+/var/www/html/programaciondam2526/.git/FETCH_HEAD
+/var/www/html/programaciondam2526/.git/packed-refs
+/var/www/html/programaciondam2526/.git/description
+/var/www/html/programaciondam2526/.git/index
+/var/www/html/programaciondam2526/.git/HEAD
+/var/www/html/programaciondam2526/.git/config
+/var/www/html/programaciondam2526/.git/logs/HEAD
+/var/www/html/programaciondam2526/.git/logs/refs/remotes/origin/HEAD
+/var/www/html/programaciondam2526/.git/logs/refs/remotes/origin/main
+/var/www/html/programaciondam2526/.git/logs/refs/heads/main
+/var/www/html/programaciondam2526/.git/refs/remotes/origin/HEAD
+/var/www/html/programaciondam2526/.git/refs/remotes/origin/main
+/var/www/html/programaciondam2526/.git/refs/heads/main
+/var/www/html/programaciondam2526/.git/info/exclude
+/var/www/html/programaciondam2526/.git/hooks/pre-push.sample
+/var/www/html/programaciondam2526/.git/hooks/pre-rebase.sample
+/var/www/html/programaciondam2526/.git/hooks/pre-receive.sample
+/var/www/html/programaciondam2526/.git/hooks/fsmonitor-watchman.sample
+/var/www/html/programaciondam2526/.git/hooks/applypatch-msg.sample
+/var/www/html/programaciondam2526/.git/hooks/push-to-checkout.sample
+/var/www/html/programaciondam2526/.git/hooks/pre-merge-commit.sample
+/var/www/html/programaciondam2526/.git/hooks/sendemail-validate.sample
+/var/www/html/programaciondam2526/.git/hooks/post-update.sample
+/var/www/html/programaciondam2526/.git/hooks/update.sample
+/var/www/html/programaciondam2526/.git/hooks/pre-applypatch.sample
+/var/www/html/programaciondam2526/.git/hooks/commit-msg.sample
+/var/www/html/programaciondam2526/.git/hooks/prepare-commit-msg.sample
+/var/www/html/programaciondam2526/.git/hooks/pre-commit.sample
+/var/www/html/programaciondam2526/.git/objects/2b/cb2f1852b538bc8ce87ffeeb1c1e77930cb7c4
+/var/www/html/programaciondam2526/.git/objects/69/34a7c4892afae9f5212aed2c144b18f9beca0f
+/var/www/html/programaciondam2526/.git/objects/69/4ed2381c1215672796b5d15d4480d4c62997f2
+/var/www/html/programaciondam2526/.git/objects/ff/c0b1ff8dd1931f841e231fab1442f3e2257a81
+/var/www/html/programaciondam2526/.git/objects/ff/4803bc071937e5e3d5217ca976d697dfc046b1
+/var/www/html/programaciondam2526/.git/objects/ff/72907a8b1ac4d2fd537fc01ddad70af28b1990
+/var/www/html/programaciondam2526/.git/objects/46/252db27ed7930199159a6548d72b127380db15
+/var/www/html/programaciondam2526/.git/objects/37/bed996f76d60c3cb8ca593e901eb84baabcf82
+/var/www/html/programaciondam2526/.git/objects/37/7c1aa390898102acfb1496202c1525105cd551
+/var/www/html/programaciondam2526/.git/objects/52/0967073acc2dff82f3a22b92f751377a2c228a
+/var/www/html/programaciondam2526/.git/objects/52/c165ab90f3ee9b2bde62d023952117e114f3d2
+/var/www/html/programaciondam2526/.git/objects/52/223b0aa2a1ae702b5cdb432cf3cec6aa7a0692
+/var/www/html/programaciondam2526/.git/objects/52/0583ba4dea480e8a361321a6acee35c6869f7a
+/var/www/html/programaciondam2526/.git/objects/52/891b4caec2346a0439d6384eff5c58ee3e4ace
+/var/www/html/programaciondam2526/.git/objects/52/e7f90036998ec15bc529fe5ea5a4b09cc0e415
+/var/www/html/programaciondam2526/.git/objects/a6/4e00e82920414fe955f186e49ca3d939773a54
+/var/www/html/programaciondam2526/.git/objects/a6/ba63e47bd069661a8e7d0c56a6fbd27228c78a
+/var/www/html/programaciondam2526/.git/objects/70/069d71010d60916be60a51995a3fca04cc4776
+/var/www/html/programaciondam2526/.git/objects/70/b47da25c70e85f9f4ec6226747706a057c3d43
+/var/www/html/programaciondam2526/.git/objects/70/b60c9be33184c59742ebde759d916c308c7b96
+/var/www/html/programaciondam2526/.git/objects/10/2f526da2f3ed423efe29d01e98bb330507d9ee
+/var/www/html/programaciondam2526/.git/objects/63/991ba4c0b5de03d04edd5d8cb77608624c763f
+/var/www/html/programaciondam2526/.git/objects/63/67129a1591fedf3ed27e4191e356d6cedf54d4
+/var/www/html/programaciondam2526/.git/objects/2d/4e2c38b2a766a008eac3cb6580f5ef93f10ed2
+/var/www/html/programaciondam2526/.git/objects/2d/1daa01f1c49d9b1f4083919aa8a6ab8f2d622a
+/var/www/html/programaciondam2526/.git/objects/d2/93fc8960a2996eca2e8ffd6af58677d4c18681
+/var/www/html/programaciondam2526/.git/objects/d2/fbc53d6da413345624ed1ab6cd34dc108b2e69
+/var/www/html/programaciondam2526/.git/objects/d2/0742a97ba026afe6b49a8b5bafb14b038e7d7d
+/var/www/html/programaciondam2526/.git/objects/c8/31721b5664539fc8f1eea91002defab4a854b3
+/var/www/html/programaciondam2526/.git/objects/c8/a647434c3d156ac49f4d785f526ed41af88d76
+/var/www/html/programaciondam2526/.git/objects/c8/300b84d709e9462874bb924b44fc3e36442174
+/var/www/html/programaciondam2526/.git/objects/c8/31ea66527f6399342f70b9ed91d1592ba02f6e
+/var/www/html/programaciondam2526/.git/objects/af/f248886548afda5ea34d4abf95771913b35710
+/var/www/html/programaciondam2526/.git/objects/af/6353671fdd6c538df68bc9cdef98e7fd8ddb38
+/var/www/html/programaciondam2526/.git/objects/f1/a40b1dd7a010554f43c208af4f53edadbac64a
+/var/www/html/programaciondam2526/.git/objects/8b/0828e0c18a8cd1bfc0a4e98c6c75ae8154e4d2
+/var/www/html/programaciondam2526/.git/objects/8b/137891791fe96927ad78e64b0aad7bded08bdc
+/var/www/html/programaciondam2526/.git/objects/13/27e66641678d49f91e9150ca745610b87dd3a7
+/var/www/html/programaciondam2526/.git/objects/13/a30f50d5938c9903c6f6de6c80b495aa3b1604
+/var/www/html/programaciondam2526/.git/objects/2f/a6511f4ee6520f1a9a329a436532dd64dd81a2
+/var/www/html/programaciondam2526/.git/objects/2f/dfb97eea4cd79c468a464b5d06675202790c71
+/var/www/html/programaciondam2526/.git/objects/97/a5640f59796fafa4a346745a176b171581ff0f
+/var/www/html/programaciondam2526/.git/objects/97/2eac3233bcbe983dcc0e03089f7eb7d0ee7614
+/var/www/html/programaciondam2526/.git/objects/3f/06047a35ca80ed4ebca72c78687ea4e66c7c17
+/var/www/html/programaciondam2526/.git/objects/3f/d279c859e98a94d02e990756c28acd8d0f0161
+/var/www/html/programaciondam2526/.git/objects/3f/48de1308cfdee7032ebd2ad62dd8b758d43140
+/var/www/html/programaciondam2526/.git/objects/3f/eccc336453782979f2c3a078ebd78054737c9a
+/var/www/html/programaciondam2526/.git/objects/82/cdd216ae199a67246c6d6863e81a8983ac3aff
+/var/www/html/programaciondam2526/.git/objects/82/7a5563d7cdb9447e8a36cacc6516abb1eb51b2
+/var/www/html/programaciondam2526/.git/objects/82/1bc66e0704feff1fe0b552361d268faace9c67
+/var/www/html/programaciondam2526/.git/objects/55/0376c979fdf75c228b9a8a160ff1d8b7beafd4
+/var/www/html/programaciondam2526/.git/objects/55/24797cb6603ef3d2134248ae71c4555402c157
+/var/www/html/programaciondam2526/.git/objects/55/d760010c5249850011e22e979b485f9bd69150
+/var/www/html/programaciondam2526/.git/objects/ad/f39835bd4d2a4c647bdc0fe6063652233d51af
+/var/www/html/programaciondam2526/.git/objects/ad/eb7de7f144aa128ea8713019fa83c6ba3ec087
+/var/www/html/programaciondam2526/.git/objects/0e/4c54bc6ae99b69ba5605c980c5e55480950f12
+/var/www/html/programaciondam2526/.git/objects/0e/072209bc55116c28faa1b0aa24413dbb500f02
+/var/www/html/programaciondam2526/.git/objects/26/1d107cc316f90cc0f700964e235f21b3a6e04f
+/var/www/html/programaciondam2526/.git/objects/26/10e939551aef74d9b0768fac402a2e0209107b
+/var/www/html/programaciondam2526/.git/objects/26/f07baad39e14b757269aa71f9523022b35532f
+/var/www/html/programaciondam2526/.git/objects/7a/35f8d326923e8012cd6f289a6a21e205826184
+/var/www/html/programaciondam2526/.git/objects/c0/8b5e48c85f0d20fa91a4dfe181b2eae1501144
+/var/www/html/programaciondam2526/.git/objects/ec/c4a33ce949c150c2cb227feed70199b746b3ac
+/var/www/html/programaciondam2526/.git/objects/ec/11c56d5863cff7f1deeac283257b05a2370d08
+/var/www/html/programaciondam2526/.git/objects/62/390b8577ee22284b1ed1d0b4431e7524d3d9ef
+/var/www/html/programaciondam2526/.git/objects/62/cf1f2111cf03d9b7f52a4572c8e2383d63b460
+/var/www/html/programaciondam2526/.git/objects/62/7f35de26524a979168415ff7b562cea2389fcb
+/var/www/html/programaciondam2526/.git/objects/62/e321012dc2186b31b4f6e15d5106499abf8cf9
+/var/www/html/programaciondam2526/.git/objects/62/023618b51fc484143ecce141d705b1a8b77e23
+/var/www/html/programaciondam2526/.git/objects/62/3cc6b5cfd4d510c4f1e0e987fb498c8215fe9d
+/var/www/html/programaciondam2526/.git/objects/e2/038bf8c8b27a3c7f47c622902f32e40af8d27d
+/var/www/html/programaciondam2526/.git/objects/e2/94a060e8f7a21d851d13a3d93f5b2b8bcbd2fa
+/var/www/html/programaciondam2526/.git/objects/e2/82a33bb19148a016dcef43e5ef88b708ad0c3f
+/var/www/html/programaciondam2526/.git/objects/9d/4b0f8c07d989c62504c9f7b83a9e04bc6a024e
+/var/www/html/programaciondam2526/.git/objects/9d/01c25023360f559fe9550cb8b54cf0e999f6bf
+/var/www/html/programaciondam2526/.git/objects/9d/d95d74273ce86895c0c4dc0dfef1be4aa3832f
+/var/www/html/programaciondam2526/.git/objects/9d/ada280de6bef83d7a41f8af45dd2ee8a029ad1
+/var/www/html/programaciondam2526/.git/objects/9d/1e2569a9b800ad1b9dab0ad5226b90761c750f
+/var/www/html/programaciondam2526/.git/objects/9d/c6ba7de0377317e3a314b5d48417ac59f3faba
+/var/www/html/programaciondam2526/.git/objects/9d/d9146fd9e87acc1b0a8f85ce0e97c1943591b0
+/var/www/html/programaciondam2526/.git/objects/9d/46f7146a8481a54df904ef3cb8ec9c68dd4e0e
+/var/www/html/programaciondam2526/.git/objects/27/16d902b81913b69c846643a4ff62e30f7473e7
+/var/www/html/programaciondam2526/.git/objects/ba/89f99b969304ad2fe0bbab17b4edc1872b2429
+/var/www/html/programaciondam2526/.git/objects/ba/7332583e65c6f44fb37517d6295f2e919c8799
+/var/www/html/programaciondam2526/.git/objects/5b/135bb7d9d54f1621226ae92116eb4160fad130
+/var/www/html/programaciondam2526/.git/objects/5b/f9907bbed3cc24d211005c71d3e2e42a10bc41
+/var/www/html/programaciondam2526/.git/objects/5b/0c13a6998891c1ac473e6761c6b87db79c4ce8
+/var/www/html/programaciondam2526/.git/objects/5b/c794d697b7d3bdc7ef8dab61cd765ee9e8ac4f
+/var/www/html/programaciondam2526/.git/objects/5b/9a7de1e2988381635adde952e5c18afca91353
+/var/www/html/programaciondam2526/.git/objects/5b/c2701980f74a501de06b17fcc2cdcfad3e5610
+/var/www/html/programaciondam2526/.git/objects/7f/2be6d6704bed987241d72255cfa23cb9ddfa98
+/var/www/html/programaciondam2526/.git/objects/7f/14cc16bb6cd93d691d60dc797cde876e58023f
+/var/www/html/programaciondam2526/.git/objects/7f/a4af2f7e396661d5102ef43b2373226f150644
+/var/www/html/programaciondam2526/.git/objects/7f/742d809cc157bf10a75096e394af3ac9776522
+/var/www/html/programaciondam2526/.git/objects/9e/59a6ffd7273a2391bd421bfb1cefe981635637
+/var/www/html/programaciondam2526/.git/objects/9e/2555bca40caa8f42c7baf7f64a8233d2eca276
+/var/www/html/programaciondam2526/.git/objects/ce/e00be67c99b555806a1ca49f6eb94fbd419922
+/var/www/html/programaciondam2526/.git/objects/ce/281723546f15914ce27ae745628428f0f1c559
+/var/www/html/programaciondam2526/.git/objects/ce/0e710b9cc4152b39f5f4efcffc91696c5d3b87
+/var/www/html/programaciondam2526/.git/objects/ce/a63e860adefac9c3d7c977c0b889e3a85c53f9
+/var/www/html/programaciondam2526/.git/objects/db/3c69565595e7b6e5fccc459079732cdf191ffa
+/var/www/html/programaciondam2526/.git/objects/db/0fd3ead4d9935483cc7aed3a74ef10680875cb
+/var/www/html/programaciondam2526/.git/objects/db/f5427a54dd0836248f738720ca1def0392d637
+/var/www/html/programaciondam2526/.git/objects/bf/74192b4f0efbd2aed3fe23a67be325319bff2d
+/var/www/html/programaciondam2526/.git/objects/50/2db0e9dd438bc2b93b52e0a3ed656f741e4d22
+/var/www/html/programaciondam2526/.git/objects/50/0ab02fe4a8aebd7206fbcbe2959772dffd7bad
+/var/www/html/programaciondam2526/.git/objects/9b/69d6d24be3f33834a2e9a4b9784d0d16e0e738
+/var/www/html/programaciondam2526/.git/objects/9b/0d0b33f5f9f002630187e3fd4bd06e9ea5b4b3
+/var/www/html/programaciondam2526/.git/objects/9b/d91eecc9413deb229c1b228d184de08a030513
+/var/www/html/programaciondam2526/.git/objects/b1/1c0b4b6f66d8c84b269d5842a86131ff810f0f
+/var/www/html/programaciondam2526/.git/objects/b1/72ea56a82614bf155fc0ea8c125d5e2e232c3e
+/var/www/html/programaciondam2526/.git/objects/b1/235e16f45b4201456951b5ff6e1cec4d715ee9
+/var/www/html/programaciondam2526/.git/objects/b1/9729dbe01f2be9069e4af26b65a1757707582f
+/var/www/html/programaciondam2526/.git/objects/f9/405c7565a83cd8730bf5ed414b6b203e1ef822
+/var/www/html/programaciondam2526/.git/objects/f9/1d64b849d68b7f5b0a5a922dbf1028605f33eb
+/var/www/html/programaciondam2526/.git/objects/f9/b29a377da0adf4ad9f44ecd65427117bb6669e
+/var/www/html/programaciondam2526/.git/objects/86/3196b96c0f735dc7ffd164259b6be3667c6749
+/var/www/html/programaciondam2526/.git/objects/86/680d5ad56a82372a5585ea6d51cdf856b0f9cb
+/var/www/html/programaciondam2526/.git/objects/cc/7401584a1266d2cd4f0e98c217b398281cf81a
+/var/www/html/programaciondam2526/.git/objects/44/e1e488ca1f73add95c437ff1dcd5ccf88e9451
+/var/www/html/programaciondam2526/.git/objects/73/974291e016b119b99abfe40930fc34ddb34945
+/var/www/html/programaciondam2526/.git/objects/73/0db11edac01b886205c801530fff72deb5f013
+/var/www/html/programaciondam2526/.git/objects/73/6b8f20af2132af8d437ddc9774d56b0aab2bcb
+/var/www/html/programaciondam2526/.git/objects/96/d3ebc0d18da7f2474fba880a8914e45fe54a85
+/var/www/html/programaciondam2526/.git/objects/77/8d67993d3bb8c5a847e13ac749f71e98d26cd0
+/var/www/html/programaciondam2526/.git/objects/77/498ebae145774c2391468344fd774e1c6c8463
+/var/www/html/programaciondam2526/.git/objects/77/5c96611985a297a7cf7c41f5f5a92c0ce6d257
+/var/www/html/programaciondam2526/.git/objects/77/7f8b58aed584f2437279e9626f99ae9420bdf1
+/var/www/html/programaciondam2526/.git/objects/77/4cd922f1c49ac67a4bef2faf21261ead834c5d
+/var/www/html/programaciondam2526/.git/objects/92/a664c8cf7b94f19248ff11158fe2c72a6145bd
+/var/www/html/programaciondam2526/.git/objects/92/30f125f66f964100de65fc465f7b136c5713b1
+/var/www/html/programaciondam2526/.git/objects/92/397fecf8398b1272a14318f5f386ccd776fe8c
+/var/www/html/programaciondam2526/.git/objects/92/fcbffd6b3ee8e730d56b0f3e43dfc2fb469db3
+/var/www/html/programaciondam2526/.git/objects/5e/3a1a601fe402f03d226287ff3317dc2a28f0d6
+/var/www/html/programaciondam2526/.git/objects/5e/4b38156d1eaa3b3c34c9ad87c480162277ccd4
+/var/www/html/programaciondam2526/.git/objects/5e/2e37977051e7e4a87f2c23917b3c79bc93e7d6
+/var/www/html/programaciondam2526/.git/objects/b9/98954ad5eb42d8d3150cbc3e645f5c4d027cc4
+/var/www/html/programaciondam2526/.git/objects/b9/3e998dc5a636207a1f5f9d8e081606b2d95177
+/var/www/html/programaciondam2526/.git/objects/b9/8def76a80ab4511483c74be9ca0fe6a8acc1ab
+/var/www/html/programaciondam2526/.git/objects/79/7ab8a457485348f1120abdcdd7bfa1dbc1adac
+/var/www/html/programaciondam2526/.git/objects/79/f020098a8d2e83d2c703a583a25a8c64ca8a92
+/var/www/html/programaciondam2526/.git/objects/79/e565f0633a497b885627c8423c89635407daad
+/var/www/html/programaciondam2526/.git/objects/79/ae4940ab0b6ba539da0902706ae4a9b3b3af3f
+/var/www/html/programaciondam2526/.git/objects/08/ed63d62e778cd7d89c4599572a83aef151fe14
+/var/www/html/programaciondam2526/.git/objects/08/ede852c1b9d4f2a81cbf9a7dd468f12041635b
+/var/www/html/programaciondam2526/.git/objects/31/47ce5cf2b32cf1066890c9347a496008f65961
+/var/www/html/programaciondam2526/.git/objects/43/6cfa85b55cbcbfaa9a21bdf428ab54f881cc6c
+/var/www/html/programaciondam2526/.git/objects/43/96b8aae598f50bd32c8965cff3ed08791b1b2b
+/var/www/html/programaciondam2526/.git/objects/43/71fce4835eea777353a9e6e4c1f39f3d8b86bd
+/var/www/html/programaciondam2526/.git/objects/bc/eba012c0fcbdfb16f636ef7f9b334a56fba468
+/var/www/html/programaciondam2526/.git/objects/88/edea8228181a3b0410c88ce8141945a5e7734e
+/var/www/html/programaciondam2526/.git/objects/88/71b65e63fe4be89ce8015614b45cded54178d3
+/var/www/html/programaciondam2526/.git/objects/88/a1411c6141c445193c5ef5c7ccc2e035d7630a
+/var/www/html/programaciondam2526/.git/objects/0a/ffbaa002e6b411f1cf13c7c7d3a100331dee29
+/var/www/html/programaciondam2526/.git/objects/61/d2a4a6bb107f2c0b07ebfcb6002584385ccbee
+/var/www/html/programaciondam2526/.git/objects/61/87e97e609415bd8780493befdaf4801adc293f
+/var/www/html/programaciondam2526/.git/objects/d6/01a1f1b9a145311639d44fb006a8b5f2e904cd
+/var/www/html/programaciondam2526/.git/objects/d6/43a463687b37f45ec01bdbdef7be87c2200ecd
+/var/www/html/programaciondam2526/.git/objects/d6/0bd7855aaae5d240010156d868479a62a0f85b
+/var/www/html/programaciondam2526/.git/objects/9a/b703bda9940db8a19c7e95423ea31541e10fea
+/var/www/html/programaciondam2526/.git/objects/30/0439b9cb70bbeb13a01ca5dd608ff9165bc135
+/var/www/html/programaciondam2526/.git/objects/30/25e30dea9fe5aea6ebf65ec384fa53a2a8d32d
+/var/www/html/programaciondam2526/.git/objects/30/c426c9df54def4319b0f87bd13f76eb0972963
+/var/www/html/programaciondam2526/.git/objects/30/a44bda449dbc9cf593ebf993f69c089553b0f4
+/var/www/html/programaciondam2526/.git/objects/30/b93340deaf90970aa3799431160b7e18fb0459
+/var/www/html/programaciondam2526/.git/objects/30/3bfe4e948e17e15cf28f458d821b0cf6548e72
+/var/www/html/programaciondam2526/.git/objects/d5/e1bf0f3f4bf7bbba3874a3cb4cd18d4a7bcbdb
+/var/www/html/programaciondam2526/.git/objects/d5/ad494001b8acc5d9c1561d24a092818355fc96
+/var/www/html/programaciondam2526/.git/objects/d5/0880bba8203a309929fb2dc27991ab04be2d04
+/var/www/html/programaciondam2526/.git/objects/d5/ed7bc232a31fa8dde8f8ce60bf00f864e43980
+/var/www/html/programaciondam2526/.git/objects/b8/9bfbd239c90e59459d40f1881302d68cc2d496
+/var/www/html/programaciondam2526/.git/objects/b8/11abc46553871553d1c308c4ab14910e1cc21d
+/var/www/html/programaciondam2526/.git/objects/8d/19f776796d2fea36a3067f3c3cbd8980063cdb
+/var/www/html/programaciondam2526/.git/objects/b7/0883045a00a6036c29a0562b93444df76806b4
+/var/www/html/programaciondam2526/.git/objects/b7/ebd856517564baa47608a1c9b575fdfd155ae3
+/var/www/html/programaciondam2526/.git/objects/b7/f11f34597aa0b0b13e97215d640449191cbc37
+/var/www/html/programaciondam2526/.git/objects/b7/80a4df6297c90af5a1bf2614356dc4ca65e302
+/var/www/html/programaciondam2526/.git/objects/83/d63bf32663fb7de6e014ae8de04cfd01cd4ee8
+/var/www/html/programaciondam2526/.git/objects/bd/5d82786104fee2a3c4a488b57e8173eeddc3b5
+/var/www/html/programaciondam2526/.git/objects/bd/15753a6d2e973c2c015c2556031ee8e746647e
+/var/www/html/programaciondam2526/.git/objects/65/f9bf06eff504317a9c0ba578221d4b148024aa
+/var/www/html/programaciondam2526/.git/objects/65/ae2c00fe81d673b8eac8f9fbee28a234bd7fd7
+/var/www/html/programaciondam2526/.git/objects/65/34db183be09a6dbcd950358f6360da1098a38b
+/var/www/html/programaciondam2526/.git/objects/65/c14fa15a377473e442d12eb3aabbb77bd06c82
+/var/www/html/programaciondam2526/.git/objects/17/d101bfb07d0ef06e1d0f1d9cc1be0da02e59de
+/var/www/html/programaciondam2526/.git/objects/17/c719591f89af9b903c4f11588efe015e5ae5fc
+/var/www/html/programaciondam2526/.git/objects/17/66fe8ec6206b2928f26557eabaa6eac867aa90
+/var/www/html/programaciondam2526/.git/objects/17/85496a3eb6e0e7ec8838886933edea83fed641
+/var/www/html/programaciondam2526/.git/objects/29/a1578b6278d3678e7182eaad9332208fefd74d
+/var/www/html/programaciondam2526/.git/objects/29/685712da8b4225a414a61145c4386a242a6dc8
+/var/www/html/programaciondam2526/.git/objects/29/9c7cb53f89ecc4c97db6add5ab5aa99a44ab7c
+/var/www/html/programaciondam2526/.git/objects/b3/c8abf391ae2d257e04b472189c1ecc03b10c1a
+/var/www/html/programaciondam2526/.git/objects/e4/1e3f248d5cb7eebf1cb2e66dd6826350472b1f
+/var/www/html/programaciondam2526/.git/objects/f3/b27c2e2768ee3d32863358f1a9afe143315645
+/var/www/html/programaciondam2526/.git/objects/f3/4c46f042e834ec7c4cfdf70befbdb5711ec077
+/var/www/html/programaciondam2526/.git/objects/8a/b6924f1f128b424f067f66539c3ca59780291e
+/var/www/html/programaciondam2526/.git/objects/e3/0d8e21e41040a0b7209ee9c2bd18f39623e04f
+/var/www/html/programaciondam2526/.git/objects/e3/a51edf5d66b5273d06dd21686610feafd0dc34
+/var/www/html/programaciondam2526/.git/objects/e3/2e947037d6ba0fef39b54735a1e991ca8e76cd
+/var/www/html/programaciondam2526/.git/objects/75/ab4babb0554d12361e5c89935ad21d91c63e35
+/var/www/html/programaciondam2526/.git/objects/75/7f58361f110d526754fdc50ee81d1abfb06233
+/var/www/html/programaciondam2526/.git/objects/75/8c358c9ab2fe036d16cc0126a016625e45ed50
+/var/www/html/programaciondam2526/.git/objects/0d/95ebcef09b03a164adb0a5fe0dcbdc943c4249
+/var/www/html/programaciondam2526/.git/objects/0d/3a61c1580e8b3b72d4f9c8677932fb8ced50f4
+/var/www/html/programaciondam2526/.git/objects/f2/05eb323014470b8fd10179d816020f549c8d0c
+/var/www/html/programaciondam2526/.git/objects/f2/b95612f43c365d03e3a3f7e10d27c08fad0814
+/var/www/html/programaciondam2526/.git/objects/f2/4f78b1eeea7c0e7128effaea62b439292fe5e5
+/var/www/html/programaciondam2526/.git/objects/f2/d44c4b75b45749ff626e07f52897504454e6c3
+/var/www/html/programaciondam2526/.git/objects/f2/43c302d0d8cb3a930a77ae3a242062680fc097
+/var/www/html/programaciondam2526/.git/objects/54/121e9f00c1baaa86cf982a7c0709669bc4a28f
+/var/www/html/programaciondam2526/.git/objects/54/a4d05d0e13a1f68ed4cae7ebb6567ebe73eead
+/var/www/html/programaciondam2526/.git/objects/54/210adb9999a3cd93adfb7d2b72381eb9acbb76
+/var/www/html/programaciondam2526/.git/objects/48/61bc9e5d8114ee073487d9998e41f215ef64a0
+/var/www/html/programaciondam2526/.git/objects/48/7dc094fa20193f5855d116c2f92b0ef4939a24
+/var/www/html/programaciondam2526/.git/objects/48/e4f3c778ed93728a4fc9511f101f1452c99370
+/var/www/html/programaciondam2526/.git/objects/48/757cdd567076e63fefe953f22aaefbb95f87b7
+/var/www/html/programaciondam2526/.git/objects/48/a8ac132397574df217ac9a53d4f822543fc4fb
+/var/www/html/programaciondam2526/.git/objects/48/4e6dae47121b946079644264fe6b06f2c29470
+/var/www/html/programaciondam2526/.git/objects/d7/18f1f14426c720fce206b20343f1fd579289fb
+/var/www/html/programaciondam2526/.git/objects/b2/c438705de0ec23072d79cddf64c154a7ca35c6
+/var/www/html/programaciondam2526/.git/objects/b2/aa0aa7ff77c8cbd7107b01513bc57639b0c213
+/var/www/html/programaciondam2526/.git/objects/ee/586e1c8a606cb746ac2c97023bdc4ab1ebdf90
+/var/www/html/programaciondam2526/.git/objects/ee/b3d009efa72e7095f8e43012531010026a88e1
+/var/www/html/programaciondam2526/.git/objects/ee/f19b14282f82323ab8f2f448e9e1ce85058703
+/var/www/html/programaciondam2526/.git/objects/ee/dbf1122a917d00c765e47705b3a0da336adf38
+/var/www/html/programaciondam2526/.git/objects/ee/b74d4fb999d934778b3442decd52f3f64db027
+/var/www/html/programaciondam2526/.git/objects/38/3c40e6d68922508e3f1fa32bca6dbd1823c878
+/var/www/html/programaciondam2526/.git/objects/38/b1f0a80f2f26c148b24fd0814cbae387a657c1
+/var/www/html/programaciondam2526/.git/objects/38/476315d589175a8edcf80c1d9dc1068e461c3b
+/var/www/html/programaciondam2526/.git/objects/38/c9f3b0b23a9d0f0be234a030efdd5941e3e50b
+/var/www/html/programaciondam2526/.git/objects/38/66f3c163ad0dcf5bda280cd19b9372969267f7
+/var/www/html/programaciondam2526/.git/objects/64/25868eef55de20bf6a70ca4e3b66fb7783a376
+/var/www/html/programaciondam2526/.git/objects/64/c7ffe75cd4f5b772ef5d59362088792bb5e8c6
+/var/www/html/programaciondam2526/.git/objects/64/a7e13ccada46e6e393a93c5c744e918110e6f2
+/var/www/html/programaciondam2526/.git/objects/de/d4a26d20a4ec6b0faa541d0fcfd61326da552a
+/var/www/html/programaciondam2526/.git/objects/0f/bfedfa8089a68f108dc244becff82c396dfa10
+/var/www/html/programaciondam2526/.git/objects/0f/ef011b8ad3e482acb2223497191f40a15a5834
+/var/www/html/programaciondam2526/.git/objects/0f/37587171eb870c1c570c61b79eeafa942900a8
+/var/www/html/programaciondam2526/.git/objects/fd/5b47aa9eec6405cc7250f190012d161abb8c09
+/var/www/html/programaciondam2526/.git/objects/fd/b31d1cf66bef7bb9f64ad5586f28e09ca53b2b
+/var/www/html/programaciondam2526/.git/objects/09/dd7a1f6bb9a6c7c1455fc497014d6e3de10c66
+/var/www/html/programaciondam2526/.git/objects/09/dc3405d4683b2f25a6ef5b9d9f1080d11ee046
+/var/www/html/programaciondam2526/.git/objects/09/23169f80c4030115c1a66134148d919753f8e8
+/var/www/html/programaciondam2526/.git/objects/dd/db6533d48388ee00649120900fea43abfab62a
+/var/www/html/programaciondam2526/.git/objects/dd/a603b80bcc780cc251958afa54a8110ad33ba2
+/var/www/html/programaciondam2526/.git/objects/dd/c45bc8b211fc933ab0202e7b9bc746d0eabfd8
+/var/www/html/programaciondam2526/.git/objects/5a/dd0d1bb570dd98a714af4353225d33028a311b
+/var/www/html/programaciondam2526/.git/objects/5a/8c31b35e88d0c21c3213cc12700e633acf537c
+/var/www/html/programaciondam2526/.git/objects/03/45a2434702378e4c3d86fd48d8644cf884e450
+/var/www/html/programaciondam2526/.git/objects/53/90895e7735c5e91b710d4cb80d7eeb970c10f4
+/var/www/html/programaciondam2526/.git/objects/53/9e3dbf84340be05687442ce51b8fdc155f43ca
+/var/www/html/programaciondam2526/.git/objects/02/3b5d66b0162d8b2947989553ee4a21f5b80013
+/var/www/html/programaciondam2526/.git/objects/45/1cf007d89a562d828de1ab71c8b03e0c813d60
+/var/www/html/programaciondam2526/.git/objects/45/64842856c63058029a4dcf99a465bc1acb83f3
+/var/www/html/programaciondam2526/.git/objects/45/5c25527acb9a9129d8e0dc84e0d6e2ac54cdcf
+/var/www/html/programaciondam2526/.git/objects/45/42ccba22ab6a6d73f51f2604e8c8aafbaccb62
+/var/www/html/programaciondam2526/.git/objects/45/811145b200ab08508922335578e1664c850c61
+/var/www/html/programaciondam2526/.git/objects/91/1433b44037404be4e3918fca0163a41070a4fe
+/var/www/html/programaciondam2526/.git/objects/91/d209c7da06ab25f11320b800adb3b45cd0beb1
+/var/www/html/programaciondam2526/.git/objects/87/0a6da161e2d598ac653ea20b8578f2f8597bc9
+/var/www/html/programaciondam2526/.git/objects/fa/1f0f15658310877063d67c51bf4df6a22cbb57
+/var/www/html/programaciondam2526/.git/objects/3c/1c39e49de27b86736f405c6957ee3dd9cfdd5e
+/var/www/html/programaciondam2526/.git/objects/3c/28b8e295e08924aef8cbfd2b2b403a127991b8
+/var/www/html/programaciondam2526/.git/objects/3c/ea5b84a2adeb13b77600766e763007e626a41b
+/var/www/html/programaciondam2526/.git/objects/a2/c0faf57f1a8881a085aeabfc72c4f0047abc5b
+/var/www/html/programaciondam2526/.git/objects/a2/e8365ce5788e3be23bf2164a7134721acc21e7
+/var/www/html/programaciondam2526/.git/objects/a2/fe959017436ff0bc880f2c2706b626a5369b96
+/var/www/html/programaciondam2526/.git/objects/a2/d9a3814c6c1b753047e4e68e341a31bcdcc069
+/var/www/html/programaciondam2526/.git/objects/19/649f3d813c90c24986378e9fa9a9dad70190aa
+/var/www/html/programaciondam2526/.git/objects/19/f647e31651e7848782356d76d21dc50713f952
+/var/www/html/programaciondam2526/.git/objects/19/6dd1121301c24cbb4ed1484c3a276822f4d6d7
+/var/www/html/programaciondam2526/.git/objects/19/b34366a32f3a69029e29af706748985e66a841
+/var/www/html/programaciondam2526/.git/objects/19/d2d80b89ff5bbd35a8ea9a26f64d4da38ec9a2
+/var/www/html/programaciondam2526/.git/objects/19/f4895aba14ca2c85ce7f1fcf7d3c1c60ba2659
+/var/www/html/programaciondam2526/.git/objects/4a/e5181893d095ddf054be12e3f4311e9eb1f750
+/var/www/html/programaciondam2526/.git/objects/4a/a2ea3d9cae831fb0084996cd8d8ebfb4803515
+/var/www/html/programaciondam2526/.git/objects/4a/e2249b69cca655a575f79c7c1a3a458861d845
+/var/www/html/programaciondam2526/.git/objects/41/addfa843c81549fd9ba6f04a0a2eaed3d8aa0e
+/var/www/html/programaciondam2526/.git/objects/41/fa6282db7eebc94bfc9c5ecb72b2a3cd7a0c4e
+/var/www/html/programaciondam2526/.git/objects/42/67b6071a276ca3cbf1c486bc20f0cae54445c5
+/var/www/html/programaciondam2526/.git/objects/42/d0b0450e6a2406433751a72e1a9399464a36c0
+/var/www/html/programaciondam2526/.git/objects/42/912ccde4361c76cead9a503e30bb9636a18a3e
+/var/www/html/programaciondam2526/.git/objects/f8/ca83f62e7b5815ed67258cdced033c03a5fd76
+/var/www/html/programaciondam2526/.git/objects/f8/2c5158df0aff9e5f200ddda23723e3ce9d59ec
+/var/www/html/programaciondam2526/.git/objects/f8/ac85c9b203696e14cf7fa8044f0049e2f33b48
+/var/www/html/programaciondam2526/.git/objects/8f/eaee63b3e7d712f3da62814f8702eb607fc83f
+/var/www/html/programaciondam2526/.git/objects/8f/25fef1913937ec663903aa17334c2ece6eb74b
+/var/www/html/programaciondam2526/.git/objects/04/2adb8e49490d2ee0ed622a92a469833804d9d0
+/var/www/html/programaciondam2526/.git/objects/04/d87877b5a369c14bab8750b9a71e1658d01466
+/var/www/html/programaciondam2526/.git/objects/da/d0077e9a4c18c78c03bde2ab8526a0b01f1d18
+/var/www/html/programaciondam2526/.git/objects/da/9119fe169eefa2c1ec378b2e77a5854ec5464e
+/var/www/html/programaciondam2526/.git/objects/95/8f2dcda50443fd718894b6bc7a0c650a2c8fcf
+/var/www/html/programaciondam2526/.git/objects/95/661de9345c7b2e23f804f84ef86b4254abe69b
+/var/www/html/programaciondam2526/.git/objects/95/8f25d38ebb09de20a632b257288d2c6092e46f
+/var/www/html/programaciondam2526/.git/objects/7d/2339cc0f5c9cb7e1fa191b1b8d46a2915d03e3
+/var/www/html/programaciondam2526/.git/objects/ca/41ad75a41a47bae52e702e14d8aaec2b41c264
+/var/www/html/programaciondam2526/.git/objects/ca/e622c8ecd7f3787744bf6685897516001cb416
+/var/www/html/programaciondam2526/.git/objects/ca/00f0137c95a4a857885b8a7644fa8264f45291
+/var/www/html/programaciondam2526/.git/objects/ca/bf950be28f889d53b0d1d450c7228210cc8089
+/var/www/html/programaciondam2526/.git/objects/pack/pack-274984f77d51a2155b5a472cdf2f0a7d4f2672d1.pack
+/var/www/html/programaciondam2526/.git/objects/pack/pack-274984f77d51a2155b5a472cdf2f0a7d4f2672d1.rev
+/var/www/html/programaciondam2526/.git/objects/pack/pack-274984f77d51a2155b5a472cdf2f0a7d4f2672d1.idx
+/var/www/html/programaciondam2526/.git/objects/20/06f7f3cbdb7b2e0e66bbab41c179430b867660
+/var/www/html/programaciondam2526/.git/objects/a8/984628a1371a04f3993cc3febeab1931aa93fd
+/var/www/html/programaciondam2526/.git/objects/a8/6902b4389e367b226c7d8ccc291a9ba7ed7b7f
+/var/www/html/programaciondam2526/.git/objects/a8/5e772e9fb84795507c4e1e86fdf925541438b8
+/var/www/html/programaciondam2526/.git/objects/76/6b90626bd957ffdca005f7a4d51f3a19d17f71
+/var/www/html/programaciondam2526/.git/objects/76/c45cf132d78cb3b65457ad4d287e85effa4e6f
+/var/www/html/programaciondam2526/.git/objects/c3/278606b754157f866b523c2ffdddca73e9ff1f
+/var/www/html/programaciondam2526/.git/objects/c3/f59da46e7aa0b9531c7f7db9fe76488817cef3
+/var/www/html/programaciondam2526/.git/objects/c3/7e1b7d448aec128569d554ae62305b4129df58
+/var/www/html/programaciondam2526/.git/objects/39/a6655ecb01d5b48994504ac6d26b0f5ab0a6d1
+/var/www/html/programaciondam2526/.git/objects/11/93de59eca611f220e0ea53563e24271915f51c
+/var/www/html/programaciondam2526/.git/objects/11/c89f8b7f0448b63b52ba5caebb2ce01717cb05
+/var/www/html/programaciondam2526/.git/objects/11/865b58f8b856b89f289537a1eccbdd2e4fc2b9
+/var/www/html/programaciondam2526/.git/objects/11/e1e6d05923a91d2a2bf7d3e0f415975e2cdc05
+/var/www/html/programaciondam2526/.git/objects/ae/0f8672a305d2850d6a3d44f830495ec745c816
+/var/www/html/programaciondam2526/.git/objects/84/5ee88aab2a531159401db8f81c8b7585fae3c3
+/var/www/html/programaciondam2526/.git/objects/84/616cbe1c6e8d9d2efe5aee8ec5768fa5852cb1
+/var/www/html/programaciondam2526/.git/objects/84/f1f73330bce92ffdf11ab71c4d0ed82a0e2e67
+/var/www/html/programaciondam2526/.git/objects/a9/64cf0aec0248c781ef4509e64e685d0fb01033
+/var/www/html/programaciondam2526/.git/objects/a9/36fb391c37ea2ae7ac32ef0155e121038995a5
+/var/www/html/programaciondam2526/.git/objects/e0/11fb4b931079449782bb120dae83a577d01ddf
+/var/www/html/programaciondam2526/.git/objects/e0/8ac68bab2a2ed0b116c5f1b113aa8d5ddf96b7
+/var/www/html/programaciondam2526/.git/objects/e0/b4ebccd5984ddc56cce87aabc3db5fd2235726
+/var/www/html/programaciondam2526/.git/objects/56/57237f217586911e5639f0ff1bfc6786ae33ea
+/var/www/html/programaciondam2526/.git/objects/aa/c215911d3c157ae2cedba20c61ed9941b36f4b
+/var/www/html/programaciondam2526/.git/objects/aa/7509de6fccd30c2cb814f9d7a27b48b4e13507
+/var/www/html/programaciondam2526/.git/objects/d4/65b192c6bbe600e8ac788243e7b894f8b04965
+/var/www/html/programaciondam2526/.git/objects/1a/3f694bc563d1e222d45a4ea2f3cfb71cbe327e
+/var/www/html/programaciondam2526/.git/objects/1a/7b6fadb7293ce7043f007520448c9fa692a4d2
+/var/www/html/programaciondam2526/.git/objects/b0/bdfe1951c22a441321fad68a2a0dc24a35afc6
+/var/www/html/programaciondam2526/.git/objects/cf/a5a1790cefd824950d63229ac74b397fa6f0bf
+/var/www/html/programaciondam2526/.git/objects/cf/da7b9f6f2a5d4ee6cd45ed6b03af77ea28881b
+/var/www/html/programaciondam2526/.git/objects/cf/b36bc0c61ecf8b6415468e98780d5719656618
+/var/www/html/programaciondam2526/.git/objects/8e/b40ccb87b839428f51e3de693b37dca7568b3e
+/var/www/html/programaciondam2526/.git/objects/8e/ae24056c73515701dcdbb50bf85b3777e5df80
+/var/www/html/programaciondam2526/.git/objects/e9/34027d11a4a5cab7b3863a269b12771fbc29bf
+/var/www/html/programaciondam2526/.git/objects/e9/4aba73b09129093091a3f839569e47fe9eaeed
+/var/www/html/programaciondam2526/.git/objects/e9/54a9453b1d6b24a681230202bdaa31e876082c
+/var/www/html/programaciondam2526/.git/objects/18/ed742e6850c9434e9232f7f22844ecf4e91041
+/var/www/html/programaciondam2526/.git/objects/4e/f1feb08c5bdb1ff45e674ceb5e8d470fd8ac1c
+/var/www/html/programaciondam2526/.git/objects/4e/21e26411f7ef495a86d6c6de731f37bba36579
+/var/www/html/programaciondam2526/.git/objects/4e/8fad9dfe00e8a3c2bbd4b6a7b065a5ba66d5e8
+/var/www/html/programaciondam2526/.git/objects/4e/91c6ca49b51505a982a7b70d07ad1dad938e3c
+/var/www/html/programaciondam2526/.git/objects/5c/e8caf6b8aa8f2e81611e2288a15fdd8dd02116
+/var/www/html/programaciondam2526/.git/objects/5c/911630fd365075ac3d94247dc2efac66d3dc1e
+/var/www/html/programaciondam2526/.git/objects/5c/2ef8a70d1e6d6a010e84fef13eac609744194a
+/var/www/html/programaciondam2526/.git/objects/47/4347702b0844c2506efb2b0189fb92a500b04e
+/var/www/html/programaciondam2526/.git/objects/34/71f70e0ba98befe5d918d28ac0293c8328d5f6
+/var/www/html/programaciondam2526/.git/objects/34/ae0a783ab128b833d2c4749c3e3cff3eff92bb
+/var/www/html/programaciondam2526/.git/objects/34/46fbac7db381bbc8c84d942d9bcbda2d17b07e
+/var/www/html/programaciondam2526/.git/objects/3a/26c602b2cd9b1e0b7959d314f1ecb03e33b73d
+/var/www/html/programaciondam2526/.git/objects/3a/ab3f79d1854a873991ab9030de0a2756459586
+/var/www/html/programaciondam2526/.git/objects/3a/7a7218cf3046821f0ad83a427c106b600cb312
+/var/www/html/programaciondam2526/.git/objects/c7/eef26d3654cf73d4e9ffaf5501025320045403
+/var/www/html/programaciondam2526/.git/objects/c7/bd05fbb730a2eed69c2c8687f1bfb288c32057
+/var/www/html/programaciondam2526/.git/objects/93/b4ccbf25bed23eb63f7a6be144c2f6ff444f7e
+/var/www/html/programaciondam2526/.git/objects/93/2236b2eb4e2d6b725dee7a8f39e5d22854dbd0
+/var/www/html/programaciondam2526/.git/objects/93/837d67872df816883a4cd32c30fc3c8797fd41
+/var/www/html/programaciondam2526/.git/objects/93/aab3fe5b6bf41ee3711e65c3ff19a7c396ea1a
+/var/www/html/programaciondam2526/.git/objects/93/f6f1498ad5d505eb80d3be4362ed2812c44351
+/var/www/html/programaciondam2526/.git/objects/74/fa52b3974157b3870071f44e1438c823dbe744
+/var/www/html/programaciondam2526/.git/objects/74/8af43b1d31768abcccb9205696b2043e5acadb
+/var/www/html/programaciondam2526/.git/objects/66/4212ba14894242e9e9911f5f70a79a7b7033b8
+/var/www/html/programaciondam2526/.git/objects/66/664024f3686b6597d3cfc8edb015a8ca1358b9
+/var/www/html/programaciondam2526/.git/objects/5d/6c05b55824d8b6476c82d806a72d039e483fc3
+/var/www/html/programaciondam2526/.git/objects/5d/6e30c668c8065c12453a572a48b93b0bd24ff6
+/var/www/html/programaciondam2526/.git/objects/3d/f355713fce1ea9794a28ab51edefc1874f5a5d
+/var/www/html/programaciondam2526/.git/objects/3d/2df20637468c43046735cc8ac565e5a53c3e44
+/var/www/html/programaciondam2526/.git/objects/3d/8636c09d959fc4808569b03932a939b414498b
+/var/www/html/programaciondam2526/.git/objects/36/6107c19814005755ba2855e7dc017a2798d33a
+/var/www/html/programaciondam2526/.git/objects/36/4cb80082e3ef71a0ce8921f2914adb19d33258
+/var/www/html/programaciondam2526/.git/objects/a7/c97167f36129cbc929189dd3dc45ee5a5e11b9
+/var/www/html/programaciondam2526/.git/objects/2e/91f09ea85141190b201b364f755c070f00ac09
+/var/www/html/programaciondam2526/.git/objects/1c/fb926de4ae307fe44fdf9cc9d77f14d692400a
+/var/www/html/programaciondam2526/.git/objects/1c/e9f1acf5264d23b17e325f941679970289bb84
+/var/www/html/programaciondam2526/.git/objects/80/e600e42241c16f74375a01aa40870dff18b396
+/var/www/html/programaciondam2526/.git/objects/80/96e341d04b03483bc4fac02f36a75b0ec26e9d
+/var/www/html/programaciondam2526/.git/objects/80/c89d3f6b6e374765c44f88dde057062b6ffa80
+/var/www/html/programaciondam2526/.git/objects/80/ed99cc363c64540600632ce7dd8fb29c58fb44
+/var/www/html/programaciondam2526/.git/objects/80/d6d325d69cf37dc629a229f28e6b3b8845b085
+/var/www/html/programaciondam2526/.git/objects/85/e54c434ffcaee73b8659b02e52e227fd08911d
+/var/www/html/programaciondam2526/.git/objects/85/e9f58fb67c8d72ab69a8129a298be1b4ff43db
+/var/www/html/programaciondam2526/.git/objects/85/61ed7711223538dc8cc5425e9c5f4d1d875a21
+/var/www/html/programaciondam2526/.git/objects/d3/03e2a574601db9fda6d8b068878126e69fa183
+/var/www/html/programaciondam2526/.git/objects/d3/23e667070aff6f4561bf51066bf36c4c33c075
+/var/www/html/programaciondam2526/.git/objects/4d/4d7102b88d10a9d57b68e31a40c2ffd0786506
+/var/www/html/programaciondam2526/.git/objects/4d/84c60c2e1868c84288c0ae90859ea56784c346
+/var/www/html/programaciondam2526/.git/objects/4d/7f237c9f731988bfed94141b9ecd02bcb443f2
+/var/www/html/programaciondam2526/.git/objects/49/fd59645f3120ffdaf29c0f6b4a20d790281379
+/var/www/html/programaciondam2526/.git/objects/df/535878552e9ee5d311272801d4198df077d28d
+/var/www/html/programaciondam2526/.git/objects/df/8e78cd8b7bb5de55ec2f7cf27999263f7d8577
+/var/www/html/programaciondam2526/.git/objects/df/183998b16b5c1641d9c4017a9a648fdd1e3606
+/var/www/html/programaciondam2526/.git/objects/eb/4db2ba9ffefd6c0f5c124bc8e1a746357ca7ba
+/var/www/html/programaciondam2526/.git/objects/eb/ea7c97d421ef5c78115aaa800e6254cf2e2914
+/var/www/html/programaciondam2526/.git/objects/72/5d2eb6f538494e99b1f15e32bc82e908371ade
+/var/www/html/programaciondam2526/.git/objects/72/c8bc998da5f70188fb0773fb74b80f890339a6
+/var/www/html/programaciondam2526/.git/objects/72/d4d0634ccff3a9f89960940972841bf055e897
+/var/www/html/programaciondam2526/.git/objects/72/0fca0a228ae43396bc84b734e16b1346128735
+/var/www/html/programaciondam2526/.git/objects/72/c44ad8272610141e3226ce7975679e13758be6
+/var/www/html/programaciondam2526/.git/objects/40/5a8c4a9fc6c2a6d7b4d96fad38017eef392b6f
+/var/www/html/programaciondam2526/.git/objects/7e/e49fe0c83d13ff9ccc7e8900de04978e9fc3a5
+/var/www/html/programaciondam2526/.git/objects/7e/f8bd44a7295d5b7e613a0da2f3e9bedcc9805a
+/var/www/html/programaciondam2526/.git/objects/7e/b025c954bc5efd7094962912504ceb45041941
+/var/www/html/programaciondam2526/.git/objects/7e/fc1950b9fa671d7fb759f8de81051bba5b2e0a
+/var/www/html/programaciondam2526/.git/objects/f4/1e9fac32111f87f8db69b4cfcd30187d27b6fb
+/var/www/html/programaciondam2526/.git/objects/f4/32a2f3f8bb30519bb88a97e4a396e48d5a2361
+/var/www/html/programaciondam2526/.git/objects/ac/40adeb97a623de893d526c02f46633500fe7e4
+/var/www/html/programaciondam2526/.git/objects/ac/324352877661b373286b5414771ddbb72eb0cf
+/var/www/html/programaciondam2526/.git/objects/a1/0d9fd18745396681629ce671aafb9b61ff5cce
+/var/www/html/programaciondam2526/.git/objects/a1/874b78f3b8e39ed1c40fdda74cf084d3fdb282
+/var/www/html/programaciondam2526/.git/objects/a1/10729e95a38395be50e62dc5b3199c39e3b31f
+/var/www/html/programaciondam2526/.git/objects/0b/31e8e817bc876a9a5dbfe3adcbbe0d915f1429
+/var/www/html/programaciondam2526/.git/objects/0b/bf1108e40dc291f220a7dbe2d16daf4f637a34
+/var/www/html/programaciondam2526/.git/objects/0b/222552dcbfd15e3d4c14de6eca455df62d483c
+/var/www/html/programaciondam2526/.git/objects/0b/9e4be95b506747c5726d055434a016b049343a
+/var/www/html/programaciondam2526/.git/objects/0b/4d8c765b3961099c08e67274a32ef49103d65b
+/var/www/html/programaciondam2526/.git/objects/21/55b4e8139bfc9c1ca8c0d35204ffd686e3255b
+/var/www/html/programaciondam2526/.git/objects/e6/8862b85ce720c5c95acb405e545df6609faee2
+/var/www/html/programaciondam2526/.git/objects/e6/9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+/var/www/html/programaciondam2526/.git/objects/e6/cefe17783008e3f95b763075921c95f095857e
+/var/www/html/programaciondam2526/.git/objects/90/707d89828377bb44d7a72179b382239e1f4b71
+/var/www/html/programaciondam2526/.git/objects/90/016c516562f56ea0d2f3c302bc47bc629a1b98
+/var/www/html/programaciondam2526/.git/objects/90/e1925cd94673f113b823ed3581ce7def8e71c2
+/var/www/html/programaciondam2526/.git/objects/6a/35b21a26d65989430a4eb1444a058e6e45bcee
+/var/www/html/programaciondam2526/.git/objects/6a/8c0d53c9c967e1911bbed3cb4d5e8ddddd7b03
+/var/www/html/programaciondam2526/.git/objects/6a/6b379624f1e10ba1a05783a5fa1700b16c7aec
+/var/www/html/programaciondam2526/.git/objects/6a/0531878bf41b82ad3f500834edb253694eddaa
+/var/www/html/programaciondam2526/.git/objects/78/d012c400d22a060a7c543fffc0f803c6623bc7
+/var/www/html/programaciondam2526/.git/objects/78/530ccb582e365b32e0ef7356e109f4ee4a4bb7
+/var/www/html/programaciondam2526/.git/objects/78/b152192e8bd024bafe324dae387eddb12cc315
+/var/www/html/programaciondam2526/.git/objects/78/0380ee37c0651516c047425e0cecfec438a67e
+/var/www/html/programaciondam2526/.git/objects/2a/77b7a25582f51afa42e6846430d794d31be7c8
+/var/www/html/programaciondam2526/.git/objects/2a/bbf60f8cbcd1476b07768519b946a0e671cb48
+/var/www/html/programaciondam2526/.git/objects/1f/89f43ed38769305dbd469aa340df75ff036a59
+/var/www/html/programaciondam2526/.git/objects/1f/47ec295d246ce70768d40562f9dff1d4565a94
+/var/www/html/programaciondam2526/.git/objects/1f/9065fd4ed5c1ed909c199294a5cbc144da1d06
+/var/www/html/programaciondam2526/.git/objects/cd/42b4aa30fe8c8be5c789d9a1bc6c103437c4ba
+/var/www/html/programaciondam2526/.git/objects/cd/6afacd3fbfe2ad2d47b13facb690d581c8eca4
+/var/www/html/programaciondam2526/.git/objects/cd/6f5cb19c48eb0f80215f0b32f7e6f787eb74eb
+/var/www/html/programaciondam2526/.git/objects/cd/9878d367f9199924b786346f1dea665f5acfeb
+/var/www/html/programaciondam2526/.git/objects/1b/fbcff9718fec10bbd77a1c8ac9a269703b23f7
+/var/www/html/programaciondam2526/.git/objects/1b/b9bce5cba16d293e2d5f9f11c688dddd4ae5d1
+/var/www/html/programaciondam2526/.git/objects/2c/ba11b9ad8318c18246f417869d80cba58ea8a0
+/var/www/html/programaciondam2526/.git/objects/2c/94213a76ada8196c6d506bd41f2294f0c9ae21
+/var/www/html/programaciondam2526/.git/objects/9f/497ff1a228af84ef0f344a06d64ae1c73e2af6
+/var/www/html/programaciondam2526/.git/objects/4b/b9582462dfc8f48e139f3e0154d0307ae22b70
+/var/www/html/programaciondam2526/.git/objects/4b/bf591ce5f74ad6b72e7a5dec8aee988f35d98a
+/var/www/html/programaciondam2526/.git/objects/6d/3ae8c2203ac2533ff29579d80ec4b26e96cc57
+/var/www/html/programaciondam2526/.git/objects/6d/fb9f8855b35780af47a9b8df1c49a83d7cbc94
+/var/www/html/programaciondam2526/.git/objects/6d/99820d963b0683dd1752c573f8d78782d8a94c
+/var/www/html/programaciondam2526/.git/objects/6d/32a0588af2865c65ed6fe7c16127c6477a5643
+/var/www/html/programaciondam2526/.git/objects/6d/de0147c7bf84e8de128db0831c7ce1f72773fe
+/var/www/html/programaciondam2526/.git/objects/6c/954738f9de62b3586d40d7090d41c630dfa130
+/var/www/html/programaciondam2526/.git/objects/3b/a4b9941bf04782455c228806635ff80c34f338
+/var/www/html/programaciondam2526/.git/objects/67/0f38882dd35b114ec471d7ad10b0364a129d10
+/var/www/html/programaciondam2526/.git/objects/67/14f44be8ed4b3ca2a7032b40b61afa74dddf14
+/var/www/html/programaciondam2526/.git/objects/99/b71a74eea80c10a1e38b5a70178bdf3668f47e
+/var/www/html/programaciondam2526/.git/objects/b4/4659e7bf116ee9013e45e9d5bb0dd53519e083
+/var/www/html/programaciondam2526/.git/objects/b4/75d8ab7a2b1a0afd6d32c0d70f8ba3c0f8f99c
+/var/www/html/programaciondam2526/.git/objects/b4/aad9a2942c418a0d6b3732ec83ea8d192756b9
+/var/www/html/programaciondam2526/.git/objects/b4/62811b64a6b5fc241a1c59b3e6bed605098369
+/var/www/html/programaciondam2526/.git/objects/4f/2a40c155fb2f95280abd631514830adea48234
+/var/www/html/programaciondam2526/.git/objects/4f/9eccda329ef34d740335297c1beaf6261033b3
+/var/www/html/programaciondam2526/.git/objects/4f/fa1b8db91ffa778d00535186747f96a9bf0033
+/var/www/html/programaciondam2526/.git/objects/4f/fb90d77ab36fa203c99948b2f6fb8bc1bdffd9
+/var/www/html/programaciondam2526/.git/objects/9c/03faaec8603f15cf39bd41fed6925c6e92dd8f
+/var/www/html/programaciondam2526/.git/objects/1d/32f884cb2a31c0349bc01c007a77ca7b81cec9
+/var/www/html/programaciondam2526/.git/objects/1d/967a21cfb096efa55a5af0ce07fd259b06e2bf
+/var/www/html/programaciondam2526/.git/objects/d9/9986ccd3a47d1f5161cf7e8b697c1779c51a27
+/var/www/html/programaciondam2526/.git/objects/05/aeec3ab353f4eb03a5a56529de56dfbb76c5c2
+/var/www/html/programaciondam2526/.git/objects/05/98482b5d7f7fbfc82be933a89a91f4ff54bf23
+/var/www/html/programaciondam2526/.git/objects/a0/91920f36f44374e27b0bce746f06689d7330eb
+/var/www/html/programaciondam2526/.git/objects/a0/1bf65041c6c7e836e7b9ac8204c2d2512c478b
+/var/www/html/programaciondam2526/.git/objects/a0/08ed62ad907114545dbfa0f42ea4b242973439
+/var/www/html/programaciondam2526/.git/objects/a0/38ef3d428ba12d2c127490778bd9e4d8c62111
+/var/www/html/programaciondam2526/.git/objects/b6/32d6d63a7c28a36a0be20010dfeceb2dd69959
+/var/www/html/programaciondam2526/.git/objects/b6/cd4f6dfe2c6320cfefa2c822da09cc571ccb84
+/var/www/html/programaciondam2526/.git/objects/f7/950b20a8bbc6527da9ae334517d33d4a453b24
+/var/www/html/programaciondam2526/.git/objects/f7/528954ebc5dd9935879678dac65075e0d6ce60
+/var/www/html/programaciondam2526/.git/objects/59/591f196b5bf70fc481e0495ac4cbdd183a50d6
+/var/www/html/programaciondam2526/.git/objects/16/fce7e8c6f8ab53454ea4c9499f60e323dd28e2
+/var/www/html/programaciondam2526/.git/objects/16/fa975cf94f941adf3d6571674d1dd3f1b256d0
+/var/www/html/programaciondam2526/.git/objects/16/88fdc1ade53efda3503d75e8a750036f0786a7
+/var/www/html/programaciondam2526/.git/objects/f0/9109b152c5d4ded93cb6cbfdaf31f209dc3ece
+/var/www/html/programaciondam2526/.git/objects/f0/bee249fbace146d6942c111bbb9c74244e48e1
+/var/www/html/programaciondam2526/.git/objects/bb/95a2d5d47d53e505807f725e089bdfac61df4c
+/var/www/html/programaciondam2526/.git/objects/bb/4fc873d383343ff5e9369fc275b5c4877debcd
+/var/www/html/programaciondam2526/.git/objects/3e/927bc386e357f8bcdc7ac59a6a49ced3e86ff7
+/var/www/html/programaciondam2526/.git/objects/a5/a572dcb7e92013e90ee45d606cda6ecbb08271
+/var/www/html/programaciondam2526/.git/objects/a5/e5b1d0e7229dfcb4ab37547ee48bc5ab1db161
+/var/www/html/programaciondam2526/.git/objects/ed/575cf51df13927d5c639f8a0db22e9c1dae249
+/var/www/html/programaciondam2526/.git/objects/ed/47eabd58ee303b2de149af3a43221a45344189
+/var/www/html/programaciondam2526/.git/objects/33/4a3749a21b0b275065b5c294694aa350dfaddc
+/var/www/html/programaciondam2526/.git/objects/01/ab91d9431c26600a11fc884491cd5e8261b974
+/var/www/html/programaciondam2526/.git/objects/01/263a32d6a0b036a20981722a8337a0958c0166
+/var/www/html/programaciondam2526/.git/objects/01/cee4624fc858d953eb6813d320b4dbe111b83b
+/var/www/html/programaciondam2526/.git/objects/15/c7e3ecb73644c0f0376c66dc22405801a1e8fb
+/var/www/html/programaciondam2526/.git/objects/15/c2e78c842e18ae6145bbd9f8346448f83ca8c7
+/var/www/html/programaciondam2526/.git/objects/a3/7cd5baf4e52ee7866793b749687de15fb201be
+/var/www/html/programaciondam2526/.git/objects/a3/8b7bc8e62766e92b40bebd0a172e5479a82daa
+/var/www/html/programaciondam2526/.git/objects/a3/6ce66a05b908eeac1e87efcbe10b2c9d2cfd1a
+/var/www/html/programaciondam2526/.git/objects/a3/b76e9beb9ce8703c6bb14ca55ff13298428b71
+/var/www/html/programaciondam2526/.git/objects/22/3cf7f788066c4cefc32900b7dfd81d3c0ae995
+/var/www/html/programaciondam2526/.git/objects/22/c05a3e0d6847ee951607b74af8fee47e6484e3
+/var/www/html/programaciondam2526/.git/objects/00/b82a4d9be2b7d1bc53ec3bde32564f94de2716
+/var/www/html/programaciondam2526/.git/objects/00/09eb8e24b8c2a5e6cc31a2d457418768c259c3
+/var/www/html/programaciondam2526/.git/objects/35/ef16e53cf9271728cb7c5aeee4e1ae52de23bc
+/var/www/html/programaciondam2526/.git/objects/35/ff20ffb4b31956f37d84ecca0f316381df60c8
+/var/www/html/programaciondam2526/.git/objects/35/72fcfa0987e62fc686369881b360eb3684cd13
+/var/www/html/programaciondam2526/.git/objects/35/89b539be622cbec73c6f2b67ad44a641c31be9
+/var/www/html/programaciondam2526/.git/objects/35/3c980f9c3a2dfb41aa4c5aa2e565f86cfc9674
+/var/www/html/programaciondam2526/.git/objects/35/3ef4d637cdaf3d79ed6ca46dff94bc77948c32
+/var/www/html/programaciondam2526/.git/objects/c4/63ac01f88c426c9b8a6358e3f544d8c9b4aa05
+/var/www/html/programaciondam2526/.git/objects/c4/f998db87069ad7254e847b4de43d8767a44562
+/var/www/html/programaciondam2526/.git/objects/8c/213beea9fcd2db5852c0e4e8042d6dac73ee7e
+/var/www/html/programaciondam2526/.git/objects/8c/a179d03587fe7bf2fa88bd5cd7674dfe1ae505
+/var/www/html/programaciondam2526/.git/objects/8c/08fd3fd22988a528736002c665ff5487ee06bd
+/var/www/html/programaciondam2526/.git/objects/8c/93691c900703cc65474b13925f32227d4c5d86
+/var/www/html/programaciondam2526/.git/objects/c5/1dfbba3e5b81f72f867bb73bf2e9c4bc20e2d4
+/var/www/html/programaciondam2526/.git/objects/06/e318d6b95f4853ebb453b94883cdf0632bc4c8
+/var/www/html/programaciondam2526/.git/objects/06/c38788a579dfab048f05cd5be8cecbd8b5dd55
+/var/www/html/programaciondam2526/.git/objects/06/8b53d8907c84b69822dd7acc8cc1e273369627
+/var/www/html/programaciondam2526/.git/objects/06/28ff28ab9db1f8546eabb07ee1abb39466b3cc
+/var/www/html/programaciondam2526/.git/objects/06/c07641ea823c49f5c682bd459cfc47b8996478
+/var/www/html/programaciondam2526/.git/objects/06/c14926f200046123f1e4705bac90dc42740ad0
+/var/www/html/programaciondam2526/.git/objects/c6/f2f65f262a816d96a5cb9a43d49378007f5d29
+/var/www/html/programaciondam2526/.git/objects/81/918983325fcb1c564317cdfb4b8d9f23f04a3d
+/var/www/html/programaciondam2526/.git/objects/1e/2a26d03b4ed038bc13e6c81fa8f60523bd009a
+/var/www/html/programaciondam2526/.git/objects/1e/9bcaccb1a229c4ad6ab1121c2f524f104c9061
+/var/www/html/programaciondam2526/.git/objects/1e/a1ab440e37f6c8b1ecc77737fccb558b9658d5
+/var/www/html/programaciondam2526/.git/objects/28/5c129d063e85161e4531e49f320b43ab6fe6b6
+/var/www/html/programaciondam2526/.git/objects/98/ecad0c56dff76910df0cc419c2c04c469690bf
+/var/www/html/programaciondam2526/.git/objects/98/9021af1f8b15eba2519f0f53b215717b7258fd
+/var/www/html/programaciondam2526/.git/objects/98/820ff75f7bfebf38e275406d9bac383f99acc2
+/var/www/html/programaciondam2526/.git/objects/94/592749d1559c737355671491f7c88e4402a7c7
+/var/www/html/programaciondam2526/.git/objects/94/628a2c12b1385d532641a19c6a4524d0c4e97a
+/var/www/html/programaciondam2526/.git/objects/94/0ea58206eac9949370a6e1930adc7804dde5c0
+/var/www/html/programaciondam2526/.git/objects/dc/e01cafc1a0ca5e6978c33c472149d859c0ad2d
+/var/www/html/programaciondam2526/.git/objects/dc/ed79b1036447f1134da02aa4f8470ce9d29fbb
+/var/www/html/programaciondam2526/.git/objects/24/daa5e42a71dac677d129760ddd9a7d9ad86be1
+/var/www/html/programaciondam2526/.git/objects/24/4722a391c90125138c368a346aca61d16a914b
+/var/www/html/programaciondam2526/.git/objects/24/646bde2f2a1d6e7fc0d235eab63ec67ee84efd
+/var/www/html/programaciondam2526/.git/objects/71/40b2c88bc4154d15a8206e77e3edbd05a11f23
+/var/www/html/programaciondam2526/.git/objects/71/0da1c1b0b69b99d3e83ae8185f882065efe147
+/var/www/html/programaciondam2526/.git/objects/71/b0f0d2e2ed296373ef4913245264166c315908
+/var/www/html/programaciondam2526/.git/objects/71/1c612351f684319938a7defcd8bc9e759c6aa7
+/var/www/html/programaciondam2526/.git/objects/d1/fb293177557efd4f184cc9e192d8d4a107f0b1
+/var/www/html/programaciondam2526/.git/objects/ea/08b34a406084b4f8dec53b0e652f5497bc7efe
+/var/www/html/programaciondam2526/.git/objects/ea/873af148a57070133c6adba44c68273251e884
+/var/www/html/programaciondam2526/.git/objects/ea/69c333990b764ca3c8a7248aa5c5282901e961
+/var/www/html/programaciondam2526/.git/objects/ea/4c93b75a2902348586117cf018bba45b0b24f6
+/var/www/html/programaciondam2526/.git/objects/a4/564eb5e18c8a5cb39be7c71b587ba6e18e1658
+/var/www/html/programaciondam2526/.git/objects/a4/80b034a94363c30818cd58abd8b4455c3c6e39
+/var/www/html/programaciondam2526/.git/objects/f6/c4c11a40492d6f5ccd0849d7709b833069604e
+/var/www/html/programaciondam2526/.git/objects/51/e5f2a362d55d1b2192f5b40109c245987c3be9
+/var/www/html/programaciondam2526/.git/objects/07/134b3002e83bb74e4d9297557d2803b05812a6
+/var/www/html/programaciondam2526/.git/objects/07/11ee84cdb6be8fdc9ba21cb04704165a93c18c
+/var/www/html/programaciondam2526/.git/objects/fc/8136c096643e4b00a58f60cbe9f9b02ae8fd85
+/var/www/html/programaciondam2526/.git/objects/fc/09d14f0b2c28b38f9f8c5ccae692d3caba49cf
+/var/www/html/programaciondam2526/.git/objects/fc/638d241c38ff6a1e5c4c9dcc1f0699adbd000b
+/var/www/html/programaciondam2526/.git/objects/14/dab71047cda4716fcb69238e28d354cf67cc7a
+/var/www/html/programaciondam2526/.git/objects/14/678b51cfaf8482c8be5a3c28062fdc823ec1fa
+/var/www/html/programaciondam2526/.git/objects/14/bf2abdd399420218e109cb781e78b2e01e7558
+/var/www/html/programaciondam2526/004-Desarrollo de clases/000-Resumen.md
+/var/www/html/programaciondam2526/004-Desarrollo de clases/Criterios de evaluacion.md
+/var/www/html/programaciondam2526/004-Desarrollo de clases/005-Creación de constructores/101-Ejercicios/001-repaso gato.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/005-Creación de constructores/101-Ejercicios/003-constructor con parametros.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/005-Creación de constructores/101-Ejercicios/006-ejemplo con cliente.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/005-Creación de constructores/101-Ejercicios/002-a un construtor se le pueden pasar parametros.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/005-Creación de constructores/101-Ejercicios/004-mas parametros.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/005-Creación de constructores/101-Ejercicios/005-tercera propiedad.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/005-Creación de constructores/101-Ejercicios/007-listado de clientes.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/005-Creación de constructores/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/004-Desarrollo de clases/005-Creación de constructores/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/004-Desarrollo de clases/004-Creación de métodos/101-Ejercicios/010-ejemplo practico.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/004-Creación de métodos/101-Ejercicios/013-creo una lista de clientes.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/004-Creación de métodos/101-Ejercicios/011-creo setters y getters.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/004-Creación de métodos/101-Ejercicios/009-variable global.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/004-Creación de métodos/101-Ejercicios/004-defino propiedad privada.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/004-Creación de métodos/101-Ejercicios/005-Clase cuenta bancaria.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/004-Creación de métodos/101-Ejercicios/008-validacion.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/004-Creación de métodos/101-Ejercicios/012-pequeño programa.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/004-Creación de métodos/101-Ejercicios/010-creo setters y getters.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/004-Creación de métodos/101-Ejercicios/002-metodo set.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/004-Creación de métodos/101-Ejercicios/007-get saldo.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/004-Creación de métodos/101-Ejercicios/014-getters.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/004-Creación de métodos/101-Ejercicios/003-metodo getter.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/004-Creación de métodos/101-Ejercicios/006-convertir en privadas.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/004-Creación de métodos/101-Ejercicios/001-repaso de los metodos.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/004-Creación de métodos/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/004-Desarrollo de clases/004-Creación de métodos/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/004-Desarrollo de clases/007-Utilización de clases heredadas/101-Ejercicios/002-clase madre animal.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/007-Utilización de clases heredadas/101-Ejercicios/004-herencia o multinivel.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/007-Utilización de clases heredadas/101-Ejercicios/003-clase Roca.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/007-Utilización de clases heredadas/101-Ejercicios/001-gatos y perros.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/007-Utilización de clases heredadas/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/004-Desarrollo de clases/007-Utilización de clases heredadas/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/004-Desarrollo de clases/003-Creación de propiedades/101-Ejercicios/002-las propiedades pueden ser arrays.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/003-Creación de propiedades/101-Ejercicios/011-le mostramos al usuario las opciones que tiene.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/003-Creación de propiedades/101-Ejercicios/004-leemos propiedad.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/003-Creación de propiedades/101-Ejercicios/013-estructura if.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/003-Creación de propiedades/101-Ejercicios/014-bucle infinito.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/003-Creación de propiedades/101-Ejercicios/003-escribir las propiedades de una clase.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/003-Creación de propiedades/101-Ejercicios/012-tomamos la entrada de usuario.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/003-Creación de propiedades/101-Ejercicios/001-Repaso de propiedades.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/003-Creación de propiedades/101-Ejercicios/006-aplicacion de productos.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/003-Creación de propiedades/101-Ejercicios/007-funciones y clases.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/003-Creación de propiedades/101-Ejercicios/009-pseudocodigo.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/003-Creación de propiedades/101-Ejercicios/008-creamos las variables globales.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/003-Creación de propiedades/101-Ejercicios/010-voy creando el codigo.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/003-Creación de propiedades/101-Ejercicios/005-los telefonos deben ser una lista.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/003-Creación de propiedades/101-Ejercicios/015-desarrollo la insercion de producto.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/003-Creación de propiedades/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/004-Desarrollo de clases/003-Creación de propiedades/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/004-Desarrollo de clases/006-Utilización de clases y objetos/101-Ejercicios/002-redondeos alza y baja.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/006-Utilización de clases y objetos/101-Ejercicios/001-Mi propia clase.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/006-Utilización de clases y objetos/101-Ejercicios/003-ahora uso la libreria estandar.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/006-Utilización de clases y objetos/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/004-Desarrollo de clases/006-Utilización de clases y objetos/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/004-Desarrollo de clases/002-Estructura y miembros de una clase. Visibilidad/101-Ejercicios/004-le preguntamos al usuario.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/002-Estructura y miembros de una clase. Visibilidad/101-Ejercicios/008-clase cliente.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/002-Estructura y miembros de una clase. Visibilidad/101-Ejercicios/001-listas.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/002-Estructura y miembros de una clase. Visibilidad/101-Ejercicios/006-crud.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/002-Estructura y miembros de una clase. Visibilidad/101-Ejercicios/005-leemos los datos del cliente.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/002-Estructura y miembros de una clase. Visibilidad/101-Ejercicios/007-crud insertar y listar.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/002-Estructura y miembros de una clase. Visibilidad/101-Ejercicios/003-clase cliente.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/002-Estructura y miembros de una clase. Visibilidad/101-Ejercicios/002-operaciones con listas.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/002-Estructura y miembros de una clase. Visibilidad/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/004-Desarrollo de clases/002-Estructura y miembros de una clase. Visibilidad/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/004-Desarrollo de clases/001-Concepto de clase/101-Ejercicios/001-Introduccion.md
+/var/www/html/programaciondam2526/004-Desarrollo de clases/001-Concepto de clase/101-Ejercicios/007-propiedades.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/001-Concepto de clase/101-Ejercicios/004-ahora quiero crear otro gato.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/001-Concepto de clase/101-Ejercicios/011-Paradigmas en programacion.md
+/var/www/html/programaciondam2526/004-Desarrollo de clases/001-Concepto de clase/101-Ejercicios/009-objeto cliente.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/001-Concepto de clase/101-Ejercicios/008-introduccion a los metodos.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/001-Concepto de clase/101-Ejercicios/002-clase gato.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/001-Concepto de clase/101-Ejercicios/003-instanciamos un gato.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/001-Concepto de clase/101-Ejercicios/005-Elementos principales de las clases.md
+/var/www/html/programaciondam2526/004-Desarrollo de clases/001-Concepto de clase/101-Ejercicios/010-clase cliente.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/001-Concepto de clase/101-Ejercicios/006-propiedades y metodos.py
+/var/www/html/programaciondam2526/004-Desarrollo de clases/001-Concepto de clase/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/004-Desarrollo de clases/001-Concepto de clase/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/008-Mantenimiento de la persistencia de los objetos/000-Resumen.md
+/var/www/html/programaciondam2526/008-Mantenimiento de la persistencia de los objetos/Criterios de evaluacion.md
+/var/www/html/programaciondam2526/008-Mantenimiento de la persistencia de los objetos/009-Tipos de datos colección/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/008-Mantenimiento de la persistencia de los objetos/009-Tipos de datos colección/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/008-Mantenimiento de la persistencia de los objetos/004-Creación de bases de datos/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/008-Mantenimiento de la persistencia de los objetos/004-Creación de bases de datos/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/008-Mantenimiento de la persistencia de los objetos/001-Bases de datos orientadas a objetos/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/008-Mantenimiento de la persistencia de los objetos/001-Bases de datos orientadas a objetos/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/008-Mantenimiento de la persistencia de los objetos/007-Recuperación, modificación y borrado de información/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/008-Mantenimiento de la persistencia de los objetos/007-Recuperación, modificación y borrado de información/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/008-Mantenimiento de la persistencia de los objetos/008-Tipos de datos objeto; atributos y métodos/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/008-Mantenimiento de la persistencia de los objetos/008-Tipos de datos objeto; atributos y métodos/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/008-Mantenimiento de la persistencia de los objetos/002-Características de las bases de datos orientadas a objetos/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/008-Mantenimiento de la persistencia de los objetos/002-Características de las bases de datos orientadas a objetos/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/008-Mantenimiento de la persistencia de los objetos/006-El lenguaje de consultas sintaxis, expresiones, operadores/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/008-Mantenimiento de la persistencia de los objetos/006-El lenguaje de consultas sintaxis, expresiones, operadores/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/008-Mantenimiento de la persistencia de los objetos/005-Mecanismos de consulta/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/008-Mantenimiento de la persistencia de los objetos/005-Mecanismos de consulta/001-Contenidos básicos/Contenidos básicos.md
+/var/www/html/programaciondam2526/008-Mantenimiento de la persistencia de los objetos/003-Instalación del gestor de bases de datos/201-Criterios de evaluación/Criterios de evaluación.md
+/var/www/html/programaciondam2526/008-Mantenimiento de la persistencia de los objetos/003-Instalación del gestor de bases de datos/001-Contenidos básicos/Contenidos básicos.md

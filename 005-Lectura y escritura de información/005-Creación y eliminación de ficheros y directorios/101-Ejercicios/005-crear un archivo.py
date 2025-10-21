@@ -1,0 +1,5 @@
+open("miarchivo.txt","w")
+
+
+
+
