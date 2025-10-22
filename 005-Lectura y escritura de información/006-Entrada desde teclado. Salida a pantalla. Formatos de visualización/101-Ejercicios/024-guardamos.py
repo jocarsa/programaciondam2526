@@ -12,12 +12,17 @@ print("####### Jose Vicente Carratala  ######")
 clientes = []
 
 try:  #### Ojo que igual no existe el archivo ######
-  archivo = open("clientes.dat",'rb')
+  archivo = open("clientes.bin",'rb')
   clientes = pickle.load(archivo)
+  archivo.close()
 except:
   print("No existe archivo de datos")
 
 while True:
+  archivo = open("clientes.bin",'wb')
+  pickle.dump(clientes,archivo)
+  archivo.close()
+  
   print("Escoge una opción:")
   print("1.-Insertar un cliente")
   print("2.-Listar clientes")
@@ -53,5 +58,4 @@ while True:
       print("Cancelado")
     else:
       print("Opción no válida")
-  archivo = open("clientes.bin","wb")
-  pickle.dump(clientes,archivo)
+  
