@@ -1,3 +1,4 @@
+# pip3 install ttkbootsrap --break-system-packages
 import tkinter as tk
 from tkinter import ttk
 import mysql.connector
