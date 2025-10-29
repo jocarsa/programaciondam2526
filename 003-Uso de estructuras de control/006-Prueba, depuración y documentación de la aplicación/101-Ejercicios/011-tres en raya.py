@@ -28,41 +28,44 @@ while True:
     if jugador == 1:
       casilla2 = "X"
     else:
-      casilla1 = "O"
+      casilla2 = "O"
   if int(tirada) == 3:
     if jugador == 1:
       casilla3 = "X"
     else:
-      casilla1 = "O"
+      casilla3 = "O"
   if int(tirada) == 4:
     if jugador == 1:
       casilla4 = "X"
     else:
-      casilla1 = "O"
+      casilla4 = "O"
   if int(tirada) == 5:
     if jugador == 1:
       casilla5 = "X"
     else:
-      casilla1 = "O"
+      casilla5 = "O"
   if int(tirada) == 6:
     if jugador == 1:
       casilla6 = "X"
     else:
-      casilla1 = "O"
+      casilla6 = "O"
   if int(tirada) == 7:
     if jugador == 1:
-      casilla1 = "X"
+      casilla7 = "X"
     else:
       casilla7 = "O"
   if int(tirada) == 8:
     if jugador == 1:
       casilla8 = "X"
     else:
-      casilla1 = "O"
+      casilla8 = "O"
   if int(tirada) == 9:
     if jugador == 1:
       casilla9 = "X"
     else:
-      casilla1 = "O"
-
+      casilla9 = "O"
+  if jugador == 1:
+    jugador = 2
+  else:
+    jugador = 1
   
