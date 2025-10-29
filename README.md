@@ -1,74 +1,91 @@
-# programaciondam2526
+# Informe de 101-Ejercicios
 
-Prof. Jose Vicente Carratalá
+_Base:_ `/home/josevicente/Documentos/GitHub/programaciondam2526`
+_Generado:_ 2025-10-26
+_Modelo Ollama:_ `llama3.1:8b-instruct-q4_0`
 
-# Lenguajes de programación
-C++ -> C (1969) 1984
-Python -> Lenguaje - 1991 Guido Van Rossum
-Java -> Sistemas grandes - 1995
-C# -> Microsoft .NET 1998
+#### Unidad: `001-Identificación de los elementos de un programa informático`
+- `001-Estructura y bloques fundamentales` — 2025-09-20
+  - **Resumen:** En la clase de estructura y bloques fundamentales se abordó el concepto básico del programar utilizando lenguajes como Python. Se presentaron los elementos esenciales que conforman un programa, destacando la importancia de las instrucciones simples y combinadas para lograr resultados complejos. El trabajo con variables y tipos de datos también fue un punto clave, enfatizando su papel en la organización y manipulación de información dentro del código. La práctica guiada permitió a los estudiantes aplicar estos conceptos en un entorno controlado, fortaleciendo su comprensión sobre cómo se estructura un programa básico.
+- `002-Variables` — 2025-09-20
+  - **Resumen:** En la clase corresponde a la subunidad "002-Variables", se enfatizó la importancia de comprender los conceptos básicos de las variables en programación. Se destacó cómo se pueden utilizar nombres significativos para identificar y almacenar valores, como por ejemplo el nombre y edad de una persona, permitiendo luego realizar impresiones con dichas variables. Asimismo, se exploró la posibilidad de reasignar nuevos valores a las mismas variables, lo que permite su uso en diferentes contextos dentro del código.
+- `003-Tipos de datos` — 2025-09-20
+  - **Resumen:** En esta clase sobre tipos de datos se abordó el concepto fundamental de categorías que pueden almacenar información en los códigos. Se presentaron ejemplos concretos como cadenas de texto, números enteros y decimales, así como valores booleanos que pueden ser verdadero o falso. También se exploraron las formas de obtener datos del usuario a través de entradas y realizar operaciones básicas para manipular estos datos. Por ejemplo, convertir el tipo de dato de una edad ingresada por el usuario de cadena a número entero para poder realizar cálculos con ella.
+- `004-Literales` — 2025-09-20
+  - **Resumen:** En la clase de literales se enseñó que los literales son valores inmutables en un programa. Se destacó la importancia de comprender los diferentes tipos de literales, como cadena, entero, flotante y booleano, cada uno con sus características específicas. Los estudiantes también aprendieron a identificar y utilizar adecuadamente estos conceptos en el código, asegurando la claridad y coherencia del programa. Este conocimiento es fundamental para escribir programas eficientes y fáciles de mantener.
+- `005-Constantes` — 2025-09-20 → 2025-10-26
+  - **Resumen:** En la clase sobre constantes, se enfatizó la importancia de distinguir entre variables y constantes en un programa informático. Las constantes son valores que no cambian durante la ejecución del código, mientras que las variables pueden cambiar. Se vieron ejemplos prácticos donde se utilizaban constantes con mayúsculas y se comparaban con variables con minúsculas para ilustrar esta distinción fundamental.
+- `006-Operadores y expresiones` — 2025-09-20
+  - **Resumen:** En esta clase se ha profundizado en los conceptos fundamentales relacionados con operadores y expresiones en programación. Los estudiantes han tenido la oportunidad de familiarizarse con una variedad de tipos de operadores, incluyendo aritméticos, de comparación y booleanos, y cómo estos pueden ser utilizados para realizar cálculos y lógicas más complejos. Además, se ha trabajado en el uso de expresiones para almacenar valores y realizar cálculos en variables, permitiendo a los estudiantes desarrollar una comprensión sólida de cómo estos conceptos pueden ser aplicados en contextos prácticos.
+- `101-Ejercicio de final de unidad` — 2025-10-26
+  - **Resumen:** Se han trabajado las instrucciones básicas de programación en Python, como los identificadores permitidos, los comentarios y el uso de operadores. También se ha explorado el concepto de tipos de datos y cómo se pueden convertir entre ellos. Además, se han introducido los operadores aritméticos y de comparación, así como su aplicación en ejercicios prácticos.
 
-https://www.tiobe.com/tiobe-index/
+#### Unidad: `002-Utilización de objetos`
+- `001-Características de los objetos` — 2025-09-20 → 2025-10-26
+  - **Resumen:** En esta clase sobre características de los objetos se exploró la creación y manipulación de objetos en el lenguaje de programación. Se identificaron las propiedades básicas de los objetos, como sus atributos y métodos, y se analizaron formas de acceder y modificarlos. Además, se abordó la creación de nuevos objetos a partir de tipos existentes y la relación entre ellos. Estos conceptos fundamentales son clave para comprender cómo funcionan los objetos en el lenguaje de programación y permiten a los desarrolladores trabajar eficazmente con ellos.
+- `002-Instanciación de objetos` — 2025-09-20 → 2025-10-26
+  - **Resumen:** En esta clase se abordó la instanciación de objetos y su aplicación práctica en el contexto del lenguaje de programación. Se enfatizó que, más allá de crear clases personalizadas, es fundamental comprender cómo utilizar objetos predeterminados existentes en el propio lenguaje para llevar a cabo diversas operaciones y procesos. A través de ejercicios y actividades dirigidas, los estudiantes pudieron consolidar su capacidad para interactuar con estos objetos de manera efectiva, lo que les permitió desarrollar un sólido entendimiento de cómo se pueden utilizar en contextos específicos.
+- `003-Utilización de métodos. Parámetros` — 2025-09-20 → 2025-10-26
+  - **Resumen:** En la clase de "Utilización de métodos. Parámetros" se abordó el concepto fundamental de llamar a funciones o métodos existentes en el lenguaje de programación, utilizando objetos predeterminados y evitando la creación de clases personalizadas. Se analizaron ejemplos prácticos que demostraron cómo acceder a funcionalidades predefinidas para realizar operaciones matemáticas básicas, como redondear números, utilizando métodos como ceil() o round(). Algunos ejercicios específicos, como el uso de math.ceil() y math.round(), permitieron comprender la importancia de utilizar los métodos proporcionados por el lenguaje para simplificar y mejorar el código.
+- `004-Utilización de propiedades` — 2025-09-20 → 2025-10-26
+  - **Resumen:** En la clase "Utilización de propiedades", se enseñó a utilizar objetos predeterminados existentes en el lenguaje de programación para acceder y manipular sus propiedades. A través de ejemplos prácticos, los estudiantes aprendieron a importar módulos preexistentes, como el módulo "math" que contiene constantes matemáticas, y cómo utilizar estas constantes para realizar cálculos. También se exploró la posibilidad de reasignar valores a estas constantes, lo que permite personalizarlas según las necesidades del programa. Con esto, los estudiantes pueden aprovechar el potencial de objetos preexistentes en lugar de crearlos desde cero.
+- `005-Utilización de métodos estáticos` — 2025-10-26
+  - **Resumen:** En la clase de "Utilización de métodos estáticos" se enfatizó la importancia de distinguir entre los diferentes tipos de métodos en una clase, particularmente entre métodos instanciados y estáticos. Se discutió cómo los métodos estáticos permiten acceder a funciones de una clase sin necesidad de crear un objeto específico, lo que puede resultar útil para operaciones matemáticas o cálculos generales que no dependan del estado de la clase. Al comprender las características y ventajas de este tipo de métodos, se busca mejorar la organización y eficiencia en el desarrollo de aplicaciones, haciendo uso efectivo de los recursos disponibles en el lenguaje de programación utilizado.
+- `006-Constructores` — 2025-09-20 → 2025-10-26
+  - **Resumen:** En la clase de Constructores se abordó el tema de utilizar objetos predeterminados existentes en el lenguaje de programación para generar fechas y realizar operaciones con ellas. Se trabajó con las funciones de la clase datetime para obtener la fecha actual y posteriormente acceder a sus diferentes propiedades, como año, mes, día y día de la semana. Los conceptos de días de la semana y semanas numéricas se también explicaron y ejemplificaron en código.
+- `007-Destrucción de objetos y liberación de memoria` — 2025-09-20 → 2025-10-26
+  - **Resumen:** En la clase correspondiente a la subunidad "007-Destrucción de objetos y liberación de memoria" se enseñó cómo utilizar correctamente la función para eliminar referencias a objetos en Python, lo que permite liberar la memoria asignada a ellos. Además, se exploraron ejemplos prácticos sobre el uso de variables, tipos de datos y estructuras de control para realizar cálculos numéricos. A través de actividades y ejercicios, los estudiantes pudieron comprender conceptos básicos como la creación de objetos, su manipulación y eliminación, así como la importación de librerías y módulos preexistentes en el lenguaje.
 
-Python va a ser nuestro lenguaje de cabecera
-# Python:
-- Es un lenguaje creado 1991
-- Creado por Guido Van Rossum
-- Mantenido por la Python Foundation
-- Abierto
-- De muy alto nivel (alto nivel = mucha abstracción y simplificación)
-- Muy sencillo de aprender
-- Implica penalizaciones en el rendimiento
-- Ampliamente utilizado en IA y Big Data
-- Actualmente lenguaje número 1 en índices como TIOBE
+#### Unidad: `003-Uso de estructuras de control`
+- `001-Estructuras de selección` — 2025-09-20
+  - **Resumen:** En la clase sobre estructuras de selección, se abordó el concepto fundamental de tomar decisiones en el código a través del uso condicional y alternativo. Se enfatizó la importancia de utilizar sentencias IF para ejecutar bloques de código cuando una expresión es verdadera, así como el uso de ELSE para manejar situaciones diferentes. Además, se exploró el concepto de elif (o else if) que permite verificar múltiples condiciones y tomar acciones en función de cada una de ellas.
+- `002-Estructuras de repetición` — 2025-09-20
+  - **Resumen:** En esta clase se profundizó en las estructuras de repetición, específicamente en los bucles for y while. Se analizaron ejemplos concretos que ilustraron cómo utilizar estas estructuras para realizar cálculos y iteraciones dentro del lenguaje de programación Python. Además, se discutieron aspectos clave como la anidación de bucles y su aplicación práctica en contextos específicos. El enfoque fue teórico-práctico, donde las demostraciones y ejemplos proporcionaron una comprensión profunda del funcionamiento y potencial de estas estructuras en la programación.
+- `003-Estructuras de salto` — 2025-09-20
+  - **Resumen:** En esta clase se profundizó en las estructuras de salto, enfocándose en el concepto y aplicación práctica del uso de funciones en Python. Se destacó la importancia de seguir una convención para nombrar las funciones, que deben estar escritas con camelCase, tener un verbo (infinito o imperativo) y un objeto directo, y finalmente llevar un nombre descriptivo. Además, se explicó cómo utilizar estas funciones dentro de otros archivos y proyectos, mediante la importación y llamada correcta a las mismas.
+- `004-Control de excepciones` — 2025-09-20
+  - **Resumen:** En esta clase, se profundizó en el concepto del Control de Excepciones, cuyo objetivo principal es evitar que el programa termine abruptamente ante una situación imprevista. Se aprendió que las excepciones son eventos inesperados durante la ejecución del código y que utilizar un bloque try-except permite capturar y manejar estas situaciones de manera controlada. De esta forma, se puede prevenir que el programa caiga o termine abruptamente y, en su lugar, proporcionar una respuesta adecuada ante los errores.
+- `005-Aserciones` — 2025-09-20
+  - **Resumen:** En esta clase se profundizó en el concepto de aseveraciones, también conocidas como assertions. Se expuso que estas son herramientas útiles para verificar la veracidad de una condición o expresión dentro del código. A través de ejemplos prácticos, se demostró cómo utilizarlas para detección de errores y mejorar la seguridad en el desarrollo software. Las aseveraciones permiten incorporar 'chivatazos' que indican posibles problemas en nuestro código, facilitando su depuración al momento de presentarse algún error.
+- `006-Prueba, depuración y documentación de la aplicación` — 2025-09-20
+  - **Resumen:** Durante la clase sobre prueba, depuración y documentación de aplicaciones se abordaron conceptos clave para garantizar el funcionamiento correcto de las funciones. Se analizaron casos de éxito y falla en diferentes escenarios, como la división entre ceros o valores no numéricos. Se implementaron estrategias de captura de errores y depuración para identificar y resolver problemas en el código. Además, se enfatizó la importancia de la documentación de las funciones para facilitar su comprensión y uso.
+- `007-Ejercicio` — 2025-09-20
+  - **Resumen:** En esta clase se han desarrollado habilidades para trabajar con estructuras de control condicionales y ciclos repetitivos en Python. Se ha practicado la implementación de bucles for y while, así como la utilización de condiciones if-else para tomar decisiones en el código. También se ha trabajado en la creación de funciones que devuelvan valores específicos según ciertas reglas, lo que permite modularizar y reutilizar código en diferentes contextos. Además, se han aplicado técnicas básicas de depuración y manejo de errores con el uso de try-except para gestionar situaciones imprevistas.
 
-# Método de trabajo en la asignatura
-1. Descargamos Oracle VirtualBox
-2. Descargaremos una ISO de un SO - Linux - Debian - Ubuntu 24.04
-3. Instalaremos Linux sobre la máquina virtual
-4. Comenzaremos a trabajar
+#### Unidad: `004-Desarrollo de clases`
+- `001-Concepto de clase` — 2025-10-26
+  - **Resumen:** En la clase sobre concepto de clase, se profundizó en la comprensión de cómo encapsular código utilizando clases. Se resaltó que las clases permiten crear objetos que pueden almacenar propiedades y métodos, lo que facilita la reutilización y externalización del código. Además, se enfatizó la importancia de los elementos principales de una clase: las propiedades (piezas de información estáticas) y los métodos (piezas de información dinámica). Esto permitió a los estudiantes comprender mejor cómo utilizar clases para crear objetos que pueden interactuar entre sí.
+- `002-Estructura y miembros de una clase. Visibilidad` — 2025-10-26
+  - **Resumen:** En la clase correspondiente a la subunidad "002-Estructura y miembros de una clase. Visibilidad" se enseñó sobre la creación de clases en Python, incluyendo su estructura y atributos. Se aprendió cómo declarar una clase utilizando el comando , así como los métodos constructor ( ) que permiten inicializar los atributos de la clase. También se explicó la importancia de la visibilidad de los atributos dentro de una clase, siendo este un aspecto clave para controlar el acceso a las variables y evitar conflictos entre ellas. Además, se practicó la creación de objetos desde las clases definidas, lo que permitió visualizar su estructura y contenido.
+- `003-Creación de propiedades` — 2025-10-26
+  - **Resumen:** En la clase de "Creación de propiedades", se enseñó cómo utilizar las propiedades dentro de una clase, es decir, variables que pertenecen a un objeto específico. Se mostró cómo crear, leer y escribir estas propiedades en forma de atributos o características de un objeto determinado. También se explicó cómo utilizar listas para almacenar información compleja como en el caso de los teléfonos de un cliente.
+- `004-Creación de métodos` — 2025-10-26
+  - **Resumen:** En la clase sobre creación de métodos, se abordó el concepto de encapsulamiento mediante propiedades privadas y públicas, así como el uso de getters y setters para controlar el acceso a los datos de una clase. Se analizaron ejemplos prácticos que demostraron cómo definir y utilizar estos métodos en clases sencillas y más complejas, como la clase Cliente.
+- `005-Creación de constructores` — 2025-10-26
+  - **Resumen:** En esta unidad de aprendizaje, se ha profundizado en la creación de constructores en programación. Los constructores son métodos especiales que se ejecutan automáticamente al instanciar una clase. Se han visto casos donde el constructor se utiliza solo para inicializar las variables de la clase y otros donde también se pasan parámetros a él, como nombres, edades o direcciones. El objetivo principal ha sido comprender cómo utilizar constructores para crear objetos con propiedades determinadas.
+- `006-Utilización de clases y objetos` — 2025-10-26
+  - **Resumen:** En esta clase se abordó la utilidad de las clases y objetos en el desarrollo de programas, destacándose su capacidad para encapsular atributos y métodos relacionados con un concepto o problema específico. Se exploraron ejemplos prácticos que mostraban cómo crear clases para realizar cálculos matemáticos como redondeos, demostrando la flexibilidad y reutilidad de este enfoque. Además, se comparó el uso de funciones propias con la utilización de bibliotecas estándar para realizar las mismas operaciones, resaltando los beneficios de elegir el método más adecuado según las necesidades del proyecto.
+- `007-Utilización de clases heredadas` — 2025-10-26
+  - **Resumen:** Se exploró el concepto de herencia en programación, particularmente en la creación de clases heredadas que comparten atributos y métodos con una clase superior. Se vio cómo se utiliza el método super() para traer las variables y funciones definidas en la clase madre a las clases hijas.
 
-# Qué es una máquina virtual
-Software que nos permite instalar un sistema operativo en una burbuja dentro de otro sistema operativo
-Podríamos utilizar Windows
-Prefiero que utilicemos Linux
-Su manejo tiene una gran importancia para los desarrolladores
+#### Unidad: `005-Lectura y escritura de información`
+- `001-Flujos. Tipos bytes y caracteres. Clases relacionadas` — 2025-10-26
+  - **Resumen:** En la clase sobre "Flujos. Tipos bytes y caracteres. Clases relacionadas", se abordó el concepto de leer y escribir archivos en Python, destacando la importancia del manejo correcto de este tipo de datos. Se presentaron ejemplos prácticos que ilustran cómo abrir archivos para lectura o escritura utilizando las funciones open y close, y cómo utilizar estas herramientas para interactuar con textos almacenados en archivos. También se mostró cómo leer línea por línea el contenido de un archivo utilizando readline o readlines, y cómo crear agendas simples mediante la escritura de datos en un archivo.
+- `002-Ficheros de datos. Registros` — 2025-10-26
+  - **Resumen:** En la clase sobre "Ficheros de datos. Registros", se enseñó a trabajar con diferentes tipos de archivos y estructuras de datos para almacenar y manipular información. Se abordaron conceptos básicos como la lectura y escritura de archivos de texto, la manipulación de JSON y el uso de frameworks web como Flask para generar contenido HTML desde Python. Además, se exploraron formas de interactuar con registros y estructuras de datos mediante programación, lo que permite a los usuarios crear aplicaciones personalizadas para su uso específico.
+- `003-Apertura y cierre de ficheros. Modos de acceso. Escritura y lectura de información en ficheros` — 2025-10-26
+  - **Resumen:** Durante la clase sobre apertura y cierre de ficheros, se explicó cómo interactuar con archivos de texto y binarios en Python. Se aprendió a abrir los ficheros de diferentes maneras, como 'r', 'w' y 'a', y realizar operaciones como escribir, leer e incluso recopilar toda la información del archivo mediante listas. Además, se profundizó en el uso de pickle para serializar objetos y guardarlos en archivos binarios. Esto permite almacenar complejos datos y recuperarlos con facilidad, abriendo puertas a diversas aplicaciones, como gestionar bases de datos y mantener historiales de clientes.
+- `004-Utilización de los sistemas de ficheros.` — 2025-10-26
+  - **Resumen:** En la clase sobre "Utilización de los sistemas de ficheros", se enseñó a utilizar el módulo de Python para interactuar con el sistema de archivos del ordenador. Se vieron ejercicios que permitían listar contenido de carpetas, mostrar atributos de elementos y recorrer estructuras de almacenamiento en forma jerárquica. También se exploraron conceptos como el manejo de rutas de acceso a los archivos, la obtención de información sobre el tamaño y fecha de modificación de los mismos y la escritura de contenido en un archivo de texto.
+- `005-Creación y eliminación de ficheros y directorios` — 2025-10-26
+  - **Resumen:** En esta clase se abordaron los conceptos básicos relacionados con la creación y eliminación de ficheros y directorios. Se enseñó cómo utilizar las funciones makedirs() y rmdir() para crear y eliminar respectivamente carpetas, así como la función remove() para eliminar archivos. También se explicó cómo utilizar el módulo zipfile para comprimir ficheros en formato ZIP. El uso de try-except para manejar errores fue otro tema importante abordado en clase. Además, se trabajó en la creación de algoritmos complejos que involucran la recopilación y procesamiento de información desde diferentes directorios.
+- `006-Entrada desde teclado. Salida a pantalla. Formatos de visualización` — 2025-10-26
+  - **Resumen:** En esta versión mejorada: Se agrega una opción para guardar los clientes y salir del programa. La función se utiliza con cuidado para evitar eliminar clientes con índices fuera de rango. Se agregan excepciones para manejar errores, como intentar eliminar un cliente que no existe. que es una forma de serializar objetos en Python, lo que significa que los datos se pueden guardar y cargar posteriormente sin necesidad de conocer la estructura interna del objeto. Sin embargo, este método tiene algunas limitaciones, como la incompatibilidad entre diferentes versiones de Python. Espero que esto te ayude.
+- `007-Interfaces gráficas` — 2025-10-26
+  - **Resumen:** En la clase de interfaces gráficas se abordó la creación de ventanas y elementos interactivos en Python utilizando la biblioteca tkinter. Se mostraron ejemplos prácticos sobre cómo crear botones, etiquetas y áreas de texto, así como cómo asociar comandos a estos elementos para realizar acciones específicas. También se exploró el uso de entradas para obtener valores del usuario y de etiquetas para mostrar mensajes o resultados. Al finalizar la clase, los estudiantes podrán diseñar y crear interfaces gráficas simples con Python, incorporando funcionalidad básica para interactuar con el usuario.
+- `008-Concepto de evento` — 2025-10-26
+  - **Resumen:** En la clase de Concepto de evento se abordó el tema de los eventos en Python, específicamente en el entorno gráfico Tkinter. Se presentaron ejemplos de como crear aplicaciones con interfaces gráficas utilizando esta biblioteca y cómo interactuar con los usuarios a través de eventos como clics en botones, inserción de datos en cajas de texto y selección de opciones en menús desplegables.
 
-# Enlaces de descarga
-https://www.virtualbox.org/
-Descargad el "Windows Client"
-
-# Sistema operativo
-Ubuntu Linux 24.04
-https://ubuntu.com/download
-
-# Qué es Linux?
-Sistema operativo
-Gratuito - De código abierto
-Muchas distribuciones y subdistribuciones posibles
-Cualquiera puede modificar el sistema y publicar una nueva distribución
-Basado en la licencia GPL
-1991 - Linus Torvalds
-SSOO inspirado en otro sistema llamado UNIX
-Sistema operativo en principio basado en linea de comando
-Además contiene un sistema de gestión de ventanas GNOME-Metacity
-
-# Instalación de VirtualBox
-- Crear nueva máquina
-- Poner un nombre representativo DAM1Programacion
-- OS = Linux
-- OS Distribution = Ubuntu
-- OS Version = Ubuntu 64
-
-# Parámetros de creación de máquina:
-- Número de núcleso: 4
-- RAM: 8GB
-- Disco duro: 100GB
-
-# Rúbrica de evaluación
-https://github.com/jocarsa/documentos/blob/main/R%C3%BAbrica%20de%20evaluaci%C3%B3n.md
-
-# Buenas prácticas en programación
-https://github.com/jocarsa/documentos/blob/main/Buenas%20pr%C3%A1cticas%20en%20programaci%C3%B3n.md
-
-
+#### Unidad: `009-Gestión de bases de datos`
+- `002-Establecimiento de conexiones` — 2025-10-26
+  - **Resumen:** En la clase sobre establecimiento de conexiones, se profundizó en la importancia de crear vínculos efectivos con otras personas y situaciones. Se abordó cómo estas conexiones pueden ser un pilar fundamental para superar obstáculos personales, alcanzar metas profesionales y mantener una red social sólida. A través de ejercicios prácticos y discusiones en grupo, se incentivó a los estudiantes a reflexionar sobre su propia capacidad para establecer y mantener conexiones significativas con otros, y se les brindó herramientas para mejorar sus habilidades interpersonales. Al finalizar la clase, los participantes tenían una mayor conciencia de la influencia que pueden tener estas conexiones en su vida personal y profesional.
