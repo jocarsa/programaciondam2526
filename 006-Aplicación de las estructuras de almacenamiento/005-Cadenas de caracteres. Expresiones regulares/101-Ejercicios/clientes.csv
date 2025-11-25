@@ -1,0 +1,11 @@
+id,nombre,apellidos,correo,telefono,direccion,ciudad,provincia,codigo_postal,empresa,NIF
+1,Laura,García López,laura.garcia@example.com,612345678,Calle Mayor 12,Valencia,Valencia,46001,TecnoSol S.L.,B12345678
+2,Miguel,Pérez Sánchez,miguel.perez@example.com,678901234,Avenida del Puerto 45,Madrid,Madrid,28002,InnovaWeb S.A.,A87654321
+3,Ana,Martínez Ruiz,ana.martinez@example.com,634567890,Plaza España 3,Sevilla,Sevilla,41005,Servicon S.L.,B11223344
+4,Carlos,Hernández Torres,carlos.hernandez@example.com,699112233,Calle Gran Vía 78,Barcelona,Barcelona,08010,SoftMarket S.L.,B99887766
+5,Elena,Romero Díaz,elena.romero@example.com,622334455,Calle San Vicente 5,Zaragoza,Zaragoza,50004,ConsultingPro S.L.,B44556677
+6,Javier,Navarro Gómez,javier.navarro@example.com,645667788,Avenida Constitución 23,Murcia,Murcia,30008,DataPlus S.A.,A33445566
+7,María,Fuentes Ortega,maria.fuentes@example.com,633889900,Calle Sol 18,Málaga,Málaga,29007,Mercaplus S.L.,B22114455
+8,Sergio,Rey Delgado,sergio.rey@example.com,671223344,Calle Libertad 9,Alicante,Alicante,03003,Logística Express S.L.,B77889900
+9,Isabel,Vidal Castro,isabel.vidal@example.com,699554433,Paseo Colón 14,Bilbao,Bizkaia,48009,EcoEner S.A.,A99001122
+10,Pablo,Santos Molina,pablo.santos@example.com,611223344,Calle Real 2,Valladolid,Valladolid,47003,Formática S.L.,B66778899
