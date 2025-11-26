@@ -1,0 +1,62 @@
+{
+  "formas": [
+    {
+      "id": "forma-1",
+      "tipo": "rectangle",
+      "left": "389.188px",
+      "top": "312px",
+      "width": "",
+      "height": "",
+      "texto": "programa"
+    },
+    {
+      "id": "forma-2",
+      "tipo": "circle",
+      "left": "356.135px",
+      "top": "187px",
+      "width": "",
+      "height": "",
+      "texto": "in"
+    },
+    {
+      "id": "forma-3",
+      "tipo": "circle",
+      "left": "498.521px",
+      "top": "187.333px",
+      "width": "",
+      "height": "",
+      "texto": "out"
+    },
+    {
+      "id": "forma-4",
+      "tipo": "rectangle",
+      "left": "378.521px",
+      "top": "49.3229px",
+      "width": "",
+      "height": "",
+      "texto": "html"
+    }
+  ],
+  "flechas": [
+    {
+      "idInicio": "forma-2",
+      "idFin": "forma-1",
+      "tipo": "simple"
+    },
+    {
+      "idInicio": "forma-1",
+      "idFin": "forma-3",
+      "tipo": "simple"
+    },
+    {
+      "idInicio": "forma-4",
+      "idFin": "forma-2",
+      "tipo": "simple"
+    },
+    {
+      "idInicio": "forma-3",
+      "idFin": "forma-4",
+      "tipo": "simple"
+    }
+  ]
+}
