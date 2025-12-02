@@ -14102,6 +14102,239 @@ Esto vuelve a ser HTML<br>
 ?>
 ```
 
+### operadores booleanos
+
+```
+<?php
+	echo 4 == 4 && 3 == 3 && 2 == 2; // Verdadero
+  echo 4 == 4 && 3 == 3 && 2 == 1; // Falso
+  
+  echo 4 == 4 || 3 == 3 || 2 == 2; // Verdadero
+  echo 4 == 4 || 3 == 3 || 2 == 1; // Verdadero
+  echo 4 == 4 || 3 == 2 || 2 == 1; // Verdadero
+  echo 4 == 3 || 3 == 2 || 2 == 1; // Falso
+?>
+```
+
+### variables
+
+```
+<?php
+	$edad = 47; // Las variables se declaran con dolar
+  echo $edad; // Podemos hacer echo de variables
+  echo "<br>"; // salto de linea
+  $edad = 48; // Podemos cambiar el valor de una variable
+  echo $edad;
+?>
+```
+
+### estructura for y calendario
+
+```
+<!doctype html>
+<html>
+	<head>
+  	<style>
+    	.dia{border:1px solid black;padding:10px;width:50px;
+      height:50px;display:inline-block;}
+    </style>
+  </head>
+  <body>
+    <?php
+      // El signo de encadenamiento es el . (y eso es superguay)
+
+      for($dia = 1;$dia < 31;$dia++){
+        echo "<div class='dia'>".$dia."</div>";
+      }
+    ?>
+  </body>
+</html>
+```
+
+### if
+
+```
+<?php
+
+	$edad = 47;
+  if($edad < 30){
+  	echo "Eres un joven";
+  }
+  
+?>
+```
+
+### else
+
+```
+<?php
+
+	$edad = 47;
+  if($edad < 30){
+  	echo "Eres un joven";
+  }else{
+  	echo "Ya no eres un joven";
+  }
+  
+?>
+```
+
+### else if
+
+```
+<?php
+
+	$edad = 47;
+  
+  if($edad < 10){
+  	echo "Eres un niño";
+  }else if($edad >= 10 && $edad < 20){
+  	echo "Eres un adolescente";
+  }else if($edad >= 20 && $edad < 30){
+  	echo "Eres un joven";
+  }else{
+  	echo "Ya no eres joven";
+  }
+  
+?>
+```
+
+### switch
+
+```
+<?php
+	$dia_de_la_semana = "martes";
+	switch($dia_de_la_semana){
+  	case "lunes":
+    	echo "hoy es el peor dia de la semana";
+      break;
+    case "martes":
+    	echo "hoy es el segundo peor día de la semana";
+      break;
+    case "miercoles":
+    	echo "hoy ya estamos a mitad de semana";
+      break;
+    case "jueves":
+    	echo "Ya casi es viernes";
+      break;
+    case "viernes":
+    	echo "Por fin es viernes";
+      break;
+    case "sábado":
+    	echo "Este es el mejor dia de la semana";
+      break;
+    case "domingo":
+    	echo "Parece mentira que mañana ya sea lunes";
+      break;
+  }
+
+?>
+```
+
+### arrays
+
+```
+<?php
+	$frutas = ['manzana','pera','platano'];
+  
+  var_dump($frutas);
+?>
+```
+
+### arrays multidimensionales
+
+```
+<?php
+
+	$agenda = [
+  	["Jose Vicente","Carratala",47],
+    ["Juan","Martinez",45],
+    ["Jaime","Lopez",46]
+  ];
+  
+  var_dump($agenda);
+  
+?>
+```
+
+### declarar una funcion
+
+```
+<?php
+	function diHola(){
+  	echo "Hola como estás";
+  }
+?>
+```
+
+### usar la funcion
+
+```
+<?php
+	function diHola(){
+  	echo "Hola como estás";
+  }
+  
+  diHola();
+?>
+```
+
+### funciones con parametros
+
+```
+<?php
+	function diHola($nombre){
+  	echo "Hola, ".$nombre." como estás";
+  }
+  
+  diHola("Jose Vicente");
+?>
+```
+
+### varios parametros
+
+```
+<?php
+	function diHola($nombre,$edad){
+  	echo "Hola, ".$nombre." tienes ".$edad." años, como estás";
+  }
+  
+  diHola("Jose Vicente",47);
+?>
+```
+
+### return en la funcion
+
+```
+<?php
+	function diHola($nombre,$edad){
+  	return "Hola, ".$nombre." tienes ".$edad." años, como estás";
+  }
+  
+  echo diHola("Jose Vicente",47);
+?>
+```
+
+### vamos con los gatos
+
+```
+<?php
+
+	class Gato{
+  	function __construct($color,$edad){
+    	$this->color = $color;
+      $this->edad = $edad;
+    }
+  }
+  
+  $gato1 = new Gato("Naranja",1);
+  $gato2 = new Gato("Blanco",2);
+  
+  var_dump($gato1);
+
+?>
+```
+
 
 <a id="git"></a>
 # .git
