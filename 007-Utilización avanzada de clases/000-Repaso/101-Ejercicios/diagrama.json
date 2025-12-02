@@ -1,0 +1,84 @@
+{
+  "formas": [
+    {
+      "id": "forma-1",
+      "tipo": "rectangle",
+      "left": "466px",
+      "top": "287.2px",
+      "width": "",
+      "height": "",
+      "texto": "python"
+    },
+    {
+      "id": "forma-2",
+      "tipo": "rectangle",
+      "left": "465.563px",
+      "top": "247px",
+      "width": "",
+      "height": "",
+      "texto": "flask"
+    },
+    {
+      "id": "forma-3",
+      "tipo": "rectangle",
+      "left": "372.563px",
+      "top": "159.5px",
+      "width": "",
+      "height": "",
+      "texto": "html (en/)"
+    },
+    {
+      "id": "forma-4",
+      "tipo": "rectangle",
+      "left": "546.563px",
+      "top": "158.5px",
+      "width": "",
+      "height": "",
+      "texto": "json (/api)"
+    }
+  ],
+  "flechas": [
+    {
+      "desde": {
+        "shapeId": "forma-2",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-3",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-2",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-4",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-4",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-3",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    }
+  ]
+}

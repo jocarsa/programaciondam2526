@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="374" height="248.69998168945307" viewBox="0 0 374 248.69998168945307">
+
+  <defs>
+    <style>
+      text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 12px; fill: #111827; }
+      .shape-rect { fill: #ffffff; stroke: #9ca3af; stroke-width: 1; }
+      .shape-entity { fill: #ffffff; stroke: #111827; stroke-width: 2; }
+      .shape-circle { fill: #ffffff; stroke: #9ca3af; stroke-width: 1; }
+      .shape-pill { fill: #ffffff; stroke: #9ca3af; stroke-width: 1; }
+      .shape-db { fill: #ffffff; stroke: #9ca3af; stroke-width: 1; }
+      .conn { stroke: #111827; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="arrow-end" markerWidth="10" markerHeight="7" refX="10" refY="3.5"
+            orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#111827"/>
+    </marker>
+    <marker id="arrow-start" markerWidth="10" markerHeight="7" refX="0" refY="3.5"
+            orient="auto" markerUnits="strokeWidth">
+      <polygon points="10 0, 0 3.5, 10 7" fill="#111827"/>
+    </marker>
+  </defs>
+        
+<rect class="shape-rect" x="133.43749999999994" y="168.69998168945307" width="119.99999999999994" height="39.999999999999986" rx="4" ry="4" />
+<text x="193.43749999999991" y="192.69998168945307" text-anchor="middle">python</text>
+<rect class="shape-rect" x="132.99999999999994" y="128.49999999999994" width="119.99999999999994" height="39.99998855590819" rx="4" ry="4" />
+<text x="192.99999999999991" y="152.49999427795404" text-anchor="middle">flask</text>
+<rect class="shape-rect" x="40" y="41" width="119.99999999999994" height="39.999999999999986" rx="4" ry="4" />
+<text x="99.99999999999997" y="65" text-anchor="middle">html (en/)</text>
+<rect class="shape-rect" x="214" y="40" width="119.99999999999994" height="39.999999999999986" rx="4" ry="4" />
+<text x="274" y="63.99999999999999" text-anchor="middle">json (/api)</text>
+<path class="conn" d="M 171.742861834468 128.49999999999994 L 121.25714424724976 80.99999999999997" marker-end="url(#arrow-end)" />
+<path class="conn" d="M 211.30508069216717 128.49999999999994 L 255.69491407070575 79.99999999999997" marker-end="url(#arrow-end)" />
+<path class="conn" d="M 214 60.34482758620686 L 160 60.65517241379308" marker-end="url(#arrow-end)" />
+</svg>

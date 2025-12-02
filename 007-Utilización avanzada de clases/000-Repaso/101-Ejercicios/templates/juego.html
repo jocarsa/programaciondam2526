@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      .npc{
+        background:red;
+        border-radius:50px;position:absolute;
+      }
+    </style>
+  </head>
+ 	<body>	
+    <main>
+    </main>
+    <script>
+      // Cojo el contenedor
+      let escenario = document.querySelector("main")
+      let temporizador = setTimeout("bucle()",1000)
+      function bucle(){
+        
+        // Me conecto a una api, pido datos, los convierto a json, y los lanzo
+        fetch("http://127.0.0.1:5000/api")
+        .then(function(respuesta){return respuesta.json();})
+        .then(function(datos){
+          console.log(datos)
+          // Vacio el escenario SOLO cuando recibo datos
+        	escenario.innerHTML = ""
+          // Para cada npc:
+          datos.forEach(function(npc){
+            // Creo un nuevo elemento en HTML
+            let personaje = document.createElement("div")
+            // Le añado una clase css
+            personaje.classList.add("npc")
+            // La posicion x en HTML sera la posicion x que viene de Python
+            personaje.style.left = npc.posx+"px"
+            // La posicion y en HTML será la posición y que viene de Python
+            personaje.style.top = npc.posy+"px"
+            // Pongo la anchura sobre el dato que llega de Python
+            personaje.style.width = npc.radio+"px"
+            // Pongo la altura sobre el dato que llega de Python
+            personaje.style.height = npc.radio+"px"
+            escenario.appendChild(personaje)
+          })
+        })
+        // Primero borro el temporizador anterior
+        clearTimeout(temporizador)
+        // Y ahora vuelvo a lanzar el temporizador
+        temporizador = setTimeout("bucle()",100)
+      }
+    </script>
+  </body>
+</html>
