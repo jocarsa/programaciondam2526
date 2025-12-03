@@ -86,6 +86,7 @@
   - [Almacenamiento, recuperación, actualización y eliminación de información en bases de datos](#almacenamiento-recuperacion-actualizacion-y-eliminacion-de-informacion-en-bases-de-datos)
 - [Programación en el lado del servidor](#programacion-en-el-lado-del-servidor)
   - [Fundamentos](#fundamentos)
+  - [get y post](#get-y-post)
 - [.git](#git)
   - [branches](#branches)
   - [hooks](#hooks)
@@ -14333,6 +14334,103 @@ Esto vuelve a ser HTML<br>
   var_dump($gato1);
 
 ?>
+```
+
+<a id="get-y-post"></a>
+## get y post
+
+### repaso de los verbos
+
+```markdown
+Los verbos http son:
+
+GET (dame) "SELECT"
+POST (toma) "INSERT"
+PUT (modificamos) "UPDATE"
+DELETE (eliminamos) "DELETE"
+
+PATCH (también modificamos) "UPDATE"
+```
+
+### get
+
+```
+<?php
+	// Espera que en la URL haya un parametro llamado nombre
+	echo $_GET['nombre'];
+?>
+```
+
+### formularcion de url
+
+```markdown
+A una URL se le pueden pasar parámetros
+
+script.php?parametro1=valor1&parametro2=valor2&...
+
+script.php = es el script principal
+? = a partir de aqui, empiezan los parámetros
+clave=valor = clave es la clave del parámetro, valor es el valor del parámetro
+& = espera que te paso más
+```
+
+### dos parametros get
+
+```
+<?php
+	echo $_GET['nombre'];
+  echo "<br>";
+  echo $_GET['apellidos'];
+?>
+```
+
+### formulario
+
+```html
+<form action="006-post.php" method="POST">
+  <p>Introduce tu nombre</p>
+  <input type="text" name="nombre">
+  <input type="submit">
+</form>
+
+006-post.php = quien te procesa
+POST = como se va a enviar y recibir la informacion
+name="nombre" = la clave que se va a enviar
+```
+
+### post
+
+```
+<?php
+	echo $_POST['nombre'];
+?>
+
+$_POST porque me envían la información por POST
+Y la tengo que recoger por la misma vía
+
+'nombre' porque es la clave que se ha enviado desde HTML
+```
+
+### autoprocesamiento
+
+```
+<?php
+	echo $_POST['nombre'];
+?>
+
+<form action="?" method="POST">
+  <p>Introduce tu nombre</p>
+  <input type="text" name="nombre">
+  <input type="submit">
+</form>
+```
+
+### php.ini
+
+```markdown
+php.ini en Windows:
+C:/xampp/php/php.ini
+(Espero que no sea vuestro caso)
 ```
 
 

@@ -1,0 +1,9 @@
+<form action="006-post.php" method="POST">
+  <p>Introduce tu nombre</p>
+  <input type="text" name="nombre">
+  <input type="submit">
+</form>
+
+006-post.php = quien te procesa
+POST = como se va a enviar y recibir la informacion
+name="nombre" = la clave que se va a enviar
