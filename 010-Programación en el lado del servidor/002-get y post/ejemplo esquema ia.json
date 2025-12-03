@@ -1,0 +1,148 @@
+{
+  "formas": [
+    {
+      "id": "forma-1",
+      "tipo": "rectangle",
+      "left": "808.358px",
+      "top": "350.612px",
+      "width": "",
+      "height": "",
+      "texto": "Web"
+    },
+    {
+      "id": "forma-2",
+      "tipo": "rectangle",
+      "left": "644.983px",
+      "top": "351.889px",
+      "width": "",
+      "height": "",
+      "texto": "Python scrap"
+    },
+    {
+      "id": "forma-4",
+      "tipo": "pill",
+      "left": "484.99px",
+      "top": "353.993px",
+      "width": "",
+      "height": "",
+      "texto": "JSON"
+    },
+    {
+      "id": "forma-5",
+      "tipo": "rectangle",
+      "left": "338.17px",
+      "top": "352.955px",
+      "width": "",
+      "height": "",
+      "texto": "Python IA"
+    },
+    {
+      "id": "forma-6",
+      "tipo": "rectangle",
+      "left": "336.575px",
+      "top": "193.474px",
+      "width": "",
+      "height": "",
+      "texto": "HTML"
+    },
+    {
+      "id": "forma-7",
+      "tipo": "rectangle",
+      "left": "336.578px",
+      "top": "153.467px",
+      "width": "",
+      "height": "",
+      "texto": "CSS"
+    },
+    {
+      "id": "forma-8",
+      "tipo": "rectangle",
+      "left": "336.588px",
+      "top": "232.951px",
+      "width": "",
+      "height": "",
+      "texto": "JS"
+    },
+    {
+      "id": "forma-9",
+      "tipo": "rectangle",
+      "left": "338.16px",
+      "top": "294.536px",
+      "width": "",
+      "height": "",
+      "texto": "PHP"
+    }
+  ],
+  "flechas": [
+    {
+      "desde": {
+        "shapeId": "forma-1",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-2",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-2",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-4",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-4",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-5",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-9",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-8",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "doble",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-5",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-9",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "doble",
+      "estilo": "straight"
+    }
+  ]
+}

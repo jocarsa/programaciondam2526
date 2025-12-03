@@ -87,6 +87,7 @@
 - [Programación en el lado del servidor](#programacion-en-el-lado-del-servidor)
   - [Fundamentos](#fundamentos)
   - [get y post](#get-y-post)
+  - [Persistencia](#persistencia)
 - [.git](#git)
   - [branches](#branches)
   - [hooks](#hooks)
@@ -14431,6 +14432,405 @@ Y la tengo que recoger por la misma vía
 php.ini en Windows:
 C:/xampp/php/php.ini
 (Espero que no sea vuestro caso)
+
+En Ubuntu está en:
+/etc/php/8.3/apache2/php.ini
+
+Si no os deja modificar con gedit
+
+sudo nano /etc/php/8.3/apache2/php.ini
+
+Comandos:
+(Parece que si que deja hacer scroll)
+Control + W = Buscar (where)
+Control + O = Guardar
+Control + X = Salir
+Tenéis la ayuda bajo del editor
+
+display_errors = On (cambiad de Off a On)
+
+Cuando se toca el php.ini hay que reiniciar apache
+
+sudo service apache2 restart
+```
+
+### comprobacion
+
+```
+<?php
+	esto da error si o si
+?>
+```
+
+### retomamos
+
+```
+<?php
+	echo $_POST['nombre'];
+?>
+
+<form action="?" method="POST">
+  <p>Introduce tu nombre</p>
+  <input type="text" name="nombre">
+  <input type="submit">
+</form>
+```
+
+### comprobacion de existencia
+
+```
+<?php
+	// Comprobación de existencia isset
+	if(isset($_POST['nombre'])){
+		echo $_POST['nombre'];
+  }
+?>
+
+<form action="?" method="POST">
+  <p>Introduce tu nombre</p>
+  <input type="text" name="nombre">
+  <input type="submit">
+</form>
+```
+
+### preguntas y respuestas
+
+```
+<!doctype html>
+<html>
+	<head>
+  	<style>
+    	body,html{width:100%;height:100%;padding:0px;margin:0px;}
+      body{
+      	display:flex;align-items:center;justify-content:center;
+        background:lightgray;flex-direction:column;}
+      header,footer,main{
+      	width:400px;padding:20px;background:white;
+        text-align:center;
+        }
+      form{display:flex;flex-direction:column;gap:10px;}
+      input{padding:10px;}
+    </style>
+  </head>
+  <body>
+  	<header>
+  		<h1>Preguntas y respuestas</h1>
+    </header>
+    <main>
+    	<form action="?" method="POST">
+      	<label for="pregunta">Introduce la pregunta</label>
+      	<input type="text" name="pregunta" id="pregunta">
+        <label for="respuesta">Introduce la respuesta</label>
+      	<input type="text" name="respuesta" id="respuesta">
+        <input type="submit">
+      </form>
+    </main>
+    <footer>
+    	(c) 2025 Jose Vicente Carratala
+    </footer>
+  </body>
+</html>
+```
+
+### atrapamos la informacion
+
+```
+<!doctype html>
+<html>
+	<head>
+  	<style>
+    	body,html{width:100%;height:100%;padding:0px;margin:0px;}
+      body{
+      	display:flex;align-items:center;justify-content:center;
+        background:lightgray;flex-direction:column;}
+      header,footer,main{
+      	width:400px;padding:20px;background:white;
+        text-align:center;
+        }
+      form{display:flex;flex-direction:column;gap:10px;}
+      input{padding:10px;}
+    </style>
+  </head>
+  <body>
+  	<header>
+  		<h1>Preguntas y respuestas</h1>
+    </header>
+    <main>
+    	<form action="?" method="POST">
+      	<label for="pregunta">Introduce la pregunta</label>
+      	<input type="text" name="pregunta" id="pregunta">
+        <label for="respuesta">Introduce la respuesta</label>
+      	<input type="text" name="respuesta" id="respuesta">
+        <input type="submit">
+      </form>
+    </main>
+    <footer>
+    	(c) 2025 Jose Vicente Carratala
+      <?php
+      	echo $_POST['pregunta'];
+        echo "<br>";
+        echo $_POST['respuesta'];
+      ?>
+    </footer>
+  </body>
+</html>
+```
+
+### isset
+
+```
+<!doctype html>
+<html>
+	<head>
+  	<style>
+    	body,html{width:100%;height:100%;padding:0px;margin:0px;}
+      body{
+      	display:flex;align-items:center;justify-content:center;
+        background:lightgray;flex-direction:column;}
+      header,footer,main{
+      	width:400px;padding:20px;background:white;
+        text-align:center;
+        }
+      form{display:flex;flex-direction:column;gap:10px;}
+      input{padding:10px;}
+    </style>
+  </head>
+  <body>
+  	<header>
+  		<h1>Preguntas y respuestas</h1>
+    </header>
+    <main>
+    	<form action="?" method="POST">
+      	<label for="pregunta">Introduce la pregunta</label>
+      	<input type="text" name="pregunta" id="pregunta">
+        <label for="respuesta">Introduce la respuesta</label>
+      	<input type="text" name="respuesta" id="respuesta">
+        <input type="submit">
+      </form>
+    </main>
+    <footer>
+    	(c) 2025 Jose Vicente Carratala
+      <?php
+      	if(isset($_POST['pregunta']) && isset($_POST['respuesta'])){
+          echo $_POST['pregunta'];
+          echo "<br>";
+          echo $_POST['respuesta'];
+        }
+      ?>
+    </footer>
+  </body>
+</html>
+```
+
+<a id="persistencia"></a>
+## Persistencia
+
+### escribir texto
+
+```
+<?php
+  $archivo = fopen("archivo.txt", "a"); // "a" = append
+  fwrite($archivo, "Nuevo texto escrito desde PHP\n");
+  fclose($archivo);
+?>
+```
+
+### voy a hacer una barbaridad
+
+```markdown
+Terminal:
+
+sudo chmod 777 -R /var/www/html/programaciondam2526
+
+sudo = Realizo acción como administrador
+
+chmod = cambio permisos
+
+777 = le doy permiso a todo el mundo
+
+-R = Lo quiero aplicar recursivo (a todo el contenido)
+
+/var/www.... = la carpeta afectada
+
+En el sistema de permisos UNIX (Linux,macOS)
+
+1 numero para el usuario
+1 numero para el grupo al que pertenece el usuario
+1 numero para todo el resto
+
+
+0 - ningún permiso
+1 = solo ejectar
+2 = solo escribir
+3 = escribir y ejecutar
+4 = solo leer
+5 = leer y ejecutar
+6 = leer y escribir
+7 = leer, escribir y ejecutar
+
+777 = permisible en tu maquina, no recomendable en produccion
+usuario leer, escribir y ejecutar
+grupo leer, escribir y ejecutar
+todo el mundo leer, escribir y ejecutar
+
+755 = posible para produccion
+usuario leer, escribir y ejecutar
+grupo leer y ejecutar
+todo el mundo leer y ejecutar
+
+644 = mas restrictivo para produccion
+usuario leer y escribir
+grupo solo leer
+todo el mundo solo leer
+```
+
+### leer
+
+```
+<?php
+  $archivo = fopen("archivo.txt", "r"); // "r" = leer/read
+  
+  // Parámetros 1.-Lo que lees 2.-Longitud de lo que lees
+  $contenido = fread($archivo,filesize("archivo.txt"));
+  
+  echo $contenido;
+  fclose($archivo);
+?>
+```
+
+### array nombrado en php
+
+```
+<?php
+  $cliente = [];
+  $cliente['nombre'] = "Jose Vicente";
+  $cliente['apellidos'] = "Carratala Sanchis";
+  $cliente['email'] = "info@jocarsa.com";
+  
+  var_dump($cliente);
+?>
+```
+
+### saco el array como json
+
+```
+<?php
+  $cliente = [];
+  $cliente['nombre'] = "Jose Vicente";
+  $cliente['apellidos'] = "Carratala Sanchis";
+  $cliente['email'] = "info@jocarsa.com";
+  
+  $json = json_encode($cliente);
+  echo $json;  
+?>
+```
+
+### recuperamos el formulario
+
+```
+<!doctype html>
+<html>
+	<head>
+  	<style>
+    	body,html{width:100%;height:100%;padding:0px;margin:0px;}
+      body{
+      	display:flex;align-items:center;justify-content:center;
+        background:lightgray;flex-direction:column;}
+      header,footer,main{
+      	width:400px;padding:20px;background:white;
+        text-align:center;
+        }
+      form{display:flex;flex-direction:column;gap:10px;}
+      input{padding:10px;}
+    </style>
+  </head>
+  <body>
+  	<header>
+  		<h1>Preguntas y respuestas</h1>
+    </header>
+    <main>
+    	<form action="?" method="POST">
+      	<label for="pregunta">Introduce la pregunta</label>
+      	<input type="text" name="pregunta" id="pregunta">
+        <label for="respuesta">Introduce la respuesta</label>
+      	<input type="text" name="respuesta" id="respuesta">
+        <input type="submit">
+      </form>
+    </main>
+    <footer>
+    	(c) 2025 Jose Vicente Carratala
+      <?php
+      	$json = json_encode($_POST); 	// Convierte post a JSON
+        echo $json;										// Y lo saca por pantalla
+      ?>
+    </footer>
+  </body>
+</html>
+```
+
+### y lo guardamos en el disco
+
+```
+<!doctype html>
+<html>
+	<head>
+  	<style>
+    	body,html{width:100%;height:100%;padding:0px;margin:0px;}
+      body{
+      	display:flex;align-items:center;justify-content:center;
+        background:lightgray;flex-direction:column;}
+      header,footer,main{
+      	width:400px;padding:20px;background:white;
+        text-align:center;
+        }
+      form{display:flex;flex-direction:column;gap:10px;}
+      input{padding:10px;}
+    </style>
+  </head>
+  <body>
+  	<header>
+  		<h1>Preguntas y respuestas</h1>
+    </header>
+    <main>
+    	<form action="?" method="POST">
+      	<label for="pregunta">Introduce la pregunta</label>
+      	<input type="text" name="pregunta" id="pregunta">
+        <label for="respuesta">Introduce la respuesta</label>
+      	<input type="text" name="respuesta" id="respuesta">
+        <input type="submit">
+      </form>
+    </main>
+    <footer>
+    	(c) 2025 Jose Vicente Carratala
+      <?php
+      	if(isset($_POST['respuesta'])){
+          $json = json_encode($_POST); 	// Convierte post a JSON
+          $archivo = fopen(date('U').".json",'w');	// Abre un arhivo
+          fwrite($archivo,$json);										// Guarda el json
+          fclose($archivo);													// Cierra el archivo
+        }
+      ?>
+    </footer>
+  </body>
+</html>
+```
+
+### 1764753558
+
+```json
+[]
+```
+
+### 1764753566
+
+```json
+{"pregunta":"que dia es hoy","respuesta":"miercoles"}
+```
+
+### archivo
+
+```
+Nuevo texto escrito desde PHP
 ```
 
 
