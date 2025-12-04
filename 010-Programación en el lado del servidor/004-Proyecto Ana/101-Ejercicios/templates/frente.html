@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Mini intérprete Python</title>
+    <style>
+      body{
+        font-family: sans-serif;
+      }
+      #editor{
+        font-family: monospace;
+        background: lightgray;
+        color: black;
+        padding: 20px;
+        width: 400px;
+        height: 150px;
+        margin: auto;
+        margin-bottom: 10px;
+        resize: vertical; /* para poder agrandar el área si se quiere */
+        box-sizing: border-box;
+      }
+      #terminal{
+        font-family: monospace;
+        background: black;
+        color: white;
+        padding: 20px;
+        width: 400px;
+        height: 120px;
+        margin: auto;
+        white-space: pre-wrap;   /* respeta saltos de línea y hace wrap */
+        overflow-y: auto;
+        box-sizing: border-box;
+      }
+      .ventana{
+        border: 1px solid grey;
+        border-top: 30px solid grey;
+        border-radius: 5px;
+        box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+      }
+      button{
+        margin: auto;
+        background: green;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        margin-bottom: 10px;
+        display: block;
+        cursor: pointer;
+      }
+      button:active{
+        transform: translateY(1px);
+      }
+    </style>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <!-- EDITOR MULTILÍNEA -->
+      <textarea id="editor" class="ventana" spellcheck="false"></textarea>
+      <button id="compilar">Compilar</button>
+      <!-- TERMINAL MULTILÍNEA -->
+      <pre id="terminal" class="ventana"></pre>
+    </main>
+    <footer></footer>
+
+    <script>
+      let boton = document.querySelector("#compilar");
+      let editor = document.querySelector("#editor");
+      let terminal = document.querySelector("#terminal");
+
+      boton.onclick = function(){
+        console.log("Vamos a enviar algo al servidor");
+        let codigo = editor.value;    // ahora usamos value (textarea)
+        console.log(codigo);
+
+        fetch("/api", {
+          method: "POST",
+          headers: {
+            "Content-Type": "text/plain"
+          },
+          body: codigo
+        })
+        .then(response => {
+          // Si hay error (por ejemplo error de sintaxis), también lo mostramos
+          return response.text().then(texto => {
+            if (!response.ok) {
+              throw new Error(texto);
+            }
+            return texto;
+          });
+        })
+        .then(function(datos){
+          console.log(datos);
+          terminal.textContent = datos;   // respeta saltos de línea gracias a <pre>
+        })
+        .catch(function(err){
+          console.error(err);
+          terminal.textContent = err.message;
+        });
+      };
+    </script>
+  </body>
+</html>

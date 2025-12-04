@@ -88,6 +88,7 @@
   - [Fundamentos](#fundamentos)
   - [get y post](#get-y-post)
   - [Persistencia](#persistencia)
+  - [Proyecto Ana](#proyecto-ana)
 - [.git](#git)
   - [branches](#branches)
   - [hooks](#hooks)
@@ -14831,6 +14832,250 @@ todo el mundo solo leer
 
 ```
 Nuevo texto escrito desde PHP
+```
+
+<a id="proyecto-ana"></a>
+## Proyecto Ana
+
+### Analisis de tecnologias
+
+```markdown
+Necesitamos 
+HTML, CSS, JS - Esto sin problema
+
+Necesitamos PHP - GitHub pages descartado
+Solución?
+
+Contratación de un alojamiento (hosting) que tenga soporte para
+HTML
+CSS
+JS
+PHP
+
+Ejemplo: hostinger
+Via Render - servicio en la nube que os dé soporte o bien para 
+```
+
+### front
+
+```html
+<!doctype html>
+<html lang="es">
+  <head>
+  </head>
+  <body>
+    	<header>
+    </header>
+    <main>
+      <div id="terminal" contenteditable=true>
+      </div>
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html>
+```
+
+### estilizamos un poco
+
+```html
+<!doctype html>
+<html lang="es">
+  <head>
+    <style>
+      #editor{
+      	font-family:monospace;
+        background:lightgray;color:black;padding:20px;
+        width:400px;
+        height:100px;margin:auto;
+        margin-bottom:10px;
+      }
+      #terminal{
+      	font-family:monospace;
+        background:black;color:white;padding:20px;
+        width:400px;
+        height:50px;margin:auto;
+      }
+      .ventana{
+      	border:1px solid grey;
+        border-top:30px solid grey;
+        border-radius:5px;
+        box-shadow:0px 5px 10px rgba(0,0,0,0.3);
+      }
+      button{
+        margin:auto;background:green;
+        color:white;padding:10px;border-radius:5px;border:none;
+      margin:auto;margin-bottom:10px;display:block;}
+    </style>
+  </head>
+  <body>
+    	<header>
+    </header>
+    <main>
+      <div id="editor" contenteditable=true class="ventana"></div>
+      <button>Compilar</button>
+      <div id="terminal" contenteditable=true class="ventana"></div>
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html>
+```
+
+### javascript
+
+```html
+<!doctype html>
+<html lang="es">
+  <head>
+    <style>
+      #editor{
+      	font-family:monospace;
+        background:lightgray;color:black;padding:20px;
+        width:400px;
+        height:100px;margin:auto;
+        margin-bottom:10px;
+      }
+      #terminal{
+      	font-family:monospace;
+        background:black;color:white;padding:20px;
+        width:400px;
+        height:50px;margin:auto;
+      }
+      .ventana{
+      	border:1px solid grey;
+        border-top:30px solid grey;
+        border-radius:5px;
+        box-shadow:0px 5px 10px rgba(0,0,0,0.3);
+      }
+      button{
+        margin:auto;background:green;
+        color:white;padding:10px;border-radius:5px;border:none;
+      margin:auto;margin-bottom:10px;display:block;}
+    </style>
+  </head>
+  <body>
+    	<header>
+    </header>
+    <main>
+      <div id="editor" contenteditable=true class="ventana"></div>
+      <button>Compilar</button>
+      <div id="terminal" contenteditable=true class="ventana"></div>
+    </main>
+    <footer>
+    </footer>
+    <script>
+      let boton = document.querySelector("button")
+      boton.onclick = function(){
+      	console.log("Vamos a enviar algo al servidor")
+        let codigo = document.querySelector("#editor").textContent
+        console.log(codigo)
+      }
+    </script>
+  </body>
+</html>
+```
+
+### flask
+
+```python
+from flask import Flask, render_template 
+
+app = Flask(__name__)
+
+@app.route("/")
+def inicio():
+  return render_template("frente.html")
+
+if __name__ == "__main__":
+  app.run(debug=True)
+```
+
+### nuevo endpoint
+
+```python
+from flask import Flask, render_template 
+
+app = Flask(__name__)
+
+@app.route("/")
+def inicio():
+  return render_template("frente.html")
+
+@app.route("/api")
+def api():
+  print("He recibido algo")
+  return "ok"
+
+if __name__ == "__main__":
+  app.run(debug=True)
+```
+
+### estamos obligados a metodo
+
+```python
+from flask import Flask, render_template, request
+import io
+import contextlib
+
+
+app = Flask(__name__)
+
+@app.route("/")
+def inicio():
+  return render_template("frente.html")
+
+@app.route("/api", methods=['POST'])
+def api():
+    codigo = request.data.decode("utf-8")
+
+    buffer = io.StringIO()
+    try:
+        # Ejecuta el código y captura todo lo que se imprima
+        with contextlib.redirect_stdout(buffer):
+            exec(codigo, {})   # entorno global vacío (peligroso igualmente si no controlas el código)
+    except Exception as e:
+        return str(e), 400
+
+    salida = buffer.getvalue()
+    # Si no ha habido nada por pantalla, puedes devolver algo por defecto
+    return salida if salida else "OK"
+
+if __name__ == "__main__":
+  app.run(debug=True)
+```
+
+### soporte multilinea
+
+```python
+from flask import Flask, render_template, request
+import io
+import contextlib
+
+app = Flask(__name__)
+
+@app.route("/")
+def inicio():
+    return render_template("frente.html")
+
+@app.route("/api", methods=['POST'])
+def api():
+    codigo = request.data.decode("utf-8")
+
+    buffer = io.StringIO()
+    try:
+        # Ejecuta el código y captura todo lo que se imprima
+        with contextlib.redirect_stdout(buffer):
+            exec(codigo, {})
+    except Exception as e:
+        # devolvemos el error como texto y código 400
+        return str(e), 400
+
+    salida = buffer.getvalue()
+    return salida if salida else "OK"
+
+if __name__ == "__main__":
+    app.run(debug=True)
 ```
 
 
