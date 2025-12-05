@@ -1,0 +1,107 @@
+{
+  "formas": [
+    {
+      "id": "forma-1",
+      "tipo": "rectangle",
+      "left": "530.842px",
+      "top": "204.043px",
+      "width": "",
+      "height": "",
+      "texto": "Persona"
+    },
+    {
+      "id": "forma-2",
+      "tipo": "rectangle",
+      "left": "386.408px",
+      "top": "298.5px",
+      "width": "",
+      "height": "",
+      "texto": "Profesor"
+    },
+    {
+      "id": "forma-3",
+      "tipo": "rectangle",
+      "left": "656.954px",
+      "top": "301.824px",
+      "width": "",
+      "height": "",
+      "texto": "Alumno"
+    },
+    {
+      "id": "forma-4",
+      "tipo": "rectangle",
+      "left": "572.504px",
+      "top": "389.603px",
+      "width": "",
+      "height": "",
+      "texto": "AlumnoPresencial"
+    },
+    {
+      "id": "forma-5",
+      "tipo": "rectangle",
+      "left": "776.939px",
+      "top": "384.599px",
+      "width": "",
+      "height": "",
+      "texto": "AlumnoOnline"
+    }
+  ],
+  "flechas": [
+    {
+      "desde": {
+        "shapeId": "forma-1",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-2",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-1",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-3",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-3",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-4",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-3",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-5",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    }
+  ]
+}
