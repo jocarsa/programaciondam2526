@@ -10,17 +10,30 @@
     <img src="nave.png" id="nave">
   </body>
   <script>
-    // Primero declaramos una clase
-    class Jugador{
-    	constructor(x,y){
+    // Primero declaramos una clase madre (abstracta)
+    class Entidad{											// Creamos una entidad como superclase
+    	constructor(x,y,a,v){
       	this.posx = x;
         this.posy = y;
+        this.angulo = a;  	
+        this.velocidad = v;
       }
     }
-    class Roca{
-    	constructor(x,y){
-      	this.posx = x;
-        this.posy = y;
+    // Luego declaro las clases concretas
+    class Bala extends Entidad {				// La bala extiende a la entidad
+    	constructor(x,y,a,v){
+      	super(x, y, a, v);							// La bala hereda estas propiedades de la entidad
+      }
+    }
+    class Jugador extends Entidad {			// El jugador extiende a la entidad
+    	constructor(x,y,a,v){
+      	super(x, y, a, v);							// El jugador hereda estas propiedades de la entidad
+      }
+    }
+    class Roca extends Entidad {				// Y la roca extiende a la entidad
+    	constructor(x,y,a,e,v){
+      	super(x, y, a, v);							// La roca hereda estas propiedades de la entidad										
+        this.escala = e;								// Pero la roca puede tener sus propias propiedades
       }
     }
     // Voy a crear rocas
@@ -29,10 +42,18 @@
     for(let i = 0;i<numero_rocas;i++){							// Recorro un bucle
       let posx_aleatoria = Math.random()*500				// posx aleatoria entre 0 y 500
       let posy_aleatoria = Math.random()*500				// posy aleatoria entre 0 y 500
-    	rocas.push(new Roca(posx_aleatoria,posy_aleatoria))	// Creo una nueva roca
+      let angulo_aleatorio = Math.random()*360
+      let escala_aleatoria = Math.random()*1
+    	rocas.push(new Roca(
+        posx_aleatoria,
+        posy_aleatoria,
+        angulo_aleatorio,
+        escala_aleatoria,
+        0
+      ))	// Creo una nueva roca	/// INICIALIZO LA VELOCIDAD A CERO								
     }
     // Ahora creo una instancia del jugador
-    let InstanciaJugador = new Jugador(40,40)
+    let InstanciaJugador = new Jugador(40,40,0,0)		// INICIALIZO VELOCIDAD A CERO
     let nave = document.querySelector("#nave");
     document.onkeydown = function(tecla){		// Cuando sobre el documento pulse tec
       // w = 87, s = 83, a = 65 , d= 68
@@ -61,6 +82,7 @@
       nueva_roca.style.position = "absolute"					// Le pongo absoluto para poder mover con libertad
       nueva_roca.style.left = rocas[i].posx+"px"					// Le pongo su posicion X
       nueva_roca.style.top = rocas[i].posy+"px"						// Le pongo su posicion Y
+      nueva_roca.style.transform = "rotate("+rocas[i].angulo+"deg)  scale("+rocas[i].escala+")"	// NUEVO /////////////////
       document.querySelector("body").appendChild(nueva_roca)	// Añado la roca al body
     }
   </script>

@@ -21384,7 +21384,7 @@ print(profesor1.dameDatos())
 ```
 
 ### rocas
-<small>Creado: 2025-12-09 10:59</small>
+<small>Creado: 2025-12-09 11:06</small>
 
 `005-rocas.html`
 
@@ -21394,6 +21394,7 @@ print(profesor1.dameDatos())
   <head>
     <style>
       #nave{position:absolute;width:50px;}
+      .roca{width:50px;}
     </style>
   </head>
   <body>
@@ -21446,6 +21447,393 @@ print(profesor1.dameDatos())
     // Voy a dibujar rocas
     for(let i = 0;i<numero_rocas;i++){
     	let nueva_roca = document.createElement("img"); // Creo una nueva imagen
+      nueva_roca.classList.add("roca")								// Le añado la clase roca
+      nueva_roca.src = "roca.png"											// Cargo la imagen de la roca
+      nueva_roca.style.position = "absolute"					// Le pongo absoluto para poder mover con libertad
+      nueva_roca.style.left = rocas[i].posx+"px"					// Le pongo su posicion X
+      nueva_roca.style.top = rocas[i].posy+"px"						// Le pongo su posicion Y
+      document.querySelector("body").appendChild(nueva_roca)	// Añado la roca al body
+    }
+  </script>
+</html>
+```
+
+### variaciones en las rocas
+<small>Creado: 2025-12-09 11:13</small>
+
+`006-variaciones en las rocas.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      #nave{position:absolute;width:50px;}
+      .roca{width:50px;}
+    </style>
+  </head>
+  <body>
+    <img src="nave.png" id="nave">
+  </body>
+  <script>
+    // Primero declaramos una clase
+    class Jugador{
+    	constructor(x,y,a){
+      	this.posx = x;
+        this.posy = y;
+        this.angulo = a;  													// NUEVO ////////
+      }
+    }
+    class Roca{
+    	constructor(x,y,a,e){
+      	this.posx = x;
+        this.posy = y;
+        this.angulo = a;														// NUEVO ////////
+        this.escala = e;														// NUEVO ////////
+      }
+    }
+    // Voy a crear rocas
+    let numero_rocas = 10;													// Digo cuantas rocas quiero
+    let rocas = [];																	// Creo un array vacío
+    for(let i = 0;i<numero_rocas;i++){							// Recorro un bucle
+      let posx_aleatoria = Math.random()*500				// posx aleatoria entre 0 y 500
+      let posy_aleatoria = Math.random()*500				// posy aleatoria entre 0 y 500
+      let angulo_aleatorio = Math.random()*360
+      let escala_aleatoria = Math.random()*1
+    	rocas.push(new Roca(
+        posx_aleatoria,
+        posy_aleatoria,
+        angulo_aleatorio,
+        escala_aleatoria
+      ))	// Creo una nueva roca									// NUEVO /////////////
+    }
+    // Ahora creo una instancia del jugador
+    let InstanciaJugador = new Jugador(40,40,0)		// NUEVO /////////////
+    let nave = document.querySelector("#nave");
+    document.onkeydown = function(tecla){		// Cuando sobre el documento pulse tec
+      // w = 87, s = 83, a = 65 , d= 68
+      switch(tecla.keyCode){     
+        case 87:			// Si pulso W
+          InstanciaJugador.posy -= 5;	// Subo cinco unidades en Y
+          break;
+        case 83:			// Si pulso S
+          InstanciaJugador.posy += 5;	// Bajo cinco unidades en Y
+          break;
+        case 65:			// Si pulso A
+          InstanciaJugador.posx -= 5;	// Quito cinco unidades en X
+          break;
+        case 68:			// Si pulso D
+          InstanciaJugador.posx += 5;	// Sumo cinco unidades en X
+          break;
+      }
+      nave.style.left = InstanciaJugador.posx+"px";
+      nave.style.top = InstanciaJugador.posy+"px";
+    }
+    // Voy a dibujar rocas
+    for(let i = 0;i<numero_rocas;i++){
+    	let nueva_roca = document.createElement("img"); // Creo una nueva imagen
+      nueva_roca.classList.add("roca")								// Le añado la clase roca
+      nueva_roca.src = "roca.png"											// Cargo la imagen de la roca
+      nueva_roca.style.position = "absolute"					// Le pongo absoluto para poder mover con libertad
+      nueva_roca.style.left = rocas[i].posx+"px"					// Le pongo su posicion X
+      nueva_roca.style.top = rocas[i].posy+"px"						// Le pongo su posicion Y
+      nueva_roca.style.transform = "rotate("+rocas[i].angulo+"deg)  scale("+rocas[i].escala+")"
+      document.querySelector("body").appendChild(nueva_roca)	// Añado la roca al body
+    }
+  </script>
+</html>
+```
+
+### clase bala
+<small>Creado: 2025-12-09 11:53</small>
+
+`007-clase bala.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      #nave{position:absolute;width:50px;}
+      .roca{width:50px;}
+    </style>
+  </head>
+  <body>
+    <img src="nave.png" id="nave">
+  </body>
+  <script>
+    // Primero declaramos una clase
+    class Bala{
+    	constructor(x,y,a,v){
+      	this.posx = x;
+        this.posy = y;
+        this.angulo = a;  	
+        this.velocidad = v;
+      }
+    }
+    class Jugador{
+    	constructor(x,y,a,v){
+      	this.posx = x;
+        this.posy = y;
+        this.angulo = a; 
+        this.velocidad = v;
+      }
+    }
+    class Roca{
+    	constructor(x,y,a,e,v){
+      	this.posx = x;
+        this.posy = y;
+        this.angulo = a;												
+        this.escala = e;
+        this.velocidad = v;
+      }
+    }
+    // Voy a crear rocas
+    let numero_rocas = 10;													// Digo cuantas rocas quiero
+    let rocas = [];																	// Creo un array vacío
+    for(let i = 0;i<numero_rocas;i++){							// Recorro un bucle
+      let posx_aleatoria = Math.random()*500				// posx aleatoria entre 0 y 500
+      let posy_aleatoria = Math.random()*500				// posy aleatoria entre 0 y 500
+      let angulo_aleatorio = Math.random()*360
+      let escala_aleatoria = Math.random()*1
+    	rocas.push(new Roca(
+        posx_aleatoria,
+        posy_aleatoria,
+        angulo_aleatorio,
+        escala_aleatoria,
+        0
+      ))	// Creo una nueva roca	/// INICIALIZO LA VELOCIDAD A CERO								
+    }
+    // Ahora creo una instancia del jugador
+    let InstanciaJugador = new Jugador(40,40,0,0)		// INICIALIZO VELOCIDAD A CERO
+    let nave = document.querySelector("#nave");
+    document.onkeydown = function(tecla){		// Cuando sobre el documento pulse tec
+      // w = 87, s = 83, a = 65 , d= 68
+      switch(tecla.keyCode){     
+        case 87:			// Si pulso W
+          InstanciaJugador.posy -= 5;	// Subo cinco unidades en Y
+          break;
+        case 83:			// Si pulso S
+          InstanciaJugador.posy += 5;	// Bajo cinco unidades en Y
+          break;
+        case 65:			// Si pulso A
+          InstanciaJugador.posx -= 5;	// Quito cinco unidades en X
+          break;
+        case 68:			// Si pulso D
+          InstanciaJugador.posx += 5;	// Sumo cinco unidades en X
+          break;
+      }
+      nave.style.left = InstanciaJugador.posx+"px";
+      nave.style.top = InstanciaJugador.posy+"px";
+    }
+    // Voy a dibujar rocas
+    for(let i = 0;i<numero_rocas;i++){
+    	let nueva_roca = document.createElement("img"); // Creo una nueva imagen
+      nueva_roca.classList.add("roca")								// Le añado la clase roca
+      nueva_roca.src = "roca.png"											// Cargo la imagen de la roca
+      nueva_roca.style.position = "absolute"					// Le pongo absoluto para poder mover con libertad
+      nueva_roca.style.left = rocas[i].posx+"px"					// Le pongo su posicion X
+      nueva_roca.style.top = rocas[i].posy+"px"						// Le pongo su posicion Y
+      nueva_roca.style.transform = "rotate("+rocas[i].angulo+"deg)  scale("+rocas[i].escala+")"	// NUEVO /////////////////
+      document.querySelector("body").appendChild(nueva_roca)	// Añado la roca al body
+    }
+  </script>
+</html>
+```
+
+### superclase
+<small>Creado: 2025-12-09 11:57</small>
+
+`008-superclase.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      #nave{position:absolute;width:50px;}
+      .roca{width:50px;}
+    </style>
+  </head>
+  <body>
+    <img src="nave.png" id="nave">
+  </body>
+  <script>
+    // Primero declaramos una clase madre (abstracta)
+    class Entidad{											// Creamos una entidad como superclase
+    	constructor(x,y,a,v){
+      	this.posx = x;
+        this.posy = y;
+        this.angulo = a;  	
+        this.velocidad = v;
+      }
+    }
+    // Luego declaro las clases concretas
+    class Bala extends Entidad {				// La bala extiende a la entidad
+    	constructor(x,y,a,v){
+      	super(x, y, a, v);							// La bala hereda estas propiedades de la entidad
+      }
+    }
+    class Jugador extends Entidad {			// El jugador extiende a la entidad
+    	constructor(x,y,a,v){
+      	super(x, y, a, v);							// El jugador hereda estas propiedades de la entidad
+      }
+    }
+    class Roca extends Entidad {				// Y la roca extiende a la entidad
+    	constructor(x,y,a,e,v){
+      	super(x, y, a, v);							// La roca hereda estas propiedades de la entidad										
+        this.escala = e;								// Pero la roca puede tener sus propias propiedades
+      }
+    }
+    // Voy a crear rocas
+    let numero_rocas = 10;													// Digo cuantas rocas quiero
+    let rocas = [];																	// Creo un array vacío
+    for(let i = 0;i<numero_rocas;i++){							// Recorro un bucle
+      let posx_aleatoria = Math.random()*500				// posx aleatoria entre 0 y 500
+      let posy_aleatoria = Math.random()*500				// posy aleatoria entre 0 y 500
+      let angulo_aleatorio = Math.random()*360
+      let escala_aleatoria = Math.random()*1
+    	rocas.push(new Roca(
+        posx_aleatoria,
+        posy_aleatoria,
+        angulo_aleatorio,
+        escala_aleatoria,
+        0
+      ))	// Creo una nueva roca	/// INICIALIZO LA VELOCIDAD A CERO								
+    }
+    // Ahora creo una instancia del jugador
+    let InstanciaJugador = new Jugador(40,40,0,0)		// INICIALIZO VELOCIDAD A CERO
+    let nave = document.querySelector("#nave");
+    document.onkeydown = function(tecla){		// Cuando sobre el documento pulse tec
+      // w = 87, s = 83, a = 65 , d= 68
+      switch(tecla.keyCode){     
+        case 87:			// Si pulso W
+          InstanciaJugador.posy -= 5;	// Subo cinco unidades en Y
+          break;
+        case 83:			// Si pulso S
+          InstanciaJugador.posy += 5;	// Bajo cinco unidades en Y
+          break;
+        case 65:			// Si pulso A
+          InstanciaJugador.posx -= 5;	// Quito cinco unidades en X
+          break;
+        case 68:			// Si pulso D
+          InstanciaJugador.posx += 5;	// Sumo cinco unidades en X
+          break;
+      }
+      nave.style.left = InstanciaJugador.posx+"px";
+      nave.style.top = InstanciaJugador.posy+"px";
+    }
+    // Voy a dibujar rocas
+    for(let i = 0;i<numero_rocas;i++){
+    	let nueva_roca = document.createElement("img"); // Creo una nueva imagen
+      nueva_roca.classList.add("roca")								// Le añado la clase roca
+      nueva_roca.src = "roca.png"											// Cargo la imagen de la roca
+      nueva_roca.style.position = "absolute"					// Le pongo absoluto para poder mover con libertad
+      nueva_roca.style.left = rocas[i].posx+"px"					// Le pongo su posicion X
+      nueva_roca.style.top = rocas[i].posy+"px"						// Le pongo su posicion Y
+      nueva_roca.style.transform = "rotate("+rocas[i].angulo+"deg)  scale("+rocas[i].escala+")"	// NUEVO /////////////////
+      document.querySelector("body").appendChild(nueva_roca)	// Añado la roca al body
+    }
+  </script>
+</html>
+```
+
+### ancho y alto del navegador
+<small>Creado: 2025-12-09 11:59</small>
+
+`009-ancho y alto del navegador.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      #nave{position:absolute;width:50px;}
+      .roca{width:50px;}
+    </style>
+  </head>
+  <body>
+    <img src="nave.png" id="nave">
+  </body>
+  <script>
+    // Variables globales
+    let anchopagina = window.innerWidth
+    let altopagina = window.innerHeight
+    
+    // Primero declaramos una clase madre (abstracta)
+    class Entidad{											// Creamos una entidad como superclase
+    	constructor(x,y,a,v){
+      	this.posx = x;
+        this.posy = y;
+        this.angulo = a;  	
+        this.velocidad = v;
+      }
+    }
+    // Luego declaro las clases concretas
+    class Bala extends Entidad {				// La bala extiende a la entidad
+    	constructor(x,y,a,v){
+      	super(x, y, a, v);							// La bala hereda estas propiedades de la entidad
+      }
+    }
+    class Jugador extends Entidad {			// El jugador extiende a la entidad
+    	constructor(x,y,a,v){
+      	super(x, y, a, v);							// El jugador hereda estas propiedades de la entidad
+      }
+    }
+    class Roca extends Entidad {				// Y la roca extiende a la entidad
+    	constructor(x,y,a,e,v){
+      	super(x, y, a, v);							// La roca hereda estas propiedades de la entidad										
+        this.escala = e;								// Pero la roca puede tener sus propias propiedades
+      }
+    }
+    // Voy a crear rocas
+    let numero_rocas = 10;													// Digo cuantas rocas quiero
+    let rocas = [];																	// Creo un array vacío
+    for(let i = 0;i<numero_rocas;i++){							// Recorro un bucle
+      let posx_aleatoria = Math.random()*anchopagina	// posx aleatoria en toda la X de la pantalla
+      let posy_aleatoria = Math.random()*altopagina		// posy aleatoria en toda la Y de la pantalla
+      let angulo_aleatorio = Math.random()*360
+      let escala_aleatoria = Math.random()*1
+    	rocas.push(new Roca(
+        posx_aleatoria,
+        posy_aleatoria,
+        angulo_aleatorio,
+        escala_aleatoria,
+        0
+      ))	// Creo una nueva roca	/// INICIALIZO LA VELOCIDAD A CERO								
+    }
+    // Ahora creo una instancia del jugador
+    let InstanciaJugador = new Jugador(40,40,0,0)		// INICIALIZO VELOCIDAD A CERO
+    let nave = document.querySelector("#nave");
+    document.onkeydown = function(tecla){		// Cuando sobre el documento pulse tec
+      // w = 87, s = 83, a = 65 , d= 68
+      switch(tecla.keyCode){     
+        case 87:			// Si pulso W
+          InstanciaJugador.posy -= 5;	// Subo cinco unidades en Y
+          break;
+        case 83:			// Si pulso S
+          InstanciaJugador.posy += 5;	// Bajo cinco unidades en Y
+          break;
+        case 65:			// Si pulso A
+          InstanciaJugador.posx -= 5;	// Quito cinco unidades en X
+          break;
+        case 68:			// Si pulso D
+          InstanciaJugador.posx += 5;	// Sumo cinco unidades en X
+          break;
+      }
+      nave.style.left = InstanciaJugador.posx+"px";
+      nave.style.top = InstanciaJugador.posy+"px";
+    }
+    // Voy a dibujar rocas
+    for(let i = 0;i<numero_rocas;i++){
+    	let nueva_roca = document.createElement("img"); // Creo una nueva imagen
+      nueva_roca.classList.add("roca")								// Le añado la clase roca
+      nueva_roca.src = "roca.png"											// Cargo la imagen de la roca
+      nueva_roca.style.position = "absolute"					// Le pongo absoluto para poder mover con libertad
+      nueva_roca.style.left = rocas[i].posx+"px"					// Le pongo su posicion X
+      nueva_roca.style.top = rocas[i].posy+"px"						// Le pongo su posicion Y
+      nueva_roca.style.transform = "rotate("+rocas[i].angulo+"deg)  scale("+rocas[i].escala+")"	// NUEVO /////////////////
+      document.querySelector("body").appendChild(nueva_roca)	// Añado la roca al body
     }
   </script>
 </html>
@@ -21520,6 +21908,65 @@ print(profesor1.dameDatos())
        style="fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:1.157;stroke-linecap:round;stroke-linejoin:round"
        d="M 91.739761,67.586412 H 106.39051 L 99.260526,52.561182 Z"
        id="path4" />
+  </g>
+</svg>
+```
+
+### roca
+<small>Creado: 2025-12-09 11:00</small>
+
+`roca.svg`
+
+```
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="50mm"
+   height="50mm"
+   viewBox="0 0 50 50"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (1:1.4.2+202505120737+ebf0e940d0)"
+   sodipodi:docname="roca.svg"
+   inkscape:export-filename="nave.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.9149817"
+     inkscape:cx="98.695462"
+     inkscape:cy="86.162705"
+     inkscape:window-width="1920"
+     inkscape:window-height="971"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-73.256581,-51.982756)">
+    <path
+       style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:1.157;stroke-linecap:round;stroke-linejoin:round"
+       d="m 84.724272,64.555766 -10e-7,6.631917 -4.697608,4.144948 5.802928,2.901464 -5.664763,8.98072 7.046412,7.322743 8.013567,-2.486969 7.046413,4.283114 10.08604,-3.315958 -2.62513,-8.566227 7.18458,-4.006785 -6.35559,-7.460906 5.25027,-5.941092 -2.7633,-5.250268 -8.15173,2.072474 -3.86862,-4.559444 -7.322748,0.690826 -1.796144,7.322742 z"
+       id="path4"
+       sodipodi:nodetypes="ccccccccccccccccccc" />
   </g>
 </svg>
 ```

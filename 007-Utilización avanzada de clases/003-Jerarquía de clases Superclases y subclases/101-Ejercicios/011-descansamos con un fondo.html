@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      #nave{position:absolute;width:50px;}
+      .roca{width:50px;}
+    </style>
+  </head>
+  <body>
+    <img src="nave.png" id="nave">
+  </body>
+  <script>
+    // Variables globales
+    let anchopagina = window.innerWidth				// NUEVO ////////////////////
+    let altopagina = window.innerHeight			// NUEVO ////////////////////
+    
+    // Primero declaramos una clase madre (abstracta)
+    class Entidad{											// Creamos una entidad como superclase
+    	constructor(x,y,a,v){
+      	this.posx = x;
+        this.posy = y;
+        this.angulo = a;  	
+        this.velocidad = v;
+      }
+    }
+    // Luego declaro las clases concretas
+    class Bala extends Entidad {				// La bala extiende a la entidad
+    	constructor(x,y,a,v){
+      	super(x, y, a, v);							// La bala hereda estas propiedades de la entidad
+      }
+    }
+    class Jugador extends Entidad {			// El jugador extiende a la entidad
+    	constructor(x,y,a,v){
+      	super(x, y, a, v);							// El jugador hereda estas propiedades de la entidad
+      }
+    }
+    class Roca extends Entidad {				// Y la roca extiende a la entidad
+    	constructor(x,y,a,e,v){
+      	super(x, y, a, v);							// La roca hereda estas propiedades de la entidad										
+        this.escala = e;								// Pero la roca puede tener sus propias propiedades
+      }
+    }
+    // Voy a crear rocas
+    let numero_rocas = 100;													// Digo cuantas rocas quiero
+    let rocas = [];																	// Creo un array vacío
+    for(let i = 0;i<numero_rocas;i++){							// Recorro un bucle
+      let posx_aleatoria = Math.random()*anchopagina	// posx aleatoria en toda la X de la pantalla
+      let posy_aleatoria = Math.random()*altopagina		// posy aleatoria en toda la Y de la pantalla
+      let angulo_aleatorio = Math.random()*360
+      let escala_aleatoria = Math.random()*1
+    	rocas.push(new Roca(
+        posx_aleatoria,
+        posy_aleatoria,
+        angulo_aleatorio,
+        escala_aleatoria,
+        0
+      ))	// Creo una nueva roca	/// INICIALIZO LA VELOCIDAD A CERO								
+    }
+    // Ahora creo una instancia del jugador
+    let nave = document.querySelector("#nave");
+    let InstanciaJugador = new Jugador(
+      Math.random()*anchopagina,
+      Math.random()*altopagina,
+       0,0)		 																// NUEVO /////////////////////////
+   	nave.style.left = InstanciaJugador.posx+"px";
+    nave.style.top = InstanciaJugador.posy+"px";
+    
+    document.onkeydown = function(tecla){		// Cuando sobre el documento pulse tec
+      // w = 87, s = 83, a = 65 , d= 68
+      switch(tecla.keyCode){     
+        case 87:			// Si pulso W
+          InstanciaJugador.posy -= 5;	// Subo cinco unidades en Y
+          break;
+        case 83:			// Si pulso S
+          InstanciaJugador.posy += 5;	// Bajo cinco unidades en Y
+          break;
+        case 65:			// Si pulso A
+          InstanciaJugador.posx -= 5;	// Quito cinco unidades en X
+          break;
+        case 68:			// Si pulso D
+          InstanciaJugador.posx += 5;	// Sumo cinco unidades en X
+          break;
+      }
+      nave.style.left = InstanciaJugador.posx+"px";
+      nave.style.top = InstanciaJugador.posy+"px";
+    }
+    // Voy a dibujar rocas
+    for(let i = 0;i<numero_rocas;i++){
+    	let nueva_roca = document.createElement("img"); // Creo una nueva imagen
+      nueva_roca.classList.add("roca")								// Le añado la clase roca
+      nueva_roca.src = "roca.png"											// Cargo la imagen de la roca
+      nueva_roca.style.position = "absolute"					// Le pongo absoluto para poder mover con libertad
+      nueva_roca.style.left = rocas[i].posx+"px"					// Le pongo su posicion X
+      nueva_roca.style.top = rocas[i].posy+"px"						// Le pongo su posicion Y
+      nueva_roca.style.transform = "rotate("+rocas[i].angulo+"deg)  scale("+rocas[i].escala+")"	// NUEVO /////////////////
+      document.querySelector("body").appendChild(nueva_roca)	// Añado la roca al body
+    }
+  </script>
+</html>
