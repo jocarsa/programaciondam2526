@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      #nave{position:absolute;width:50px;}
+    </style>
+  </head>
+  <body>
+    <img src="nave.png" id="nave">
+  </body>
+  <script>
+    let nave = document.querySelector("#nave");
+    let posx = 40;
+    let posy = 40;
+    
+    document.onkeydown = function(tecla){		// Cuando sobre el documento pulse tec
+    	console.log(tecla)
+      // w = 87, s = 83, a = 65 , d= 68
+      
+      switch(tecla.keyCode){     
+        case 87:			// Si pulso W
+          posy -= 5;	// Subo cinco unidades en Y
+          console.log("aqui entro")
+          break;
+        case 83:			// Si pulso S
+          posy += 5;	// Bajo cinco unidades en Y
+          break;
+        case 65:			// Si pulso A
+          posx -= 5;	// Quito cinco unidades en X
+          break;
+        case 68:			// Si pulso D
+          posx += 5;	// Sumo cinco unidades en X
+          break;
+      }
+      nave.style.left = posx+"px";
+      nave.style.top = posy+"px";
+    }
+  </script>
+</html>

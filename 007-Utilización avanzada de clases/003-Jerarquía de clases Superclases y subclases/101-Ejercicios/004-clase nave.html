@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      #nave{position:absolute;width:50px;}
+    </style>
+  </head>
+  <body>
+    <img src="nave.png" id="nave">
+  </body>
+  <script>
+    // Primero declaramos una clase
+    class Jugador{
+    	constructor(x,y){
+      	this.posx = x;
+        this.posy = y;
+      }
+    }
+    // Ahora creo una instancia del jugador
+    let InstanciaJugador = new Jugador(40,40)
+    let nave = document.querySelector("#nave");
+
+    
+    document.onkeydown = function(tecla){		// Cuando sobre el documento pulse tec
+    	console.log(tecla)
+      // w = 87, s = 83, a = 65 , d= 68
+      
+      switch(tecla.keyCode){     
+        case 87:			// Si pulso W
+          InstanciaJugador.posy -= 5;	// Subo cinco unidades en Y
+          console.log("aqui entro")
+          break;
+        case 83:			// Si pulso S
+          InstanciaJugador.posy += 5;	// Bajo cinco unidades en Y
+          break;
+        case 65:			// Si pulso A
+          InstanciaJugador.posx -= 5;	// Quito cinco unidades en X
+          break;
+        case 68:			// Si pulso D
+          InstanciaJugador.posx += 5;	// Sumo cinco unidades en X
+          break;
+      }
+      nave.style.left = InstanciaJugador.posx+"px";
+      nave.style.top = InstanciaJugador.posy+"px";
+    }
+  </script>
+</html>

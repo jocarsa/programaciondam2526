@@ -21240,6 +21240,290 @@ print(profesor1.dameDatos())
 <a id="jerarquia-de-clases-superclases-y-subclases"></a>
 ## Jerarquía de clases Superclases y subclases
 
+### preparamos
+<small>Creado: 2025-12-09 10:35</small>
+
+`001-preparamos.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <img src="nave.png" id="nave">
+  </body>
+</html>
+```
+
+### script de movimiento
+<small>Creado: 2025-12-09 10:38</small>
+
+`002-script de movimiento.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <img src="nave.png" id="nave">
+  </body>
+  <script>
+    let nave = document.querySelector("#nave");
+    let posx = 40;
+    let posy = 40;
+    
+    document.onkeydown = function(tecla){		// Cuando sobre el documento pulse tec
+    	console.log(tecla)
+    }
+  </script>
+</html>
+```
+
+### keycodes
+<small>Creado: 2025-12-09 10:48</small>
+
+`003-keycodes.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      #nave{position:absolute;width:50px;}
+    </style>
+  </head>
+  <body>
+    <img src="nave.png" id="nave">
+  </body>
+  <script>
+    let nave = document.querySelector("#nave");
+    let posx = 40;
+    let posy = 40;
+    
+    document.onkeydown = function(tecla){		// Cuando sobre el documento pulse tec
+    	console.log(tecla)
+      // w = 87, s = 83, a = 65 , d= 68
+      
+      switch(tecla.keyCode){     
+        case 87:			// Si pulso W
+          posy -= 5;	// Subo cinco unidades en Y
+          console.log("aqui entro")
+          break;
+        case 83:			// Si pulso S
+          posy += 5;	// Bajo cinco unidades en Y
+          break;
+        case 65:			// Si pulso A
+          posx -= 5;	// Quito cinco unidades en X
+          break;
+        case 68:			// Si pulso D
+          posx += 5;	// Sumo cinco unidades en X
+          break;
+      }
+      nave.style.left = posx+"px";
+      nave.style.top = posy+"px";
+    }
+  </script>
+</html>
+```
+
+### clase nave
+<small>Creado: 2025-12-09 10:52</small>
+
+`004-clase nave.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      #nave{position:absolute;width:50px;}
+    </style>
+  </head>
+  <body>
+    <img src="nave.png" id="nave">
+  </body>
+  <script>
+    // Primero declaramos una clase
+    class Jugador{
+    	constructor(x,y){
+      	this.posx = x;
+        this.posy = y;
+      }
+    }
+    // Ahora creo una instancia del jugador
+    let InstanciaJugador = new Jugador(40,40)
+    let nave = document.querySelector("#nave");
+
+    
+    document.onkeydown = function(tecla){		// Cuando sobre el documento pulse tec
+    	console.log(tecla)
+      // w = 87, s = 83, a = 65 , d= 68
+      
+      switch(tecla.keyCode){     
+        case 87:			// Si pulso W
+          InstanciaJugador.posy -= 5;	// Subo cinco unidades en Y
+          console.log("aqui entro")
+          break;
+        case 83:			// Si pulso S
+          InstanciaJugador.posy += 5;	// Bajo cinco unidades en Y
+          break;
+        case 65:			// Si pulso A
+          InstanciaJugador.posx -= 5;	// Quito cinco unidades en X
+          break;
+        case 68:			// Si pulso D
+          InstanciaJugador.posx += 5;	// Sumo cinco unidades en X
+          break;
+      }
+      nave.style.left = InstanciaJugador.posx+"px";
+      nave.style.top = InstanciaJugador.posy+"px";
+    }
+  </script>
+</html>
+```
+
+### rocas
+<small>Creado: 2025-12-09 10:59</small>
+
+`005-rocas.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      #nave{position:absolute;width:50px;}
+    </style>
+  </head>
+  <body>
+    <img src="nave.png" id="nave">
+  </body>
+  <script>
+    // Primero declaramos una clase
+    class Jugador{
+    	constructor(x,y){
+      	this.posx = x;
+        this.posy = y;
+      }
+    }
+    class Roca{
+    	constructor(x,y){
+      	this.posx = x;
+        this.posy = y;
+      }
+    }
+    // Voy a crear rocas
+    let numero_rocas = 10;													// Digo cuantas rocas quiero
+    let rocas = [];																	// Creo un array vacío
+    for(let i = 0;i<numero_rocas;i++){							// Recorro un bucle
+      let posx_aleatoria = Math.random()*500				// posx aleatoria entre 0 y 500
+      let posy_aleatoria = Math.random()*500				// posy aleatoria entre 0 y 500
+    	rocas.push(new Roca(posx_aleatoria,posy_aleatoria))	// Creo una nueva roca
+    }
+    // Ahora creo una instancia del jugador
+    let InstanciaJugador = new Jugador(40,40)
+    let nave = document.querySelector("#nave");
+    document.onkeydown = function(tecla){		// Cuando sobre el documento pulse tec
+      // w = 87, s = 83, a = 65 , d= 68
+      switch(tecla.keyCode){     
+        case 87:			// Si pulso W
+          InstanciaJugador.posy -= 5;	// Subo cinco unidades en Y
+          break;
+        case 83:			// Si pulso S
+          InstanciaJugador.posy += 5;	// Bajo cinco unidades en Y
+          break;
+        case 65:			// Si pulso A
+          InstanciaJugador.posx -= 5;	// Quito cinco unidades en X
+          break;
+        case 68:			// Si pulso D
+          InstanciaJugador.posx += 5;	// Sumo cinco unidades en X
+          break;
+      }
+      nave.style.left = InstanciaJugador.posx+"px";
+      nave.style.top = InstanciaJugador.posy+"px";
+    }
+    // Voy a dibujar rocas
+    for(let i = 0;i<numero_rocas;i++){
+    	let nueva_roca = document.createElement("img"); // Creo una nueva imagen
+    }
+  </script>
+</html>
+```
+
+### nave
+<small>Creado: 2025-12-09 10:34</small>
+
+`nave.svg`
+
+```
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="50mm"
+   height="50mm"
+   viewBox="0 0 50 50"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (1:1.4.2+202505120737+ebf0e940d0)"
+   sodipodi:docname="nave.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.9149817"
+     inkscape:cx="98.695462"
+     inkscape:cy="86.162705"
+     inkscape:window-width="1920"
+     inkscape:window-height="971"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-73.256581,-51.982756)">
+    <path
+       style="fill:#e3203e;fill-opacity:1;stroke:#000000;stroke-width:1.157;stroke-linecap:round;stroke-linejoin:round"
+       d="m 84.97251,101.21447 h 29.44548 L 99.553618,84.899012 Z"
+       id="path2"
+       sodipodi:nodetypes="cccc" />
+    <ellipse
+       style="fill:#e3203e;fill-opacity:1;stroke:#000000;stroke-width:1.157;stroke-linecap:round;stroke-linejoin:round"
+       id="path1"
+       cx="99.065132"
+       cy="80.111839"
+       rx="10.161"
+       ry="18.074013" />
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.157;stroke-linecap:round;stroke-linejoin:round"
+       id="path3"
+       cx="99.016281"
+       cy="75.080421"
+       r="3.9567432" />
+    <path
+       style="fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:1.157;stroke-linecap:round;stroke-linejoin:round"
+       d="M 91.739761,67.586412 H 106.39051 L 99.260526,52.561182 Z"
+       id="path4" />
+  </g>
+</svg>
+```
+
 
 <a id="clases-y-metodos-abstractos-y-finales"></a>
 ## Clases y métodos abstractos y finales
