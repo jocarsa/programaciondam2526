@@ -57,6 +57,10 @@
         0
       ))	// Creo una nueva roca	/// INICIALIZO LA VELOCIDAD A CERO								
     }
+    // Voy a crear balas
+    let numero_balas = 0;												// Indico el numero de balas actual
+    let balas = [];															// Creo un conjunto vacio
+    
     // Ahora creo una instancia del jugador
     let nave = document.querySelector("#nave");
     let InstanciaJugador = new Jugador(
@@ -81,9 +85,23 @@
         case 68:			// Si pulso D
           InstanciaJugador.posx += 5;	// Sumo cinco unidades en X
           break;
-      }
-      nave.style.left = InstanciaJugador.posx+"px";
-      nave.style.top = InstanciaJugador.posy+"px";
+        case 32:			// Si pulso la barra espaciadora
+          balas.push(new Bala(
+            InstanciaJugador.posx,
+            InstanciaJugador.posy,
+            0,0
+          ));					// Cada vez que puso la barra espaciadora, creo una bala nueva
+          let nueva_bala = document.createElement("img"); // Creo una nueva imagen
+          nueva_bala.classList.add("bala")								// Le añado la clase roca
+          nueva_bala.src = "bala.png"											// Cargo la imagen de la roca
+          nueva_bala.style.position = "absolute"					// Le pongo absoluto para poder mover con libertad
+          nueva_bala.style.left = InstanciaJugador.posx+"px"					// Le pongo su posicion X
+          nueva_bala.style.top = InstanciaJugador.posy+"px"						// Le pongo su posicion Y
+          document.querySelector("body").appendChild(nueva_bala)	// Añado la roca al body
+              break;
+          }
+          nave.style.left = InstanciaJugador.posx+"px";
+          nave.style.top = InstanciaJugador.posy+"px";
     }
     // Voy a dibujar rocas
     for(let i = 0;i<numero_rocas;i++){
