@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>	
+    
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+      let lienzo = document.querySelector("canvas");	// Atrapo el canvas
+      lienzo.width = 512;															// Le pongo anchura
+      lienzo.height = 512;														// Le pongo altura
+      let contexto = lienzo.getContext("2d");		// Voy a dibujar en 2D
+      
+      // Ahora voy a dibujar un circulo
+      contexto.beginPath();											// Empiezo a dibujar
+      // arco: xinicial, yinicial,radio,anguloinicial,angulofinal
+      contexto.arc(256,256,200,0,Math.PI*2);		// Dibujo un circulo
+      contexto.stroke();												// Dibujo la linea
+      
+      // Ahora voy a dibujar una linea
+      contexto.beginPath();											// Empiezo a dibujar
+      contexto.moveTo(0,256);										// Muevo el cursor sin dibujar
+      contexto.lineTo(512,256);									// Muevo el curso pero ya dibujando
+      contexto.stroke()													// Realizo el trazo
+      
+      // Ahora voy a dibujar la linea vertical
+      contexto.beginPath();											// Empiezo a dibujar
+      contexto.moveTo(256,0);										// Muevo el cursor sin dibujar
+      contexto.lineTo(256,512);									// Muevo el curso pero ya dibujando
+      contexto.stroke()													// Realizo el trazo
+      
+      // Ahora dibujo una linea con angulo
+      let angulo = 1;														// Defino un angulo, acordaos que estamos en rad
+      contexto.beginPath();											// Empiezo a dibujar
+      contexto.moveTo(256,256);									// Muevo el cursor al centro
+      contexto.lineTo(
+        256+200*Math.cos(angulo),
+        256+200*Math.sin(angulo)
+      );		// Muevo el curso pero ya dibujando
+      contexto.stroke()													// Realizo el trazo
+      
+    </script>
+  </body>
+</html>

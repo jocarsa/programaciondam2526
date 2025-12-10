@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  <head>	
+    
+  </head>
+  <body>
+    <script>
+      let temporizador = setTimeout("bucle()",1000);	// Dentro de un seg, entra en el bucle
+      function bucle(){
+      	console.log("Hola");
+        clearTimeout(temporizador);			// Borro el temporizador anterior
+        temporizador = setTimeout("bucle()",1000); // Llamada recursiva
+      }
+    </script>
+  </body>
+</html>

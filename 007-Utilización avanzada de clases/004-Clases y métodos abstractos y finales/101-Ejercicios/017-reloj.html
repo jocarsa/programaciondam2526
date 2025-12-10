@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+  <head>	
+    
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+      // Condiciones iniciales
+      let temporizador = setTimeout("bucle()",1000);	// Dentro de un seg, entra en el bucle
+      let lienzo = document.querySelector("canvas");
+      lienzo.width = 512;					// Anchura del lienzo
+      lienzo.height = 512;				// Altura del lienzo
+      let contexto = lienzo.getContext("2d"); // Voy a dibujar en 2d
+      
+      // Condicion de bucle
+      function bucle(){
+      	let fecha = new Date();						// Construyo una fecha
+
+        let hora = fecha.getHours();			// Quiero saber la hora
+        let minuto = fecha.getMinutes();	// Quiero saber el minuto
+        let segundo = fecha.getSeconds();	// Quiero saber el segundo
+        
+        contexto.clearRect(0,0,512,512); 	// Borro el lienzo
+        
+        contexto.beginPath();				// Empiezo a dibujar
+        contexto.arc(256,256,200,0,Math.PI*2) // Dibujo un circulo completo
+        contexto.stroke(); 					// Y trazo linea
+        
+        // Ahora dibujo la manecilla de los segundos
+        angulo_segundo = segundo*(Math.PI*2/60)		// Segundos convertidos a radianes
+        contexto.beginPath(); 			// Empiezo a dibujar
+        contexto.moveTo(256,256);		// Muevo el cursor al centro del reloj
+        contexto.lineTo(
+          256+Math.cos(angulo_segundo)*200,
+          256+Math.sin(angulo_segundo)*200
+        )
+        contexto.stroke();
+        
+        // Ahora dibujo la manecilla de los minutos
+        angulo_minuto = minuto*(Math.PI*2/60)		// Segundos convertidos a radianes
+        contexto.beginPath(); 			// Empiezo a dibujar
+        contexto.moveTo(256,256);		// Muevo el cursor al centro del reloj
+        contexto.lineTo(
+          256+Math.cos(angulo_minuto)*150,
+          256+Math.sin(angulo_minuto)*150
+        )
+        contexto.stroke();
+        
+        // Ahora dibujo la manecilla de las horas
+        angulo_hora = hora*(Math.PI*2/60)		// Segundos convertidos a radianes
+        contexto.beginPath(); 			// Empiezo a dibujar
+        contexto.moveTo(256,256);		// Muevo el cursor al centro del reloj
+        contexto.lineTo(
+          256+Math.cos(angulo_hora)*100,
+          256+Math.sin(angulo_hora)*100
+        )
+        contexto.stroke();
+
+        clearTimeout(temporizador);			// Borro el temporizador anterior
+        temporizador = setTimeout("bucle()",1000); // Llamada recursiva
+      }
+    </script>
+  </body>
+</html>

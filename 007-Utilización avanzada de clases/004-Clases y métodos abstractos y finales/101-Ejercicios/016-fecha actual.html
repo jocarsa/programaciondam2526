@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>	
+    
+  </head>
+  <body>
+    <time></time>
+    <script>
+      let temporizador = setTimeout("bucle()",1000);	// Dentro de un seg, entra en el bucle
+      function bucle(){
+      	let fecha = new Date();
+        let anio = fecha.getFullYear();
+        let mes = fecha.getMonth()+1;
+        let dia = fecha.getDate();
+        let hora = fecha.getHours();
+        let minuto = fecha.getMinutes();
+        let segundo = fecha.getSeconds();
+        document.querySelector("time").textContent = anio+"/"+mes+"/"+dia+" "+hora+":"+minuto+":"+segundo;
+        clearTimeout(temporizador);			// Borro el temporizador anterior
+        temporizador = setTimeout("bucle()",1000); // Llamada recursiva
+      }
+    </script>
+  </body>
+</html>

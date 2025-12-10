@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <script>
+      class Ser{							// Abstracto implícito, no tiene sentido instancia
+      	constructor(edad){
+        	this.edad = edad
+        }
+      }
+      class Animal extends Ser{	// Abstracto implícito, no tiene sentido instancia
+      	constructor(especie){
+        	super();
+          this.especie = especie;
+        }
+      }
+      class Perro extends Animal{	// Concreto, tiene sentido instanciar
+      	constructor(color){
+        	super();
+          this.color = color;
+        }
+      }
+      let Perro1 = new Perro("blanco");
+      console.log(Perro1);
+    </script>
+  </body>
+</html>

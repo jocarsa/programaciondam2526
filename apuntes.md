@@ -21739,7 +21739,7 @@ print(profesor1.dameDatos())
 ```
 
 ### ancho y alto del navegador
-<small>Creado: 2025-12-09 11:59</small>
+<small>Creado: 2025-12-09 12:00</small>
 
 `009-ancho y alto del navegador.html`
 
@@ -21757,8 +21757,8 @@ print(profesor1.dameDatos())
   </body>
   <script>
     // Variables globales
-    let anchopagina = window.innerWidth
-    let altopagina = window.innerHeight
+    let anchopagina = window.innerWidth				// NUEVO ////////////////////
+    let altopagina = window.innerHeight			// NUEVO ////////////////////
     
     // Primero declaramos una clase madre (abstracta)
     class Entidad{											// Creamos una entidad como superclase
@@ -21787,7 +21787,7 @@ print(profesor1.dameDatos())
       }
     }
     // Voy a crear rocas
-    let numero_rocas = 10;													// Digo cuantas rocas quiero
+    let numero_rocas = 1000;													// Digo cuantas rocas quiero
     let rocas = [];																	// Creo un array vacío
     for(let i = 0;i<numero_rocas;i++){							// Recorro un bucle
       let posx_aleatoria = Math.random()*anchopagina	// posx aleatoria en toda la X de la pantalla
@@ -21837,6 +21837,520 @@ print(profesor1.dameDatos())
     }
   </script>
 </html>
+```
+
+### quiero que la nave empiece en cualquier punto
+<small>Creado: 2025-12-09 12:03</small>
+
+`010-quiero que la nave empiece en cualquier punto.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      #nave{position:absolute;width:50px;}
+      .roca{width:50px;}
+    </style>
+  </head>
+  <body>
+    <img src="nave.png" id="nave">
+  </body>
+  <script>
+    // Variables globales
+    let anchopagina = window.innerWidth				// NUEVO ////////////////////
+    let altopagina = window.innerHeight			// NUEVO ////////////////////
+    
+    // Primero declaramos una clase madre (abstracta)
+    class Entidad{											// Creamos una entidad como superclase
+    	constructor(x,y,a,v){
+      	this.posx = x;
+        this.posy = y;
+        this.angulo = a;  	
+        this.velocidad = v;
+      }
+    }
+    // Luego declaro las clases concretas
+    class Bala extends Entidad {				// La bala extiende a la entidad
+    	constructor(x,y,a,v){
+      	super(x, y, a, v);							// La bala hereda estas propiedades de la entidad
+      }
+    }
+    class Jugador extends Entidad {			// El jugador extiende a la entidad
+    	constructor(x,y,a,v){
+      	super(x, y, a, v);							// El jugador hereda estas propiedades de la entidad
+      }
+    }
+    class Roca extends Entidad {				// Y la roca extiende a la entidad
+    	constructor(x,y,a,e,v){
+      	super(x, y, a, v);							// La roca hereda estas propiedades de la entidad										
+        this.escala = e;								// Pero la roca puede tener sus propias propiedades
+      }
+    }
+    // Voy a crear rocas
+    let numero_rocas = 100;													// Digo cuantas rocas quiero
+    let rocas = [];																	// Creo un array vacío
+    for(let i = 0;i<numero_rocas;i++){							// Recorro un bucle
+      let posx_aleatoria = Math.random()*anchopagina	// posx aleatoria en toda la X de la pantalla
+      let posy_aleatoria = Math.random()*altopagina		// posy aleatoria en toda la Y de la pantalla
+      let angulo_aleatorio = Math.random()*360
+      let escala_aleatoria = Math.random()*1
+    	rocas.push(new Roca(
+        posx_aleatoria,
+        posy_aleatoria,
+        angulo_aleatorio,
+        escala_aleatoria,
+        0
+      ))	// Creo una nueva roca	/// INICIALIZO LA VELOCIDAD A CERO								
+    }
+    // Ahora creo una instancia del jugador
+    let nave = document.querySelector("#nave");
+    let InstanciaJugador = new Jugador(
+      Math.random()*anchopagina,
+      Math.random()*altopagina,
+       0,0)		 																// NUEVO /////////////////////////
+   	nave.style.left = InstanciaJugador.posx+"px";
+    nave.style.top = InstanciaJugador.posy+"px";
+    
+    document.onkeydown = function(tecla){		// Cuando sobre el documento pulse tec
+      // w = 87, s = 83, a = 65 , d= 68
+      switch(tecla.keyCode){     
+        case 87:			// Si pulso W
+          InstanciaJugador.posy -= 5;	// Subo cinco unidades en Y
+          break;
+        case 83:			// Si pulso S
+          InstanciaJugador.posy += 5;	// Bajo cinco unidades en Y
+          break;
+        case 65:			// Si pulso A
+          InstanciaJugador.posx -= 5;	// Quito cinco unidades en X
+          break;
+        case 68:			// Si pulso D
+          InstanciaJugador.posx += 5;	// Sumo cinco unidades en X
+          break;
+      }
+      nave.style.left = InstanciaJugador.posx+"px";
+      nave.style.top = InstanciaJugador.posy+"px";
+    }
+    // Voy a dibujar rocas
+    for(let i = 0;i<numero_rocas;i++){
+    	let nueva_roca = document.createElement("img"); // Creo una nueva imagen
+      nueva_roca.classList.add("roca")								// Le añado la clase roca
+      nueva_roca.src = "roca.png"											// Cargo la imagen de la roca
+      nueva_roca.style.position = "absolute"					// Le pongo absoluto para poder mover con libertad
+      nueva_roca.style.left = rocas[i].posx+"px"					// Le pongo su posicion X
+      nueva_roca.style.top = rocas[i].posy+"px"						// Le pongo su posicion Y
+      nueva_roca.style.transform = "rotate("+rocas[i].angulo+"deg)  scale("+rocas[i].escala+")"	// NUEVO /////////////////
+      document.querySelector("body").appendChild(nueva_roca)	// Añado la roca al body
+    }
+  </script>
+</html>
+```
+
+### descansamos con un fondo
+<small>Creado: 2025-12-09 12:09</small>
+
+`011-descansamos con un fondo.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      #nave{position:absolute;width:50px;}
+      .roca{width:50px;}
+      body{background:url("estrellas.jpeg");background-size:cover;}
+    </style>
+  </head>
+  <body>
+    <img src="nave.png" id="nave">
+  </body>
+  <script>
+    // Variables globales
+    let anchopagina = window.innerWidth				// NUEVO ////////////////////
+    let altopagina = window.innerHeight			// NUEVO ////////////////////
+    
+    // Primero declaramos una clase madre (abstracta)
+    class Entidad{											// Creamos una entidad como superclase
+    	constructor(x,y,a,v){
+      	this.posx = x;
+        this.posy = y;
+        this.angulo = a;  	
+        this.velocidad = v;
+      }
+    }
+    // Luego declaro las clases concretas
+    class Bala extends Entidad {				// La bala extiende a la entidad
+    	constructor(x,y,a,v){
+      	super(x, y, a, v);							// La bala hereda estas propiedades de la entidad
+      }
+    }
+    class Jugador extends Entidad {			// El jugador extiende a la entidad
+    	constructor(x,y,a,v){
+      	super(x, y, a, v);							// El jugador hereda estas propiedades de la entidad
+      }
+    }
+    class Roca extends Entidad {				// Y la roca extiende a la entidad
+    	constructor(x,y,a,e,v){
+      	super(x, y, a, v);							// La roca hereda estas propiedades de la entidad										
+        this.escala = e;								// Pero la roca puede tener sus propias propiedades
+      }
+    }
+    // Voy a crear rocas
+    let numero_rocas = 100;													// Digo cuantas rocas quiero
+    let rocas = [];																	// Creo un array vacío
+    for(let i = 0;i<numero_rocas;i++){							// Recorro un bucle
+      let posx_aleatoria = Math.random()*anchopagina	// posx aleatoria en toda la X de la pantalla
+      let posy_aleatoria = Math.random()*altopagina		// posy aleatoria en toda la Y de la pantalla
+      let angulo_aleatorio = Math.random()*360
+      let escala_aleatoria = Math.random()*1
+    	rocas.push(new Roca(
+        posx_aleatoria,
+        posy_aleatoria,
+        angulo_aleatorio,
+        escala_aleatoria,
+        0
+      ))	// Creo una nueva roca	/// INICIALIZO LA VELOCIDAD A CERO								
+    }
+    // Ahora creo una instancia del jugador
+    let nave = document.querySelector("#nave");
+    let InstanciaJugador = new Jugador(
+      Math.random()*anchopagina,
+      Math.random()*altopagina,
+       0,0)		 																// NUEVO /////////////////////////
+   	nave.style.left = InstanciaJugador.posx+"px";
+    nave.style.top = InstanciaJugador.posy+"px";
+    
+    document.onkeydown = function(tecla){		// Cuando sobre el documento pulse tec
+      // w = 87, s = 83, a = 65 , d= 68
+      switch(tecla.keyCode){     
+        case 87:			// Si pulso W
+          InstanciaJugador.posy -= 5;	// Subo cinco unidades en Y
+          break;
+        case 83:			// Si pulso S
+          InstanciaJugador.posy += 5;	// Bajo cinco unidades en Y
+          break;
+        case 65:			// Si pulso A
+          InstanciaJugador.posx -= 5;	// Quito cinco unidades en X
+          break;
+        case 68:			// Si pulso D
+          InstanciaJugador.posx += 5;	// Sumo cinco unidades en X
+          break;
+      }
+      nave.style.left = InstanciaJugador.posx+"px";
+      nave.style.top = InstanciaJugador.posy+"px";
+    }
+    // Voy a dibujar rocas
+    for(let i = 0;i<numero_rocas;i++){
+    	let nueva_roca = document.createElement("img"); // Creo una nueva imagen
+      nueva_roca.classList.add("roca")								// Le añado la clase roca
+      nueva_roca.src = "roca.png"											// Cargo la imagen de la roca
+      nueva_roca.style.position = "absolute"					// Le pongo absoluto para poder mover con libertad
+      nueva_roca.style.left = rocas[i].posx+"px"					// Le pongo su posicion X
+      nueva_roca.style.top = rocas[i].posy+"px"						// Le pongo su posicion Y
+      nueva_roca.style.transform = "rotate("+rocas[i].angulo+"deg)  scale("+rocas[i].escala+")"	// NUEVO /////////////////
+      document.querySelector("body").appendChild(nueva_roca)	// Añado la roca al body
+    }
+  </script>
+</html>
+```
+
+### crear balas
+<small>Creado: 2025-12-09 12:11</small>
+
+`012-crear balas.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      #nave{position:absolute;width:50px;}
+      .roca{width:50px;}
+      body{background:url("estrellas.jpeg");background-size:cover;}
+    </style>
+  </head>
+  <body>
+    <img src="nave.png" id="nave">
+  </body>
+  <script>
+    // Variables globales
+    let anchopagina = window.innerWidth				// NUEVO ////////////////////
+    let altopagina = window.innerHeight			// NUEVO ////////////////////
+    
+    // Primero declaramos una clase madre (abstracta)
+    class Entidad{											// Creamos una entidad como superclase
+    	constructor(x,y,a,v){
+      	this.posx = x;
+        this.posy = y;
+        this.angulo = a;  	
+        this.velocidad = v;
+      }
+    }
+    // Luego declaro las clases concretas
+    class Bala extends Entidad {				// La bala extiende a la entidad
+    	constructor(x,y,a,v){
+      	super(x, y, a, v);							// La bala hereda estas propiedades de la entidad
+      }
+    }
+    class Jugador extends Entidad {			// El jugador extiende a la entidad
+    	constructor(x,y,a,v){
+      	super(x, y, a, v);							// El jugador hereda estas propiedades de la entidad
+      }
+    }
+    class Roca extends Entidad {				// Y la roca extiende a la entidad
+    	constructor(x,y,a,e,v){
+      	super(x, y, a, v);							// La roca hereda estas propiedades de la entidad										
+        this.escala = e;								// Pero la roca puede tener sus propias propiedades
+      }
+    }
+    // Voy a crear rocas
+    let numero_rocas = 100;													// Digo cuantas rocas quiero
+    let rocas = [];																	// Creo un array vacío
+    for(let i = 0;i<numero_rocas;i++){							// Recorro un bucle
+      let posx_aleatoria = Math.random()*anchopagina	// posx aleatoria en toda la X de la pantalla
+      let posy_aleatoria = Math.random()*altopagina		// posy aleatoria en toda la Y de la pantalla
+      let angulo_aleatorio = Math.random()*360
+      let escala_aleatoria = Math.random()*1
+    	rocas.push(new Roca(
+        posx_aleatoria,
+        posy_aleatoria,
+        angulo_aleatorio,
+        escala_aleatoria,
+        0
+      ))	// Creo una nueva roca	/// INICIALIZO LA VELOCIDAD A CERO								
+    }
+    // Voy a crear balas
+    let numero_balas = 0;												// Indico el numero de balas actual
+    let balas = [];															// Creo un conjunto vacio
+    
+    // Ahora creo una instancia del jugador
+    let nave = document.querySelector("#nave");
+    let InstanciaJugador = new Jugador(
+      Math.random()*anchopagina,
+      Math.random()*altopagina,
+       0,0)		 																// NUEVO /////////////////////////
+   	nave.style.left = InstanciaJugador.posx+"px";
+    nave.style.top = InstanciaJugador.posy+"px";
+    
+    document.onkeydown = function(tecla){		// Cuando sobre el documento pulse tec
+      // w = 87, s = 83, a = 65 , d= 68
+      switch(tecla.keyCode){     
+        case 87:			// Si pulso W
+          InstanciaJugador.posy -= 5;	// Subo cinco unidades en Y
+          break;
+        case 83:			// Si pulso S
+          InstanciaJugador.posy += 5;	// Bajo cinco unidades en Y
+          break;
+        case 65:			// Si pulso A
+          InstanciaJugador.posx -= 5;	// Quito cinco unidades en X
+          break;
+        case 68:			// Si pulso D
+          InstanciaJugador.posx += 5;	// Sumo cinco unidades en X
+          break;
+      }
+      nave.style.left = InstanciaJugador.posx+"px";
+      nave.style.top = InstanciaJugador.posy+"px";
+    }
+    // Voy a dibujar rocas
+    for(let i = 0;i<numero_rocas;i++){
+    	let nueva_roca = document.createElement("img"); // Creo una nueva imagen
+      nueva_roca.classList.add("roca")								// Le añado la clase roca
+      nueva_roca.src = "roca.png"											// Cargo la imagen de la roca
+      nueva_roca.style.position = "absolute"					// Le pongo absoluto para poder mover con libertad
+      nueva_roca.style.left = rocas[i].posx+"px"					// Le pongo su posicion X
+      nueva_roca.style.top = rocas[i].posy+"px"						// Le pongo su posicion Y
+      nueva_roca.style.transform = "rotate("+rocas[i].angulo+"deg)  scale("+rocas[i].escala+")"	// NUEVO /////////////////
+      document.querySelector("body").appendChild(nueva_roca)	// Añado la roca al body
+    }
+  </script>
+</html>
+```
+
+### creo bala nueva al disparar
+<small>Creado: 2025-12-09 12:15</small>
+
+`013-creo bala nueva al disparar.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      #nave{position:absolute;width:50px;}
+      .roca{width:50px;}
+      .bala{width:50px;}
+      body{background:url("estrellas.jpeg");background-size:cover;}
+    </style>
+  </head>
+  <body>
+    <img src="nave.png" id="nave">
+  </body>
+  <script>
+    // Variables globales
+    let anchopagina = window.innerWidth				// NUEVO ////////////////////
+    let altopagina = window.innerHeight			// NUEVO ////////////////////
+    
+    // Primero declaramos una clase madre (abstracta)
+    class Entidad{											// Creamos una entidad como superclase
+    	constructor(x,y,a,v){
+      	this.posx = x;
+        this.posy = y;
+        this.angulo = a;  	
+        this.velocidad = v;
+      }
+    }
+    // Luego declaro las clases concretas
+    class Bala extends Entidad {				// La bala extiende a la entidad
+    	constructor(x,y,a,v){
+      	super(x, y, a, v);							// La bala hereda estas propiedades de la entidad
+      }
+    }
+    class Jugador extends Entidad {			// El jugador extiende a la entidad
+    	constructor(x,y,a,v){
+      	super(x, y, a, v);							// El jugador hereda estas propiedades de la entidad
+      }
+    }
+    class Roca extends Entidad {				// Y la roca extiende a la entidad
+    	constructor(x,y,a,e,v){
+      	super(x, y, a, v);							// La roca hereda estas propiedades de la entidad										
+        this.escala = e;								// Pero la roca puede tener sus propias propiedades
+      }
+    }
+    // Voy a crear rocas
+    let numero_rocas = 100;													// Digo cuantas rocas quiero
+    let rocas = [];																	// Creo un array vacío
+    for(let i = 0;i<numero_rocas;i++){							// Recorro un bucle
+      let posx_aleatoria = Math.random()*anchopagina	// posx aleatoria en toda la X de la pantalla
+      let posy_aleatoria = Math.random()*altopagina		// posy aleatoria en toda la Y de la pantalla
+      let angulo_aleatorio = Math.random()*360
+      let escala_aleatoria = Math.random()*1
+    	rocas.push(new Roca(
+        posx_aleatoria,
+        posy_aleatoria,
+        angulo_aleatorio,
+        escala_aleatoria,
+        0
+      ))	// Creo una nueva roca	/// INICIALIZO LA VELOCIDAD A CERO								
+    }
+    // Voy a crear balas
+    let numero_balas = 0;												// Indico el numero de balas actual
+    let balas = [];															// Creo un conjunto vacio
+    
+    // Ahora creo una instancia del jugador
+    let nave = document.querySelector("#nave");
+    let InstanciaJugador = new Jugador(
+      Math.random()*anchopagina,
+      Math.random()*altopagina,
+       0,0)		 																// NUEVO /////////////////////////
+   	nave.style.left = InstanciaJugador.posx+"px";
+    nave.style.top = InstanciaJugador.posy+"px";
+    
+    document.onkeydown = function(tecla){		// Cuando sobre el documento pulse tec
+      // w = 87, s = 83, a = 65 , d= 68
+      switch(tecla.keyCode){     
+        case 87:			// Si pulso W
+          InstanciaJugador.posy -= 5;	// Subo cinco unidades en Y
+          break;
+        case 83:			// Si pulso S
+          InstanciaJugador.posy += 5;	// Bajo cinco unidades en Y
+          break;
+        case 65:			// Si pulso A
+          InstanciaJugador.posx -= 5;	// Quito cinco unidades en X
+          break;
+        case 68:			// Si pulso D
+          InstanciaJugador.posx += 5;	// Sumo cinco unidades en X
+          break;
+        case 32:			// Si pulso la barra espaciadora
+          balas.push(new Bala(
+            InstanciaJugador.posx,
+            InstanciaJugador.posy,
+            0,0
+          ));					// Cada vez que puso la barra espaciadora, creo una bala nueva
+          let nueva_bala = document.createElement("img"); // Creo una nueva imagen
+          nueva_bala.classList.add("bala")								// Le añado la clase roca
+          nueva_bala.src = "bala.png"											// Cargo la imagen de la roca
+          nueva_bala.style.position = "absolute"					// Le pongo absoluto para poder mover con libertad
+          nueva_bala.style.left = InstanciaJugador.posx+"px"					// Le pongo su posicion X
+          nueva_bala.style.top = InstanciaJugador.posy+"px"						// Le pongo su posicion Y
+          document.querySelector("body").appendChild(nueva_bala)	// Añado la roca al body
+              break;
+          }
+          nave.style.left = InstanciaJugador.posx+"px";
+          nave.style.top = InstanciaJugador.posy+"px";
+    }
+    // Voy a dibujar rocas
+    for(let i = 0;i<numero_rocas;i++){
+    	let nueva_roca = document.createElement("img"); // Creo una nueva imagen
+      nueva_roca.classList.add("roca")								// Le añado la clase roca
+      nueva_roca.src = "roca.png"											// Cargo la imagen de la roca
+      nueva_roca.style.position = "absolute"					// Le pongo absoluto para poder mover con libertad
+      nueva_roca.style.left = rocas[i].posx+"px"					// Le pongo su posicion X
+      nueva_roca.style.top = rocas[i].posy+"px"						// Le pongo su posicion Y
+      nueva_roca.style.transform = "rotate("+rocas[i].angulo+"deg)  scale("+rocas[i].escala+")"	// NUEVO /////////////////
+      document.querySelector("body").appendChild(nueva_roca)	// Añado la roca al body
+    }
+  </script>
+</html>
+```
+
+### bala
+<small>Creado: 2025-12-09 12:15</small>
+
+`bala.svg`
+
+```
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="50mm"
+   height="50mm"
+   viewBox="0 0 50 50"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (1:1.4.2+202505120737+ebf0e940d0)"
+   sodipodi:docname="bala.svg"
+   inkscape:export-filename="roca.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.9149817"
+     inkscape:cx="98.695462"
+     inkscape:cy="86.162705"
+     inkscape:window-width="1920"
+     inkscape:window-height="971"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-73.256581,-51.982756)">
+    <circle
+       style="fill:#d40000;fill-opacity:1;stroke:#000000;stroke-width:1.157;stroke-linecap:round;stroke-linejoin:round"
+       id="path4"
+       cx="98.264442"
+       cy="76.714279"
+       r="11.329525" />
+  </g>
+</svg>
 ```
 
 ### nave
@@ -21974,6 +22488,762 @@ print(profesor1.dameDatos())
 
 <a id="clases-y-metodos-abstractos-y-finales"></a>
 ## Clases y métodos abstractos y finales
+
+### clase abstracta
+<small>Creado: 2025-12-10 08:43</small>
+
+`001-clase abstracta.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <script>
+      class Ser{							// Abstracto implícito, no tiene sentido instancia
+      	constructor(edad){
+        	this.edad = edad
+        }
+      }
+      class Animal extends Ser{	// Abstracto implícito, no tiene sentido instancia
+      	constructor(especie){
+        	super();
+          this.especie = especie;
+        }
+      }
+      class Perro extends Animal{	// Concreto, tiene sentido instanciar
+      	constructor(color){
+        	super();
+          this.color = color;
+        }
+      }
+      let Perro1 = new Perro("blanco");
+      console.log(Perro1);
+    </script>
+  </body>
+</html>
+```
+
+### transformaciones css
+<small>Creado: 2025-12-10 08:47</small>
+
+`002-transformaciones css.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      #rojo{
+        width:50px;height:50px;background:red;border:1px solid black;
+      	transform:translate(200px,200px);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="rojo"></div>
+  </body>
+</html>
+```
+
+### transformacion independiente
+<small>Creado: 2025-12-10 08:49</small>
+
+`003-transformacion independiente.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      #rojo{
+        width:50px;height:50px;background:red;border:1px solid black;
+      	transform:translateX(200px) translateY(200px);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="rojo"></div>
+  </body>
+</html>
+```
+
+### rotacion
+<small>Creado: 2025-12-10 08:49</small>
+
+`004-rotacion.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      #rojo{
+        width:50px;height:50px;background:red;border:1px solid black;
+      	transform:rotate(45deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="rojo"></div>
+  </body>
+</html>
+```
+
+### transformacion de escala
+<small>Creado: 2025-12-10 08:52</small>
+
+`005-transformacion de escala.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      #rojo{
+        width:50px;height:50px;background:red;border:1px solid black;
+      	transform:scale(1);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="rojo"></div>
+  </body>
+</html>
+```
+
+### multiples transformaciones
+<small>Creado: 2025-12-10 08:53</small>
+
+`006-multiples transformaciones.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      #rojo{
+        width:50px;height:50px;background:red;border:1px solid black;
+      	transform:translate(100px, 100px) rotate(45deg) scale(2);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="rojo"></div>
+  </body>
+</html>
+```
+
+### evento tecla
+<small>Creado: 2025-12-10 09:01</small>
+
+`007-evento tecla.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <script>
+      document.onkeydown = function(tecla){
+      	switch(tecla.key){
+          case "w":
+            console.log("Movemos el personaje hacia arriba");
+            break;
+          case "s":
+            console.log("Movemos el personaje hacia abajo");
+            break;
+          case "a":
+            console.log("Movemos el personaje hacia la izquierda");
+            break;
+          case "d":
+            console.log("Movemos el personaje hacia la derecha");
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>
+```
+
+### eventos de raton
+<small>Creado: 2025-12-10 09:03</small>
+
+`008-eventos de raton.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <script>
+      document.onkeydown = function(tecla){
+      	switch(tecla.key){
+          case "w":
+            console.log("Movemos el personaje hacia arriba");
+            break;
+          case "s":
+            console.log("Movemos el personaje hacia abajo");
+            break;
+          case "a":
+            console.log("Movemos el personaje hacia la izquierda");
+            break;
+          case "d":
+            console.log("Movemos el personaje hacia la derecha");
+            break;
+        }
+      }
+      document.onmousedown = function(){
+      	console.log("Disparamos");
+      }
+    </script>
+  </body>
+</html>
+```
+
+### juntamos lo de antes
+<small>Creado: 2025-12-10 09:10</small>
+
+`009-juntamos lo de antes.html`
+
+```html
+<!doctype html>
+<html>
+  <head>	
+    <style>
+      #rojo{width:50px;height:50px;background:red;border:1px solid black;}
+    </style>
+  </head>
+  <body>
+    <div id="rojo"></div>
+    <script>
+      // Defino condiciones de inicio
+      let posx = 0;
+      let posy = 0;
+      document.onkeydown = function(tecla){
+      	switch(tecla.key){
+          case "w":
+            posy -= 10;	// Restamos 10 de Y
+            console.log("Movemos el personaje hacia arriba");
+            break;
+          case "s":
+            posy += 10;	// Sumamos 10 en Y
+            console.log("Movemos el personaje hacia abajo");
+            break;
+          case "a":
+            posx -= 10; // Restamos 10 de X
+            console.log("Movemos el personaje hacia la izquierda");
+            break;
+          case "d":
+            posx += 10; // Sumamos 10 en X
+            console.log("Movemos el personaje hacia la derecha");
+            break;
+        }
+        document.querySelector("#rojo").style.transform = "translate("+posx+"px,"+posy+"px)"
+      }
+      document.onmousedown = function(){
+      	console.log("Disparamos");
+      }
+    </script>
+  </body>
+</html>
+```
+
+### trigonometria basica
+<small>Creado: 2025-12-10 09:21</small>
+
+`010-trigonometria basica.html`
+
+```html
+<!doctype html>
+<html>
+  <head>	
+    
+  </head>
+  <body>
+    <script>
+      let angulo = Math.PI/4;
+      let coseno = Math.cos(angulo);
+      let seno = Math.sin(angulo);
+      console.log("El angulo es",angulo,"su coseno es",coseno,"su seno es",seno);
+    </script>
+  </body>
+</html>
+```
+
+### dibujar con canvas
+<small>Creado: 2025-12-10 09:30</small>
+
+`011-dibujar con canvas.html`
+
+```html
+<!doctype html>
+<html>
+  <head>	
+    
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+      let lienzo = document.querySelector("canvas");	// Atrapo el canvas
+      lienzo.width = 512;															// Le pongo anchura
+      lienzo.height = 512;														// Le pongo altura
+      let contexto = lienzo.getContext("2d");		// Voy a dibujar en 2D
+      
+      // Ahora voy a dibujar un circulo
+      contexto.beginPath();											// Empiezo a dibujar
+      // arco: xinicial, yinicial,radio,anguloinicial,angulofinal
+      contexto.arc(256,256,200,0,Math.PI*2);		// Dibujo un circulo
+      contexto.stroke();												// Dibujo la linea
+      
+      // Ahora voy a dibujar una linea
+      contexto.beginPath();											// Empiezo a dibujar
+      contexto.moveTo(0,256);										// Muevo el cursor sin dibujar
+      contexto.lineTo(512,256);									// Muevo el curso pero ya dibujando
+      contexto.stroke()													// Realizo el trazo
+      
+      // Ahora voy a dibujar la linea vertical
+      contexto.beginPath();											// Empiezo a dibujar
+      contexto.moveTo(256,0);										// Muevo el cursor sin dibujar
+      contexto.lineTo(256,512);									// Muevo el curso pero ya dibujando
+      contexto.stroke()													// Realizo el trazo
+      
+    </script>
+  </body>
+</html>
+```
+
+### linea con angulo
+<small>Creado: 2025-12-10 09:33</small>
+
+`012-linea con angulo.html`
+
+```html
+<!doctype html>
+<html>
+  <head>	
+    
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+      let lienzo = document.querySelector("canvas");	// Atrapo el canvas
+      lienzo.width = 512;															// Le pongo anchura
+      lienzo.height = 512;														// Le pongo altura
+      let contexto = lienzo.getContext("2d");		// Voy a dibujar en 2D
+      
+      // Ahora voy a dibujar un circulo
+      contexto.beginPath();											// Empiezo a dibujar
+      // arco: xinicial, yinicial,radio,anguloinicial,angulofinal
+      contexto.arc(256,256,200,0,Math.PI*2);		// Dibujo un circulo
+      contexto.stroke();												// Dibujo la linea
+      
+      // Ahora voy a dibujar una linea
+      contexto.beginPath();											// Empiezo a dibujar
+      contexto.moveTo(0,256);										// Muevo el cursor sin dibujar
+      contexto.lineTo(512,256);									// Muevo el curso pero ya dibujando
+      contexto.stroke()													// Realizo el trazo
+      
+      // Ahora voy a dibujar la linea vertical
+      contexto.beginPath();											// Empiezo a dibujar
+      contexto.moveTo(256,0);										// Muevo el cursor sin dibujar
+      contexto.lineTo(256,512);									// Muevo el curso pero ya dibujando
+      contexto.stroke()													// Realizo el trazo
+      
+      // Ahora dibujo una linea con angulo
+      let angulo = 1;														// Defino un angulo, acordaos que estamos en rad
+      contexto.beginPath();											// Empiezo a dibujar
+      contexto.moveTo(256,256);									// Muevo el cursor al centro
+      contexto.lineTo(
+        256+200*Math.cos(angulo),
+        256+200*Math.sin(angulo)
+      );		// Muevo el curso pero ya dibujando
+      contexto.stroke()													// Realizo el trazo
+      
+    </script>
+  </body>
+</html>
+```
+
+### varias lineas
+<small>Creado: 2025-12-10 09:37</small>
+
+`013-varias lineas.html`
+
+```html
+<!doctype html>
+<html>
+  <head>	
+    
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+      let lienzo = document.querySelector("canvas");	// Atrapo el canvas
+      lienzo.width = 512;															// Le pongo anchura
+      lienzo.height = 512;														// Le pongo altura
+      let contexto = lienzo.getContext("2d");		// Voy a dibujar en 2D
+      
+      // Ahora voy a dibujar un circulo
+      contexto.beginPath();											// Empiezo a dibujar
+      // arco: xinicial, yinicial,radio,anguloinicial,angulofinal
+      contexto.arc(256,256,200,0,Math.PI*2);		// Dibujo un circulo
+      contexto.stroke();												// Dibujo la linea
+      
+      // Ahora voy a dibujar una linea
+      contexto.beginPath();											// Empiezo a dibujar
+      contexto.moveTo(0,256);										// Muevo el cursor sin dibujar
+      contexto.lineTo(512,256);									// Muevo el curso pero ya dibujando
+      contexto.stroke()													// Realizo el trazo
+      
+      // Ahora voy a dibujar la linea vertical
+      contexto.beginPath();											// Empiezo a dibujar
+      contexto.moveTo(256,0);										// Muevo el cursor sin dibujar
+      contexto.lineTo(256,512);									// Muevo el curso pero ya dibujando
+      contexto.stroke()													// Realizo el trazo
+      for(let i = 0;i<Math.PI*2;i += 0.04){
+        // Ahora dibujo una linea con angulo
+        let angulo = i;														// Defino un angulo, acordaos que estamos en rad
+        contexto.beginPath();											// Empiezo a dibujar
+        contexto.moveTo(256,256);									// Muevo el cursor al centro
+        contexto.lineTo(
+          256+200*Math.cos(angulo),
+          256+200*Math.sin(angulo)
+        );		// Muevo el curso pero ya dibujando
+        contexto.stroke()													// Realizo el trazo
+      }
+    </script>
+  </body>
+</html>
+```
+
+### temporizador
+<small>Creado: 2025-12-10 09:40</small>
+
+`014-temporizador.html`
+
+```html
+<!doctype html>
+<html>
+  <head>	
+    
+  </head>
+  <body>
+    <script>
+      function saludo(){
+      	document.write("yo te saludo");
+      }
+      setTimeout("saludo()",5000);
+    </script>
+  </body>
+</html>
+```
+
+### bucle
+<small>Creado: 2025-12-10 09:44</small>
+
+`015-bucle.html`
+
+```html
+<!doctype html>
+<html>
+  <head>	
+    
+  </head>
+  <body>
+    <script>
+      let temporizador = setTimeout("bucle()",1000);	// Dentro de un seg, entra en el bucle
+      function bucle(){
+      	console.log("Hola");
+        clearTimeout(temporizador);			// Borro el temporizador anterior
+        temporizador = setTimeout("bucle()",1000); // Llamada recursiva
+      }
+    </script>
+  </body>
+</html>
+```
+
+### fecha actual
+<small>Creado: 2025-12-10 09:49</small>
+
+`016-fecha actual.html`
+
+```html
+<!doctype html>
+<html>
+  <head>	
+    
+  </head>
+  <body>
+    <time></time>
+    <script>
+      let temporizador = setTimeout("bucle()",1000);	// Dentro de un seg, entra en el bucle
+      function bucle(){
+      	let fecha = new Date();
+        let anio = fecha.getFullYear();
+        let mes = fecha.getMonth()+1;
+        let dia = fecha.getDate();
+        let hora = fecha.getHours();
+        let minuto = fecha.getMinutes();
+        let segundo = fecha.getSeconds();
+        document.querySelector("time").textContent = anio+"/"+mes+"/"+dia+" "+hora+":"+minuto+":"+segundo;
+        clearTimeout(temporizador);			// Borro el temporizador anterior
+        temporizador = setTimeout("bucle()",1000); // Llamada recursiva
+      }
+    </script>
+  </body>
+</html>
+```
+
+### reloj
+<small>Creado: 2025-12-10 10:11</small>
+
+`017-reloj.html`
+
+```html
+<!doctype html>
+<html>
+  <head>	
+    
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+      // Condiciones iniciales
+      let temporizador = setTimeout("bucle()",1000);	// Dentro de un seg, entra en el bucle
+      let lienzo = document.querySelector("canvas");
+      lienzo.width = 512;					// Anchura del lienzo
+      lienzo.height = 512;				// Altura del lienzo
+      let contexto = lienzo.getContext("2d"); // Voy a dibujar en 2d
+      
+      // Condicion de bucle
+      function bucle(){
+      	let fecha = new Date();						// Construyo una fecha
+
+        let hora = fecha.getHours();			// Quiero saber la hora
+        let minuto = fecha.getMinutes();	// Quiero saber el minuto
+        let segundo = fecha.getSeconds();	// Quiero saber el segundo
+        
+        contexto.clearRect(0,0,512,512); 	// Borro el lienzo
+        
+        contexto.beginPath();				// Empiezo a dibujar
+        contexto.arc(256,256,200,0,Math.PI*2) // Dibujo un circulo completo
+        contexto.stroke(); 					// Y trazo linea
+        
+        // Ahora dibujo la manecilla de los segundos
+        angulo_segundo = segundo*(Math.PI*2/60)		// Segundos convertidos a radianes
+        contexto.beginPath(); 			// Empiezo a dibujar
+        contexto.moveTo(256,256);		// Muevo el cursor al centro del reloj
+        contexto.lineTo(
+          256+Math.cos(angulo_segundo)*200,
+          256+Math.sin(angulo_segundo)*200
+        )
+        contexto.stroke();
+        
+        // Ahora dibujo la manecilla de los minutos
+        angulo_minuto = minuto*(Math.PI*2/60)		// Segundos convertidos a radianes
+        contexto.beginPath(); 			// Empiezo a dibujar
+        contexto.moveTo(256,256);		// Muevo el cursor al centro del reloj
+        contexto.lineTo(
+          256+Math.cos(angulo_minuto)*150,
+          256+Math.sin(angulo_minuto)*150
+        )
+        contexto.stroke();
+        
+        // Ahora dibujo la manecilla de las horas
+        angulo_hora = hora*(Math.PI*2/60)		// Segundos convertidos a radianes
+        contexto.beginPath(); 			// Empiezo a dibujar
+        contexto.moveTo(256,256);		// Muevo el cursor al centro del reloj
+        contexto.lineTo(
+          256+Math.cos(angulo_hora)*100,
+          256+Math.sin(angulo_hora)*100
+        )
+        contexto.stroke();
+
+        clearTimeout(temporizador);			// Borro el temporizador anterior
+        temporizador = setTimeout("bucle()",1000); // Llamada recursiva
+      }
+    </script>
+  </body>
+</html>
+```
+
+### estilo
+<small>Creado: 2025-12-10 10:19</small>
+
+`018-estilo.html`
+
+```html
+<!doctype html>
+<html>
+  <head>	
+    
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+      // Condiciones iniciales
+      let temporizador = setTimeout("bucle()",1000);	// Dentro de un seg, entra en el bucle
+      let lienzo = document.querySelector("canvas");
+      lienzo.width = 512;					// Anchura del lienzo
+      lienzo.height = 512;				// Altura del lienzo
+      let contexto = lienzo.getContext("2d"); // Voy a dibujar en 2d
+      contexto.lineCap = "round";
+      // Condicion de bucle
+      function bucle(){
+      	let fecha = new Date();						// Construyo una fecha
+
+        let hora = fecha.getHours();			// Quiero saber la hora
+        let minuto = fecha.getMinutes();	// Quiero saber el minuto
+        let segundo = fecha.getSeconds();	// Quiero saber el segundo
+        
+        contexto.clearRect(0,0,512,512); 	// Borro el lienzo
+        
+          
+        // Ahora dibujo la manecilla de las horas
+        contexto.lineWidth = 45;
+        contexto.strokeStyle = "blue";
+        angulo_hora = hora*(Math.PI*2/60)		// Segundos convertidos a radianes
+        contexto.beginPath(); 			// Empiezo a dibujar
+        contexto.moveTo(256,256);		// Muevo el cursor al centro del reloj
+        contexto.lineTo(
+          256+Math.cos(angulo_hora)*100,
+          256+Math.sin(angulo_hora)*100
+        )
+        contexto.stroke();
+        
+        // Ahora dibujo la manecilla de los minutos
+        contexto.lineWidth = 25;
+        contexto.strokeStyle = "green";
+        angulo_minuto = minuto*(Math.PI*2/60)		// Segundos convertidos a radianes
+        contexto.beginPath(); 			// Empiezo a dibujar
+        contexto.moveTo(256,256);		// Muevo el cursor al centro del reloj
+        contexto.lineTo(
+          256+Math.cos(angulo_minuto)*150,
+          256+Math.sin(angulo_minuto)*150
+        )
+        contexto.stroke();
+        
+        // Ahora dibujo la manecilla de los segundos
+        contexto.lineWidth = 5;
+        contexto.strokeStyle = "red";
+        angulo_segundo = segundo*(Math.PI*2/60)		// Segundos convertidos a radianes
+        contexto.beginPath(); 			// Empiezo a dibujar
+        contexto.moveTo(256,256);		// Muevo el cursor al centro del reloj
+        contexto.lineTo(
+          256+Math.cos(angulo_segundo)*200,
+          256+Math.sin(angulo_segundo)*200
+        )
+        contexto.stroke();
+        
+        // Circulo central
+        contexto.beginPath();
+        contexto.arc(256,256,50,0,Math.PI*2)
+        contexto.fill();
+        
+        contexto.lineWidth = 25;
+        contexto.strokeStyle = "black";
+        contexto.beginPath();				// Empiezo a dibujar
+        contexto.arc(256,256,200,0,Math.PI*2) // Dibujo un circulo completo
+        contexto.stroke(); 					// Y trazo linea
+
+        clearTimeout(temporizador);			// Borro el temporizador anterior
+        temporizador = setTimeout("bucle()",1000); // Llamada recursiva
+      }
+    </script>
+  </body>
+</html>
+```
+
+### desfase de 90 grados
+<small>Creado: 2025-12-10 10:26</small>
+
+`019-desfase de 90 grados.html`
+
+```html
+<!doctype html>
+<html>
+  <head>	
+    
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+      // Condiciones iniciales
+      let temporizador = setTimeout("bucle()",1000);	// Dentro de un seg, entra en el bucle
+      let lienzo = document.querySelector("canvas");
+      lienzo.width = 512;					// Anchura del lienzo
+      lienzo.height = 512;				// Altura del lienzo
+      let contexto = lienzo.getContext("2d"); // Voy a dibujar en 2d
+      contexto.lineCap = "round";
+      // Condicion de bucle
+      function bucle(){
+      	let fecha = new Date();						// Construyo una fecha
+
+        let hora = fecha.getHours();			// Quiero saber la hora
+        let minuto = fecha.getMinutes();	// Quiero saber el minuto
+        let segundo = fecha.getSeconds();	// Quiero saber el segundo
+        
+        contexto.clearRect(0,0,512,512); 	// Borro el lienzo
+        
+          
+        // Ahora dibujo la manecilla de las horas
+        contexto.lineWidth = 45;
+        contexto.strokeStyle = "blue";
+        angulo_hora = hora*(Math.PI*2/12)-Math.PI/2		// Segundos convertidos a radianes
+        contexto.beginPath(); 			// Empiezo a dibujar
+        contexto.moveTo(256,256);		// Muevo el cursor al centro del reloj
+        contexto.lineTo(
+          256+Math.cos(angulo_hora)*100,
+          256+Math.sin(angulo_hora)*100
+        )
+        contexto.stroke();
+        
+        // Ahora dibujo la manecilla de los minutos
+        contexto.lineWidth = 25;
+        contexto.strokeStyle = "green";
+        angulo_minuto = minuto*(Math.PI*2/60)-Math.PI/2		// Segundos convertidos a radianes
+        contexto.beginPath(); 			// Empiezo a dibujar
+        contexto.moveTo(256,256);		// Muevo el cursor al centro del reloj
+        contexto.lineTo(
+          256+Math.cos(angulo_minuto)*150,
+          256+Math.sin(angulo_minuto)*150
+        )
+        contexto.stroke();
+        
+        // Ahora dibujo la manecilla de los segundos
+        contexto.lineWidth = 5;
+        contexto.strokeStyle = "red";
+        angulo_segundo = segundo*(Math.PI*2/60)-Math.PI/2		// Segundos convertidos a radianes
+        contexto.beginPath(); 			// Empiezo a dibujar
+        contexto.moveTo(256,256);		// Muevo el cursor al centro del reloj
+        contexto.lineTo(
+          256+Math.cos(angulo_segundo)*200,
+          256+Math.sin(angulo_segundo)*200
+        )
+        contexto.stroke();
+        
+        // Circulo central
+        contexto.beginPath();
+        contexto.arc(256,256,50,0,Math.PI*2)
+        contexto.fill();
+        
+        contexto.lineWidth = 25;
+        contexto.strokeStyle = "black";
+        contexto.beginPath();				// Empiezo a dibujar
+        contexto.arc(256,256,200,0,Math.PI*2) // Dibujo un circulo completo
+        contexto.stroke(); 					// Y trazo linea
+
+        clearTimeout(temporizador);			// Borro el temporizador anterior
+        temporizador = setTimeout("bucle()",1000); // Llamada recursiva
+      }
+    </script>
+  </body>
+</html>
+```
 
 
 <a id="interfaces"></a>
