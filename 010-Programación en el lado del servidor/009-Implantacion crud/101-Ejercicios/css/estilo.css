@@ -1,0 +1,19 @@
+body,html{
+	width:100%;
+  height:100%;
+  margin:0px;
+  padding:0px;
+}
+
+header,main,footer{
+	width:800px;
+  margin:auto;
+}
+header,footer{
+	text-align:center;
+}
+main{
+	display:grid;
+  grid-template-columns:repeat(2,100fr);
+  gap:20px;
+}
