@@ -93,6 +93,7 @@
   - [Repasito de cosas de GitHub](#repasito-de-cosas-de-github)
   - [Bloques](#bloques)
   - [Sesiones en PHP](#sesiones-en-php)
+  - [Implantacion crud](#implantacion-crud)
 - [.git](#git)
   - [branches](#branches)
   - [hooks](#hooks)
@@ -25485,6 +25486,37 @@ Esto es HTML pero no pasa nada<br>
 	session_start();
 	echo $_SESSION['nombre'];
 ?>
+```
+
+
+<a id="implantacion-crud"></a>
+## Implantacion crud
+
+### index
+<small>Creado: 2025-12-11 10:38</small>
+
+`index.php`
+
+```
+<!doctype html>
+<html lang="es">
+	<head>
+  	<title>El jocarsa - Noticias tecnológicas</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/estilo.css">
+  </head>
+  <body>
+  	<header>
+    	<h1>El jocarsa</h1>
+      <h2>Noticias tecnológicas</h2>
+    </header>
+    <main>
+    	<?php include "inc/listar_articulos.php"; ?>
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html>
 ```
 
 
