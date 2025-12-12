@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Diagrama exportado</title>
+<style>
+body {
+  margin: 0;
+  padding: 20px;
+  background: #f3f3f7;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.page {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  width: 682.9296705457897px;
+  height: 491.93751017252583px;
+  overflow: visible;
+}
+
+/* formas básicas */
+.shape {
+  position: absolute;
+  min-width: 120px;
+  min-height: 40px;
+  padding: 6px 10px;
+  background: #ffffff;
+  border-radius: 4px;
+  border: 1px solid #9ca3af;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+.shape.rectangle {
+  border-radius: 4px;
+}
+
+.shape.pill {
+  border-radius: 999px;
+}
+
+.shape.circle {
+  border-radius: 999px;
+  width: 80px;
+  height: 80px;
+  padding: 0;
+  justify-content: center;
+}
+
+/* texto libre */
+.shape.text {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+/* base de datos */
+.shape.db {
+  min-width: 120px;
+  min-height: 60px;
+  padding-top: 20px;
+  border-radius: 60px / 16px;
+  background: linear-gradient(180deg, #e5e7eb 0%, #ffffff 40%, #e5e7eb 100%);
+  position: absolute;
+  overflow: hidden;
+  text-align: center;
+}
+.shape.db::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8px;
+  right: 8px;
+  height: 18px;
+  border-radius: 999px;
+  border: 1px solid #9ca3af;
+  background: radial-gradient(circle at 50% 30%, #ffffff 0%, #e5e7eb 70%);
+}
+.shape.db::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 8px;
+  right: 8px;
+  height: 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(156, 163, 175, 0.6);
+  border-top: none;
+  background: radial-gradient(circle at 50% 70%, #e5e7eb 0%, #d1d5db 70%);
+}
+
+/* entidades ER */
+.shape.entity {
+  width: 220px;
+  min-height: 80px;
+  background: #ffffff;
+  border: 2px solid #111827;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.15);
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  overflow: hidden;
+  padding: 0;
+}
+.entity-header {
+  background: #f3f4f6;
+  padding: 4px 8px;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+.entity-properties {
+  flex: 1;
+  padding: 4px 4px 0 4px;
+}
+.entity-property {
+  display: grid;
+  grid-template-columns: 14px 1fr 14px;
+  align-items: center;
+  column-gap: 4px;
+  padding: 2px 0;
+}
+.entity-property .property-name {
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/* puertos */
+.port {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid #111827;
+  background: #ffffff;
+}
+.port-left { justify-self: start; }
+.port-right { justify-self: end; }
+
+/* flechas rectas */
+.arrow {
+  position: absolute;
+  height: 2px;
+  background: #111827;
+  transform-origin: 0 50%;
+}
+.arrow::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid #111827;
+}
+.arrow-double::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid #111827;
+}
+
+/* flechas ortogonales */
+.ortho-arrow {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.ortho-arrow .ortho-seg {
+  position: absolute;
+  background: #111827;
+}
+.ortho-seg.seg-horizontal { height: 2px; }
+.ortho-seg.seg-vertical { width: 2px; }
+.ortho-arrowhead {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+.ortho-arrowhead.dir-right {
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid #111827;
+}
+.ortho-arrowhead.dir-left {
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 8px solid #111827;
+}
+.ortho-arrowhead.dir-down {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 8px solid #111827;
+}
+.ortho-arrowhead.dir-up {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 8px solid #111827;
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="shape entity" style="left:250.0234646267361px;top:241.18748982747383px;width:159.98438517252598px;height:210.750020345052px;">
+  <div class="entity-header">Producto</div>
+  <div class="entity-properties">
+    <div class="entity-property">
+      <div class="port port-left"></div>
+      <div class="property-name">id</div>
+      <div class="port port-right"></div>
+    </div>
+    <div class="entity-property">
+      <div class="port port-left"></div>
+      <div class="property-name">nombre_producto</div>
+      <div class="port port-right"></div>
+    </div>
+    <div class="entity-property">
+      <div class="port port-left"></div>
+      <div class="property-name">descripcion</div>
+      <div class="port port-right"></div>
+    </div>
+    <div class="entity-property">
+      <div class="port port-left"></div>
+      <div class="property-name">precio</div>
+      <div class="port port-right"></div>
+    </div>
+    <div class="entity-property">
+      <div class="port port-left"></div>
+      <div class="property-name">stock</div>
+      <div class="port port-right"></div>
+    </div>
+    <div class="entity-property">
+      <div class="port port-left"></div>
+      <div class="property-name">imagen</div>
+      <div class="port port-right"></div>
+    </div>
+  </div>
+</div>
+<div class="shape entity" style="left:40px;top:40px;width:159.98438517252598px;height:210.7499694824218px;">
+  <div class="entity-header">Cliente</div>
+  <div class="entity-properties">
+    <div class="entity-property">
+      <div class="port port-left"></div>
+      <div class="property-name">id</div>
+      <div class="port port-right"></div>
+    </div>
+    <div class="entity-property">
+      <div class="port port-left"></div>
+      <div class="property-name">nombre_cliente</div>
+      <div class="port port-right"></div>
+    </div>
+    <div class="entity-property">
+      <div class="port port-left"></div>
+      <div class="property-name">apellidos</div>
+      <div class="port port-right"></div>
+    </div>
+    <div class="entity-property">
+      <div class="port port-left"></div>
+      <div class="property-name">email</div>
+      <div class="port port-right"></div>
+    </div>
+    <div class="entity-property">
+      <div class="port port-left"></div>
+      <div class="property-name">direccion</div>
+      <div class="port port-right"></div>
+    </div>
+    <div class="entity-property">
+      <div class="port port-left"></div>
+      <div class="property-name">telefono</div>
+      <div class="port port-right"></div>
+    </div>
+  </div>
+</div>
+<div class="shape entity" style="left:265.6796603732638px;top:45.99995930989587px;width:159.98438517252598px;height:137.34374999999994px;">
+  <div class="entity-header">Pedido</div>
+  <div class="entity-properties">
+    <div class="entity-property">
+      <div class="port port-left"></div>
+      <div class="property-name">id</div>
+      <div class="port port-right"></div>
+    </div>
+    <div class="entity-property">
+      <div class="port port-left"></div>
+      <div class="property-name">fecha</div>
+      <div class="port port-right"></div>
+    </div>
+    <div class="entity-property">
+      <div class="port port-left"></div>
+      <div class="property-name">cliente_id</div>
+      <div class="port port-right"></div>
+    </div>
+  </div>
+</div>
+<div class="shape entity" style="left:482.9452853732637px;top:128.85152180989581px;width:159.98438517252598px;height:161.81248982747388px;">
+  <div class="entity-header">LineasPedido</div>
+  <div class="entity-properties">
+    <div class="entity-property">
+      <div class="port port-left"></div>
+      <div class="property-name">id</div>
+      <div class="port port-right"></div>
+    </div>
+    <div class="entity-property">
+      <div class="port port-left"></div>
+      <div class="property-name">pedido_id</div>
+      <div class="port port-right"></div>
+    </div>
+    <div class="entity-property">
+      <div class="port port-left"></div>
+      <div class="property-name">cantidad</div>
+      <div class="port port-right"></div>
+    </div>
+    <div class="entity-property">
+      <div class="port port-left"></div>
+      <div class="property-name">producto_id</div>
+      <div class="port port-right"></div>
+    </div>
+  </div>
+</div>
+<div class="arrow" style="left:297.835964626736px;top:140.41966262712828px;width:123.42841067262258px;transform:rotate(-2.720393219837227rad);"></div>
+<div class="arrow" style="left:508.18752712673586px;top:251.65100722030473px;width:111.88639593921678px;transform:rotate(2.81796544070483rad);"></div>
+<div class="arrow" style="left:508.18752712673586px;top:196.7421961724612px;width:151.3398365804447px;transform:rotate(-2.430911234509158rad);"></div>
+</div>
+</body>
+</html>
