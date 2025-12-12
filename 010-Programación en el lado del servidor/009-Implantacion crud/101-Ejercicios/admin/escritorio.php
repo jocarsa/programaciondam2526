@@ -13,7 +13,15 @@
       <button>Autores</button>
     </nav>
     <main>
-    	<?php include "inc/read/leer.php"; ?>
+    	<?php
+      	if(isset($_GET['accion'])){
+        	if($_GET['accion'] == "nuevo"){
+          	include "inc/create/formulario.php";
+          }
+        }else{
+      		include "inc/read/leer.php"; 
+        }
+      ?>
       <a href="?accion=nuevo" id="nuevo">+</a>
     </main>
   </body>
