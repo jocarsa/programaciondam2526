@@ -61,7 +61,17 @@ table th{
 table td,table th{
 	padding:5px;
 }
-
+.eliminar,.editar{
+	width:20px;
+  height:20px;
+  background:teal;
+  border-radius:30px;
+  color:white;
+  line-height:20px;
+  text-decoration:none;
+  display:block;
+  text-align:center;
+}
 /* ESTILOS DEL FORMULARIO /////////////  */
 
 form{

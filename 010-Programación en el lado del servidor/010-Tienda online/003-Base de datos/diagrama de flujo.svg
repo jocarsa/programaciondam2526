@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="442.88284965183414" height="262.8359587296195" viewBox="0 0 442.88284965183414 262.8359587296195">
+
+  <defs>
+    <style>
+      text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 12px; fill: #111827; }
+      .shape-rect { fill: #ffffff; stroke: #9ca3af; stroke-width: 1; }
+      .shape-entity { fill: #ffffff; stroke: #111827; stroke-width: 2; }
+      .shape-circle { fill: #ffffff; stroke: #9ca3af; stroke-width: 1; }
+      .shape-pill { fill: #ffffff; stroke: #9ca3af; stroke-width: 1; }
+      .shape-db { fill: #ffffff; stroke: #9ca3af; stroke-width: 1; }
+      .conn { stroke: #111827; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="arrow-end" markerWidth="10" markerHeight="7" refX="10" refY="3.5"
+            orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#111827"/>
+    </marker>
+    <marker id="arrow-start" markerWidth="10" markerHeight="7" refX="0" refY="3.5"
+            orient="auto" markerUnits="strokeWidth">
+      <polygon points="10 0, 0 3.5, 10 7" fill="#111827"/>
+    </marker>
+  </defs>
+        
+<rect class="shape-rect" x="40" y="97.84376061480972" width="119.99999999999994" height="39.98437300972314" rx="4" ry="4" />
+<text x="99.99999999999997" y="121.83594711967129" text-anchor="middle">index</text>
+<rect class="shape-rect" x="167.38283903702438" y="40" width="119.99999999999994" height="39.984382961107315" rx="4" ry="4" />
+<text x="227.38283903702435" y="63.99219148055366" text-anchor="middle">Catálogo</text>
+<rect class="shape-rect" x="282.88284965183414" y="103.37500530740485" width="119.99999999999994" height="39.984382961107315" rx="4" ry="4" />
+<text x="342.88284965183414" y="127.3671967879585" text-anchor="middle">P Producto</text>
+<rect class="shape-rect" x="247.37501061480964" y="180.69530984629748" width="119.99999999999994" height="39.984382961107315" rx="4" ry="4" />
+<text x="307.37501061480964" y="204.68750132685113" text-anchor="middle">Carrito</text>
+<rect class="shape-rect" x="86.50000530740488" y="182.85157576851216" width="119.99997346297549" height="39.984382961107315" rx="4" ry="4" />
+<text x="146.49999203889263" y="206.84376724906582" text-anchor="middle">Finalización</text>
+<text x="203.45310377038038" y="134.25000530740485">Front</text>
+<path class="conn" d="M 144.02655822411253 97.84376061480972 L 183.35626985550118 79.98438296110731" marker-end="url(#arrow-end)" />
+<path class="conn" d="M 263.8183125650629 79.98438296110731 L 306.4473761237955 103.3750053074049" marker-end="url(#arrow-end)" />
+<path class="conn" d="M 333.70182635759966 143.35938826851216 L 316.556033909044 180.69530984629742" marker-end="url(#arrow-end)" />
+<path class="conn" d="M 247.37501061480964 201.49170297654248 L 206.49997877038027 202.03956577721706" marker-end="url(#arrow-end)" />
+<path class="conn" d="M 135.56409527938598 182.85157576851216 L 110.9358940377611 137.8281336245329" marker-end="url(#arrow-end)" />
+</svg>

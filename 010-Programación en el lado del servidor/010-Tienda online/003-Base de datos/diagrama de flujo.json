@@ -1,0 +1,130 @@
+{
+  "formas": [
+    {
+      "id": "forma-1",
+      "tipo": "rectangle",
+      "left": "374.734px",
+      "top": "263.499px",
+      "width": "",
+      "height": "",
+      "texto": "index"
+    },
+    {
+      "id": "forma-2",
+      "tipo": "rectangle",
+      "left": "502.111px",
+      "top": "205.658px",
+      "width": "",
+      "height": "",
+      "texto": "Catálogo"
+    },
+    {
+      "id": "forma-3",
+      "tipo": "rectangle",
+      "left": "617.613px",
+      "top": "269.03px",
+      "width": "",
+      "height": "",
+      "texto": "P Producto"
+    },
+    {
+      "id": "forma-4",
+      "tipo": "rectangle",
+      "left": "582.114px",
+      "top": "346.349px",
+      "width": "",
+      "height": "",
+      "texto": "Carrito"
+    },
+    {
+      "id": "forma-5",
+      "tipo": "rectangle",
+      "left": "421.229px",
+      "top": "348.499px",
+      "width": "",
+      "height": "",
+      "texto": "Finalización"
+    },
+    {
+      "id": "forma-6",
+      "tipo": "text",
+      "left": "538.19px",
+      "top": "285.912px",
+      "width": "",
+      "height": "",
+      "texto": "Front"
+    }
+  ],
+  "flechas": [
+    {
+      "desde": {
+        "shapeId": "forma-1",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-2",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-2",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-3",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-3",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-4",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-4",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-5",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-5",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-1",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    }
+  ]
+}

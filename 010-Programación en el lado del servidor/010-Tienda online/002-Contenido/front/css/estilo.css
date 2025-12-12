@@ -1,0 +1,10 @@
+body,html{
+	background:mediumorchid;
+  font-family:sans-serif;
+}
+header,main,footer{
+	width:800px;
+  background:white;
+  padding:20px;
+  margin:auto;
+}

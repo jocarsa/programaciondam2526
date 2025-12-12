@@ -94,6 +94,7 @@
   - [Bloques](#bloques)
   - [Sesiones en PHP](#sesiones-en-php)
   - [Implantacion crud](#implantacion-crud)
+  - [Tienda online](#tienda-online)
 - [.git](#git)
   - [branches](#branches)
   - [hooks](#hooks)
@@ -25518,6 +25519,10 @@ Esto es HTML pero no pasa nada<br>
   </body>
 </html>
 ```
+
+
+<a id="tienda-online"></a>
+## Tienda online
 
 
 
