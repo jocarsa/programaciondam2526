@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1144.5312499999998" height="654.8750813802083" viewBox="0 0 1144.5312499999998 654.8750813802083">
+
+  <defs>
+    <style>
+      text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 12px; fill: #111827; }
+      .shape-rect { fill: #ffffff; stroke: #9ca3af; stroke-width: 1; }
+      .shape-entity { fill: #ffffff; stroke: #111827; stroke-width: 2; }
+      .shape-circle { fill: #ffffff; stroke: #9ca3af; stroke-width: 1; }
+      .shape-pill { fill: #ffffff; stroke: #9ca3af; stroke-width: 1; }
+      .shape-db { fill: #ffffff; stroke: #9ca3af; stroke-width: 1; }
+      .conn { stroke: #111827; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="arrow-end" markerWidth="10" markerHeight="7" refX="10" refY="3.5"
+            orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#111827"/>
+    </marker>
+    <marker id="arrow-start" markerWidth="10" markerHeight="7" refX="0" refY="3.5"
+            orient="auto" markerUnits="strokeWidth">
+      <polygon points="10 0, 0 3.5, 10 7" fill="#111827"/>
+    </marker>
+  </defs>
+        
+<rect class="shape-entity" x="691.343790690104" y="408.87502034505206" width="159.99999999999997" height="206.00006103515622" />
+<line x1="691.343790690104" y1="438.875020345052" x2="851.343790690104" y2="438.875020345052" stroke="#e5e7eb" stroke-width="1"/>
+<text x="771.343790690104" y="428.3749999999999" text-anchor="middle">Producto</text>
+<text x="719.1250203450519" y="458.8749796549478">id</text>
+<text x="719.1250203450519" y="482.87502034505206">nombre_producto</text>
+<text x="719.1250203450519" y="506.8750610351562">descripcion</text>
+<text x="719.1250203450519" y="530.875">precio</text>
+<text x="719.1250203450519" y="554.875040690104">stock</text>
+<text x="719.1250203450519" y="578.875030517578">imagen</text>
+<rect class="shape-entity" x="429.54691569010413" y="201.437505086263" width="159.99999999999997" height="206.00003560384113" />
+<line x1="429.54691569010413" y1="231.43750508626295" x2="589.5469156901041" y2="231.43750508626295" stroke="#e5e7eb" stroke-width="1"/>
+<text x="509.54691569010413" y="220.93751017252598" text-anchor="middle">Cliente</text>
+<text x="464.23437499999994" y="251.437515258789">id</text>
+<text x="464.23437499999994" y="275.437505086263">nombre_cliente</text>
+<text x="464.23437499999994" y="299.4374949137369">apellidos</text>
+<text x="464.23437499999994" y="323.43754831949866">email</text>
+<text x="464.23437499999994" y="347.43749999999994">direccion</text>
+<text x="464.23437499999994" y="371.4375406901041">telefono</text>
+<rect class="shape-entity" x="710.1250203450519" y="208.42191060384113" width="159.99999999999997" height="133.99996439615884" />
+<line x1="710.1250203450519" y1="238.4219106038411" x2="870.1250203450519" y2="238.4219106038411" stroke="#e5e7eb" stroke-width="1"/>
+<text x="790.1250203450519" y="227.92189025878903" text-anchor="middle">Pedido</text>
+<text x="762.218790690104" y="258.4218699137369">id</text>
+<text x="762.218790690104" y="282.4219106038411">fecha</text>
+<text x="762.218790690104" y="306.421900431315">cliente_id</text>
+<rect class="shape-entity" x="944.5312499999998" y="284.5937856038411" width="159.99999999999997" height="158.000005086263" />
+<line x1="944.5312499999998" y1="314.59378560384107" x2="1104.5312499999998" y2="314.59378560384107" stroke="#e5e7eb" stroke-width="1"/>
+<text x="1024.5312499999998" y="304.09376525878895" text-anchor="middle">LineasPedido</text>
+<text x="989.718790690104" y="334.5937576293944">id</text>
+<text x="989.718790690104" y="358.5938110351562">pedido_id</text>
+<text x="989.718790690104" y="382.59374999999994">cantidad</text>
+<text x="989.718790690104" y="406.5937906901041">producto_id</text>
+<rect class="shape-rect" x="40" y="40" width="119.99999999999999" height="39.99999999999999" rx="4" ry="4" />
+<text x="100" y="64" text-anchor="middle">Inicio</text>
+<rect class="shape-rect" x="214.09372965494788" y="40.15625" width="120.00005086263019" height="39.99999999999999" rx="4" ry="4" />
+<text x="274.09375508626295" y="64.15625" text-anchor="middle">Catalogo</text>
+<rect class="shape-rect" x="386.859385172526" y="41.828130086263" width="119.99999999999999" height="39.99999999999999" rx="4" ry="4" />
+<text x="446.859385172526" y="65.828130086263" text-anchor="middle">Producto</text>
+<rect class="shape-rect" x="560.1719156901041" y="42.34375" width="119.99999999999999" height="39.99999999999999" rx="4" ry="4" />
+<text x="620.1719156901041" y="66.34375" text-anchor="middle">Carrito</text>
+<rect class="shape-rect" x="747.437540690104" y="41.81251525878906" width="119.99999999999999" height="39.99999999999999" rx="4" ry="4" />
+<text x="807.437540690104" y="65.81251525878906" text-anchor="middle">Finalizacion</text>
+<text x="302.43754069010413" y="108.593760172526">Me llevo el producto</text>
+<text x="495.218760172526" y="112.500010172526">Me llevo el producto</text>
+<text x="816.2187703450519" y="109.40626525878906">Me llevo el producto</text>
+<text x="494.109395345052" y="136.93752034505206">Me llevo la cantidad</text>
+<text x="746.2031046549478" y="129.234375">Me llevo la cantidad</text>
+<text x="686.7499796549478" y="148.718755086263">Me llevo los datos de cliente</text>
+<path class="conn" d="M 160 60.053850294603365 L 214.09372965494788 60.1023996825719" marker-end="url(#arrow-end)" />
+<path class="conn" d="M 334.09378051757807 60.73687965211195 L 386.859385172526 61.24750068025389" marker-end="url(#arrow-end)" />
+<path class="conn" d="M 506.859385172526 62.00663532608513 L 560.171915690104 62.16524476017787" marker-end="url(#arrow-end)" />
+<path class="conn" d="M 680.171915690104 62.17354212296618 L 747.437540690104 61.98272313582288" marker-end="url(#arrow-end)" />
+<path class="conn" d="M 751.6644585271334 154.718755086263 L 589.546915690104 254.9677435247949" marker-end="url(#arrow-end)" />
+<path class="conn" d="M 769.5412680697314 154.718755086263 L 778.6993767195734 208.42191060384107" marker-end="url(#arrow-end)" />
+<path class="conn" d="M 880.6639166871892 115.40626525878906 L 978.7371683099782 284.5937856038411" marker-end="url(#arrow-end)" />
+</svg>

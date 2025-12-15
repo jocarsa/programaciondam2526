@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Diagrama exportado</title>
+<style>
+body {
+  margin: 0;
+  padding: 20px;
+  background: #f3f3f7;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.page {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  width: 865.1562194824222px;
+  height: 273.6406250000001px;
+  overflow: visible;
+}
+
+/* formas básicas */
+.shape {
+  position: absolute;
+  min-width: 120px;
+  min-height: 40px;
+  padding: 6px 10px;
+  background: #ffffff;
+  border-radius: 4px;
+  border: 1px solid #9ca3af;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+.shape.rectangle {
+  border-radius: 4px;
+}
+
+.shape.pill {
+  border-radius: 999px;
+}
+
+.shape.circle {
+  border-radius: 999px;
+  width: 80px;
+  height: 80px;
+  padding: 0;
+  justify-content: center;
+}
+
+/* texto libre */
+.shape.text {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+/* base de datos */
+.shape.db {
+  min-width: 120px;
+  min-height: 60px;
+  padding-top: 20px;
+  border-radius: 60px / 16px;
+  background: linear-gradient(180deg, #e5e7eb 0%, #ffffff 40%, #e5e7eb 100%);
+  position: absolute;
+  overflow: hidden;
+  text-align: center;
+}
+.shape.db::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8px;
+  right: 8px;
+  height: 18px;
+  border-radius: 999px;
+  border: 1px solid #9ca3af;
+  background: radial-gradient(circle at 50% 30%, #ffffff 0%, #e5e7eb 70%);
+}
+.shape.db::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 8px;
+  right: 8px;
+  height: 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(156, 163, 175, 0.6);
+  border-top: none;
+  background: radial-gradient(circle at 50% 70%, #e5e7eb 0%, #d1d5db 70%);
+}
+
+/* entidades ER */
+.shape.entity {
+  width: 220px;
+  min-height: 80px;
+  background: #ffffff;
+  border: 2px solid #111827;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.15);
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  overflow: hidden;
+  padding: 0;
+}
+.entity-header {
+  background: #f3f4f6;
+  padding: 4px 8px;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+.entity-properties {
+  flex: 1;
+  padding: 4px 4px 0 4px;
+}
+.entity-property {
+  display: grid;
+  grid-template-columns: 14px 1fr 14px;
+  align-items: center;
+  column-gap: 4px;
+  padding: 2px 0;
+}
+.entity-property .property-name {
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/* puertos */
+.port {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid #111827;
+  background: #ffffff;
+}
+.port-left { justify-self: start; }
+.port-right { justify-self: end; }
+
+/* flechas rectas */
+.arrow {
+  position: absolute;
+  height: 2px;
+  background: #111827;
+  transform-origin: 0 50%;
+}
+.arrow::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid #111827;
+}
+.arrow-double::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid #111827;
+}
+
+/* flechas ortogonales */
+.ortho-arrow {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.ortho-arrow .ortho-seg {
+  position: absolute;
+  background: #111827;
+}
+.ortho-seg.seg-horizontal { height: 2px; }
+.ortho-seg.seg-vertical { width: 2px; }
+.ortho-arrowhead {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+.ortho-arrowhead.dir-right {
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid #111827;
+}
+.ortho-arrowhead.dir-left {
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 8px solid #111827;
+}
+.ortho-arrowhead.dir-down {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 8px solid #111827;
+}
+.ortho-arrowhead.dir-up {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 8px solid #111827;
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="shape rectangle" style="left:40px;top:119.93750000000003px;width:120.00000000000006px;height:40.00000000000002px;">Inicio</div>
+<div class="shape rectangle" style="left:206.04687500000006px;top:117.12500000000003px;width:120.00000000000006px;height:40.00000000000002px;">Catálogo</div>
+<div class="shape rectangle" style="left:373.4687500000001px;top:116.40625000000003px;width:119.99996948242193px;height:40.00000000000002px;">Producto</div>
+<div class="shape text" style="left:295.3125000000001px;top:86.40625000000003px;width:109.18750000000004px;height:20.00000000000001px;">Pasa el id producto</div>
+<div class="shape rectangle" style="left:538.6562194824221px;top:113.81250000000003px;width:120.00000000000006px;height:40.00000000000002px;">Carrito</div>
+<div class="shape text" style="left:460.1249694824221px;top:81.57812500000003px;width:109.18750000000004px;height:20.00000000000001px;">Pasa el id producto</div>
+<div class="shape text" style="left:460.4999694824221px;top:59.375px;width:108.60937500000004px;height:20.00000000000001px;">Pasan las unidades</div>
+<div class="shape rectangle" style="left:702.4374694824222px;top:114.09375000000003px;width:120.00000000000006px;height:40.00000000000002px;">Finalizar</div>
+<div class="shape text" style="left:627.8905944824221px;top:82.73437500000003px;width:109.18750000000004px;height:20.00000000000001px;">Pasa el id producto</div>
+<div class="shape text" style="left:626.5468444824221px;top:60px;width:108.60937500000004px;height:20.00000000000001px;">Pasan las unidades</div>
+<div class="shape text" style="left:607.9062194824221px;top:40px;width:151.95312500000006px;height:20.00000000000001px;">Pasan los datos de usuario</div>
+<div class="shape pill" style="left:705.1562194824222px;top:193.64062500000009px;width:120.00000000000006px;height:40.00000000000002px;">SQL</div>
+<div class="arrow" style="left:160.0000000000001px;top:138.92122071139553px;width:46.053479845594836px;transform:rotate(-0.01693636861164748rad);"></div>
+<div class="arrow" style="left:326.0468750000001px;top:136.86741714871252px;width:47.422311996658976px;transform:rotate(-0.004293021147760685rad);"></div>
+<div class="arrow" style="left:493.4687194824221px;top:135.46413891533567px;width:45.19307010651637px;transform:rotate(-0.015700565173391582rad);"></div>
+<div class="arrow" style="left:658.6562194824221px;top:133.9155337721809px;width:43.781314552719245px;transform:rotate(0.001717227848384726rad);"></div>
+<div class="arrow" style="left:763.121028704579px;top:154.09375000000003px;width:39.5699662639224px;transform:rotate(1.5366316645024702rad);"></div>
+</div>
+</body>
+</html>

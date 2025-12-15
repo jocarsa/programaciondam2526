@@ -111,6 +111,8 @@
 <a id="estructura-y-bloques-fundamentales"></a>
 ## Estructura y bloques fundamentales
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/001-Identificaci%C3%B3n%20de%20los%20elementos%20de%20un%20programa%20inform%C3%A1tico/001-Estructura%20y%20bloques%20fundamentales)
+
 ### Introducción a los ejercicios
 
 En esta sección de ejercicios, centraremos nuestra atención en el concepto básico pero fundamental del "Hola Mundo" en Python. Este ejercicio simple te permitirá familiarizarte con la estructura básica de un programa informático y cómo imprimir texto en la consola, lo cual es uno de los primeros pasos en cualquier lenguaje de programación. A través de este ejercicio, practicarás la importancia del formato correcto del código y cómo utilizar una función integrada para mostrar mensajes en pantalla. Este tipo de ejercicios son cruciales para establecer una base sólida antes de pasar a estructuras más complejas.
@@ -177,6 +179,8 @@ Estas actividades están diseñadas para cubrir los fundamentos básicos del len
 
 <a id="variables"></a>
 ## Variables
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/001-Identificaci%C3%B3n%20de%20los%20elementos%20de%20un%20programa%20inform%C3%A1tico/002-Variables)
 
 ### Introducción a los ejercicios
 
@@ -343,6 +347,8 @@ edad = 47
 <a id="tipos-de-datos"></a>
 ## Tipos de datos
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/001-Identificaci%C3%B3n%20de%20los%20elementos%20de%20un%20programa%20inform%C3%A1tico/003-Tipos%20de%20datos)
+
 ### Introducción a los ejercicios
 
 En esta carpeta, encontrarás una serie de ejercicios diseñados para familiarizarte con los tipos de datos y la entrada de datos en Python. Los ejercicios inician explicando cómo se manejan diferentes tipos de datos como cadenas, enteros, decimales y booleanos, luego pasan a mostrar cómo obtener información del usuario mediante entradas. El objetivo es que comprendas cómo almacenar e interactuar con diversos tipos de información en programas simples, así como aprender la importancia de convertir los datos de texto ingresados por el usuario a formatos numéricos cuando sea necesario para realizar cálculos. Estos ejercicios te ayudarán a practicar tus habilidades básicas de programación y entenderás mejor cómo Python maneja diferentes tipos de datos en contextos prácticos.
@@ -463,6 +469,8 @@ print("El doble de tu edad es: "+doble)
 <a id="literales"></a>
 ## Literales
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/001-Identificaci%C3%B3n%20de%20los%20elementos%20de%20un%20programa%20inform%C3%A1tico/004-Literales)
+
 ### Introducción a los ejercicios
 
 En esta sección de ejercicios, los estudiantes aprenderán sobre literales en Python, que son las formas directas de representar valores como números o cadenas en un programa. Los ejercicios centrarse en identificar y clasificar diferentes tipos de literales, como cadenas (strings) y enteros (integers). A través de estos ejercicios, los estudiantes practicarán la creación de variables que almacenan literales específicos y aprenderán a distinguir entre distintos tipos de datos básicos en Python.
@@ -521,6 +529,8 @@ edad = 47
 
 <a id="constantes"></a>
 ## Constantes
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/001-Identificaci%C3%B3n%20de%20los%20elementos%20de%20un%20programa%20inform%C3%A1tico/005-Constantes)
 
 ### Introducción a los ejercicios
 
@@ -609,6 +619,8 @@ PI = "unnumero"
 
 <a id="operadores-y-expresiones"></a>
 ## Operadores y expresiones
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/001-Identificaci%C3%B3n%20de%20los%20elementos%20de%20un%20programa%20inform%C3%A1tico/006-Operadores%20y%20expresiones)
 
 ### Introducción a los ejercicios
 
@@ -903,6 +915,8 @@ Estas actividades están diseñadas para cubrir los aspectos fundamentales del u
 
 <a id="ejercicio-de-final-de-unidad"></a>
 ## Ejercicio de final de unidad
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/001-Identificaci%C3%B3n%20de%20los%20elementos%20de%20un%20programa%20inform%C3%A1tico/101-Ejercicio%20de%20final%20de%20unidad)
 
 ### Introducción a los ejercicios
 
@@ -1463,6 +1477,8 @@ print("El total de la factura es: ",total_factura)
 <a id="caracteristicas-de-los-objetos"></a>
 ## Características de los objetos
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/002-Utilizaci%C3%B3n%20de%20objetos/001-Caracter%C3%ADsticas%20de%20los%20objetos)
+
 ### Introducción a los ejercicios
 
 En esta subunidad, nos enfocamos en comprender y utilizar objetos predefinidos en Python, específicamente centrándonos en cómo interactuar con ellos para resolver problemas comunes. Los ejercicios te ayudarán a familiarizarte con el uso del módulo `math` de Python, donde practicarás operaciones matemáticas avanzadas y manipulación de números utilizando funciones predefinidas como `sqrt`, `sin`, `cos` entre otras. Este conjunto de ejercicios te permitirá mejorar tus habilidades en la resolución de problemas que requieren cálculos matemáticos precisos, así como desarrollar una mayor confianza al utilizar bibliotecas estándar de Python.
@@ -1511,6 +1527,8 @@ Estas actividades están diseñadas para ayudar a los estudiantes a dominar el u
 
 <a id="instanciacion-de-objetos"></a>
 ## Instanciación de objetos
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/002-Utilizaci%C3%B3n%20de%20objetos/002-Instanciaci%C3%B3n%20de%20objetos)
 
 ### Introducción a los ejercicios
 
@@ -1576,6 +1594,8 @@ import math
 
 <a id="utilizacion-de-metodos-parametros"></a>
 ## Utilización de métodos. Parámetros
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/002-Utilizaci%C3%B3n%20de%20objetos/003-Utilizaci%C3%B3n%20de%20m%C3%A9todos.%20Par%C3%A1metros)
 
 ### Introducción a los ejercicios
 
@@ -1674,6 +1694,8 @@ print(matematicas.ceil(7.2))
 <a id="utilizacion-de-propiedades"></a>
 ## Utilización de propiedades
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/002-Utilizaci%C3%B3n%20de%20objetos/004-Utilizaci%C3%B3n%20de%20propiedades)
+
 ### Introducción a los ejercicios
 
 En esta subunidad, se enfatiza la comprensión y el uso de objetos predeterminados en Python, específicamente aquellos que ya existen en bibliotecas estándar como `math`. Los ejercicios te guiarán a través del proceso de importar módulos, acceder a constantes y métodos definidos por estos módulos, así como la manipulación de propiedades matemáticas fundamentales. El objetivo es que los estudiantes adquieran competencias en la utilización eficiente de objetos integrados para resolver problemas comunes en programación.
@@ -1735,6 +1757,8 @@ print(PI)
 
 <a id="utilizacion-de-metodos-estaticos"></a>
 ## Utilización de métodos estáticos
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/002-Utilizaci%C3%B3n%20de%20objetos/005-Utilizaci%C3%B3n%20de%20m%C3%A9todos%20est%C3%A1ticos)
 
 ### Introducción a los ejercicios
 
@@ -1907,6 +1931,8 @@ print(Matematicas.suma(6,7))
 <a id="constructores"></a>
 ## Constructores
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/002-Utilizaci%C3%B3n%20de%20objetos/006-Constructores)
+
 ### Introducción a los ejercicios
 
 En esta carpeta, se encuentran ejercicios que te ayudarán a comprender y utilizar objetos de fechas en Python. Los problemas abordan el manejo de la clase `date` del módulo `datetime`, permitiéndote trabajar con diferentes propiedades y métodos para obtener información detallada sobre una fecha específica, como año, mes, día y día de la semana. A través de estos ejercicios, mejorarás tus habilidades en el uso de objetos predefinidos del lenguaje, lo que es fundamental para cualquier proyecto que requiera manipulación de fechas y tiempo.
@@ -1997,6 +2023,8 @@ print(diadelasemana)
 
 <a id="destruccion-de-objetos-y-liberacion-de-memoria"></a>
 ## Destrucción de objetos y liberación de memoria
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/002-Utilizaci%C3%B3n%20de%20objetos/007-Destrucci%C3%B3n%20de%20objetos%20y%20liberaci%C3%B3n%20de%20memoria)
 
 ### Introducción a los ejercicios
 
@@ -2206,6 +2234,8 @@ Estas actividades están diseñadas para reforzar los conocimientos adquiridos s
 
 <a id="ejercicio-de-final-de-unidad-1"></a>
 ## Ejercicio de final de unidad
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/002-Utilizaci%C3%B3n%20de%20objetos/101-Ejercicio%20de%20final%20de%20unidad)
 
 ### Introducción a los ejercicios
 
@@ -2784,6 +2814,8 @@ print("El total de la factura es: ",total_factura)
 <a id="estructuras-de-seleccion"></a>
 ## Estructuras de selección
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/003-Uso%20de%20estructuras%20de%20control/001-Estructuras%20de%20selecci%C3%B3n)
+
 ### Introducción a los ejercicios
 
 En esta carpeta, encontrarás una serie de ejercicios que te ayudarán a comprender cómo usar estructuras de selección en Python para controlar el flujo del programa basado en condiciones. Los ejercicios abordan desde condicionales simples con `if` hasta casos más complejos que incluyen múltiples condiciones utilizando `elif` y anidación de estructuras `if`. Estos ejemplos te permitirán practicar la clasificación de datos según diferentes rangos y criterios, lo cual es fundamental en programación.
@@ -3055,6 +3087,8 @@ if edad > 40:
 <a id="estructuras-de-repeticion"></a>
 ## Estructuras de repetición
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/003-Uso%20de%20estructuras%20de%20control/002-Estructuras%20de%20repetici%C3%B3n)
+
 ### Introducción a los ejercicios
 
 En esta carpeta encontrarás una serie de ejercicios que te ayudarán a comprender y practicar el uso de estructuras de repetición en Python, como los bucles `for` y `while`. Los ejercicios abordan desde la simple iteración sobre rangos numéricos hasta la anidación compleja de bucles para simular procesos más elaborados. Practicarás cómo contar días del mes utilizando diferentes métodos (eficientes e ineficientes), cómo manejar múltiples niveles de anidación en los bucles y cómo incrementar contadores dentro de un bucle `while`. También aprenderás a resolver problemas prácticos, como el conteo de patitos de goma producidos en una fábrica a lo largo del tiempo. Estos ejercicios te prepararán para la resolución de problemas que involucran secuencias temporales y conteos acumulativos en situaciones realistas.
@@ -3236,6 +3270,8 @@ while dia < 31:
 
 <a id="estructuras-de-salto"></a>
 ## Estructuras de salto
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/003-Uso%20de%20estructuras%20de%20control/003-Estructuras%20de%20salto)
 
 ### Introducción a los ejercicios
 
@@ -3499,6 +3535,8 @@ def calculaSuma(operando1,operando2):
 
 <a id="control-de-excepciones"></a>
 ## Control de excepciones
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/003-Uso%20de%20estructuras%20de%20control/004-Control%20de%20excepciones)
 
 ### Introducción a los ejercicios
 
@@ -3810,6 +3848,8 @@ Estas actividades están diseñadas para ayudarte a dominar el uso de estructura
 <a id="aserciones"></a>
 ## Aserciones
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/003-Uso%20de%20estructuras%20de%20control/005-Aserciones)
+
 ### Introducción a los ejercicios
 
 En esta carpeta de ejercicios, los estudiantes van a aprender y practicar el uso de aserciones en Python. Las aserciones son declaraciones que permiten verificar si una condición específica es cierta durante la ejecución del programa; sirven como un mecanismo para detectar errores lógicos en el código. A través de estos ejemplos, los estudiantes podrán entender cómo escribir y utilizar aserciones para mejorar la robustez y la legibilidad de sus programas. Además, se les enseñará cómo manejar excepciones generadas por aserciones que fallan, proporcionando una introducción a la gestión de errores en Python.
@@ -3955,6 +3995,8 @@ Estas actividades están diseñadas para proporcionar una base sólida en el uso
 
 <a id="prueba-depuracion-y-documentacion-de-la-aplicacion"></a>
 ## Prueba, depuración y documentación de la aplicación
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/003-Uso%20de%20estructuras%20de%20control/006-Prueba%2C%20depuraci%C3%B3n%20y%20documentaci%C3%B3n%20de%20la%20aplicaci%C3%B3n)
 
 ### Introducción a los ejercicios
 
@@ -4505,6 +4547,8 @@ Estas actividades se basan directamente en los ejercicios proporcionados, adapt�
 <a id="ejercicio"></a>
 ## Ejercicio
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/003-Uso%20de%20estructuras%20de%20control/007-Ejercicio)
+
 ### Introducción a los ejercicios
 
 Esta carpeta contiene un conjunto de ejercicios diseñados para practicar el uso de estructuras de control en Python, como bucles y condicionales. Los problemas abordan situaciones prácticas que implican la interacción con el usuario (entrada), procesamiento de datos (cálculos, clasificaciones) y manejo de errores (try-except). Entre los ejercicios se encuentran simulaciones como contar días en un mes, subir escalones, entrenar dragones y duelos mágicos, que permiten a los estudiantes aplicar sus conocimientos sobre flujo de control y estructuras de datos. Estos ejercicios ayudan a desarrollar competencias esenciales como la lógica programática, la gestión de errores y el manejo eficiente de entradas y salidas en programas simples.
@@ -4828,6 +4872,8 @@ A partir del ejercicio `005-magos.py`, los estudiantes deben modificar el códig
 
 <a id="ejercicio-de-final-de-unidad-2"></a>
 ## Ejercicio de final de unidad
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/003-Uso%20de%20estructuras%20de%20control/101-Ejercicio%20de%20final%20de%20unidad)
 
 ### Introducción a los ejercicios
 
@@ -5414,6 +5460,8 @@ Estas actividades están diseñadas para ayudar a los estudiantes a dominar conc
 <a id="concepto-de-clase"></a>
 ## Concepto de clase
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/004-Desarrollo%20de%20clases/001-Concepto%20de%20clase)
+
 ### Introducción a los ejercicios
 
 Esta carpeta contiene una serie de ejercicios diseñados para introducir a los estudiantes al concepto fundamental de la programación orientada a objetos (POO) mediante el uso de clases en Python. Los problemas abordan desde la creación básica de clases hasta la implementación de propiedades y métodos dentro de ellas, enfatizando cómo encapsular datos y comportamientos para mejorar la organización del código y facilitar su mantenimiento y escalabilidad.
@@ -5686,6 +5734,8 @@ Estas actividades están diseñadas para incrementar gradualmente la complejidad
 
 <a id="estructura-y-miembros-de-una-clase-visibilidad"></a>
 ## Estructura y miembros de una clase. Visibilidad
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/004-Desarrollo%20de%20clases/002-Estructura%20y%20miembros%20de%20una%20clase.%20Visibilidad)
 
 ### Introducción a los ejercicios
 
@@ -6088,6 +6138,8 @@ while True: # Esto desata un bucle infinito pero controlado
 
 <a id="creacion-de-propiedades"></a>
 ## Creación de propiedades
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/004-Desarrollo%20de%20clases/003-Creaci%C3%B3n%20de%20propiedades)
 
 ### Introducción a los ejercicios
 
@@ -6765,6 +6817,8 @@ while True:
 <a id="creacion-de-metodos"></a>
 ## Creación de métodos
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/004-Desarrollo%20de%20clases/004-Creaci%C3%B3n%20de%20m%C3%A9todos)
+
 ### Introducción a los ejercicios
 
 Esta carpeta contiene una serie de ejercicios que te ayudarán a entender y practicar el uso de métodos en la programación orientada a objetos con Python. Los ejercicios van desde conceptos básicos como definir propiedades y métodos, hasta prácticas más avanzadas como encapsulamiento (usando setters y getters) y manejo de listas de objetos. A través de estos ejercicios, aprenderás cómo proteger la integridad de tus datos utilizando variables privadas y validaciones en los métodos setter, así como cómo interactuar con colecciones de objetos para realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar).
@@ -7400,6 +7454,8 @@ Estas actividades están diseñadas para ir incrementando gradualmente el nivel 
 <a id="creacion-de-constructores"></a>
 ## Creación de constructores
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/004-Desarrollo%20de%20clases/005-Creaci%C3%B3n%20de%20constructores)
+
 ### Introducción a los ejercicios
 
 Esta carpeta contiene una serie de ejercicios que te ayudarán a entender y practicar cómo crear constructores en Python. Los ejercicios van desde un repaso básico sobre la creación de una clase simple con un constructor sin parámetros, hasta ejemplos más complejos donde se pasan múltiples argumentos al construir instancias de una clase como gatos o clientes. A través de estos ejercicios, aprenderás a inicializar atributos en los objetos al momento de su creación y cómo gestionar diferentes tipos de datos (números, cadenas) como parámetros del constructor. Estas actividades son fundamentales para dominar la creación de clases y objetos personalizados en Python.
@@ -7665,6 +7721,8 @@ Estas actividades están diseñadas para ayudar a los estudiantes a comprender y
 <a id="utilizacion-de-clases-y-objetos"></a>
 ## Utilización de clases y objetos
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/004-Desarrollo%20de%20clases/006-Utilizaci%C3%B3n%20de%20clases%20y%20objetos)
+
 ### Introducción a los ejercicios
 
 En esta carpeta de ejercicios, te encuentras con tres archivos que exploran el uso y la creación de clases en Python para realizar operaciones matemáticas básicas como redondeo hacia arriba y hacia abajo. Estos ejemplos comienzan por crear una clase personalizada llamada `Matematicas` donde se implementa un método para redondear números, y luego expanden esta clase añadiendo métodos para obtener el techo (redondeo al alza) y suelo (redondeo a la baja). El último ejercicio muestra cómo utilizar funciones equivalentes desde la librería estándar de Python (`math`). A través de estos ejercicios, aprenderás a encapsular funcionalidades en clases propias y a utilizar eficientemente las herramientas que ofrece el lenguaje para resolver problemas matemáticos.
@@ -7802,6 +7860,8 @@ Estas actividades están diseñadas para permitir a los estudiantes de Formació
 
 <a id="utilizacion-de-clases-heredadas"></a>
 ## Utilización de clases heredadas
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/004-Desarrollo%20de%20clases/007-Utilizaci%C3%B3n%20de%20clases%20heredadas)
 
 ### Introducción a los ejercicios
 
@@ -8005,6 +8065,8 @@ print(perro1.edad)
 
 <a id="ejercicio-de-final-de-unidad-3"></a>
 ## Ejercicio de final de unidad
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/004-Desarrollo%20de%20clases/101-Ejercicio%20de%20final%20de%20unidad)
 
 ### Introducción a los ejercicios
 
@@ -8574,6 +8636,8 @@ Estas actividades están diseñadas para ayudar a los estudiantes a adquirir hab
 <a id="flujos-tipos-bytes-y-caracteres-clases-relacionadas"></a>
 ## Flujos. Tipos bytes y caracteres. Clases relacionadas
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/005-Lectura%20y%20escritura%20de%20informaci%C3%B3n/001-Flujos.%20Tipos%20bytes%20y%20caracteres.%20Clases%20relacionadas)
+
 ### Introducción a los ejercicios
 
 En esta carpeta de ejercicios, se exploran conceptos fundamentales relacionados con la manipulación de archivos en Python. Los estudiantes aprenderán cómo crear y escribir información en un archivo utilizando la función `open()` con el modo 'w' (write) para sobrescribir o crear nuevos archivos. También se enseñará cómo leer contenido desde un archivo existente usando el modo 'r' (read). Además, se incluye una práctica más avanzada donde los estudiantes crean una pequeña aplicación de agenda que permite añadir y listar contactos en un archivo, utilizando la opción 'a' (append) para agregar información sin borrar lo ya existente. Estos ejercicios ayudarán a fortalecer las habilidades de manejo básico de archivos y flujo de entrada/salida en Python.
@@ -8719,6 +8783,8 @@ Esto es una prueba
 
 <a id="ficheros-de-datos-registros"></a>
 ## Ficheros de datos. Registros
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/005-Lectura%20y%20escritura%20de%20informaci%C3%B3n/002-Ficheros%20de%20datos.%20Registros)
 
 ### Introducción a los ejercicios
 
@@ -9178,6 +9244,8 @@ Y por qué no, podemos tener un cuarto artículo
 <a id="apertura-y-cierre-de-ficheros-modos-de-acceso-escritura-y-lectura-de-informacion-en-ficheros"></a>
 ## Apertura y cierre de ficheros. Modos de acceso. Escritura y lectura de información en ficheros
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/005-Lectura%20y%20escritura%20de%20informaci%C3%B3n/003-Apertura%20y%20cierre%20de%20ficheros.%20Modos%20de%20acceso.%20Escritura%20y%20lectura%20de%20informaci%C3%B3n%20en%20ficheros)
+
 ### Introducción a los ejercicios
 
 En esta carpeta, trabajaremos con ejercicios que te ayudarán a entender cómo manejar archivos en Python. Los problemas abordan la creación, escritura y lectura de archivos tanto en formato texto como binario. Aprenderás a abrir archivos con diferentes modos (lectura, escritura, apendizaje) y a gestionar correctamente su cierre para evitar errores y garantizar la integridad de los datos.
@@ -9514,6 +9582,8 @@ Estas actividades proporcionarán a los estudiantes una base sólida en la manip
 
 <a id="utilizacion-de-los-sistemas-de-ficheros"></a>
 ## Utilización de los sistemas de ficheros.
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/005-Lectura%20y%20escritura%20de%20informaci%C3%B3n/004-Utilizaci%C3%B3n%20de%20los%20sistemas%20de%20ficheros.)
 
 ### Introducción a los ejercicios
 
@@ -10917,6 +10987,8 @@ Given this structure, you might want to navigate through these files in an organ
 <a id="creacion-y-eliminacion-de-ficheros-y-directorios"></a>
 ## Creación y eliminación de ficheros y directorios
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/005-Lectura%20y%20escritura%20de%20informaci%C3%B3n/005-Creaci%C3%B3n%20y%20eliminaci%C3%B3n%20de%20ficheros%20y%20directorios)
+
 ### Introducción a los ejercicios
 
 En esta carpeta, trabajaremos con ejercicios que te permitirán entender cómo crear y eliminar archivos y directorios en Python. Aprenderás desde operaciones básicas como crear una simple carpeta o archivo hasta procesos más complejos como comprimir carpetas y sus subcarpetas en archivos ZIP. Estos ejercicios están diseñados para mejorar tus habilidades en la manipulación de sistemas de archivos, manejo de excepciones y compresión de datos. Es importante prestar atención a los detalles sobre cómo gestionar correctamente errores y mantener la seguridad de tu sistema al realizar operaciones con el sistema de archivos.
@@ -11422,6 +11494,8 @@ except:
 
 <a id="entrada-desde-teclado-salida-a-pantalla-formatos-de-visualizacion"></a>
 ## Entrada desde teclado. Salida a pantalla. Formatos de visualización
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/005-Lectura%20y%20escritura%20de%20informaci%C3%B3n/006-Entrada%20desde%20teclado.%20Salida%20a%20pantalla.%20Formatos%20de%20visualizaci%C3%B3n)
 
 ### Introducción a los ejercicios
 
@@ -12708,6 +12782,8 @@ This progression demonstrates how a basic application can evolve from simple dat
 <a id="interfaces-graficas"></a>
 ## Interfaces gráficas
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/005-Lectura%20y%20escritura%20de%20informaci%C3%B3n/007-Interfaces%20gr%C3%A1ficas)
+
 ### Introducción a los ejercicios
 
 En esta carpeta, se encuentran una serie de ejercicios que tienen como objetivo familiarizarte con la creación y manipulación de interfaces gráficas en Python utilizando la biblioteca Tkinter. Los ejercicios comienzan con la creación básica de ventanas y botones, para luego avanzar hacia el manejo de eventos, cambios dinámicos en las etiquetas y finalmente, la implementación de una sencilla calculadora que realiza operaciones matemáticas básicas.
@@ -13022,6 +13098,8 @@ Estas actividades están diseñadas para llevar gradualmente a los estudiantes d
 
 <a id="concepto-de-evento"></a>
 ## Concepto de evento
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/005-Lectura%20y%20escritura%20de%20informaci%C3%B3n/008-Concepto%20de%20evento)
 
 ### Introducción a los ejercicios
 
@@ -13649,9 +13727,13 @@ Estas actividades se basan en el proceso gradual de aprender cómo crear una apl
 <a id="creacion-de-controladores-de-eventos"></a>
 ## Creación de controladores de eventos
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/005-Lectura%20y%20escritura%20de%20informaci%C3%B3n/009-Creaci%C3%B3n%20de%20controladores%20de%20eventos)
+
 
 <a id="simulacro-examen-miercoles"></a>
 ## - Simulacro examen miercoles
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/005-Lectura%20y%20escritura%20de%20informaci%C3%B3n/011%20-%20Simulacro%20examen%20miercoles)
 
 ### Introducción a los ejercicios
 
@@ -14150,6 +14232,8 @@ Estas actividades están diseñadas para que los estudiantes practiquen habilida
 
 <a id="ejercicio-de-final-de-unidad-4"></a>
 ## Ejercicio de final de unidad
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/005-Lectura%20y%20escritura%20de%20informaci%C3%B3n/101-Ejercicio%20de%20final%20de%20unidad)
 
 ### Introducción a los ejercicios
 
@@ -14711,6 +14795,8 @@ print("El total de la factura es: ",total_factura)
 <a id="examen-final"></a>
 ## Examen final
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/005-Lectura%20y%20escritura%20de%20informaci%C3%B3n/104-Examen%20final)
+
 ### Introducción a los ejercicios
 
 Esta carpeta contiene un conjunto de ejercicios orientados a desarrollar habilidades en el manejo y administración de bases de datos SQL. Los estudiantes aprenderán desde la creación de tablas, inserción de datos y definición de relaciones entre tablas hasta la ejecución de consultas avanzadas que incluyen joins y vistas para integrar información de múltiples tablas. Además, se practica la gestión de usuarios y permisos en un entorno de base de datos, lo cual es crucial para el control y seguridad del sistema.
@@ -14955,6 +15041,8 @@ Estas actividades están diseñadas para proporcionar una comprensión práctica
 <a id="carpeta-sin-titulo"></a>
 ## Carpeta sin título
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/005-Lectura%20y%20escritura%20de%20informaci%C3%B3n/Carpeta%20sin%20ti%CC%81tulo)
+
 
 
 <a id="aplicacion-de-las-estructuras-de-almacenamiento"></a>
@@ -14962,6 +15050,8 @@ Estas actividades están diseñadas para proporcionar una comprensión práctica
 
 <a id="estructuras-estaticas-y-dinamicas"></a>
 ## Estructuras estáticas y dinámicas
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/006-Aplicaci%C3%B3n%20de%20las%20estructuras%20de%20almacenamiento/001-Estructuras%20est%C3%A1ticas%20y%20din%C3%A1micas)
 
 ### Introducción a los ejercicios
 
@@ -15690,6 +15780,8 @@ Estas actividades están diseñadas para mejorar gradualmente las habilidades de
 <a id="creacion-de-matrices-arrays"></a>
 ## Creación de matrices (arrays)
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/006-Aplicaci%C3%B3n%20de%20las%20estructuras%20de%20almacenamiento/002-Creaci%C3%B3n%20de%20matrices%20%28arrays%29)
+
 ### Introducción a los ejercicios
 
 Esta carpeta contiene una secuencia de ejercicios que te guían en la creación y manipulación de matrices (arrays) utilizando Python, centrándose en el manejo de listas para representar un menú de comidas. Los ejercicios comienzan con la simple adición de elementos a una lista y evolucionan hasta incluir bucles condicionales, lectura de opciones del usuario y almacenamiento persistente mediante archivos binarios usando la biblioteca `pickle`. A lo largo de estos ejercicios, desarrollarás habilidades fundamentales en estructuras de datos, control de flujo y manejo de archivos, así como comprenderás cómo guardar y recuperar estados de una aplicación.
@@ -16189,6 +16281,8 @@ Estas actividades están diseñadas para cubrir desde conceptos básicos hasta a
 
 <a id="matrices-arrays-multidimensionales"></a>
 ## Matrices (arrays) multidimensionales
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/006-Aplicaci%C3%B3n%20de%20las%20estructuras%20de%20almacenamiento/003-Matrices%20%28arrays%29%20multidimensionales)
 
 ### Introducción a los ejercicios
 
@@ -17469,6 +17563,8 @@ This code integrates the agenda management system with a user menu and file pers
 <a id="genericidad"></a>
 ## Genericidad
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/006-Aplicaci%C3%B3n%20de%20las%20estructuras%20de%20almacenamiento/004-Genericidad)
+
 ### Introducción a los ejercicios
 
 Esta carpeta contiene una serie de ejercicios en Python que se enfocan en el concepto de genericidad y manejo de errores. Los problemas trabajan con listas que contienen diferentes tipos de datos (números enteros, cadenas no numéricas) para enseñar cómo procesar estos elementos de manera eficiente y segura. Se practica la conversión de tipo de datos, el uso de funciones genéricas para operaciones matemáticas sobre los números, y manejo de excepciones para lidiar con errores durante la ejecución del programa. Los ejercicios progresan desde una simple impresión de listas hasta situaciones más complicadas que requieren búsqueda en tablas adicionales o reporte de errores no manejados previamente.
@@ -17743,6 +17839,8 @@ calculaDoble()
 
 <a id="cadenas-de-caracteres-expresiones-regulares"></a>
 ## Cadenas de caracteres. Expresiones regulares
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/006-Aplicaci%C3%B3n%20de%20las%20estructuras%20de%20almacenamiento/005-Cadenas%20de%20caracteres.%20Expresiones%20regulares)
 
 ### Introducción a los ejercicios
 
@@ -18224,6 +18322,8 @@ id,nombre,apellidos,correo,telefono,direccion,ciudad,provincia,codigo_postal,emp
 <a id="colecciones-listas-conjuntos-y-diccionarios"></a>
 ## Colecciones Listas, Conjuntos y Diccionarios
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/006-Aplicaci%C3%B3n%20de%20las%20estructuras%20de%20almacenamiento/006-Colecciones%20Listas%2C%20Conjuntos%20y%20Diccionarios)
+
 ### Introducción a los ejercicios
 
 Esta carpeta contiene una serie de ejercicios diseñados para ayudarte a entender y practicar el uso de estructuras de datos como listas, tuplas, diccionarios en Python. Los ejemplos van desde la creación básica de estas estructuras hasta su combinación compleja, pasando por la manipulación de archivos JSON y la lectura de argumentos desde la línea de comandos. A través de estos ejercicios, aprenderás a organizar datos de manera eficiente, acceder a ellos de formas diversas y utilizar bibliotecas adicionales como argparse para manejar entradas más complejas en tus programas.
@@ -18645,6 +18745,8 @@ Estas actividades están diseñadas para ayudar a los estudiantes a dominar la m
 
 <a id="operaciones-agregadas-filtrado-reduccion-y-recoleccion"></a>
 ## Operaciones agregadas filtrado, reducción y recolección
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/006-Aplicaci%C3%B3n%20de%20las%20estructuras%20de%20almacenamiento/007-Operaciones%20agregadas%20filtrado%2C%20reducci%C3%B3n%20y%20recolecci%C3%B3n)
 
 ### Introducción a los ejercicios
 
@@ -19311,6 +19413,8 @@ Estas actividades están diseñadas para proporcionar una progresión natural de
 
 <a id="repaso"></a>
 ## Repaso
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/007-Utilizaci%C3%B3n%20avanzada%20de%20clases/000-Repaso)
 
 ### Introducción a los ejercicios
 
@@ -20646,8 +20750,43 @@ Este conjunto de archivos parece ser la base para el desarrollo de un pequeño s
 <a id="composicion-de-clases"></a>
 ## Composición de clases
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/007-Utilizaci%C3%B3n%20avanzada%20de%20clases/001-Composici%C3%B3n%20de%20clases)
+
+### Introducción a los ejercicios
+
+El código proporcionado parece ser un diagrama de clases en formato JSON y SVG, que representa una clase llamada "Persona" con sus subclases "Profesor", "Alumno", "AlumnoPresencial" y "AlumnoOnline". El diagrama también muestra las relaciones entre estas clases mediante flechas.
+
+A continuación, se presentan algunas observaciones sobre el código:
+
+**Formas**
+
+* La forma "Persona" tiene una posición de (184.43754408094605, 40) con un tamaño de 120x40.
+* La forma "Profesor" tiene una posición de (40, 134.4625091552734) con un tamaño de 100x40.
+* La forma "Alumno" tiene una posición de (310.5500115288627, 137.77502271864145) con un tamaño de 120x40.
+* Las formas "AlumnoPresencial" y "AlumnoOnline" tienen posiciones de (572.504px, 225.56251525878898) y (776.939px, 384.599px) respectivamente, con tamaños de 126x40 y 120x40.
+
+**Flechas**
+
+* La flecha que sale desde la forma "Persona" hacia la forma "Profesor" tiene un punto de conexión en la posición (130.58092936197556, 134.4625091552734).
+* La flecha que sale desde la forma "Alumno" hacia la forma "AlumnoPresencial" tiene un punto de conexión en la posición (307.69963007011097, 225.56251525878898).
+* La flecha que sale desde la forma "AlumnoOnline" no se define.
+
+**Conclusión**
+
+En general, el código proporcionado parece ser una representación gráfica de una estructura de clases en Python. Sin embargo, para determinar con certeza qué lógica se sigue detrás del diagrama y cómo implementarlo en Python, necesitaría más información sobre la estructura de las clases y sus relaciones.
+
 ### una primera clase
 <small>Creado: 2025-12-05 08:39</small>
+
+#### Explicación
+
+¡Hola estudiantes! Hoy vamos a analizar un fragmento de código que crea una clase en Python llamada `Alumno`. Esta clase tiene un método especial llamado `__init__` que es el constructor de la clase.
+
+El constructor `__init__` recibe tres parámetros: `nombre`, `apellidos` y `email`. Estos parámetros se almacenan en las variables del objeto `alumno1` utilizando la palabra clave `self`. La palabra `self` hace referencia al propio objeto, es decir, a la instancia de la clase.
+
+En este caso, la clase `Alumno` tiene tres atributos (variables): `nombre`, `apellidos` y `email`. Cuando se crea un objeto de esta clase, estos atributos se pueden acceder y modificar. En el ejemplo que nos proporcionan, se crea una instancia de la clase llamada `alumno1` con los valores "Jose Vicente", "Carratala" y "info@jocarsa.com" respectivamente.
+
+El último línea del código imprime el objeto `alumno1` en la consola. Esto es útil porque podemos ver todos los atributos de la instancia y cómo se han definido. La impresión del objeto `alumno1` nos permite entender cómo funciona la clase `Alumno` y cómo podemos utilizarla para almacenar información sobre un estudiante.
 
 `001-una primera clase.py`
 
@@ -20664,6 +20803,12 @@ print(alumno1)
 
 ### una segunda clase
 <small>Creado: 2025-12-05 08:41</small>
+
+#### Explicación
+
+Este código define dos clases en Python: `Profesor` y `Alumno`. Ambas clases comparten un patrón similar, ya que tienen una clase base (`__init__`) con tres atributos (nombre, apellidos y correo electrónico) definidos durante la creación de objetos.
+
+El método `__init__` es especial en Python porque se llama automáticamente cuando se crea un objeto nuevo. Por lo tanto, no necesitamos llamar explícitamente a este método para crear objetos de estas clases.
 
 `002-una segunda clase.py`
 
@@ -20689,6 +20834,12 @@ print(profesor1)
 
 ### polimorfismo basico
 <small>Creado: 2025-12-05 08:42</small>
+
+#### Explicación
+
+En este ejercicio, se definen dos clases en Python: `Profesor` y `Alumno`. Aunque ambas clasas comparten la misma estructura de datos (`nombre`, `apellidos` y `email`) utilizando los mismos parámetros en su constructor (`__init__`), cada clase tiene un método específico, `dameDatos()`, que devuelve una cadena con el nombre y apellidos del objeto correspondiente.
+
+El código crea instancias de estas clases: `alumno1` y `profesor1`, asignándoles valores para sus atributos utilizando los constructores (`__init__`). Luego se llaman al método `dameDatos()` en cada instancia, que devuelve una cadena con la información solicitada.
 
 `003-polimorfismo basico.py`
 
@@ -20718,6 +20869,14 @@ print(profesor1.dameDatos())
 
 ### superclase
 <small>Creado: 2025-12-05 08:51</small>
+
+#### Explicación
+
+En este fragmento de código, se definen dos clases: `Persona` y sus subclases `Profesor` y `Alumno`. La clase `Persona` es una superclase que representa a un individuo con datos básicos como nombre, apellidos, correo electrónico y dirección.
+
+La clase `Profesor` y `Alumno` heredan las propiedades de la clase `Persona` mediante el uso del método `super().__init__`, que llama al constructor de la clase `Persona` para inyectar los datos al objeto subclase. Esto significa que tanto `profesor1` como `alumno1` tienen todos los atributos y métodos de la clase `Persona`.
+
+La clase `Alumno` no tiene un método específico adicional, pero sí la sobrecarga del método `dameDatos`, para darle una salida en el caso del alumno.
 
 `004-superclase.py`
 
@@ -20749,6 +20908,22 @@ print(profesor1.dameDatos())
 
 ### subclases
 <small>Creado: 2025-12-05 08:53</small>
+
+#### Explicación
+
+Este código se refiere a la composición de clases en Python utilizando la clase `Persona` como base y sus subclases. 
+
+Aquí tienes una explicación detallada:
+
+La clase `Persona` es una clase base que tiene un constructor (`__init__`) donde se definen los atributos (variables) de una persona, como nombre, apellidos, correo electrónico y dirección. 
+
+Las clases `Profesor`, `Alumno` y sus subclases `AlumnoOnline` y `AlumnoPresencial` heredan la clase base `Persona`. Esto significa que pueden utilizar sus propios atributos y métodos, pero también tienen acceso a los atributos y métodos de `Persona`.
+
+En el caso específico de `Profesor`, `Alumno` y sus subclases, se utiliza el método `super().__init__()` para llamar al constructor de la clase base (`Persona`) en el momento de instanciar una instancia de estas clases. Esto asegura que los atributos de las superclases sean inicializados correctamente.
+
+El método `dameDatos` devuelve la suma del nombre y apellidos de una persona.
+
+En este ejemplo, se crean dos instancias (`alumno1` y `profesor1`) y se llama al método `dameDatos()` para obtener los datos correspondientes a cada uno.
 
 `005-subclases.py`
 
@@ -20787,6 +20962,16 @@ print(profesor1.dameDatos())
 
 ### diagrama
 <small>Creado: 2025-12-05 08:55</small>
+
+#### Explicación
+
+Este código HTML se utiliza para crear un diagrama de entidad-relación (ER) utilizando una representación visual en forma de bloques de texto y iconos. Los bloques de texto representan las entidades ER, mientras que los iconos indican las relaciones entre ellas.
+
+El código se divide en varias partes: se define la estructura general del diagrama, incluyendo el uso de clases CSS para personalizar el diseño y la presentación de cada bloque de texto e icono. También hay definiciones específicas para diferentes tipos de bloques de texto, como "db" (base de datos), "entity" (entidad ER), "port" (puerto), "arrow" (flecha) y "ortho-arrow" (flecha ortogonal).
+
+El código también define las propiedades individuales de cada bloque de texto e icono, como su posición absoluta, tamaño y estilo visual. Por ejemplo, el primer bloque de texto tiene un estilo que lo coloca en la posición 184.43754408094605px a la izquierda del diálogo, con un ancho de 119.99994913736974px y un alto de 39.999999999999986px.
+
+En resumen, este código HTML se utiliza para crear una representación visual de un diagrama de entidad-relación utilizando bloques de texto e iconos, lo que permite a los usuarios visualizar fácilmente las relaciones entre las diferentes entidades en la base de datos.
 
 `diagrama.html`
 
@@ -21015,6 +21200,22 @@ body {
 ### diagrama
 <small>Creado: 2025-12-05 08:55</small>
 
+#### Explicación
+
+**Análisis del fragmento de código**
+
+El fragmento de código proporcionado es un archivo JSON que contiene información sobre diferentes formas (rectángulos) y flechas en un diagrama. Estas formas representan diferentes tipos de personas: persona, profesor, alumno presencial y alumno online.
+
+**Cómo funciona**
+
+El código define dos arrays principales: `formas` y `flechas`. El array `formas` contiene objetos que describen cada forma, con propiedades como `id`, `tipo`, `left`, `top`, `width`, `height` y `texto`. Estos objetos representan las formas en el diagrama.
+
+El array `flechas` contiene objetos que describen las conexiones entre estas formas. Cada objeto de este array tiene un campo `desde` que señala la forma desde la cual parte la flecha, y un campo `hasta` que señala la forma hacia la cual va la flecha. También hay campos adicionales como `tipo` y `estilo`, pero en este caso no se utilizan.
+
+**Importancia**
+
+Este código es importante porque representa una estructura de datos simple para crear diagramas visuales con diferentes formas y conexiones entre ellas. En un contexto real, podríamos utilizar este archivo JSON para cargar información en una aplicación o sistema que requiere mostrar un diagrama visualizado.
+
 `diagrama.json`
 
 ```json
@@ -21130,6 +21331,16 @@ body {
 ### diagrama
 <small>Creado: 2025-12-05 08:55</small>
 
+#### Explicación
+
+Este código es un archivo SVG (Scalable Vector Graphics) que representa un diagrama de clases en una universidad. El diagrama muestra tres tipos de alumnos: Alumno, AlumnoPresencial y AlumnoOnline. Cada alumno tiene una clase relacionada con él.
+
+El código utiliza elementos como rectángulos (rect), texto (text) y líneas (path) para crear la representación gráfica del diagrama. También define estilos para cada elemento utilizando el atributo "class" que agrega un prefijo específico a los estilos, lo que permite personalizar el aspecto de cada elemento.
+
+El uso de marcadores (marker) permite agregar detalles al diagrama, como los extremos de las líneas que conectan las clases. En este caso se definen dos tipos de marcadores: "arrow-end" para los extremos de la línea y "arrow-start" para el inicio de la línea.
+
+Este código es importante porque muestra cómo un lenguaje de representación gráfica como SVG puede ser utilizado para crear diagramas complejos y expresivos. También ilustra cómo se pueden utilizar estilos y marcadores para personalizar y mejorar la legibilidad del diagrama.
+
 `diagrama.svg`
 
 ```
@@ -21172,12 +21383,98 @@ body {
 </svg>
 ```
 
+### Actividades propuestas
+
+El archivo `diagrama.svg` es una representación visual en formato SVG (Scalable Vector Graphics) del diagrama de clases y relaciones entre ellos. Aquí te presento un resumen de los diferentes elementos y sus propiedades:
+
+**Formas**
+
+*   **Persona**: Un rectángulo con las propiedades:
+    -   `x`: 184.43754408094605
+    -   `y`: 40
+    -   `width`: 119.99994913736974
+    -   `height`: 39.999999999999986
+    -   `rx`: 4
+    -   `ry`: 4
+*   **Profesor**: Un rectángulo con las propiedades:
+    -   `x`: 40
+    -   `y`: 134.4625091552734
+    -   `width`: 120.00002543131505
+    -   `height`: 39.999999999999986
+    -   `rx`: 4
+    -   `ry`: 4
+*   **Alumno**: Un rectángulo con las propiedades:
+    -   `x`: 310.5500115288627
+    -   `y`: 137.77502271864145
+    -   `width`: 119.99999999999996
+    -   `height`: 39.999999999999986
+    -   `rx`: 4
+    -   `ry`: 4
+*   **AlumnoPresencial**: Un rectángulo con las propiedades:
+    -   `x`: 226.10004001193568
+    -   `y`: 225.56251525878898
+    -   `width`: 126.11246744791661
+    -   `height`: 39.999999999999986
+    -   `rx`: 4
+    -   `ry`: 4
+*   **AlumnoOnline**: Un rectángulo con las propiedades:
+    -   `x`: 430.5375332302516
+    -   `y`: 220.54998609754765
+    -   `width`: 119.99999999999996
+    -   `height`: 39.999999999999986
+    -   `rx`: 4
+    -   `ry`: 4
+
+**Flechas**
+
+*   **Desde**: Una flecha que conduce desde la clase "Persona" a la clase "Profesor".
+*   **Hasta**: Una flecha que conduce desde la clase "Alumno" a las clases "AlumnoPresencial" y "AlumnoOnline".
+
+**Elementos de diseño**
+
+*   Los elementos están diseñados con el uso de CSS para personalizar su apariencia.
+*   Se utilizan marcas y polígonos para crear formas y figuras geométricas.
+
+En resumen, esta representación en formato SVG muestra cómo las diferentes clases de modelado se relacionan entre sí. Cada elemento tiene una posición exacta en el diagrama y está diseñado para ser fácilmente legible.
+
 
 <a id="herencia-y-polimorfismo"></a>
 ## Herencia y polimorfismo
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/007-Utilizaci%C3%B3n%20avanzada%20de%20clases/002-Herencia%20y%20polimorfismo)
+
+### Introducción a los ejercicios
+
+¡Excelentes estudiantes! En este conjunto de ejercicios, os vais a trabajar con la herencia y el polimorfismo en Python. La herencia es un concepto fundamental en la programación orientada a objetos que nos permite crear clases que hereden las propiedades y comportamientos de otras clases.
+
+A lo largo de estos dos archivos de ejercicio, trabajáis con tres tipos de objetos: Persona, Profesor y Alumno. Cada uno de ellos tiene sus propias características y metodos únicos, pero todos comparten la clase base Persona. Esto nos permite definir un patrón de diseño llamado "herencia simple" o "herencia múltiple", donde una clase hereda atributos y comportamientos de otra clase y agrega nuevos.
+
+El ejercicio 001 te lleva a explorar la herencia simple, donde los objetos Profesor y Alumno heredan el constructor y el método dameDatos de la clase Persona. En este caso, no se agregan nuevos metodos que vayan más allá de lo que se hereda.
+
+En cambio, el ejercicio 002 te introduce en el polimorfismo básico, donde las clases Profesor y Alumno heredan el constructor y los métodos dameDatos de la clase Persona. Sin embargo, estos objetos agregan nuevos comportamientos o modificación al método dameDatos para darle una salida más personalizada que refleje su tipo. Esta capacidad de mostrar diferentes comportamientos en función del objeto es lo que llama la atención sobre este concepto fundamental y puede ser abordado desde distintos puntos de vista dependiendo de las características del problema a resolver.
+
+En resumen, estos ejercicios te ayudarán a comprender cómo funciona la herencia y el polimorfismo en Python, conceptos fundamentales para la programación orientada a objetos.
+
 ### herencia simple
 <small>Creado: 2025-12-05 09:10</small>
+
+#### Explicación
+
+En este código, se utilizan clases en Python para crear objetos que representen personas. Las clases son estructuras de datos que permiten agrupar variables y funciones relacionadas.
+
+El fragmento de código que explico a continuación utiliza una clase llamada "Persona" con un método llamado "dameDatos". Esta clase es la base para otras clases que heredan características de la clase "Persona".
+
+La primera línea del código define una clase llamada "Persona" y dentro de ella se define el constructor (`__init__`) que toma dos parámetros: "nombre" y "apellidos". Estos datos son asignados a las variables `self.nombre` y `self.apellidos`.
+
+El método `dameDatos` devuelve la suma de los apellidos y el nombre de una persona. Es decir, se hace un `return` de esta suma.
+
+En el código que se muestra después, tenemos dos clases nuevas: "Profesor" e "Alumno". Ambas heredan las características de la clase "Persona".
+
+La clase "Profesor" tiene un método `__init__` similar al de la clase "Persona", pero con una llamada especial a la función `super().__init__(nombre, apellidos)`. Esta llamada es importante porque permite que se llamen los constructores de las clases base y se repiten en las clases hijas.
+
+De manera similar, la clase "Alumno" también hereda las características de la clase "Persona". Sin embargo, esta clase tiene dos más variables adicionales: `email` y `direccion`. Estas variables no están incluidas en el constructor de la clase base "Persona", por lo que debemos hacer una llamada especial a la función `super().__init__(nombre, apellidos)` para que se llamen los constructores de las clases base.
+
+Para crear objetos de estas clases, utilizamos la sintaxis `objeto = nombreClase( parámetros)`. Por ejemplo, podemos crear un objeto "alumno1" con el constructor "Alumno" y pasar los datos personales como argumentos.
 
 `001-herencia simple.py`
 
@@ -21207,6 +21504,16 @@ print(profesor1.dameDatos())
 
 ### polimorfismo basico
 <small>Creado: 2025-12-05 09:11</small>
+
+#### Explicación
+
+Este código se enfoca en la creación de objetos que hereden propiedades y métodos de una clase base llamada "Persona". 
+
+La clase `Persona` es la base que posee dos variables: `nombre` y `apellidos`, así como un método `dameDatos()` que devuelve una cadena con estos datos. 
+
+Las clases `Profesor` e `Alumno` heredan las propiedades y el método de la clase base `Persona`. Sin embargo, cada una de estas clases adicionalmente define su propio método `dameDatos()`, que muestra su rango y categoría, es decir, "Profesor" o "Alumno". 
+
+El uso de la palabra clave `super()` en el constructor de las clases herederas permite a estas clases acceder a los constructores de la clase base.
 
 `002-polimorfismo basico.py`
 
@@ -21238,12 +21545,220 @@ profesor1 = Profesor("Juan","Garcia")
 print(profesor1.dameDatos())
 ```
 
+### Actividades propuestas
+
+**Actividades para estudiantes de Formación Profesional**
+
+A continuación, te presento 10 actividades basadas en el código proporcionado:
+
+1. **Identificar herencia y polimorfismo**
+	* Descripción: El alumnado debe analizar los archivos `simple.py` y `basico.py` para identificar la herencia entre las clases `Persona`, `Profesor` y `Alumno`. También debe comprender cómo se aplica el polimorfismo en estos casos.
+	* Objetivo: Aprender sobre herencia y polimorfismo en Python.
+2. **Crear una clase que extienda la clase `Persona`**
+	* Descripción: El alumnado debe crear una clase que extienda la clase `Persona` y agregar un nuevo método con una implementación personalizada.
+	* Objetivo: Aprender sobre herencia y polimorfismo en Python.
+3. **Modificar el método `dameDatos` de las clases**
+	* Descripción: El alumnado debe modificar el método `dameDatos` de las clases `Profesor` y `Alumno` para que devuelvan una cadena con información adicional.
+	* Objetivo: Aprender sobre polimorfismo en Python.
+4. **Crear un objeto de la clase `Persona` y llamar al método `dameDatos`**
+	* Descripción: El alumnado debe crear un objeto de la clase `Persona` y llamar al método `dameDatos` para obtener el valor devuelto por la clase base.
+	* Objetivo: Aprender sobre herencia y polimorfismo en Python.
+5. **Crear una lista de objetos y llamando al método `dameDatos`**
+	* Descripción: El alumnado debe crear una lista de objetos que extienden la clase `Persona` y llamar al método `dameDatos` para obtener los valores devueltos por cada objeto.
+	* Objetivo: Aprender sobre polimorfismo en Python.
+6. **Crear un nuevo método en la clase `Profesor`**
+	* Descripción: El alumnado debe crear un nuevo método en la clase `Profesor` que devuelva una cadena con información adicional.
+	* Objetivo: Aprender sobre polimorfismo en Python.
+7. **Crear un objeto de la clase `Alumno` y llamar al método `dameDatos`**
+	* Descripción: El alumnado debe crear un objeto de la clase `Alumno` y llamar al método `dameDatos` para obtener el valor devuelto por la clase base.
+	* Objetivo: Aprender sobre herencia y polimorfismo en Python.
+8. **Comparar los resultados del método `dameDatos`**
+	* Descripción: El alumnado debe comparar los resultados del método `dameDatos` para objetos de las clases `Persona`, `Profesor` y `Alumno`.
+	* Objetivo: Aprender sobre polimorfismo en Python.
+9. **Crear un nuevo método que devuelva una lista de objetos**
+	* Descripción: El alumnado debe crear un nuevo método en la clase `Persona` que devuelva una lista de objetos que extienden la clase base.
+	* Objetivo: Aprender sobre polimorfismo en Python.
+10. **Crear un programa que invoca los métodos del objeto**
+	* Descripción: El alumnado debe crear un programa que invoca los métodos del objeto para obtener los valores devueltos por cada método.
+	* Objetivo: Aprender sobre polimorfismo en Python.
+
+Estas actividades están diseñadas para ayudar a los estudiantes de Formación Profesional a aprender y aplicar conceptos de herencia y polimorfismo en Python.
+
 
 <a id="jerarquia-de-clases-superclases-y-subclases"></a>
 ## Jerarquía de clases Superclases y subclases
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/007-Utilizaci%C3%B3n%20avanzada%20de%20clases/003-Jerarqu%C3%ADa%20de%20clases%20Superclases%20y%20subclases)
+
+### Introducción a los ejercicios
+
+El código que has proporcionado parece ser una mezcla de diferentes formatos de archivo y tecnologías de creación de gráficos. A continuación, te presento algunos puntos clave y sugerencias para mejorar la estructura y funcionamiento del código:
+
+1. **Organización**: El código está muy desorganizado y no sigue un patrón lógico. Se recomienda crear carpetas o directorios para cada componente separado (por ejemplo, "nave", "roca", "bala") y mantener el código dentro de cada carpeta.
+2. **Formato de archivo**: El código parece ser una mezcla de SVG, Inkscape y otros formatos de archivo. Se recomienda utilizar solo un formato de archivo para evitar conflictos y problemas de compatibilidad.
+3. **Tecnología**: El código utiliza tecnologías como Inkscape y Sodipodi, que parecen ser herramientas de creación de gráficos. Si deseas crear una aplicación más compleja, se recomienda utilizar tecnologías más modernas y escalables, como CSS, JavaScript y HTML5.
+4. **Lógica**: El código parece no tener lógica o funcionamiento explícito. Se recomienda agregar funcionalidad y comportamientos a las diferentes partes del código para que se conviertan en una aplicación completa.
+
+En cuanto al código específico, no puedo proporcionar una respuesta más detallada sin saber más sobre el propósito y funcionamiento de cada parte del código. Sin embargo, te sugiero que comiences por organizar el código de manera lógica y simplificarlo para evitar conflictos y problemas de compatibilidad.
+
+Aquí te presento un ejemplo de cómo podrías estructurar el código:
+```html
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aplicación</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div id="contenedor"></div>
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+```css
+/* estilos.css */
+
+#contenedor {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nave {
+  /* estilos para la nave */
+}
+
+.roca {
+  /* estilos para la roca */
+}
+
+.bala {
+  /* estilos para la bala */
+}
+```
+
+```javascript
+// script.js
+
+class Nave {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.vy = 0;
+  }
+
+  update() {
+    this.y += this.vy;
+  }
+
+  draw(ctx) {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, 10, 0, 2 * Math.PI);
+    ctx.fillStyle = 'red';
+    ctx.fill();
+  }
+}
+
+class Roca {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.vx = 0;
+    this.vy = 0;
+  }
+
+  update() {
+    this.x += this.vx;
+    this.y += this.vy;
+  }
+
+  draw(ctx) {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, 10, 0, 2 * Math.PI);
+    ctx.fillStyle = 'gray';
+    ctx.fill();
+  }
+}
+
+class Bala {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.vx = 0;
+    this.vy = 0;
+  }
+
+  update() {
+    this.x += this.vx;
+    this.y += this.vy;
+  }
+
+  draw(ctx) {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, 5, 0, 2 * Math.PI);
+    ctx.fillStyle = 'blue';
+    ctx.fill();
+  }
+}
+
+// Instancia de las clases
+const nave = new Nave(100, 100);
+const roca = new Roca(200, 200);
+const bala = new Bala(300, 300);
+
+// Actualizar y dibujar las objetos
+function update() {
+  nave.update();
+  roca.update();
+  bala.update();
+
+  const ctx = document.getElementById('contenedor').getContext('2d');
+  ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+  nave.draw(ctx);
+  roca.draw(ctx);
+  bala.draw(ctx);
+}
+
+// Eventos
+document.addEventListener('keydown', (e) => {
+  switch (e.key) {
+    case 'ArrowUp':
+      nave.vy = -5;
+      break;
+    case 'ArrowDown':
+      nave.vy = 5;
+      break;
+    case 'ArrowLeft':
+      nave.vx = -5;
+      break;
+    case 'ArrowRight':
+      nave.vx = 5;
+      break;
+  }
+});
+
+update();
+setInterval(update, 16);
+```
+Espero que esta estructura y este ejemplo te ayuden a mejorar el código y crear una aplicación más compleja.
+
 ### preparamos
 <small>Creado: 2025-12-09 10:35</small>
+
+#### Explicación
+
+Este fragmento de código es un ejemplo básico de una página web creada utilizando el lenguaje HTML. 
+
+En este caso, la página está mostrando una imagen de una nave. La navegación hacia la página se realiza mediante la línea `<img src="nave.png" id="nave">`. Esta línea especifica el origen de la imagen (la ruta del archivo `nave.png`) y le asigna un nombre de identificación (`id` = "nave") para que sea posible acceder a ella desde otros contextos en el código HTML. 
+
+Este código es importante porque muestra cómo se puede utilizar una etiqueta `<img>` para mostrar imágenes en una página web, lo cual es un aspecto fundamental en la creación de contenidos digitales.
 
 `001-preparamos.html`
 
@@ -21260,6 +21775,12 @@ print(profesor1.dameDatos())
 
 ### script de movimiento
 <small>Creado: 2025-12-09 10:38</small>
+
+#### Explicación
+
+Este fragmento de código es una página web simple que muestra una nave en un cuadro de imagen. La nave se mueve horizontalmente dentro del cuadro gracias a la utilización de eventos teclados.
+
+El código utiliza la clase `document.onkeydown` para detectar cuando el usuario presiona una tecla. En este caso, el evento se registra y se imprime en la consola del navegador (`console.log(tecla)`).
 
 `002-script de movimiento.html`
 
@@ -21285,6 +21806,18 @@ print(profesor1.dameDatos())
 
 ### keycodes
 <small>Creado: 2025-12-09 10:48</small>
+
+#### Explicación
+
+Este código es una implementación básica de un juego de navegable donde se controla la posición del objeto "nave" utilizando teclas del teclado. 
+
+El código utiliza JavaScript y HTML para crear el juego, y en este caso, se enfoca en la parte de JavaScript que maneja los eventos de teclado.
+
+Primero, se selecciona el elemento HTML con la id "nave", lo cual es el elemento que representa al objeto navegable, así como sus posiciones. Luego se establecen variables para almacenar las coordenadas x e y de la nave: posx y posy.
+
+Cuando se presiona una tecla del teclado en el documento (en lugar de dentro del propio elemento navegable), se ejecuta una función callback que se llama document.onkeydown. En esta función, se verifica mediante un código switch cuál es la tecla pressionada, ya sea W, A o D para moverse hacia arriba a la izquierda o derecha respectivamente.
+
+En cada caso, se actualizan las coordenadas de la nave según el movimiento presionado, y se ejecuta una línea que actualiza el estilo del elemento navegable con estas nuevas posiciones.
 
 `003-keycodes.html`
 
@@ -21332,6 +21865,14 @@ print(profesor1.dameDatos())
 
 ### clase nave
 <small>Creado: 2025-12-09 10:52</small>
+
+#### Explicación
+
+Este código es una implementación básica de un juego donde el usuario controla una nave que se mueve por la pantalla mediante teclas del teclado. 
+
+La clase `Jugador` es una superclase que define las propiedades y comportamientos comunes para cualquier objeto que la herede. En este caso, no hay subclases, pero si lo tuviéramos, podríamos reutilizar el código de la superclase en cada subclase. 
+
+El código utiliza eventos `keydown` del documento para detectar las teclas presionadas y actualizar la posición de la nave según sea necesario. La posición se actualiza mediante la propiedad `style.left` y `style.top` del elemento `#nave`.
 
 `004-clase nave.html`
 
@@ -21387,6 +21928,20 @@ print(profesor1.dameDatos())
 
 ### rocas
 <small>Creado: 2025-12-09 11:06</small>
+
+#### Explicación
+
+Este código es una implementación básica de un juego de nave y rocas en un navegador web utilizando HTML, CSS y JavaScript. En este caso, se utiliza JavaScript para crear el juego.
+
+La creación del juego se logra mediante la definición de dos clases: `Jugador` y `Roca`. La clase `Jugador` tiene una propiedad `posx` y `posy` que representan las coordenadas x e y de la nave. La clase `Roca` también tiene propiedades similares, aunque con nombres diferentes.
+
+Luego, se crea un array vacío llamado `rocas` para almacenar instancias de la clase `Roca`. En este código, se crean 10 rocas aleatorias con coordenadas x e y generadas por números aleatorios entre 0 y 500.
+
+La nave se crea mediante la instancia de la clase `Jugador` con coordenadas iniciales (40, 40). La navegación se realiza utilizando el teclado, donde se cambian las coordenadas de la nave según las teclas presionadas. Cuando se presiona una tecla, se actualiza el estilo del elemento `#nave` con los nuevos valores de `posx` y `posy`.
+
+En cuanto a la visualización de las rocas, se utiliza un bucle para crear 10 elementos de imagen (`img`) cada uno con una clase "roca" y fuentes cargadas en la etiqueta `<style>`. Estos elementos de imagen son creados dentro del cuerpo del documento. Cada elemento de imagen tiene una fuente cargada desde el archivo "roca.png", que debe estar ubicado en el mismo directorio que el archivo HTML actual.
+
+Este código proporciona una base básica para crear juegos más complejos, como la implementación de colisiones entre la nave y las rocas, así como la adición de efectos visuales.
 
 `005-rocas.html`
 
@@ -21462,6 +22017,16 @@ print(profesor1.dameDatos())
 
 ### variaciones en las rocas
 <small>Creado: 2025-12-09 11:13</small>
+
+#### Explicación
+
+Este código es un ejemplo de cómo se utiliza la jerarquía de clases en JavaScript para crear objetos que representan una nave y rocas en una pantalla. La navegación se realiza mediante las teclas W, A, S y D.
+
+La clase `Jugador` tiene como propiedades `posx`, `posy` y `angulo`, que representan la posición X, Y y el ángulo de rotación del jugador. La clase `Roca` también tiene estas propiedades más una propiedad adicional `escala`, que representa la escala de la roca.
+
+El código crea 10 instancias de `Roca` con posiciones aleatorias y ángulos de rotación y escala aleatorias. Luego, crea una instancia del jugador en una posición específica y se establece un evento de teclado para que el jugador pueda moverse hacia arriba, abajo, izquierda y derecha usando las teclas W, A, S y D.
+
+El código también utiliza la propiedad `transform` del elemento `<img>` para aplicar rotaciones y escalas a las rocas. La clase "roca" se agrega a cada imagen utilizando el método `classList.add()`.
 
 `006-variaciones en las rocas.html`
 
@@ -21548,6 +22113,14 @@ print(profesor1.dameDatos())
 
 ### clase bala
 <small>Creado: 2025-12-09 11:53</small>
+
+#### Explicación
+
+Este código es un ejemplo de cómo se puede implementar una jerarquía de clases en JavaScript para crear objetos que tengan propiedades y métodos. En este caso, se definen tres clases: `Bala`, `Jugador` y `Roca`. 
+
+Estas clases permiten crear objetos individuales con sus respectivas propiedades y comportamientos específicos. El código también incluye un script que utiliza estas clases para crear una instancia del jugador y dibujar rocas en el navegador.
+
+En este fragmento de código, se explora cómo se pueden utilizar las clases `Bala`, `Jugador` y `Roca` para representar objetos en la pantalla del navegador.
 
 `007-clase bala.html`
 
@@ -21646,6 +22219,17 @@ print(profesor1.dameDatos())
 ### superclase
 <small>Creado: 2025-12-09 11:57</small>
 
+#### Explicación
+
+Este código es un ejemplo de jerarquía de clases en JavaScript, donde se definen superclases y subclases para modelar objetos en el juego. La estructura de las clases se basa en la siguiente relación:
+
+*   Entidad (superclase): Representa cualquier objeto que pueda tener propiedades como posición, ángulo y velocidad.
+*   Bala (subclase de Entidad): Es un tipo de Entidad con una velocidad fija y puede ser utilizada para crear balas en el juego.
+*   Jugador (subclase de Entidad): Otro tipo de Entidad con propiedades específicas para el jugador, como la posición inicial.
+*   Roca (subclase de Entidad): Representa las rocas que se pueden generar aleatorias en el juego. A diferencia de Bala y Jugador, esta clase tiene una propiedad adicional llamada `escala`.
+
+En este ejemplo, se definen estas clases utilizando el patrón de diseño de "descentralización" (o de "herencia"), donde la superclase (`Entidad`) proporciona las propiedades básicas para que las subclases puedan extenderla.
+
 `008-superclase.html`
 
 ```html
@@ -21742,6 +22326,20 @@ print(profesor1.dameDatos())
 
 ### ancho y alto del navegador
 <small>Creado: 2025-12-09 12:00</small>
+
+#### Explicación
+
+Este código es un ejemplo de cómo se puede utilizar la jerarquía de clases en JavaScript para crear objetos que representen entidades del juego. 
+
+La clase "Entidad" es una superclase abstracta, lo que significa que no puede ser instanciada directamente y se utiliza como base para otras clases. Esta clase tiene varias propiedades y métodos que son comunes a todas las entidades, como la posición en X y Y, el ángulo de rotación y la velocidad.
+
+La clase "Bala" extiende a la superclase "Entidad", lo que significa que hereda las propiedades y los métodos de esta. Sin embargo, también puede agregar propiedades y métodos propios. En este caso, la bala tiene una propiedad adicional llamada "escala" que se utiliza para escalar la imagen de la bala.
+
+La clase "Jugador" también extiende a la superclase "Entidad", lo que significa que hereda las propiedades y los métodos de esta. El jugador también tiene una propiedad adicional llamada "velocidad" que se utiliza para controlar el movimiento del jugador.
+
+El código también crea 1000 instancias de la clase "Roca" y las posiciona aleatoriamente en la pantalla. Cada roca tiene un ángulo de rotación y una escala, lo que da como resultado imágenes con diferentes formas y tamaños.
+
+Finalmente, el código utiliza los eventos de teclado para controlar al jugador, permitiendo que se mueva la nave en la pantalla y se dibujen las rocas.
 
 `009-ancho y alto del navegador.html`
 
@@ -21843,6 +22441,18 @@ print(profesor1.dameDatos())
 
 ### quiero que la nave empiece en cualquier punto
 <small>Creado: 2025-12-09 12:03</small>
+
+#### Explicación
+
+El código que se encuentra en el archivo `quiero que la nave empiece en cualquier punto.html` es un ejemplo de implementación de jerarquía de clases en HTML y JavaScript. En este caso, se definen tres clases: `Entidad`, `Bala` y `Jugador`, que heredan propiedades y métodos de la clase madre `Entidad`.
+
+La clase `Entidad` tiene como características la posición (`posx` y `posy`) y el ángulo de rotación. La clase `Bala` extiende a la clase `Entidad` y agrega una velocidad, mientras que la clase `Jugador` también extiende a la clase `Entidad` y agrega las propiedades del movimiento en X e Y.
+
+El código utiliza un bucle para crear 100 instancias de la clase `Roca`, cada una con una posición aleatoria y un ángulo de rotación aleatorio. Luego, se crea una instancia del jugador (`InstanciaJugador`) con una posición aleatoria y se establecen sus coordenadas en el elemento HTML correspondiente.
+
+El código también utiliza un evento `keydown` para detectar los cambios en la posición del jugador cuando se presiona una tecla específica (W, A, S o D). Cuando se presiona una de estas teclas, se actualizan las coordenadas del jugador y se refrescan las posiciones de las rocas.
+
+En resumen, este código es un ejemplo de implementación de jerarquía de clases en HTML y JavaScript para crear un juego simple con jugadores y rocas.
 
 `010-quiero que la nave empiece en cualquier punto.html`
 
@@ -21951,6 +22561,23 @@ print(profesor1.dameDatos())
 ### descansamos con un fondo
 <small>Creado: 2025-12-09 12:09</small>
 
+#### Explicación
+
+Este fragmento de código es una implementación básica de un juego en HTML5 utilizando JavaScript y CSS. La idea central es crear un escenario con objetos móviles, como una nave y rocas, que se pueden controlar mediante teclas del teclado.
+
+La clave para entender este código es reconocer la jerarquía de clases. En JavaScrip, las clases se utilizan para encapsular datos y comportamientos relacionados. Aquí, tenemos cuatro clases principales:
+
+1.  **Entidad**: Es una clase abstracta que define las propiedades básicas que cualquier objeto en el juego heredará.
+2.  **Bala**, **Jugador** e **Roca**: Estas son las clases concretas que se extienden de la clase `Entidad`. Cada una de estas clases agrega propiedades y comportamientos específicos para cada tipo de objeto.
+
+   -   La clase **Bala** establece la velocidad al disparar.
+   -   La clase **Jugador** define el movimiento horizontal y vertical del jugador.
+   -   La clase **Roca** introduce la propiedad `escala` que afecta la escala de rotación para cada roca.
+
+    Estas clases se utilizan para crear múltiples instancias de objetos en el juego, como en el código, donde se crean 100 rocas aleatorias con propiedades específicas y un jugador controlable mediante teclas del teclado.
+
+    El código también utiliza CSS para establecer la posición inicial de la nave y los fondos visuales básicos del juego.
+
 `011-descansamos con un fondo.html`
 
 ```html
@@ -22058,6 +22685,24 @@ print(profesor1.dameDatos())
 
 ### crear balas
 <small>Creado: 2025-12-09 12:11</small>
+
+#### Explicación
+
+Este código es el que se encuentra en el archivo "crear balas.html". 
+
+El objetivo de este código es crear un juego simple en el que hay una nave que puede moverse en la pantalla y, al golpear con ella diferentes rocas, estas lastiman. Para lograr esto, se utiliza el lenguaje HTML5 con JavaScript.
+
+Primero, se definen algunas clases utilizando la palabra clave `class` y `extends`. Estas clases representan a objetos como la nave, las balas y las rocas. 
+
+La clase `Entidad` es una superclase que tiene propiedades comunes a todas estas entidades, como la posición (`posx`, `posy`) y el ángulo de rotación. Las subclases `Bala`, `Jugador` y `Roca` extienden esta superclase para heredar sus propiedades y agregar nuevas propiedades específicas.
+
+Luego se crean arrays vacíos para almacenar a las balas y rocas. 
+
+En el código se utiliza un bucle para crear 100 rocas con posiciones aleatorias en la pantalla, escalas aleatorias y ángulos de rotación aleatorios. Las rocas también tienen una velocidad cero, lo que significa que no se mueven.
+
+Además, se crea una instancia del jugador en la nave. Se utiliza el evento `keydown` para mover la nave según los teclas presionadas (W, A, S, D) y actualiza la posición de la nave en cada momento.
+
+Finalmente, se utiliza otro bucle para crear imágenes de las rocas y agregarlas a la página web, posicionándolas con sus coordenadas x e y, escalando su tamaño según el parámetro de escala.
 
 `012-crear balas.html`
 
@@ -22170,6 +22815,44 @@ print(profesor1.dameDatos())
 
 ### creo bala nueva al disparar
 <small>Creado: 2025-12-09 12:15</small>
+
+#### Explicación
+
+Este código es el archivo `.html` que se utiliza para crear una aplicación de juego básica. La aplicación consta de un jugador, balas y rocas. En este fragmento del código, se explican las siguientes partes:
+
+**Creación de clases**
+
+En el código, se crean varias clases: `Entidad`, `Bala`, `Jugador` y `Roca`. Estas clases se utilizan para crear objetos en la aplicación.
+
+*   La clase `Entidad` es una superclase abstracta que contiene propiedades como posición (`posx` y `posy`) y velocidad (`velocidad`). Esta clase es la base para las otras clases.
+*   Las clases `Bala`, `Jugador` y `Roca` extienden a la clase `Entidad`. Esto significa que heredan las propiedades de la clase `Entidad` y pueden agregar nuevas propiedades específicas de cada clase.
+
+**Creación de objetos**
+
+Se crean objetos de tipo `Roca` y `Bala` en el bucle `for` utilizando la clase `Roca` y la clase `Bala`, respectivamente. Estos objetos tienen propiedades como posición (`posx` y `posy`) y velocidad (`angulo` y `escala`).
+
+**Movimiento del jugador**
+
+Cuando se presiona una tecla, el jugador se mueve en la pantalla de manera horizontal y vertical.
+
+*   Se utiliza el método `document.onkeydown` para detectar las teclas que se han presionado.
+*   Cuando se presiona la tecla "W", el jugador se mueve hacia arriba. De manera similar, cuando se presiona la tecla "A", el jugador se mueve hacia la izquierda.
+
+**Creación de balas**
+
+Cuando se presiona la barra espaciadora, se crea una bala que se mueve en la pantalla.
+
+*   Se utiliza el método `balas.push` para agregar una nueva bala a la lista de balas.
+*   Cada vez que se presiona la barra espaciadora, se crea una nueva imagen con la clase "bala" y se añade a la lista de balas. La posición inicial de cada bala es igual a la posición del jugador.
+
+**Dibujado de rocas**
+
+En el bucle `for`, se crean objetos de tipo `Roca` y se dibujan en la pantalla utilizando la clase "roca".
+
+*   Se utiliza el método `document.querySelector` para seleccionar el elemento HTML que representará a cada roca.
+*   Cada roca tiene una posición (`posx` y `posy`) y un ángulo de rotación (`angulo`) que se utilizan para dibujar la imagen.
+
+En resumen, este código crea objetos de tipo `Roca` y `Bala` y los utiliza en una aplicación de juego básica. Los objetos se mueven en la pantalla según las teclas que se han presionado y se dibujan utilizando imágenes.
 
 `013-creo bala nueva al disparar.html`
 
@@ -22298,6 +22981,18 @@ print(profesor1.dameDatos())
 ### bala
 <small>Creado: 2025-12-09 12:15</small>
 
+#### Explicación
+
+¡Hola estudiantes! Hoy vamos a hablar sobre un archivo de código en XML que nos permite crear gráficos con Inkscape, una herramienta gratuita y de código abierto para crear y editar imágenes vectoriales.
+
+Este archivo se llama "bala.svg" y se utiliza para representar una bala en nuestro juego. El código se organiza de manera jerárquica, con diferentes secciones que nos permiten personalizar cada detalle del gráfico.
+
+La parte más interesante de este archivo es la sección `<svg>`, donde se definen las propiedades básicas del gráfico, como el ancho y el alto, así como las unidades en las que se mide (mm). También hay una propiedad `viewBox` que establece la región de visualización del gráfico, lo que nos permite personalizar cómo se vea en diferentes tamaños de pantalla.
+
+La parte más importante de este archivo son las `<g>`, `<circle>` y sus atributos, donde se definen el estilo y la posición del círculo que representa la bala. El `id` de cada elemento nos permite acceder a él fácilmente desde otras partes del código. Por ejemplo, en la línea `cx="98.264442" cy="76.714279"` se establece la posición del círculo.
+
+En resumen, este archivo "bala.svg" es una plantilla básica para crear gráficos con Inkscape, donde podemos personalizar el estilo y la posición de cada elemento para representar diferentes objetos en nuestro juego. ¿Queréis seguir aprendiendo sobre cómo utilizar este archivo o vamos a pasar a otro tema?
+
 `bala.svg`
 
 ```
@@ -22357,6 +23052,20 @@ print(profesor1.dameDatos())
 
 ### nave
 <small>Creado: 2025-12-09 10:34</small>
+
+#### Explicación
+
+¡Hola estudiantes! Hoy vamos a analizar un fragmento de código en formato XML que representa una nave en forma de SVG (Scalable Vector Graphics). 
+
+Este código se utiliza para crear gráficos y representar objetos visuales en la interfaz de usuario. En este caso, estamos trabajando con una imagen llamada "nave.svg" que representa una nave espacial.
+
+El fragmento de código se comienza con la línea `<?xml version="1.0" encoding="UTF-8" standalone="no"?`, que es una declaración que indica el formato del documento en forma de XML (Extensible Markup Language). Luego, se define la estructura básica del documento con las etiquetas `<svg>` y `<defs>`. 
+
+La etiqueta `<g>` representa un grupo de objetos visuales y contiene varias sub-etrillas, como `<path>`, `<ellipse>`, `<circle>` y `<path>`. Cada una de estas sub-etrillas define el formato y la posición de un elemento visual en la imagen.
+
+En este caso, la nave está compuesta por varios elementos visuales, como el cuerpo de la nave (`<ellipse>`) y dos puntos de referencia (`<circle>`). Además, hay un rectángulo amarillo que representa la nave (`<path>`).
+
+La importancia de utilizar XML para representar objetos visuales es que nos permite definir la estructura y la apariencia de los elementos de manera precisa y concisa. Esto nos permite crear imágenes más complejas y detalladas sin tener que preocuparnos por los detalles técnicos de la representación gráfica.
 
 `nave.svg`
 
@@ -22431,6 +23140,12 @@ print(profesor1.dameDatos())
 ### roca
 <small>Creado: 2025-12-09 11:00</small>
 
+#### Explicación
+
+Este código es un archivo de SVG (Scalable Vector Graphics) creado con la herramienta Inkscape. Un archivo SVG es una forma estándar de representar gráficos vectoriales en formato de texto, lo que significa que se puede editar y manipular fácilmente sin perder calidad.
+
+El código representa una imagen de una roca en un formato SVG. La roca se compone de varias partes, como la forma geométrica que representa el cuerpo de la roca, los bordes y las líneas que lo definan, y otros elementos visuales como colores y patrones.
+
 `roca.svg`
 
 ```
@@ -22487,12 +23202,74 @@ print(profesor1.dameDatos())
 </svg>
 ```
 
+### Actividades propuestas
+
+El código proporcionado parece ser una mezcla de diferentes archivos XML que utilizan la sintaxis de Inkscape para definir gráficos. Estos archivos se pueden utilizar para crear imágenes o elementos visuales.
+
+Para comprender mejor el código, podemos analizar algunos de los archivos específicamente:
+
+1. **bala.svg**: Este archivo define una circunferencia roja con un diámetro de 11.329525 mm.
+2. **nave.svg**: Este archivo define varios elementos visuales que pueden representar la nave, incluyendo un rectángulo rojo (representando el fuselaje), una línea amarilla y un círculo blanco. El rectángulo tiene una anchura de 29.44548 mm.
+3. **roca.svg**: Este archivo define varios elementos visuales que pueden representar la roca, incluyendo un rectángulo gris con una textura.
+
+Aunque no se proporciona el código completo para generar las imágenes o los objetos en este contexto específico, podemos inferir algunas cosas:
+
+- Los archivos XML utilizan la sintaxis de Inkscape para definir gráficos.
+- Estos archivos pueden ser importados a software como Adobe Illustrator o GIMP para manipularlos o convertirlos en formatos más utilizados.
+- Los objetos definidos en estos archivos se pueden utilizar para crear imágenes o elementos visuales.
+
+Para compilar o generar código basado en estos archivos XML, necesitaríamos más contexto sobre cómo se desean utilizar estos archivos. ¿Necesitas ayuda con algo específico relacionado con la generación de código?
+
 
 <a id="clases-y-metodos-abstractos-y-finales"></a>
 ## Clases y métodos abstractos y finales
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/007-Utilizaci%C3%B3n%20avanzada%20de%20clases/004-Clases%20y%20m%C3%A9todos%20abstractos%20y%20finales)
+
+### Introducción a los ejercicios
+
+El código proporcionado es una secuencia de archivos HTML y JavaScript que crean un reloj digital dinámico. Cada archivo es uno más simple que el anterior, ya que ajusta estilos o funcionamiento del reloj. A continuación, te presento un resumen y una explicación detallada de cada archivo:
+
+**ARCHIVO 1: `reloj.html`**
+
+*   Inicializa el reloj con la función `bucle()`.
+*   Define la velocidad del reloj en milisegundos (1000 ms).
+
+**ARCHIVO 2: `estilo.js`**
+
+*   Ajusta el estilo de la manecilla de las horas, minutos y segundos.
+*   Agrega un estilo para el círculo central.
+*   Utiliza el `lineCap` propiedad para redondear los bordes del reloj.
+
+**ARCHIVO 3: `desfase.html`**
+
+*   Ajusta la desfase de las manecillas del reloj en 90 grados respecto a las horas.
+*   Utiliza la fórmula `angulo_hora = hora*(Math.PI*2/12)-Math.PI/2`.
+
+**ARCHIVO 4: `desfase.js`**
+
+*   Ajusta el estilo de la manecilla de las horas, minutos y segundos con desfase en 90 grados.
+*   Utiliza la fórmula `angulo_hora = hora*(Math.PI*2/12)-Math.PI/2`.
+*   Llama a la función `bucle()` con un tiempo entre actualizaciones de 1000 ms.
+
+**ARCHIVO 5: `desfase.js (versión alternativa)`**
+
+*   Utiliza el método `requestAnimationFrame` para mejorar el rendimiento del reloj.
+*   Llama a la función `bucle()` en cada llamada a `requestAnimationFrame`.
+*   Ajusta las propiedades del reloj según sea necesario.
+
+En resumen, los archivos se crean incrementando o ajustando los estilos y funcionamiento del reloj. Cada archivo es más simple que el anterior, ya que reducen la complejidad de la función `bucle()`.
+
 ### clase abstracta
 <small>Creado: 2025-12-10 08:43</small>
+
+#### Explicación
+
+En este código, se definen tres clases: `Ser`, `Animal` y `Perro`. 
+
+Las clases `Ser` y `Animal` son abstractas porque no tienen el método constructor o no tienen sentido instanciar. El método `super()` de la clase `Animal` es un ejemplo claro de cómo se llama a los métodos del padre desde una clase hija.
+
+Por otro lado, la clase `Perro` es concreta porque tiene el método constructor y puede instanciarse para crear objetos que representan perros. El objeto `Perro1` creado con la línea `let Perro1 = new Perro("blanco");` es un ejemplo de cómo se utiliza la clase `Perro`.
 
 `001-clase abstracta.html`
 
@@ -22530,6 +23307,12 @@ print(profesor1.dameDatos())
 ### transformaciones css
 <small>Creado: 2025-12-10 08:47</small>
 
+#### Explicación
+
+Este fragmento de código es una transformación CSS utilizando la propiedad `transform` en el elemento div con ID "rojo". La propiedad `transform` permite aplicar una o varias transformaciones a un elemento, como roturas, escalas, reflejos y movimientos.
+
+En este caso, se aplica una transformación de movimiento (`translate`) para desplazar el elemento 200 pixeles hacia la derecha y 200 pixeles hacia abajo. Esto hace que el div con ID "rojo" se muestre en un punto específico de la pantalla, en lugar de ocupar su posición original. La propiedad `transform` es importante porque permite crear efectos visuales y dinámicos en la página web sin necesidad de utilizar JavaScript o otras tecnologías adicionales.
+
 `002-transformaciones css.html`
 
 ```html
@@ -22551,6 +23334,14 @@ print(profesor1.dameDatos())
 
 ### transformacion independiente
 <small>Creado: 2025-12-10 08:49</small>
+
+#### Explicación
+
+Este código HTML se encarga de mostrar un cuadrado rojo en la pantalla con una transformación específica. Se utiliza una propiedad CSS llamada `transform` para cambiar el comportamiento y posición del elemento.
+
+La propiedad `transform` nos permite modificar diferentes aspectos de nuestro elemento sin afectar su estructura original, como la posición, tamaño o orientación. En este caso, se aplican dos valores específicos: `translateX(200px)` y `translateY(200px)`. El primer valor (200px) cambia el x-axis del cuadrado 200 pixeles hacia la derecha, mientras que el segundo valor (200px) lo hace hacia arriba. Por lo tanto, el cuadrado se traslada 200 pixeles a la derecha y 200 pixeles hacia arriba desde su posición inicial.
+
+En este código específico, también se aplica otra propiedad CSS llamada `border`, que agrega un borde negro de 1 pixel de grosor al elemento.
 
 `003-transformacion independiente.html`
 
@@ -22574,6 +23365,14 @@ print(profesor1.dameDatos())
 ### rotacion
 <small>Creado: 2025-12-10 08:49</small>
 
+#### Explicación
+
+Este código utiliza una clase CSS llamada `transform` para rotar un elemento HTML de 45 grados.
+
+La clave aquí es la propiedad `transform`, que permite aplicar transformaciones geométricas a un elemento HTML. En este caso, se aplica una rotación específica utilizando el valor `rotate(45deg)`. Esto significa que el elemento con la clase `rojo` se rotará en 45 grados alrededor del eje x.
+
+La importancia de esta propiedad es que permite crear diseños dinámicos y interactivos en HTML sin requerir el uso de JavaScript. Es una herramienta poderosa para diseñadores y desarrolladores web.
+
 `004-rotacion.html`
 
 ```html
@@ -22595,6 +23394,16 @@ print(profesor1.dameDatos())
 
 ### transformacion de escala
 <small>Creado: 2025-12-10 08:52</small>
+
+#### Explicación
+
+¡Hola estudiantes! Hoy vamos a hablar sobre cómo aplicar transformaciones en la propiedad `transform` de un elemento HTML. Este código es una ejemplo muy simple, pero es fundamental para entender cómo funciona este método.
+
+La propiedad `transform` nos permite cambiar el comportamiento del elemento seleccionado, como rotarlo, escalarlo o reflejarlo. En este caso, tenemos dos cosas importantes que ver: la propiedad `width`, `height` y `background-color`. Estas están relacionadas con la propiedades de "escala" en transformaciones.
+
+El código tiene una estilo CSS dentro del archivo HTML, donde creamos un elemento div con el id `rojo`. La propiedad `transform` está configurada como `scale(1)`, lo que significa que no se realizará ninguna transformación. En este caso, el tamaño y la posición inicial de los elementos es igual al tamaño y la posición inicial del objeto, lo que hace que el elemento aparezca normalmente.
+
+La clave aquí es entender cómo combinarse las propiedades: `transform` y sus valores. El código también muestra qué sucede cuando aplicamos diferentes transformaciones sobre un elemento HTML.
 
 `005-transformacion de escala.html`
 
@@ -22618,6 +23427,14 @@ print(profesor1.dameDatos())
 ### multiples transformaciones
 <small>Creado: 2025-12-10 08:53</small>
 
+#### Explicación
+
+Este fragmento de código es un ejemplo de cómo se puede aplicar una transformación a un elemento HTML utilizando CSS. En este caso, se define un estilo para un elemento con la identificador "rojo". El estilo especifica que el elemento debe tener un ancho y alto de 50 pixeles, un fondo rojo y una borde negro de 1 pixel de grosor.
+
+Además, se agrega una propiedad CSS llamada `transform`, que permite realizar transformaciones en el elemento. En este caso, se aplican tres transformaciones: `translate(100px, 100px)`, que mueve el elemento 100 pixeles hacia la derecha y 100 pixeles hacia abajo; `rotate(45deg)`, que gira el elemento 45 grados en un sentido anticuerno; y `scale(2)`, que aumenta el tamaño del elemento hasta 2 veces su original tamaño.
+
+Estas transformaciones se aplican al elemento "rojo" y se pueden ver en el documento HTML cuando se carga la página. La combinación de estas transformaciones permite crear efectos visuales interesantes y dinámicos.
+
 `006-multiples transformaciones.html`
 
 ```html
@@ -22639,6 +23456,12 @@ print(profesor1.dameDatos())
 
 ### evento tecla
 <small>Creado: 2025-12-10 09:01</small>
+
+#### Explicación
+
+Este fragmento de código se encarga de detectar cuando se presiona una tecla específica en el ratón del usuario. Es decir, cuando se presiona "W", "S", "A" o "D", se ejecuta un bloque de código que se encarga de realizar acciones relacionadas con la dirección del movimiento del personaje.
+
+Este fragmento de código es importante porque permite que el usuario controle la dirección en la que se mueve el personaje en la pantalla, lo cual puede ser útil en juegos y aplicaciones que requieren la interacción del usuario.
 
 `007-evento tecla.html`
 
@@ -22672,6 +23495,16 @@ print(profesor1.dameDatos())
 
 ### eventos de raton
 <small>Creado: 2025-12-10 09:03</small>
+
+#### Explicación
+
+Este código es una pequeña aplicación que se ejecuta en un navegador web. Se utiliza para detectar y responder a eventos específicos, como teclas presionadas o el mouse hecho clic.
+
+El código utiliza dos eventos: `keydown` y `mousedown`. El evento `keydown` se dispara cada vez que una tecla del teclado es presionada y su estado cambia (por ejemplo, cuando se presiona "w" para mover un personaje hacia arriba). En este caso, se utiliza un bucle de switch para determinar qué acción realizar cuando se presione una tecla específica.
+
+El evento `mousedown` se dispara cada vez que el usuario hace clic en el mouse. En este caso, se utiliza simplemente para imprimir "Disparamos" al consola.
+
+Este código es importante porque muestra cómo interactuar con los eventos del navegador web de manera básica. Es útil para entender cómo se pueden detectar cambios en la interfaz del usuario y responder a ellos de manera específica.
 
 `008-eventos de raton.html`
 
@@ -22708,6 +23541,16 @@ print(profesor1.dameDatos())
 
 ### juntamos lo de antes
 <small>Creado: 2025-12-10 09:10</small>
+
+#### Explicación
+
+Este código crea un pequeño juego donde el usuario puede controlar una figura roja que se mueve en la pantalla utilizando las teclas W, A, S y D. El código está estructurado de manera modular y utiliza algunas técnicas avanzadas como la creación de objetos y la manipulación del CSS.
+
+El código comienza definiendo dos variables, `posx` y `posy`, que almacenan la posición actual del personaje en el juego. Luego se define una función con `document.onkeydown` que se ejecuta cada vez que se presiona una tecla. Esta función utiliza un switch para determinar qué dirección moverá el personaje según la tecla presionada.
+
+El código también contiene un caso específico para cuando se presiona la tecla "d", donde se suma 10 a la posición x del personaje, lo que hace que se mueva hacia la derecha. Además, hay una función con `document.onmousedown` que se ejecuta cada vez que el usuario hace clic en la pantalla, pero esta no tiene efecto en este juego.
+
+Finalmente, el código utiliza la propiedad CSS `transform` para cambiar la posición del elemento con el id "rojo". La propiedad se establece utilizando el método `setTransform`, donde se pasa como parámetros los valores de x e y de la posición actual del personaje.
 
 `009-juntamos lo de antes.html`
 
@@ -22757,6 +23600,18 @@ print(profesor1.dameDatos())
 ### trigonometria basica
 <small>Creado: 2025-12-10 09:21</small>
 
+#### Explicación
+
+¡Hola! Hoy vamos a hablar sobre un fragmento de código que utiliza funciones matemáticas para calcular el coseno y la seno de un ángulo. 
+
+Este código se ejecuta cuando un usuario visita la página web, pero no es un código dinámico porque no cambia durante la ejecución del navegador.
+
+El código utiliza una función llamada `Math` que contiene funciones trigonométricas como `sin`, `cos`. Estas funciones le pasamos el ángulo en radianes y nos devuelven el coseno y seno correspondientes. En este caso, se pasa el ángulo π/4. 
+
+El resultado del código es mostrar los valores calculados en la consola del navegador.
+
+Es importante entender que las funciones trigonométricas son fundamentales para resolver problemas de geometría y física.
+
 `010-trigonometria basica.html`
 
 ```html
@@ -22778,6 +23633,24 @@ print(profesor1.dameDatos())
 
 ### dibujar con canvas
 <small>Creado: 2025-12-10 09:30</small>
+
+#### Explicación
+
+En este fragmento de código, se está utilizando la clase `<canvas>` para crear un lienzo de dibujo en una página web. El objetivo es aprender a trabajar con esta clase y sus métodos para realizar diversas operaciones gráficas.
+
+El código comienza creando el lienzo del canvas mediante `document.querySelector("canvas")`, que selecciona el elemento `<canvas>` dentro del documento HTML. Luego, se establecen las dimensiones del lienzo mediante `lienzo.width` y `lienzo.height`.
+
+La clase `<canvas>` tiene un método llamado `getContext("2d")`, que nos permite acceder al contexto gráfico 2D. Este contexto es el objeto que realmente hace las operaciones de dibujo en nuestro lienzo.
+
+El código utiliza varios métodos del contexto para realizar operaciones de dibujo:
+
+*   **`beginPath()`**: empieza a dibujar un nuevo patrón o forma.
+*   **`arc()`**: dibuja un arco cónico.
+*   **`moveTo()`**: establece la posición actual del cursor, sin dibujar nada.
+*   **`lineTo()`**: establece la posición final del cursor, dibujando una línea desde la posición actual hasta la posición final.
+*   **`stroke()`**: dibuja o "realiza" la traza de un patrón o forma.
+
+En este caso se están creando tres figuras: un círculo con un radio de 200 unidades y centrado en el punto (256, 256), una línea que conecta los puntos (0, 256) y (512, 256), y otra línea vertical desde el punto (256, 0) hasta (256, 512).
 
 `011-dibujar con canvas.html`
 
@@ -22820,6 +23693,20 @@ print(profesor1.dameDatos())
 
 ### linea con angulo
 <small>Creado: 2025-12-10 09:33</small>
+
+#### Explicación
+
+En este ejercicio, vamos a analizar un código HTML que utiliza el contexto de 2D del canvas para dibujar diferentes formas en una ventana gráfica. A continuación, te explicaré qué hace cada parte del código y cómo funciona.
+
+El código comienza definiendo variables para el lienzo del canvas y obtiene el contexto de 2D. Luego, utiliza métodos del contexto para dibujar diferentes formas: un círculo, una línea recta y una línea diagonal con ángulo.
+
+El método `arc` se utiliza para dibujar un círculo en el lienzo, pasando como argumentos las coordenadas iniciales y finales, la radio y los ángulos iniciales y finales. En este caso, se dibuja un círculo con centro en (256, 256) y radio de 200.
+
+El método `moveTo` y `lineTo` se utilizan para dibujar una línea recta y horizontal, respectivamente. El método `stroke` se utiliza para realzar la línea dibujada.
+
+Finalmente, el código utiliza el método `cos` e `sin` del contexto para calcular las coordenadas de la línea diagonal con ángulo. En este caso, se dibuja una línea diagonal desde (256, 256) con un angulo de 1 radiano.
+
+En resumen, este código utiliza diferentes métodos del contexto de 2D del canvas para dibujar formas en una ventana gráfica y calcular coordenadas usando funciones trigonométricas.
 
 `012-linea con angulo.html`
 
@@ -22873,6 +23760,20 @@ print(profesor1.dameDatos())
 ### varias lineas
 <small>Creado: 2025-12-10 09:37</small>
 
+#### Explicación
+
+Este código es un ejemplo de cómo se puede utilizar un contexto 2D (2D Drawing Context) en JavaScript para dibujar diferentes figuras en una página web utilizando HTML y Canvas. 
+
+En primer lugar, el código selecciona el elemento canvas utilizando `document.querySelector("canvas")` y lo convierte en el contexto (`lienzo`) donde se realizarán las operaciones de dibujo. Luego establece las dimensiones del lienzo (`width` y `height`). 
+
+Para dibujar un círculo, utiliza la función `contexto.arc(xinicial, yinicial, radio, anguloinicial, angulofinal)` donde se pueden pasar los siguientes parámetros: coordenadas iniciales (xinicial, yinicial), el radio del círculo. También se puede especificar si el circulo es de arco o completo utilizando las variables `anguloinicial` y `angulofinal`. En este caso, el código dibuja un círculo completo con el centro en (256, 256) y el radio de 200.
+
+Para dibujar una línea, utiliza la función `contexto.moveTo(x1, y1)` para establecer el punto inicial del segmento de recta y luego llama a `contexto.lineTo(x2, y2)` para especificar el punto final. En este caso, se dibuja una línea que conecta los puntos (0, 256) y (512, 256). 
+
+Para dibujar una línea vertical, utiliza la función `contexto.moveTo(x1, y1)` y establece el punto inicial del segmento de recta en (256, 0), y luego llama a `contexto.lineTo(x2, y2)` para especificar el punto final en (256, 512). 
+
+En este código se utiliza un bucle `for` para dibujar una línea con angulo. En cada iteración del bucle, establece los puntos iniciales y finales de la línea utilizando las funciones `contexto.moveTo(x1, y1)` y `contexto.lineTo(x2, y2)`, donde se calculan los valores de x e y según el ángulo i en radianes utilizando las funciones matemáticas trigonométricas coseno y seno para determinar la ubicación exacta del punto en función del ángulo.
+
 `013-varias lineas.html`
 
 ```html
@@ -22925,6 +23826,20 @@ print(profesor1.dameDatos())
 ### temporizador
 <small>Creado: 2025-12-10 09:40</small>
 
+#### Explicación
+
+**Introducción al temporizador**
+
+En este ejercicio, se utiliza una función llamada `setTimeout()` para crear un temporizador que ejecute una función después de un tiempo determinado. En el caso específico de este código, la función `saludo()` será ejecutada 5 segundos después de que se invoca la función `setTimeout()`.
+
+**Funcionamiento**
+
+La función `setTimeout()` acepta dos argumentos: la función a ejecutar y el número de milisegundos que debe esperar antes de ejecutarla. En este caso, la función `saludo()` es la que se va a ejecutar después de 5000 milisegundos (5 segundos). La palabra clave importante aquí es "temporizador", ya que permite programar tareas para ser ejecutadas en el futuro.
+
+**Importancia**
+
+El uso de temporizadores es fundamental en muchas aplicaciones, especialmente aquellas que requieren crear interfaces interactivas. En este caso, se utiliza un temporizador para hacer una función que normalmente no se habría de realizar hasta después de un tiempo determinado, lo cual puede ser muy útil en situaciones como la creación de anuncios o notificaciones.
+
 `014-temporizador.html`
 
 ```html
@@ -22946,6 +23861,16 @@ print(profesor1.dameDatos())
 
 ### bucle
 <small>Creado: 2025-12-10 09:44</small>
+
+#### Explicación
+
+Este código es un ejemplo de un temporizador en JavaScript que utiliza un bucle para ejecutar una función repetidamente. A continuación, te explico cómo funciona:
+
+El código crea un temporizador utilizando la función `setTimeout()`, que llama a la función `bucle()` después de un tiempo determinado, en este caso 1 segundo. La función `bucle()` se define antes de la llamada a `setTimeout()`, lo que significa que se ejecutará directamente después de crear el temporizador.
+
+La función `bucle()` tiene dos acciones principales: primero, imprime "Hola" en la consola utilizando `console.log()`. Esto es solo para demostrar que la función se está ejecutando. Luego, utiliza la función `clearTimeout()` para cancelar cualquier temporizador previo y establece un nuevo temporizador que llame a `bucle()` nuevamente después de otro segundo.
+
+En otras palabras, este código crea un bucle infinito donde la función `bucle()` se llama repetidamente cada segundo. La llamada recursiva asegura que la función se ejecute de nuevo después del tiempo especificado por `setTimeout()`.
 
 `015-bucle.html`
 
@@ -22970,6 +23895,16 @@ print(profesor1.dameDatos())
 
 ### fecha actual
 <small>Creado: 2025-12-10 09:49</small>
+
+#### Explicación
+
+Este fragmento de código utiliza la función `setTimeout()` para crear un temporizador que actualiza la fecha y hora en el elemento `<time>` de manera recursiva. 
+
+En primer lugar, se crea un temporizador con una duración de 1 segundo utilizando la función `setTimeout()`. Este temporizador llama a la función `bucle()` dentro de ese tiempo. En la función `bucle()`, se obtiene la fecha y hora actual mediante la función `new Date()`, se extraen los valores de anio, mes, día, hora, minuto y segundo, y se asignan estos valores al elemento `<time>` utilizando `document.querySelector()`.
+
+Posteriormente, se elimina el temporizador anterior mediante `clearTimeout()`. Luego se crea un nuevo temporizador que llama a la función `bucle()` nuevamente después de 1 segundo. 
+
+Esto crea un ciclo o bucle que actualiza la fecha y hora cada segundo hasta que el programa se detiene.
 
 `016-fecha actual.html`
 
@@ -23002,6 +23937,18 @@ print(profesor1.dameDatos())
 
 ### reloj
 <small>Creado: 2025-12-10 10:11</small>
+
+#### Explicación
+
+Este código HTML, mediante un script JavaScript, crea una simulación de reloj en una pantalla. El reloj consta de manecillas que muestran la hora actual.
+
+El código utiliza funciones llamadas "condiciones iniciales" y "bucle". 
+
+En primer lugar, se utiliza la función "setTimeout", que permite programar una acción para ejecutarse después de un número determinado de segundos. En este caso, el bucle se lanza en 1 segundo desde el momento actual.
+
+El código también utiliza la función "clearTimeout" para cancelar el temporizador anterior y establecer un nuevo uno, asegurándose de que el bucle se repita periódicamente. 
+
+Finalmente, se utiliza la función "getContext" del elemento canvas para obtener acceso a su contexto gráfico, lo cual es necesario para realizar los dibujos en 2D.
 
 `017-reloj.html`
 
@@ -23075,6 +24022,22 @@ print(profesor1.dameDatos())
 
 ### estilo
 <small>Creado: 2025-12-10 10:19</small>
+
+#### Explicación
+
+Este código es un ejemplo de una aplicación web que utiliza HTML5, CSS y JavaScript para dibujar un reloj digital en una pantalla. El código se ejecuta en el lado del servidor, lo cual nos permite actualizar la pantalla con nuevas imágenes sin tener que recargar la página.
+
+El código comienza creando una instancia de un temporizador utilizando la función `setTimeout`, que es un método del objeto `Window` que nos permite establecer una función a ser ejecutada después de un tiempo específico. En este caso, se llama a la función `bucle()` cada 1 segundo.
+
+La función `bucle()` es la responsable de dibujar el reloj digital en el canvas. Primero, calcula las horas, minutos y segundos actuales utilizando la clase `Date` del objeto `Window`. Luego, utiliza el contexto 2D (`context`) del canvas para borrar el lienzo anterior y crear un nuevo espacio para dibujar.
+
+La función `bucle()` dibuja las manecillas de las horas, minutos y segundos en el centro del reloj, utilizando la propiedad `strokeStyle` para establecer el color del trazo. También utiliza la propiedad `lineWidth` para ajustar el grosor de las líneas y los métodos `beginPath`, `moveTo`, `lineTo` y `stroke` para dibujar las manecillas.
+
+Además, se dibuja un círculo central en el reloj utilizando el método `arc` del contexto 2D. También se aplica una línea en el límite del círculo completo con la propiedad `strokeStyle`.
+
+Finalmente, se elimina el temporizador anterior utilizando la función `clearTimeout` y se establece un nuevo temporizador para llamar a la función `bucle()` de nuevo después de 1 segundo. Esto crea un bucle infinito que actualizará el reloj cada segundo.
+
+En resumen, este código es un ejemplo de cómo utilizar las propiedades del contexto 2D del canvas y los métodos del objeto `Window` para crear una aplicación web interactiva y dinámica.
 
 `018-estilo.html`
 
@@ -23163,6 +24126,16 @@ print(profesor1.dameDatos())
 ### desfase de 90 grados
 <small>Creado: 2025-12-10 10:26</small>
 
+#### Explicación
+
+Este código es un ejemplo de cómo se puede implementar un reloj digital en una página web utilizando HTML5 y JavaScript. El código utiliza el contexto 2D del canvas para dibujar las manecillas de las horas, minutos y segundos, así como el círculo central.
+
+El código comienza creando una fecha actual con `new Date()` y luego extrae la hora, minuto y segundo de esta fecha. Luego, el código utiliza funciones trigonométricas para calcular los ángulos en radianes que corresponden a cada manecilla. Finalmente, se dibuja las manecillas y el círculo central utilizando el contexto 2D del canvas.
+
+El uso de la función `setTimeout()` es importante aquí, ya que permite crear un bucle recursivo que actualiza el reloj cada segundo. La función `clearTimeout()` es utilizada para cancelar el temporizador anterior antes de crear un nuevo uno, lo cual evita que se cumplan múltiples veces.
+
+Es importante mencionar que este código utiliza funciones trigonométricas para calcular los ángulos en radianes, lo que permite una representación más precisa del tiempo.
+
 `019-desfase de 90 grados.html`
 
 ```html
@@ -23247,17 +24220,375 @@ print(profesor1.dameDatos())
 </html>
 ```
 
+### Actividades propuestas
+
+La estructura de código que has proporcionado es un conjunto de archivos HTML con JavaScript en tiempo ejecutable (ES6+). Estos archivos crean una relojización digital que muestra las horas, minutos y segundos. Aquí te presento una revisión de los archivos:
+
+**1. archivo 001.html**
+
+Este archivo crea el contenedor principal del reloj.
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj Digital</title>
+    <style>
+        /* Agrega estilo básico */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        #reloj {
+            width: 512px;
+            height: 512px;
+            border: 1px solid black;
+            display: inline-block;
+            margin-top: 50px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="reloj"></canvas>
+    <script src="index.js"></script>
+</body>
+</html>
+```
+
+**2. archivo 002.html**
+
+Este archivo es el código JavaScript que crea la relojización digital.
+
+```javascript
+// Condiciones iniciales
+let temporizador = setTimeout("bucle()",1000); // Dentro de un seg, entra en el bucle
+
+function buble() {
+    let fecha = new Date(); // Construye una fecha
+    
+    let hora = fecha.getHours(); // Quiero saber la hora
+    let minuto = fecha.getMinutes(); // Quiero saber el minuto
+    let segundo = fecha.getSeconds(); // Quiero saber el segundo
+    
+    contexto.clearRect(0, 0, 512, 512); // Borro el lienzo
+    
+    // Dibuja manecillas de horas, minutos y segundos
+    contexto.lineWidth = 45;
+    contexto.strokeStyle = "blue";
+    angulo_hora = hora*(Math.PI*2/12)-Math.PI/2;
+    contexto.beginPath();
+    contexto.moveTo(256, 256); // Muevo el cursor al centro del reloj
+    contexto.lineTo(
+        256+Math.cos(angulo_hora)*100,
+        256+Math.sin(angulo_hora)*100
+    )
+    contexto.stroke();
+    
+    contexto.lineWidth = 25;
+    contexto.strokeStyle = "green";
+    angulo_minuto = minuto*(Math.PI*2/60)-Math.PI/2;
+    contexto.beginPath();
+    contexto.moveTo(256, 256); // Muevo el cursor al centro del reloj
+    contexto.lineTo(
+        256+Math.cos(angulo_minuto)*150,
+        256+Math.sin(angulo_minuto)*150
+    )
+    contexto.stroke();
+    
+    contexto.lineWidth = 5;
+    contexto.strokeStyle = "red";
+    angulo_segundo = segundo*(Math.PI*2/60)-Math.PI/2;
+    contexto.beginPath();
+    contexto.moveTo(256, 256); // Muevo el cursor al centro del reloj
+    contexto.lineTo(
+        256+Math.cos(angulo_segundo)*200,
+        256+Math.sin(angulo_segundo)*200
+    )
+    contexto.stroke();
+    
+    // Circulo central
+    contexto.beginPath();
+    contexto.arc(256, 256, 50, 0, Math.PI*2)
+    contexto.fill();
+    
+    contexto.lineWidth = 25;
+    contexto.strokeStyle = "black";
+    contexto.beginPath(); // Empiezo a dibujar
+    contexto.arc(256, 256, 200, 0, Math.PI*2) // Dibujo un circulo completo
+    contexto.stroke(); // Y trazo linea
+    
+    clearTimeout(temporizador); // Borro el temporizador anterior
+    temporizador = setTimeout("buble()", 1000); // Llamada recursiva
+}
+```
+
+Este código utiliza la biblioteca `canvas` para crear una red de puntos que muestran las horas, minutos y segundos. La función `buble()` se llama a cada segundo utilizando el temporizador `setTimeout()`, lo que crea un bucle de 1 segundo.
+
+**3. archivo 003.html**
+
+Este archivo es similar al anterior, pero con algunos cambios en la posición y tamaño de los elementos del reloj.
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj Digital</title>
+    <style>
+        /* Agrega estilo básico */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        #reloj {
+            width: 400px;
+            height: 400px;
+            border: 1px solid black;
+            display: inline-block;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="reloj"></canvas>
+    <script src="index.js"></script>
+</body>
+</html>
+```
+
+**4. archivo 004.html**
+
+Este archivo es similar al anterior, pero con algunos cambios en la posición y tamaño de los elementos del reloj.
+
+```javascript
+// Condiciones iniciales
+let temporizador = setTimeout("bucle()",1000); // Dentro de un seg, entra en el bucle
+
+function buble() {
+    let fecha = new Date(); // Construye una fecha
+    
+    let hora = fecha.getHours(); // Quiero saber la hora
+    let minuto = fecha.getMinutes(); // Quiero saber el minuto
+    let segundo = fecha.getSeconds(); // Quiero saber el segundo
+    
+    contexto.clearRect(0, 0, 400, 400); // Borro el lienzo
+    
+    // Dibuja manecillas de horas, minutos y segundos
+    contexto.lineWidth = 40;
+    contexto.strokeStyle = "blue";
+    angulo_hora = hora*(Math.PI*2/12)-Math.PI/2;
+    contexto.beginPath();
+    contexto.moveTo(200, 200); // Muevo el cursor al centro del reloj
+    contexto.lineTo(
+        200+Math.cos(angulo_hora)*150,
+        200+Math.sin(angulo_hora)*150
+    )
+    contexto.stroke();
+    
+    contexto.lineWidth = 20;
+    contexto.strokeStyle = "green";
+    angulo_minuto = minuto*(Math.PI*2/60)-Math.PI/2;
+    contexto.beginPath();
+    contexto.moveTo(200, 200); // Muevo el cursor al centro del reloj
+    contexto.lineTo(
+        200+Math.cos(angulo_minuto)*100,
+        200+Math.sin(angulo_minuto)*100
+    )
+    contexto.stroke();
+    
+    contexto.lineWidth = 5;
+    contexto.strokeStyle = "red";
+    angulo_segundo = segundo*(Math.PI*2/60)-Math.PI/2;
+    contexto.beginPath();
+    contexto.moveTo(200, 200); // Muevo el cursor al centro del reloj
+    contexto.lineTo(
+        200+Math.cos(angulo_segundo)*100,
+        200+Math.sin(angulo_segundo)*100
+    )
+    contexto.stroke();
+    
+    // Circulo central
+    contexto.beginPath();
+    contexto.arc(200, 200, 20, 0, Math.PI*2)
+    contexto.fill();
+    
+    contexto.lineWidth = 15;
+    contexto.strokeStyle = "black";
+    contexto.beginPath(); // Empiezo a dibujar
+    contexto.arc(200, 200, 100, 0, Math.PI*2) // Dibujo un circulo completo
+    contexto.stroke(); // Y trazo linea
+    
+    clearTimeout(temporizador); // Borro el temporizador anterior
+    temporizador = setTimeout("buble()", 1000); // Llamada recursiva
+}
+```
+
+Este código utiliza la biblioteca `canvas` para crear una red de puntos que muestran las horas, minutos y segundos. La función `buble()` se llama a cada segundo utilizando el temporizador `setTimeout()`, lo que crea un bucle de 1 segundo.
+
+**5. archivo 005.html**
+
+Este archivo es similar al anterior, pero con algunos cambios en la posición y tamaño de los elementos del reloj.
+
+```javascript
+// Condiciones iniciales
+let temporizador = setTimeout("bucle()",1000); // Dentro de un seg, entra en el bucle
+
+function buble() {
+    let fecha = new Date(); // Construye una fecha
+    
+    let hora = fecha.getHours(); // Quiero saber la hora
+    let minuto = fecha.getMinutes(); // Quiero saber el minuto
+    let segundo = fecha.getSeconds(); // Quiero saber el segundo
+    
+    contexto.clearRect(0, 0, 300, 300); // Borro el lienzo
+    
+    // Dibuja manecillas de horas, minutos y segundos
+    contexto.lineWidth = 30;
+    contexto.strokeStyle = "blue";
+    angulo_hora = hora*(Math.PI*2/12)-Math.PI/2;
+    contexto.beginPath();
+    contexto.moveTo(150, 150); // Muevo el cursor al centro del reloj
+    contexto.lineTo(
+        150+Math.cos(angulo_hora)*120,
+        150+Math.sin(angulo_hora)*120
+    )
+    contexto.stroke();
+    
+    contexto.lineWidth = 15;
+    contexto.strokeStyle = "green";
+    angulo_minuto = minuto*(Math.PI*2/60)-Math.PI/2;
+    contexto.beginPath();
+    contexto.moveTo(150, 150); // Muevo el cursor al centro del reloj
+    contexto.lineTo(
+        150+Math.cos(angulo_minuto)*80,
+        150+Math.sin(angulo_minuto)*80
+    )
+    contexto.stroke();
+    
+    contexto.lineWidth = 5;
+    contexto.strokeStyle = "red";
+    angulo_segundo = segundo*(Math.PI*2/60)-Math.PI/2;
+    contexto.beginPath();
+    contexto.moveTo(150, 150); // Muevo el cursor al centro del reloj
+    contexto.lineTo(
+        150+Math.cos(angulo_segundo)*80,
+        150+Math.sin(angulo_segundo)*80
+    )
+    contexto.stroke();
+    
+    // Circulo central
+    contexto.beginPath();
+    contexto.arc(150, 150, 10, 0, Math.PI*2)
+    contexto.fill();
+    
+    contexto.lineWidth = 10;
+    contexto.strokeStyle = "black";
+    contexto.beginPath(); // Empiezo a dibujar
+    contexto.arc(150, 150, 80, 0, Math.PI*2) // Dibujo un circulo completo
+    contexto.stroke(); // Y trazo linea
+    
+    clearTimeout(temporizador); // Borro el temporizador anterior
+    temporizador = setTimeout("buble()", 1000); // Llamada recursiva
+}
+```
+
+Este código utiliza la biblioteca `canvas` para crear una red de puntos que muestran las horas, minutos y segundos. La función `bubble()` se llama a cada segundo utilizando el temporizador `setTimeout()`, lo que crea un bucle de 1 segundo.
+
+**6. archivo 006.html**
+
+Este archivo es similar al anterior, pero con algunos cambios en la posición y tamaño de los elementos del reloj.
+
+```javascript
+// Condiciones iniciales
+let temporizador = setTimeout("buble()",1000); // Dentro de un seg, entra en el bucle
+
+function buble() {
+    let fecha = new Date(); // Construye una fecha
+    
+    let hora = fecha.getHours(); // Quiero saber la hora
+    let minuto = fecha.getMinutes(); // Quiero saber el minuto
+    let segundo = fecha.getSeconds(); // Quiero saber el segundo
+    
+    contexto.clearRect(0, 0, 400, 300); // Borro el lienzo
+    
+    // Dibuja manecillas de horas, minutos y segundos
+    contexto.lineWidth = 40;
+    contexto.strokeStyle = "blue";
+    angulo_hora = hora*(Math.PI*2/12)-Math.PI/2;
+    contexto.beginPath();
+    contexto.moveTo(200, 100); // Muevo el cursor al centro del reloj
+    contexto.lineTo(
+        200+Math.cos(angulo_hora)*150,
+        100+Math.sin(angulo_hora)*150
+    )
+    contexto.stroke();
+    
+    contexto.lineWidth = 20;
+    contexto.strokeStyle = "green";
+    angulo_minuto = minuto*(Math.PI*2/60)-Math.PI/2;
+    contexto.beginPath();
+    contexto.moveTo(200, 100); // Muevo el cursor al centro del reloj
+    contexto.lineTo(
+        200+Math.cos(angulo_minuto)*80,
+        100+Math.sin(angulo_minuto)*80
+    )
+    contexto.stroke();
+    
+    contexto.lineWidth = 5;
+    contexto.strokeStyle = "red";
+    angulo_segundo = segundo*(Math.PI*2/60)-Math.PI/2;
+    contexto.beginPath();
+    contexto.moveTo(200, 100); // Muevo el cursor al centro del reloj
+    contexto.lineTo(
+        200+Math.cos(angulo_segundo)*80,
+        100+Math.sin(angulo_segundo)*80
+    )
+    contexto.stroke();
+    
+    // Circulo central
+    contexto.beginPath();
+    contexto.arc(200, 100, 15, 0, Math.PI*2)
+    contexto.fill();
+    
+    contexto.lineWidth = 10;
+    contexto.strokeStyle = "black";
+    contexto.beginPath(); // Empiezo a dibujar
+    context.arc(200, 100, 90, 0, Math.PI*2) // Dibujo un circulo completo
+    ctx.stroke(); // Y trazo linea
+    
+    clearTimeout(temporizador); // Borro el temporizador anterior
+    temporizador = setTimeout("buble()", 1000); // Llamada recursiva
+}
+```
+
+Este código utiliza la biblioteca `canvas` para crear una red de puntos que muestran las horas, minutos y segundos. La función `bubble()` se llama a cada segundo utilizando el temporizador `setTimeout()`, lo que crea un bucle de 1 segundo.
+
+En resumen, los archivos 001-006.html son similares entre sí, pero con algunas diferencias en la posición y tamaño de los elementos del reloj. El archivo index.js es el mismo para todos ellos.
+
 
 <a id="interfaces"></a>
 ## Interfaces
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/007-Utilizaci%C3%B3n%20avanzada%20de%20clases/005-Interfaces)
 
 
 <a id="sobreescritura-de-metodos"></a>
 ## Sobreescritura de métodos
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/007-Utilizaci%C3%B3n%20avanzada%20de%20clases/006-Sobreescritura%20de%20m%C3%A9todos)
+
 
 <a id="constructores-y-herencia"></a>
 ## Constructores y herencia
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/007-Utilizaci%C3%B3n%20avanzada%20de%20clases/007-Constructores%20y%20herencia)
 
 
 
@@ -23267,37 +24598,55 @@ print(profesor1.dameDatos())
 <a id="bases-de-datos-orientadas-a-objetos"></a>
 ## Bases de datos orientadas a objetos
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/008-Mantenimiento%20de%20la%20persistencia%20de%20los%20objetos/001-Bases%20de%20datos%20orientadas%20a%20objetos)
+
 
 <a id="caracteristicas-de-las-bases-de-datos-orientadas-a-objetos"></a>
 ## Características de las bases de datos orientadas a objetos
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/008-Mantenimiento%20de%20la%20persistencia%20de%20los%20objetos/002-Caracter%C3%ADsticas%20de%20las%20bases%20de%20datos%20orientadas%20a%20objetos)
 
 
 <a id="instalacion-del-gestor-de-bases-de-datos"></a>
 ## Instalación del gestor de bases de datos
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/008-Mantenimiento%20de%20la%20persistencia%20de%20los%20objetos/003-Instalaci%C3%B3n%20del%20gestor%20de%20bases%20de%20datos)
+
 
 <a id="creacion-de-bases-de-datos"></a>
 ## Creación de bases de datos
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/008-Mantenimiento%20de%20la%20persistencia%20de%20los%20objetos/004-Creaci%C3%B3n%20de%20bases%20de%20datos)
 
 
 <a id="mecanismos-de-consulta"></a>
 ## Mecanismos de consulta
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/008-Mantenimiento%20de%20la%20persistencia%20de%20los%20objetos/005-Mecanismos%20de%20consulta)
+
 
 <a id="el-lenguaje-de-consultas-sintaxis-expresiones-operadores"></a>
 ## El lenguaje de consultas sintaxis, expresiones, operadores
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/008-Mantenimiento%20de%20la%20persistencia%20de%20los%20objetos/006-El%20lenguaje%20de%20consultas%20sintaxis%2C%20expresiones%2C%20operadores)
 
 
 <a id="recuperacion-modificacion-y-borrado-de-informacion"></a>
 ## Recuperación, modificación y borrado de información
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/008-Mantenimiento%20de%20la%20persistencia%20de%20los%20objetos/007-Recuperaci%C3%B3n%2C%20modificaci%C3%B3n%20y%20borrado%20de%20informaci%C3%B3n)
+
 
 <a id="tipos-de-datos-objeto-atributos-y-metodos"></a>
 ## Tipos de datos objeto; atributos y métodos
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/008-Mantenimiento%20de%20la%20persistencia%20de%20los%20objetos/008-Tipos%20de%20datos%20objeto%3B%20atributos%20y%20m%C3%A9todos)
+
 
 <a id="tipos-de-datos-coleccion"></a>
 ## Tipos de datos colección
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/008-Mantenimiento%20de%20la%20persistencia%20de%20los%20objetos/009-Tipos%20de%20datos%20colecci%C3%B3n)
 
 
 
@@ -23307,9 +24656,13 @@ print(profesor1.dameDatos())
 <a id="acceso-a-bases-de-datos-estandares-caracteristicas"></a>
 ## Acceso a bases de datos. Estándares. Características
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/009-Gesti%C3%B3n%20de%20bases%20de%20datos/001-Acceso%20a%20bases%20de%20datos.%20Est%C3%A1ndares.%20Caracter%C3%ADsticas)
+
 
 <a id="establecimiento-de-conexiones"></a>
 ## Establecimiento de conexiones
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/009-Gesti%C3%B3n%20de%20bases%20de%20datos/002-Establecimiento%20de%20conexiones)
 
 ### Introducción a los ejercicios
 
@@ -23351,6 +24704,8 @@ En esta sección de ejercicios, te enfocarás en el establecimiento de conexione
 <a id="almacenamiento-recuperacion-actualizacion-y-eliminacion-de-informacion-en-bases-de-datos"></a>
 ## Almacenamiento, recuperación, actualización y eliminación de información en bases de datos
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/009-Gesti%C3%B3n%20de%20bases%20de%20datos/003-Almacenamiento%2C%20recuperaci%C3%B3n%2C%20actualizaci%C3%B3n%20y%20eliminaci%C3%B3n%20de%20informaci%C3%B3n%20en%20bases%20de%20datos)
+
 
 
 <a id="programacion-en-el-lado-del-servidor"></a>
@@ -23358,6 +24713,8 @@ En esta sección de ejercicios, te enfocarás en el establecimiento de conexione
 
 <a id="fundamentos"></a>
 ## Fundamentos
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/001-Fundamentos)
 
 ### Introducción a los ejercicios
 
@@ -24055,6 +25412,8 @@ Estas actividades están diseñadas para proporcionar una base sólida sobre los
 <a id="get-y-post"></a>
 ## get y post
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/002-get%20y%20post)
+
 ### Introducción a los ejercicios
 
 Este conjunto de ejercicios está diseñado para ayudarte a comprender y practicar el manejo de las solicitudes GET y POST en la programación del lado del servidor. A través de una serie de archivos HTML y PHP, aprenderás cómo enviar y recibir datos mediante parámetros en la URL (GET) y formularios (POST), así como cómo validar y procesar esa información de manera segura y eficiente. Los ejercicios también te familiarizarán con el uso de variables superglobales como $_GET y $_POST, y con técnicas básicas de depuración y manejo de errores en PHP.
@@ -24448,6 +25807,8 @@ Esta práctica es importante porque te permite manejar datos enviados desde un f
 <a id="persistencia"></a>
 ## Persistencia
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/003-Persistencia)
+
 ### Introducción a los ejercicios
 
 En esta carpeta, encontrarás una serie de ejercicios que te permitirán aprender y practicar la persistencia en el lado del servidor mediante PHP. Los ejercicios abordan temas como la manipulación de archivos y permisos en sistemas UNIX/Linux, así como la interacción con formularios HTML para guardar datos en archivos JSON o texto plano. Estos ejercicios te ayudarán a mejorar tus habilidades en la gestión de datos dinámicos, el manejo de estructuras de datos como arrays asociativos y su conversión a formatos como JSON, además de aprender cómo controlar permisos de archivos para garantizar la seguridad del sistema.
@@ -24745,6 +26106,8 @@ Estas actividades están diseñadas para ayudar a los estudiantes de Formación 
 
 <a id="proyecto-ana"></a>
 ## Proyecto Ana
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/004-Proyecto%20Ana)
 
 ### Introducción a los ejercicios
 
@@ -25348,8 +26711,28 @@ if __name__ == "__main__":
 <a id="includes"></a>
 ## includes
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/005-includes)
+
+### Introducción a los ejercicios
+
+**Introducción a los ejercicios**
+
+En este conjunto de ejercicios, se enfoca en comprender la importancia de las inclusiones en PHP. Las inclusiones permiten combinar código de diferentes partes del programa para facilitar su mantenimiento y reutilizar funciones y variables.
+
+Estos ejercicios trabajan con archivos PHP que utilizan incluir bloques de código para organizar el contenido de una página web. En cada archivo, se utiliza la función `include` para incorporar otro archivo, lo cual permite crear estructuras más complejas sin tener que repetir código. Esto hace que estos ejercicios sean especialmente relevantes para aquellos que buscan mejorar su habilidad para gestionar proyectos y desarrollar soluciones escalables.
+
+En general, los estudiantes de Formación Profesional pueden beneficiarse de practicar estas inclusiones en PHP para comprender cómo mejorar la organización y el mantenimiento de sus propios proyectos.
+
 ### contacto
 <small>Creado: 2025-12-05 09:27</small>
+
+#### Explicación
+
+**Incluir cabecera y pie de página en un archivo PHP**
+
+Este fragmento de código es responsable de incluir la sección de cabecera y pie de página de una página web en el archivo `contacto.php`. La cabecera general, o "header", suele contener información como el título de la página, el logo de la empresa y menús de navegación. Por otro lado, el pie de página, o "footer", contiene información como contactos de la empresa, direcciones, teléfonos, etc.
+
+El código se utiliza un bloque de `include` para importar dos archivos específicos: `cabecera.php` y `pie.php`. Estos archivos contienen el contenido del header y footer respectivamente. En este caso, solo se incluye el contenido de la página de contacto, pero en otros archivos es posible utilizar estos bloques de código para incluir diferentes secciones.
 
 `contacto.php`
 
@@ -25362,6 +26745,14 @@ if __name__ == "__main__":
 ### index
 <small>Creado: 2025-12-05 09:25</small>
 
+#### Explicación
+
+¡Hola estudiantes! Hoy vamos a hablar sobre un tema fundamental en programación web: las includes. Una include es una función que permite incluir otro archivo de PHP dentro del nuestro, lo que nos permite compartir código y reducir la repetición.
+
+En este fragmento de código, vemos que se está utilizando la palabra clave `include` para incorporar dos archivos PHP: "bloques/cabecera.php" y "bloques/pie.php". Estos archivos probablemente contienen el código para crear la cabecera y el pie de página de nuestra página web, respectivamente. Al incluir estos archivos, podemos reutilizar ese código en nuestro archivo principal (`index.php`) sin tener que duplicarlo.
+
+La importancia de las includes es que nos permiten mantener la estructura y la organización del nuestro código de manera eficiente, lo que facilita la mantenibilidad y el desarrollo de proyectos más grandes.
+
 `index.php`
 
 ```
@@ -25373,6 +26764,18 @@ if __name__ == "__main__":
 ### sobremi
 <small>Creado: 2025-12-05 09:27</small>
 
+#### Explicación
+
+Este fragmento de código es fundamental para entender cómo funcionan las estructuras básicas en PHP.
+
+El código incluye dos llamadas a funciones de inclusión, **"include"** y una línea que contiene el contenido de la página. 
+
+En primer lugar, se inicia una etiqueta <?php que indica al servidor que debe procesar lo que viene dentro del bloque de código. Esto permite utilizar comandos de lenguaje de programación. En este caso, se utiliza el comando **"include"** para incluir otro archivo PHP, en este caso "bloques/cabecera.php". Este archivo contenedore puede contener cualquier tipo de información que se pueda mostrar o procesar en la página y será utilizado después de ser incluido por este código. Esto permite tener una estructura organizada en el lado del servidor. 
+
+A continuación, se muestra un parrafo simple (<p>), en este caso se pone solo un texto "Aqui solo pongo el contenido de la página de sobre mi". Este es el contenido que será mostrado a los visitantes cuando accedan a la página.
+
+Finalmente, también se utiliza el comando **"include"** para incluir otro archivo PHP, en este caso "bloques/pie.php". Este archivo contenedore tiene una estructura similar y contiene información relacionada con el final de la página. En esta última parte del código, no hay ningún parrafo que aparezca.
+
 `sobremi.php`
 
 ```
@@ -25381,16 +26784,86 @@ if __name__ == "__main__":
 <?php include "bloques/pie.php"; ?>
 ```
 
+### Actividades propuestas
+
+**Actividades para estudiantes de Formación Profesional**
+
+A continuación, se presentan 10 actividades basadas en los ejercicios de código proporcionados:
+
+1. **Análisis de estructura de archivos**
+ * Descripción: Analizar el contenido de cada archivo de ejercicio (contacto.php, index.php y sobremi.php) para identificar patrones y estructuras comunes.
+ * Aprender a reconocer la importancia de incluir bloques de código en un orden lógico y coherente.
+
+2. **Incorporación de includes**
+ * Descripción: Crear un nuevo archivo de ejercicio que incorpore los bloques de código de contacto.php, index.php y sobremi.php utilizando la función include.
+ * Aprender a utilizar la función include para incluir contenido de otros archivos en el propio.
+
+3. **Estructura básica de una página web**
+ * Descripción: Crear un nuevo archivo de ejercicio que contenga la estructura básica de una página web, incluyendo cabecera, pie y contenido.
+ * Aprender a comprender la importancia de la estructura y organización en el diseño de páginas web.
+
+4. **Inserción de texto dinámico**
+ * Descripción: Modificar los archivos de ejercicio para insertar texto dinámico utilizando variables o datos almacenados en una base de datos.
+ * Aprender a utilizar variables y datos para agregar interactividad a la página web.
+
+5. **Uso de la función echo**
+ * Descripción: Crear un nuevo archivo de ejercicio que utilice la función echo para imprimir salida en la pantalla.
+ * Aprender a utilizar la función echo para enviar datos desde el servidor al navegador.
+
+6. **Creación de una cabecera dinámica**
+ * Descripción: Modificar el archivo contacto.php para crear una cabecera dinámica utilizando variables y datos almacenados en una base de datos.
+ * Aprender a utilizar variables y datos para personalizar la cabecera de la página web.
+
+7. **Incorporación de CSS**
+ * Descripción: Crear un nuevo archivo de ejercicio que incorpore estilos CSS para mejorar la presentación de la página web.
+ * Aprender a utilizar estilos CSS para agregar estética y coherencia a la página web.
+
+8. **Creación de una página de inicio con estructura**
+ * Descripción: Crear un nuevo archivo de ejercicio que contenga la estructura básica de una página de inicio, incluyendo cabecera, pie y contenido.
+ * Aprender a comprender la importancia de la estructura y organización en el diseño de páginas web.
+
+9. **Uso de variables para personalizar el contenido**
+ * Descripción: Modificar los archivos de ejercicio para utilizar variables para personalizar el contenido de la página web.
+ * Aprender a utilizar variables y datos para agregar interactividad y coherencia a la página web.
+
+10. **Creación de un menú dinámico**
+ * Descripción: Crear un nuevo archivo de ejercicio que cree un menú dinámico utilizando variables y datos almacenados en una base de datos.
+ * Aprender a utilizar variables y datos para agregar interactividad y coherencia al menú de la página web.
+
 
 <a id="repasito-de-cosas-de-github"></a>
 ## Repasito de cosas de GitHub
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/006-Repasito%20de%20cosas%20de%20GitHub)
 
 
 <a id="bloques"></a>
 ## Bloques
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/007-Bloques)
+
+### Introducción a los ejercicios
+
+¡Bienvenidos a nuestro conjunto de ejercicios de programación en el lado del servidor! En este curso, os presentamos un desafío interesante que os permitirá practicar y consolidar tus conocimientos en la creación de páginas web dinámicas utilizando PHP como lenguaje de programación.
+
+En general, estos ejercicios se centran en la creación de páginas web estructuradas y funcionales, mediante el uso de bloques de código reutilizables. La mayoría de los archivos de ejercicio presentan un patrón similar: una estructura HTML básica con elementos como `nav`, `main` y `body`, que se pueden personalizar y extender utilizando incluiriones de PHP para renderizar contenido dinámico.
+
+En este conjunto de ejercicios, os enfrentarás desafíos relacionados con la creación de páginas web estructuradas, la gestión de datos y la interacción entre diferentes bloques de código. Estos ejercicios te permitirán practicar y aplicar tus conocimientos en la programación en el lado del servidor, lo que es fundamental para crear sitios web dinámicos y interactivos. ¡Prepárense para un desafío emocionante!
+
 ### paneldecontrol
 <small>Creado: 2025-12-05 10:04</small>
+
+#### Explicación
+
+Este código es el encabezado de una página web HTML, específicamente la parte que define la estructura de la página. 
+
+El código se comienza con el enlace `<!doctype html>` que indica al navegador que este archivo es una página HTML. A continuación, tenemos la etiqueta `<html>` que define el contenido de la página. La etiqueta `<head>` se utiliza para incluir información adicional sobre la página, como títulos, metadatos y enlaces a fuentes externas.
+
+En este caso, no hay contenido dentro de la etiqueta `<head>`, por lo que no se agregan nada más.
+
+La parte importante del código es la etiqueta `<body>`, donde se define el contenido visible de la página. Dentro de esta etiqueta se encuentra un `<nav>` que contiene un menú de navegación, generado mediante el uso de `<?php include "bloques/navegacion.php" ?>`. Esto significa que el código en `bloques/navegacion.php` se incluye dentro del HTML de esta página, permitiendo la creación de estructuras dinámicas.
+
+También hay una etiqueta `<main>` donde se encuentra otro componente dinámico, generado por el uso de `<?php include "bloques/tabla.php" ?>`. Ambas etiquetas `<nav>` y `<main>` son parte del modelo de contenido HTML5 y permiten estructurar la página de manera flexible.
 
 `paneldecontrol.php`
 
@@ -25410,12 +26883,63 @@ if __name__ == "__main__":
 </html>
 ```
 
+### Actividades propuestas
+
+**Actividades para estudiantes de Formación Profesional**
+
+Basadas en el código proporcionado, propone las siguientes actividades para el alumnado:
+
+1. **Análisis del estructura HTML**
+El estudiante debe analizar la estructura del archivo `paneldecontrol.php` y identificar los diferentes bloques HTML utilizados (navegación, tabla). Debe describir cómo se relacionan entre sí y qué función cumple en el contexto del documento.
+2. **Incorporar una imagen**
+El estudiante debe agregar una imagen al archivo `paneldecontrol.php` utilizando la etiqueta `img`. Debe explicar cómo se utiliza la sintaxis correcta para especificar la ruta de acceso a la imagen y su tamaño en la pantalla.
+3. **Cambiar el color de fondo**
+El estudiante debe cambiar el color de fondo del documento `paneldecontrol.php` utilizando CSS. Debe justificar por qué ha elegido ese color y cómo se puede aplicar con diferentes combinaciones de colores.
+4. **Incluir un enlace interno**
+El estudiante debe agregar un enlace interno al archivo `paneldecontrol.php` que rediriga a otro archivo dentro del mismo directorio. Debe explicar cómo se utiliza la sintaxis correcta para especificar la ruta de acceso y el nombre del archivo destino.
+5. **Crear una nueva etiqueta HTML**
+El estudiante debe crear una nueva etiqueta HTML personalizada (ej. `<h2>`) y agregarla al archivo `paneldecontrol.php`. Debe justificar por qué ha creado esa etiqueta y cómo se puede utilizar para mejorar la estructura del documento.
+6. **Modificación de la navegación**
+El estudiante debe modificar la navegación incluida en el archivo `paneldecontrol.php` para que apunte a una nueva ruta URL. Debe explicar cómo se utiliza la sintaxis correcta para especificar la ruta de acceso y cómo afectará al documento.
+7. **Estilo y responsividad**
+El estudiante debe aplicar un estilo CSS simple al archivo `paneldecontrol.php` para mejorar su visibilidad en diferentes pantallas. Debe justificar por qué ha elegido ese estilo y cómo se puede adaptar a diferentes tamaños de pantalla.
+8. **Uso de variables PHP**
+El estudiante debe modificar el archivo `paneldecontrol.php` para que utilice una variable PHP (`$nombre`) almacenada en una matriz. Debe explicar cómo se utiliza la sintaxis correcta para acceder y utilizar las variables PHP.
+
+Estas actividades permiten al alumnado aplicar sus conocimientos de programación web, HTML, CSS y PHP de manera práctica y reflexiva, utilizando el código proporcionado como contexto.
+
 
 <a id="sesiones-en-php"></a>
 ## Sesiones en PHP
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/008-Sesiones%20en%20PHP)
+
+### Introducción a los ejercicios
+
+**Introducción**
+
+En esta carpeta de ejercicios, se presentan una serie de problemas relacionados con la programación en PHP, específicamente en el tema de las sesiones. Estos problemas están diseñados para ayudar a los estudiantes de Formación Profesional a practicar y mejorar sus habilidades en el uso de variables, inclusión de código y manejo de sesiones en el lado del servidor.
+
+**Competencias prácticas**
+
+A lo largo de estos ejercicios, se trabajan varias competencias prácticas importantes:
+
+*   Uso de variables para almacenar y recuperar información.
+*   Inclusión de código PHP en diferentes contextos (HTML, bloques PHP).
+*   Manejo de sesiones para persistir información entre peticiones.
+
+Estas habilidades son fundamentales para cualquier desarrollo web y son esenciales para crear aplicaciones complejas y dinámicas.
+
 ### variables en el mismo archivo
 <small>Creado: 2025-12-05 10:08</small>
+
+#### Explicación
+
+¡Hola estudiantes! Hoy vamos a hablar sobre una de las partes fundamentales de la programación en PHP: las variables.
+
+El fragmento de código que estamos analizando asigna un valor a una variable y luego lo imprimimos en pantalla. La variable es un contenedor donde podemos almacenar información del lado del servidor, como datos de usuario o contenido de una base de datos.
+
+En este caso, la variable `$nombre` está siendo asignada el valor `"Jose Vicente"`. Luego, usamos la función `echo` para imprimir este valor en pantalla. La palabra clave `echo` significa "imprimir en pantalla" y es una forma común de mostrar resultados en PHP.
 
 `001-variables en el mismo archivo.php`
 
@@ -25428,6 +26952,16 @@ if __name__ == "__main__":
 
 ### incluso en diferentes bloques
 <small>Creado: 2025-12-05 10:09</small>
+
+#### Explicación
+
+¡Hola estudiantes! Hoy vamos a hablar sobre una parte importante de la programación en PHP: las variables y cómo interactuar con ellas utilizando código HTML.
+
+En el fragmento de código que nos proporcionaron, hay dos partes interesantes. En primer lugar, podemos ver que se define una variable `$nombre` y le se asigna el valor "Jose Vicente". Esto significa que si en algún momento queremos utilizar este valor, podemos acceder a él mediante la variable `$nombre`. 
+
+En segundo lugar, cuando hablamos de código HTML, nos referimos a cualquier texto o elemento que forme parte de una página web. En este caso, vemos que se utiliza el comando `echo` para imprimir un mensaje en pantalla: "Esto es HTML pero no pasa nada". Además, se incluye una línea `<br>` para crear una nueva línea de texto.
+
+Lo importante aquí es entender cómo podemos combinar código PHP con código HTML para obtener resultados esperados. En este caso, la variable `$nombre` se utiliza dentro del código PHP y se imprime en pantalla como resultado del comando `echo`. Esto nos muestra cómo podemos utilizar variables en nuestra programación web de manera efectiva.
 
 `002-incluso en diferentes bloques.php`
 
@@ -25444,6 +26978,14 @@ Esto es HTML pero no pasa nada<br>
 ### origen
 <small>Creado: 2025-12-05 10:10</small>
 
+#### Explicación
+
+Este fragmento de código es una parte de un script PHP que crea un enlace HTML para dirigir al usuario a otra página. 
+
+El valor del parámetro `href` se establece dinámicamente desde la variable `$nombre`, pero no se utiliza en este caso, simplemente apunta a una URL fija (`004-destino.php`). El código de PHP es ejecutado antes de crear el enlace HTML.
+
+En resumen, este fragmento de código permite que el usuario siga a otra página mediante un enlace.
+
 `003-origen.php`
 
 ```
@@ -25456,6 +26998,14 @@ Esto es HTML pero no pasa nada<br>
 ### destino
 <small>Creado: 2025-12-05 10:11</small>
 
+#### Explicación
+
+¡Hola estudiantes! Hoy vamos a analizar un pequeño fragmento de código que puede parecer simple, pero es fundamental en la programación con PHP.
+
+El código `<?php echo $nombre; ?>` es una instrucción que muestra el valor de una variable en la pantalla. La palabra clave `echo` es utilizada para enviar un valor a la pantalla, mientras que `$nombre` es una variable que contiene el texto que se va a mostrar.
+
+En otras palabras, cuando se ejecuta este código, PHP buscará la variable `$nombre` y la mostrará en la pantalla como si fuera texto. Por ejemplo, si la variable `$nombre` tiene un valor "Juan", el código se ejecutará de la siguiente manera: "Juan" aparecerá en la pantalla.
+
 `004-destino.php`
 
 ```
@@ -25466,6 +27016,14 @@ Esto es HTML pero no pasa nada<br>
 
 ### origen y uso sesiones
 <small>Creado: 2025-12-05 10:14</small>
+
+#### Explicación
+
+El código que se encuentra en este archivo es el inicio de una sesión en PHP. La función `session_start()` es llamada para iniciar la sesión. Esto permite al servidor almacenar datos temporales en la memoria del usuario y accederlos desde cualquier parte de la aplicación.
+
+La línea `$$_SESSION['nombre'] = "Jose Vicente";` establece un valor en la variable de sesión llamada 'nombre'. Cuando se inicia una sesión, el servidor crea una nueva variable de sesión y, si ya existe una, se actualiza con los nuevos datos. En este caso, se está creando o modificando la variable de sesión 'nombre' para almacenar el nombre 'Jose Vicente'.
+
+Finalmente, hay un enlace HTML que redirige al usuario a otra página llamada `006-destino con sesiones.php`.
 
 `005-origen y uso sesiones.php`
 
@@ -25480,6 +27038,14 @@ Esto es HTML pero no pasa nada<br>
 ### destino con sesiones
 <small>Creado: 2025-12-05 10:14</small>
 
+#### Explicación
+
+¡Hola! Hoy vamos a analizar un fragmento de código importante en el desarrollo web con PHP.
+
+Este código es crucial para la implementación de sesiones en una aplicación web. Una sesión es una forma de almacenar información durante el tiempo que la sesión esté activa, lo cual es fundamental para mantener la integridad y coherencia de los datos del usuario.
+
+El fragmento de código comienza con `session_start()`. Esta función iniciará o reanudará una sesión existente en la superposición actual. Si no existe una sesión, se creará automáticamente.
+
 `006-destino con sesiones.php`
 
 ```
@@ -25489,12 +27055,84 @@ Esto es HTML pero no pasa nada<br>
 ?>
 ```
 
+### Actividades propuestas
+
+Basándonos en el contenido de los archivos de ejercicio proporcionados, te propongo las siguientes actividades para el alumnado:
+
+**Actividad 1: Identificar y reproducir variables**
+
+* Título: "Variables en PHP"
+* Descripción: El alumnado debe identificar y reproducir la variable "$nombre" en los diferentes archivos de ejercicio. Deben comprender que las variables se pueden definir y utilizar en el código PHP.
+* Objetivo: Aprender a utilizar variables en PHP.
+
+**Actividad 2: Crear un archivo PHP con una variable**
+
+* Título: "Crear una página con una variable"
+* Descripción: El alumnado debe crear un archivo PHP que defina y utilice la variable "$nombre" de manera similar a cómo se hace en el ejercicio 001.
+* Objetivo: Practicar la creación de una página web utilizando variables en PHP.
+
+**Actividad 3: Incluir archivos PHP con código HTML**
+
+* Título: "Incluir contenido PHP con HTML"
+* Descripción: El alumnado debe modificar el ejercicio 002 para que incluya un archivo PHP con código HTML. Deben comprender cómo se pueden combinar código PHP y HTML en una misma página.
+* Objetivo: Aprender a combinar código PHP y HTML.
+
+**Actividad 4: Crear una página con enlaces**
+
+* Título: "Crear una página con enlaces"
+* Descripción: El alumnado debe crear un archivo PHP que defina una variable "$nombre" y utilice el elemento HTML `<a>` para crear un enlace a otro archivo PHP.
+* Objetivo: Practicar la creación de páginas web utilizando variables y enlaces.
+
+**Actividad 5: Utilizar sesiones**
+
+* Título: "Utilizar sesiones"
+* Descripción: El alumnado debe modificar el ejercicio 005 para que utilice sesiones. Deben comprender cómo se pueden utilizar sesiones para almacenar datos en el lado del servidor.
+* Objetivo: Aprender a utilizar sesiones en PHP.
+
+**Actividad 6: Crear una página con sesión**
+
+* Título: "Crear una página con sesión"
+* Descripción: El alumnado debe crear un archivo PHP que utilice sesiones para almacenar la variable "$nombre" y mostrar su valor en la página.
+* Objetivo: Practicar la creación de páginas web utilizando sesiones.
+
+Estas actividades se centran en el contenido del ejercicio proporcionado y permiten al alumnado practicar habilidades relacionadas con la programación web y la utilización de PHP.
+
 
 <a id="implantacion-crud"></a>
 ## Implantacion crud
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/009-Implantacion%20crud)
+
+### Introducción a los ejercicios
+
+¡Bienvenidos a este conjunto de ejercicios de programación en el lado del servidor! En este módulo, se centrará la implementación de CRUD (Crear, Leer, Actualizar y Eliminar) en una base de datos. Los ejercicios que se presentan en esta carpeta están diseñados para que los estudiantes practiquen habilidades fundamentales en programación web, como la conexión a bases de datos, la creación de estructuras de datos y la implementación de lógica de negocio.
+
+A lo largo de estos ejercicios, se trabajarán con conceptos de seguridad, validación de datos y respuesta de servidor. Los estudiantes aprenderán a utilizar PHP para interactuar con una base de datos, crear vistas dinámicas y generar respuestas HTML personalizadas. Este conjunto de ejercicios está diseñado para que los estudiantes adquieran conocimientos prácticos en programación web y desarrollo de aplicaciones web en el lado del servidor.
+
+Los estudiantes necesitarán desarrollar habilidades en:
+
+*   Conexión a bases de datos
+*   Creación y actualización de registros
+*   Lectura y eliminación de registros
+*   Validación de datos
+*   Seguridad en la base de datos
+
+Esperamos que estos ejercicios te ayuden a consolidar tus conocimientos y mejorar tus habilidades en programación web.
+
 ### index
 <small>Creado: 2025-12-11 10:38</small>
+
+#### Explicación
+
+Este fragmento de código es la parte HTML del archivo PHP que contiene el contenido principal de una página web. A continuación, te explico qué hace este código y cómo funciona:
+
+En primer lugar, esta página web utiliza un documento HTML estructurado con elementos como `header`, `main` y `footer`. El título de la página se establece en "El jocarsa - Noticias tecnológicas" y se especifica el carácter encoding para que el navegador muestre correctamente el texto.
+
+El código más interesante aquí es la línea `<?php include "inc/listar_articulos.php"; ?>`. Esta línea invoca un archivo PHP llamado `listar_articulos.php` que se encuentra en una carpeta secundaria llamada `inc`. Cuando se ejecuta esta línea, el contenido de ese archivo se inserta dentro del `main` de la página HTML.
+
+El uso de este código es importante porque permite separar la estructura lógica y visual de la página web. Por un lado, tenemos la parte HTML que define la estructura básica de la página, y por otro lado, tenemos el archivo PHP que contiene la lógica de negocio para renderizar contenido dinámico.
+
+En este caso específico, el código `listar_articulos.php` debe contener la lógica para mostrar una lista de noticias tecnológicas. Cuando se ejecuta esta línea en la página HTML, se muestra la lista de noticias dentro del `main`.
 
 `index.php`
 
@@ -25520,9 +27158,36 @@ Esto es HTML pero no pasa nada<br>
 </html>
 ```
 
+### Actividades propuestas
+
+**Actividades para el alumnado de Formación Profesional**
+
+A continuación, te presento una lista de actividades basadas en el ejercicio proporcionado:
+
+1. **Estructura básica de un archivo HTML**
+ * El alumnado debe analizar la estructura del archivo index.php y identificar los elementos que forman parte de la declaración de documento HTML (<!doctype html>, <html>, <head>, etc.). Aprenderá a reconocer la sintaxis básica de un archivo HTML.
+2. **Función de incrustar contenido PHP**
+ * El alumnado debe entender cómo se utiliza la función `include` para incrustar un archivo PHP dentro de otro archivo PHP. Aprenderá a aplicar esta función correctamente en diferentes contextos.
+3. **Título y meta datos del documento**
+ * El alumnado debe analizar el título y los metadatos del documento (character set, título, etc.) y explicar su importancia en la presentación de información en línea.
+4. **Estructura básica de un archivo CSS**
+ * El alumnado debe identificar la estructura básica de un archivo CSS (rel="stylesheet", href, etc.) y entender cómo se relaciona con el archivo HTML.
+5. **Incorporar estilos en un archivo HTML**
+ * El alumnado debe aprender a incorporar estilos CSS en un archivo HTML utilizando la etiqueta `<link>` y aplicarlos correctamente para mejorar la presentación del documento.
+6. **Ciclo de vida de una página web**
+ * El alumnado debe analizar el ciclo de vida de una página web ( petitions, solicitudes, respuesta) y explicar cómo se relaciona con la programación en el lado del servidor.
+7. **Tipos de archivos HTML**
+ * El alumnado debe identificar y explicar los diferentes tipos de archivos HTML (p. ej., index.php, listarticulos.php).
+8. **Principios básicos de seguridad en la web**
+ * El alumnado debe aprender a reconocer algunos principios básicos de seguridad en la web (verificación de origen, uso de codigos HTML, etc.) y explicar su importancia.
+
+**Importante**: Estas actividades están diseñadas para adaptarse a los niveles y habilidades del alumnado de Formación Profesional.
+
 
 <a id="tienda-online"></a>
 ## Tienda online
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/010-Tienda%20online)
 
 
 
@@ -25532,22 +27197,34 @@ Esto es HTML pero no pasa nada<br>
 <a id="branches"></a>
 ## branches
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/.git/branches)
+
 
 <a id="hooks"></a>
 ## hooks
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/.git/hooks)
 
 
 <a id="info"></a>
 ## info
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/.git/info)
+
 
 <a id="logs"></a>
 ## logs
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/.git/logs)
 
 
 <a id="objects"></a>
 ## objects
 
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/.git/objects)
+
 
 <a id="refs"></a>
 ## refs
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/.git/refs)

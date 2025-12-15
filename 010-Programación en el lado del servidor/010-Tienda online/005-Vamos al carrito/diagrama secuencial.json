@@ -1,0 +1,184 @@
+{
+  "formas": [
+    {
+      "id": "forma-1",
+      "tipo": "rectangle",
+      "left": "260.485px",
+      "top": "275.703px",
+      "width": "",
+      "height": "",
+      "texto": "Inicio"
+    },
+    {
+      "id": "forma-2",
+      "tipo": "rectangle",
+      "left": "426.541px",
+      "top": "272.896px",
+      "width": "",
+      "height": "",
+      "texto": "Catálogo"
+    },
+    {
+      "id": "forma-3",
+      "tipo": "rectangle",
+      "left": "593.958px",
+      "top": "272.172px",
+      "width": "",
+      "height": "",
+      "texto": "Producto"
+    },
+    {
+      "id": "forma-4",
+      "tipo": "text",
+      "left": "515.808px",
+      "top": "242.177px",
+      "width": "",
+      "height": "",
+      "texto": "Pasa el id producto"
+    },
+    {
+      "id": "forma-5",
+      "tipo": "rectangle",
+      "left": "759.152px",
+      "top": "269.59px",
+      "width": "",
+      "height": "",
+      "texto": "Carrito"
+    },
+    {
+      "id": "forma-6",
+      "tipo": "text",
+      "left": "680.616px",
+      "top": "237.355px",
+      "width": "",
+      "height": "",
+      "texto": "Pasa el id producto"
+    },
+    {
+      "id": "forma-7",
+      "tipo": "text",
+      "left": "680.997px",
+      "top": "215.143px",
+      "width": "",
+      "height": "",
+      "texto": "Pasan las unidades"
+    },
+    {
+      "id": "forma-8",
+      "tipo": "rectangle",
+      "left": "922.933px",
+      "top": "269.864px",
+      "width": "",
+      "height": "",
+      "texto": "Finalizar"
+    },
+    {
+      "id": "forma-9",
+      "tipo": "text",
+      "left": "848.375px",
+      "top": "238.5px",
+      "width": "",
+      "height": "",
+      "texto": "Pasa el id producto"
+    },
+    {
+      "id": "forma-10",
+      "tipo": "text",
+      "left": "847.037px",
+      "top": "215.776px",
+      "width": "",
+      "height": "",
+      "texto": "Pasan las unidades"
+    },
+    {
+      "id": "forma-11",
+      "tipo": "text",
+      "left": "828.395px",
+      "top": "195.773px",
+      "width": "",
+      "height": "",
+      "texto": "Pasan los datos de usuario"
+    },
+    {
+      "id": "forma-12",
+      "tipo": "pill",
+      "left": "925.655px",
+      "top": "349.406px",
+      "width": "",
+      "height": "",
+      "texto": "SQL"
+    }
+  ],
+  "flechas": [
+    {
+      "desde": {
+        "shapeId": "forma-1",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-2",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-2",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-3",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-3",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-5",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-5",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-8",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-8",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-12",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    }
+  ]
+}
