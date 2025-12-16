@@ -24578,6 +24578,358 @@ En resumen, los archivos 001-006.html son similares entre sí, pero con algunas 
 
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/007-Utilizaci%C3%B3n%20avanzada%20de%20clases/005-Interfaces)
 
+### requests
+<small>Creado: 2025-12-16 10:33</small>
+
+`001-requests.py`
+
+```python
+# pip3 install requests --break-system-packages
+import requests
+```
+
+### primera peticion
+<small>Creado: 2025-12-16 10:32</small>
+
+`002-primera peticion.py`
+
+```python
+# pip3 install requests --break-system-packages
+import requests
+
+url = "https://jocarsa.com"
+
+try:
+    response = requests.get(url, timeout=10)
+
+    print("Status code:", response.status_code)
+    print("Final URL:", response.url)
+    print("Headers:", response.headers)
+    print("First 500 characters of body:\n")
+    print(response.text[:500])
+
+except requests.exceptions.RequestException as e:
+    print("Request failed:", e)
+```
+
+### encontrar elementos html
+<small>Creado: 2025-12-16 10:38</small>
+
+`003-encontrar elementos html.py`
+
+```python
+import requests
+from lxml import html
+
+url = "https://jocarsa.com"
+
+response = requests.get(url, timeout=10)
+response.raise_for_status()  # raises exception if not 200
+
+# Parse HTML
+tree = html.fromstring(response.content)
+
+# Find all <h1> elements
+h1_elements = tree.xpath("//a")
+
+# Print their text content
+for i, h1 in enumerate(h1_elements, start=1):
+    text = h1.text_content().strip()
+    print(f"H1 #{i}: {text}")
+```
+
+### lista de webs
+<small>Creado: 2025-12-16 10:42</small>
+
+`004-lista de webs.py`
+
+```python
+import requests
+from lxml import html
+
+urls = [
+  	"https://jocarsa.com",
+  	"https://josevicentecarratala.com"
+]
+
+for url in urls:
+  print("###############")
+  response = requests.get(url, timeout=10)
+  response.raise_for_status()  # raises exception if not 200
+
+  # Parse HTML
+  tree = html.fromstring(response.content)
+
+  # Find all <h1> elements
+  h1_elements = tree.xpath("//h1")
+
+  # Print their text content
+  for i, h1 in enumerate(h1_elements, start=1):
+      text = h1.text_content().strip()
+      print(f"H1 #{i}: {text}")
+```
+
+### libreria pillow
+<small>Creado: 2025-12-16 10:53</small>
+
+`005-libreria pillow.py`
+
+```python
+from PIL import Image
+
+imagen = Image.open("josevicente.jpg")
+
+pixel1 = imagen.getpixel((0, 0))
+
+print(pixel1)
+```
+
+### tamaño de imagen
+<small>Creado: 2025-12-16 10:54</small>
+
+`006-tamaño de imagen.py`
+
+```python
+from PIL import Image
+
+imagen = Image.open("josevicente.jpg")
+
+tamanio = imagen.size
+print(tamanio)
+
+pixel1 = imagen.getpixel((0, 0))
+
+print(pixel1)
+```
+
+### leer todos los pixeles de la imagen
+<small>Creado: 2025-12-16 10:58</small>
+
+`007-leer todos los pixeles de la imagen.py`
+
+```python
+from PIL import Image
+
+imagen = Image.open("josevicente.jpg")
+
+anchura,altura = imagen.size		# Cojo altura y anchura
+
+for x in range(0,anchura):			# Repaso la anchura
+	for y in range(0,altura):			# Repaso la altura
+		pixel = imagen.getpixel((x, y))	# Cojo cada pixel
+		print(pixel)										# Y lo saco por pantalla
+```
+
+### aclarar la imagen
+<small>Creado: 2025-12-16 11:06</small>
+
+`008-aclarar la imagen.py`
+
+```python
+# pip3 install pillow --break-system-packages
+from PIL import Image
+
+imagen = Image.open("josevicente.jpg")
+
+anchura,altura = imagen.size	
+
+for x in range(0,anchura):	
+	for y in range(0,altura):	
+		pixel = imagen.getpixel((x, y))	
+		rojo = pixel[0]
+		verde = pixel[1]
+		azul = pixel[2]
+		rojo += 120
+		verde += 120
+		azul += 120
+		imagen.putpixel((x, y), (rojo, verde, azul)) # ESTO ES CORRECTO
+    
+imagen.save("modificado.jpg")
+```
+
+### negativo
+<small>Creado: 2025-12-16 11:08</small>
+
+`009-negativo.py`
+
+```python
+# pip3 install pillow --break-system-packages
+from PIL import Image
+
+imagen = Image.open("josevicente.jpg")
+
+anchura,altura = imagen.size	
+
+for x in range(0,anchura):	
+	for y in range(0,altura):	
+		pixel = imagen.getpixel((x, y))	
+		rojo = pixel[0]
+		verde = pixel[1]
+		azul = pixel[2]
+		rojo = 255 - rojo					# Rojo a negativo
+		verde = 255 - verde				# Verde a negativo
+		azul = 255 - azul					# Azul a negativo
+		imagen.putpixel((x, y), (rojo, verde, azul)) # ESTO ES CORRECTO
+    
+imagen.save("modificado.jpg")
+```
+
+### repaso recorrer arrays
+<small>Creado: 2025-12-16 11:51</small>
+
+`010-repaso recorrer arrays.php`
+
+```
+<?php
+	
+  $frutas = [
+  	"manzana",
+    "pera",
+    "platano",
+    "sandia"
+  ];
+  
+  for($i = 0;$i<count($frutas);$i++){
+  	echo $frutas[$i]."<br>";
+  }
+  
+?>
+```
+
+### foreach en array
+<small>Creado: 2025-12-16 11:53</small>
+
+`011-foreach en array.php`
+
+```
+<?php
+	
+  $frutas = [
+  	"manzana",
+    "pera",
+    "platano",
+    "sandia"
+  ];
+  
+  foreach($frutas as $fruta){
+  	echo $fruta."<br>";
+  }
+  // Ventajas del foreach: Es mas limpio
+  // Desventajas del foreach: En principio no está el índice
+?>
+```
+
+### repasamos cliente
+<small>Creado: 2025-12-16 11:56</small>
+
+`012-repasamos cliente.php`
+
+```
+<?php
+	
+  $campos_cliente = [
+  	"nombre",
+    "apellidos",
+    "email",
+    "telefono",
+    "direccion"
+  ];
+  
+  foreach($campos_cliente as $campo){
+  	echo $campo."<br>";
+  }
+
+?>
+```
+
+### construyo formulario
+<small>Creado: 2025-12-16 11:59</small>
+
+`013-construyo formulario.php`
+
+```
+<?php
+	
+  $campos_cliente = [
+  	"nombre",
+    "apellidos",
+    "email",
+    "telefono",
+    "direccion",
+    "poblacion"
+  ];
+  
+  foreach($campos_cliente as $campo){
+  	echo '<input type="text" placeholder="'.$campo.'"><br>';
+  }
+
+?>
+```
+
+### array nombrado
+<small>Creado: 2025-12-16 12:01</small>
+
+`014-array nombrado.php`
+
+```
+<?php
+	
+  $cliente = [
+  	"nombre" => "Jose Vicente",
+    "apellidos" => "Carratala Sanchis",
+    "email" => "info@jocarsa.com"
+  ];
+  
+  var_dump($cliente);
+ 
+
+?>
+```
+
+### foreach en objeto
+<small>Creado: 2025-12-16 12:03</small>
+
+`015-foreach en objeto.php`
+
+```
+<?php
+	
+  $cliente = [
+  	"nombre" => "Jose Vicente",
+    "apellidos" => "Carratala Sanchis",
+    "email" => "info@jocarsa.com"
+  ];
+  
+  foreach($cliente as $clave=>$valor){
+  	echo $clave.": ".$valor."<br>";
+  }
+ 
+
+?>
+```
+
+### formulario con objeto
+<small>Creado: 2025-12-16 12:07</small>
+
+`016-formulario con objeto.php`
+
+```
+<?php
+	
+  $cliente = [
+  	"nombre" => "Jose Vicente",
+    "apellidos" => "Carratala Sanchis",
+    "email" => "info@jocarsa.com"
+  ];
+  
+  foreach($cliente as $clave=>$valor){
+  	echo "<label>".$clave."</label>";
+    echo "<input type='text' value='".$valor."'>";
+  }
+ 
+?>
+```
+
 
 <a id="sobreescritura-de-metodos"></a>
 ## Sobreescritura de métodos
