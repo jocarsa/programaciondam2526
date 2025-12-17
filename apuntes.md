@@ -96,6 +96,7 @@
   - [Implantacion crud](#implantacion-crud)
   - [Tienda online](#tienda-online)
   - [Supercontrolador](#supercontrolador)
+  - [Buscador Satori](#buscador-satori)
 - [.git](#git)
   - [branches](#branches)
   - [hooks](#hooks)
@@ -27547,6 +27548,12 @@ A continuación, te presento una lista de actividades basadas en el ejercicio pr
 ## Supercontrolador
 
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/011-Supercontrolador)
+
+
+<a id="buscador-satori"></a>
+## Buscador Satori
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/012-Buscador%20Satori)
 
 
 
