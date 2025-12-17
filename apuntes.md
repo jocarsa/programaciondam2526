@@ -95,6 +95,7 @@
   - [Sesiones en PHP](#sesiones-en-php)
   - [Implantacion crud](#implantacion-crud)
   - [Tienda online](#tienda-online)
+  - [Supercontrolador](#supercontrolador)
 - [.git](#git)
   - [branches](#branches)
   - [hooks](#hooks)
@@ -27540,6 +27541,12 @@ A continuación, te presento una lista de actividades basadas en el ejercicio pr
 ## Tienda online
 
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/010-Tienda%20online)
+
+
+<a id="supercontrolador"></a>
+## Supercontrolador
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/011-Supercontrolador)
 
 
 
