@@ -87,6 +87,8 @@
 - [Programación en el lado del servidor](#programacion-en-el-lado-del-servidor)
   - [Ejercicios](#ejercicios)
   - [Resumen](#resumen)
+- [Repaso examen segunda evaluacion](#repaso-examen-segunda-evaluacion)
+  - [Miercoles 7](#miercoles-7)
 - [.git](#git)
   - [branches](#branches)
   - [hooks](#hooks)
@@ -25065,6 +25067,1146 @@ En esta sección de ejercicios, te enfocarás en el establecimiento de conexione
 ## Resumen
 
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/301-Resumen)
+
+
+
+<a id="repaso-examen-segunda-evaluacion"></a>
+# Repaso examen segunda evaluacion
+
+<a id="miercoles-7"></a>
+## Miercoles 7
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/011-Repaso%20examen%20segunda%20evaluacion/001-Miercoles%207)
+
+### diagrama - flujo de información
+<small>Creado: 2026-01-07 09:09</small>
+
+`diagrama - flujo de información.html`
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Diagrama exportado</title>
+<style>
+body {
+  margin: 0;
+  padding: 20px;
+  background: #f3f3f7;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.page {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  width: 713.9843444824216px;
+  height: 380.68751525878895px;
+  overflow: visible;
+}
+
+/* formas básicas */
+.shape {
+  position: absolute;
+  min-width: 120px;
+  min-height: 40px;
+  padding: 6px 10px;
+  background: #ffffff;
+  border-radius: 4px;
+  border: 1px solid #9ca3af;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+.shape.rectangle {
+  border-radius: 4px;
+}
+
+.shape.pill {
+  border-radius: 999px;
+}
+
+.shape.circle {
+  border-radius: 999px;
+  width: 80px;
+  height: 80px;
+  padding: 0;
+  justify-content: center;
+}
+
+/* texto libre */
+.shape.text {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+/* base de datos */
+.shape.db {
+  min-width: 120px;
+  min-height: 60px;
+  padding-top: 20px;
+  border-radius: 60px / 16px;
+  background: linear-gradient(180deg, #e5e7eb 0%, #ffffff 40%, #e5e7eb 100%);
+  position: absolute;
+  overflow: hidden;
+  text-align: center;
+}
+.shape.db::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8px;
+  right: 8px;
+  height: 18px;
+  border-radius: 999px;
+  border: 1px solid #9ca3af;
+  background: radial-gradient(circle at 50% 30%, #ffffff 0%, #e5e7eb 70%);
+}
+.shape.db::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 8px;
+  right: 8px;
+  height: 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(156, 163, 175, 0.6);
+  border-top: none;
+  background: radial-gradient(circle at 50% 70%, #e5e7eb 0%, #d1d5db 70%);
+}
+
+/* entidades ER */
+.shape.entity {
+  width: 220px;
+  min-height: 80px;
+  background: #ffffff;
+  border: 2px solid #111827;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.15);
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  overflow: hidden;
+  padding: 0;
+}
+.entity-header {
+  background: #f3f4f6;
+  padding: 4px 8px;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+.entity-properties {
+  flex: 1;
+  padding: 4px 4px 0 4px;
+}
+.entity-property {
+  display: grid;
+  grid-template-columns: 14px 1fr 14px;
+  align-items: center;
+  column-gap: 4px;
+  padding: 2px 0;
+}
+.entity-property .property-name {
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/* puertos */
+.port {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid #111827;
+  background: #ffffff;
+}
+.port-left { justify-self: start; }
+.port-right { justify-self: end; }
+
+/* flechas rectas */
+.arrow {
+  position: absolute;
+  height: 2px;
+  background: #111827;
+  transform-origin: 0 50%;
+}
+.arrow::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid #111827;
+}
+.arrow-double::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid #111827;
+}
+
+/* flechas ortogonales */
+.ortho-arrow {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.ortho-arrow .ortho-seg {
+  position: absolute;
+  background: #111827;
+}
+.ortho-seg.seg-horizontal { height: 2px; }
+.ortho-seg.seg-vertical { width: 2px; }
+.ortho-arrowhead {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+.ortho-arrowhead.dir-right {
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid #111827;
+}
+.ortho-arrowhead.dir-left {
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 8px solid #111827;
+}
+.ortho-arrowhead.dir-down {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 8px solid #111827;
+}
+.ortho-arrowhead.dir-up {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 8px solid #111827;
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="shape rectangle" style="left:62.765625px;top:77.68749999999997px;width:119.99999999999994px;height:39.999999999999986px;">login</div>
+<div class="shape text" style="left:41.828125px;top:40px;width:71.20312499999997px;height:19.999999999999993px;">Panel admin</div>
+<div class="shape rectangle" style="left:221.95312499999994px;top:77.76562499999997px;width:119.99999999999994px;height:39.999999999999986px;">procesalogin</div>
+<div class="shape rectangle" style="left:382.7812499999999px;top:76.07812499999997px;width:119.99996948242182px;height:39.999999999999986px;">escritorio (tabla)</div>
+<div class="shape rectangle" style="left:547.5937194824216px;top:74.84374999999997px;width:126.39062499999994px;height:39.999999999999986px;">insertar (opcional)</div>
+<div class="shape text" style="left:403.18746948242176px;top:46.46875px;width:73.32812499999997px;height:19.999999999999993px;">Read, Delete</div>
+<div class="shape text" style="left:563.1874694824216px;top:46.46875px;width:79.82812499999997px;height:19.999999999999993px;">Insert, update</div>
+<div class="shape text" style="left:40px;top:163.28124999999994px;width:132.68749999999994px;height:19.999999999999993px;">Frontal de la aplicación</div>
+<div class="shape rectangle" style="left:65.203125px;top:204.46874999999994px;width:119.99999999999994px;height:40.00001525878904px;">frontpage</div>
+<div class="shape rectangle" style="left:221.40624999999994px;top:202.28124999999994px;width:119.99999999999994px;height:40.00001525878904px;">catalogo</div>
+<div class="shape rectangle" style="left:378.4062499999999px;top:201.57812499999994px;width:119.99996948242182px;height:40.00001525878904px;">producto</div>
+<div class="shape rectangle" style="left:550.4062194824216px;top:198.87499999999994px;width:119.99999999999994px;height:40.00001525878904px;">pedido</div>
+<div class="shape rectangle" style="left:305.4999999999999px;top:300.68751525878895px;width:119.99996948242182px;height:39.999999999999986px;">confirmación</div>
+<div class="arrow" style="left:182.7656249999999px;top:97.71694640753825px;width:39.187504719322675px;transform:rotate(0.0004907734195693623rad);"></div>
+<div class="arrow" style="left:341.9531249999999px;top:97.13607087440016px;width:40.83037240392537px;transform:rotate(-0.010492183729145491rad);"></div>
+<div class="arrow arrow-double" style="left:502.78121948242165px;top:95.63729735758645px;width:44.81370947995654px;transform:rotate(-0.007346997046212041rad);"></div>
+<div class="arrow" style="left:185.20312499999994px;top:223.6285055537718px;width:36.206674861912894px;transform:rotate(-0.014003285877728531rad);"></div>
+<div class="arrow" style="left:341.4062499999999px;top:222.01254741219577px;width:37.00037105254082px;transform:rotate(-0.0044784736785639006rad);"></div>
+<div class="arrow" style="left:498.40621948242165px;top:220.63518220415108px;width:52.00642128543935px;transform:rotate(-0.015714550735412346rad);"></div>
+<div class="arrow" style="left:562.2969382422417px;top:238.875015258789px;width:161.02426679261882px;transform:rotate(2.74760812672042rad);"></div>
+<div class="arrow" style="left:315.55195679706264px;top:300.68751525878895px;width:151.23798538663797px;transform:rotate(-2.760727527056846rad);"></div>
+</div>
+</body>
+</html>
+```
+
+### diagrama - flujo de información
+<small>Creado: 2026-01-07 09:09</small>
+
+`diagrama - flujo de información.json`
+
+```json
+{
+  "formas": [
+    {
+      "id": "forma-1",
+      "tipo": "rectangle",
+      "left": "284.852px",
+      "top": "168.407px",
+      "width": "",
+      "height": "",
+      "texto": "login"
+    },
+    {
+      "id": "forma-2",
+      "tipo": "text",
+      "left": "263.906px",
+      "top": "130.728px",
+      "width": "",
+      "height": "",
+      "texto": "Panel admin"
+    },
+    {
+      "id": "forma-3",
+      "tipo": "rectangle",
+      "left": "444.034px",
+      "top": "168.484px",
+      "width": "",
+      "height": "",
+      "texto": "procesalogin"
+    },
+    {
+      "id": "forma-4",
+      "tipo": "rectangle",
+      "left": "604.866px",
+      "top": "166.8px",
+      "width": "",
+      "height": "",
+      "texto": "escritorio (tabla)"
+    },
+    {
+      "id": "forma-5",
+      "tipo": "rectangle",
+      "left": "769.681px",
+      "top": "165.569px",
+      "width": "",
+      "height": "",
+      "texto": "insertar (opcional)"
+    },
+    {
+      "id": "forma-6",
+      "tipo": "text",
+      "left": "625.269px",
+      "top": "137.188px",
+      "width": "",
+      "height": "",
+      "texto": "Read, Delete"
+    },
+    {
+      "id": "forma-7",
+      "tipo": "text",
+      "left": "785.269px",
+      "top": "137.191px",
+      "width": "",
+      "height": "",
+      "texto": "Insert, update"
+    },
+    {
+      "id": "forma-8",
+      "tipo": "text",
+      "left": "262.081px",
+      "top": "254.006px",
+      "width": "",
+      "height": "",
+      "texto": "Frontal de la aplicación"
+    },
+    {
+      "id": "forma-9",
+      "tipo": "rectangle",
+      "left": "287.281px",
+      "top": "295.187px",
+      "width": "",
+      "height": "",
+      "texto": "frontpage"
+    },
+    {
+      "id": "forma-11",
+      "tipo": "rectangle",
+      "left": "443.484px",
+      "top": "293px",
+      "width": "",
+      "height": "",
+      "texto": "catalogo"
+    },
+    {
+      "id": "forma-12",
+      "tipo": "rectangle",
+      "left": "600.484px",
+      "top": "292.297px",
+      "width": "",
+      "height": "",
+      "texto": "producto"
+    },
+    {
+      "id": "forma-13",
+      "tipo": "rectangle",
+      "left": "772.484px",
+      "top": "289.597px",
+      "width": "",
+      "height": "",
+      "texto": "pedido"
+    },
+    {
+      "id": "forma-14",
+      "tipo": "rectangle",
+      "left": "527.578px",
+      "top": "391.406px",
+      "width": "",
+      "height": "",
+      "texto": "confirmación"
+    }
+  ],
+  "flechas": [
+    {
+      "desde": {
+        "shapeId": "forma-1",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-3",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-3",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-4",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-4",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-5",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "doble",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-9",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-11",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-11",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-12",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-12",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-13",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-13",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-14",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-14",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-9",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    }
+  ]
+}
+```
+
+### diagrama - flujo de información
+<small>Creado: 2026-01-07 09:09</small>
+
+`diagrama - flujo de información.svg`
+
+```
+<svg xmlns="http://www.w3.org/2000/svg" width="713.9843444824216" height="380.68751525878895" viewBox="0 0 713.9843444824216 380.68751525878895">
+
+  <defs>
+    <style>
+      text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 12px; fill: #111827; }
+      .shape-rect { fill: #ffffff; stroke: #9ca3af; stroke-width: 1; }
+      .shape-entity { fill: #ffffff; stroke: #111827; stroke-width: 2; }
+      .shape-circle { fill: #ffffff; stroke: #9ca3af; stroke-width: 1; }
+      .shape-pill { fill: #ffffff; stroke: #9ca3af; stroke-width: 1; }
+      .shape-db { fill: #ffffff; stroke: #9ca3af; stroke-width: 1; }
+      .conn { stroke: #111827; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="arrow-end" markerWidth="10" markerHeight="7" refX="10" refY="3.5"
+            orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#111827"/>
+    </marker>
+    <marker id="arrow-start" markerWidth="10" markerHeight="7" refX="0" refY="3.5"
+            orient="auto" markerUnits="strokeWidth">
+      <polygon points="10 0, 0 3.5, 10 7" fill="#111827"/>
+    </marker>
+  </defs>
+        
+<rect class="shape-rect" x="62.765625" y="77.68749999999997" width="119.99999999999994" height="39.999999999999986" rx="4" ry="4" />
+<text x="122.76562499999997" y="101.68749999999997" text-anchor="middle">login</text>
+<text x="41.828125" y="54">Panel admin</text>
+<rect class="shape-rect" x="221.95312499999994" y="77.76562499999997" width="119.99999999999994" height="39.999999999999986" rx="4" ry="4" />
+<text x="281.9531249999999" y="101.76562499999997" text-anchor="middle">procesalogin</text>
+<rect class="shape-rect" x="382.7812499999999" y="76.07812499999997" width="119.99996948242182" height="39.999999999999986" rx="4" ry="4" />
+<text x="442.7812347412108" y="100.07812499999997" text-anchor="middle">escritorio (tabla)</text>
+<rect class="shape-rect" x="547.5937194824216" y="74.84374999999997" width="126.39062499999994" height="39.999999999999986" rx="4" ry="4" />
+<text x="610.7890319824216" y="98.84374999999997" text-anchor="middle">insertar (opcional)</text>
+<text x="403.18746948242176" y="60.46875">Read, Delete</text>
+<text x="563.1874694824216" y="60.46875">Insert, update</text>
+<text x="40" y="177.28124999999994">Frontal de la aplicación</text>
+<rect class="shape-rect" x="65.203125" y="204.46874999999994" width="119.99999999999994" height="40.00001525878904" rx="4" ry="4" />
+<text x="125.20312499999997" y="228.46875762939447" text-anchor="middle">frontpage</text>
+<rect class="shape-rect" x="221.40624999999994" y="202.28124999999994" width="119.99999999999994" height="40.00001525878904" rx="4" ry="4" />
+<text x="281.4062499999999" y="226.28125762939447" text-anchor="middle">catalogo</text>
+<rect class="shape-rect" x="378.4062499999999" y="201.57812499999994" width="119.99996948242182" height="40.00001525878904" rx="4" ry="4" />
+<text x="438.4062347412108" y="225.57813262939447" text-anchor="middle">producto</text>
+<rect class="shape-rect" x="550.4062194824216" y="198.87499999999994" width="119.99999999999994" height="40.00001525878904" rx="4" ry="4" />
+<text x="610.4062194824216" y="222.87500762939447" text-anchor="middle">pedido</text>
+<rect class="shape-rect" x="305.4999999999999" y="300.68751525878895" width="119.99996948242182" height="39.999999999999986" rx="4" ry="4" />
+<text x="365.4999847412108" y="324.68751525878895" text-anchor="middle">confirmación</text>
+<path class="conn" d="M 182.7656249999999 97.71694640753825 L 221.9531249999999 97.7361785924617" marker-end="url(#arrow-end)" />
+<path class="conn" d="M 341.9531249999999 97.13607087440016 L 382.7812499999998 96.70767896549589" marker-end="url(#arrow-end)" />
+<path class="conn" d="M 502.78121948242165 95.63729735758645 L 547.5937194824216 95.30805412842795" marker-start="url(#arrow-start)" marker-end="url(#arrow-end)" />
+<path class="conn" d="M 185.20312499999994 223.6285055537718 L 221.4062499999999 223.12150970501716" marker-end="url(#arrow-end)" />
+<path class="conn" d="M 341.4062499999999 222.01254741219577 L 378.4062499999998 221.8468427782566" marker-end="url(#arrow-end)" />
+<path class="conn" d="M 498.40621948242165 220.63518220415108 L 550.4062194824216 219.81795829444263" marker-end="url(#arrow-end)" />
+<path class="conn" d="M 562.2969382422417 238.875015258789 L 413.6092476291634 300.68751525878895" marker-end="url(#arrow-end)" />
+<path class="conn" d="M 315.55195679706264 300.68751525878895 L 175.15117199780866 244.468765258789" marker-end="url(#arrow-end)" />
+</svg>
+```
+
+### diagrama
+<small>Creado: 2026-01-07 09:02</small>
+
+`diagrama.html`
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Diagrama exportado</title>
+<style>
+body {
+  margin: 0;
+  padding: 20px;
+  background: #f3f3f7;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.page {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  width: 541.9218749999998px;
+  height: 393.0156127929687px;
+  overflow: visible;
+}
+
+/* formas básicas */
+.shape {
+  position: absolute;
+  min-width: 120px;
+  min-height: 40px;
+  padding: 6px 10px;
+  background: #ffffff;
+  border-radius: 4px;
+  border: 1px solid #9ca3af;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+.shape.rectangle {
+  border-radius: 4px;
+}
+
+.shape.pill {
+  border-radius: 999px;
+}
+
+.shape.circle {
+  border-radius: 999px;
+  width: 80px;
+  height: 80px;
+  padding: 0;
+  justify-content: center;
+}
+
+/* texto libre */
+.shape.text {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+/* base de datos */
+.shape.db {
+  min-width: 120px;
+  min-height: 60px;
+  padding-top: 20px;
+  border-radius: 60px / 16px;
+  background: linear-gradient(180deg, #e5e7eb 0%, #ffffff 40%, #e5e7eb 100%);
+  position: absolute;
+  overflow: hidden;
+  text-align: center;
+}
+.shape.db::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8px;
+  right: 8px;
+  height: 18px;
+  border-radius: 999px;
+  border: 1px solid #9ca3af;
+  background: radial-gradient(circle at 50% 30%, #ffffff 0%, #e5e7eb 70%);
+}
+.shape.db::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 8px;
+  right: 8px;
+  height: 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(156, 163, 175, 0.6);
+  border-top: none;
+  background: radial-gradient(circle at 50% 70%, #e5e7eb 0%, #d1d5db 70%);
+}
+
+/* entidades ER */
+.shape.entity {
+  width: 220px;
+  min-height: 80px;
+  background: #ffffff;
+  border: 2px solid #111827;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.15);
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  overflow: hidden;
+  padding: 0;
+}
+.entity-header {
+  background: #f3f4f6;
+  padding: 4px 8px;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+.entity-properties {
+  flex: 1;
+  padding: 4px 4px 0 4px;
+}
+.entity-property {
+  display: grid;
+  grid-template-columns: 14px 1fr 14px;
+  align-items: center;
+  column-gap: 4px;
+  padding: 2px 0;
+}
+.entity-property .property-name {
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/* puertos */
+.port {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid #111827;
+  background: #ffffff;
+}
+.port-left { justify-self: start; }
+.port-right { justify-self: end; }
+
+/* flechas rectas */
+.arrow {
+  position: absolute;
+  height: 2px;
+  background: #111827;
+  transform-origin: 0 50%;
+}
+.arrow::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid #111827;
+}
+.arrow-double::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid #111827;
+}
+
+/* flechas ortogonales */
+.ortho-arrow {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.ortho-arrow .ortho-seg {
+  position: absolute;
+  background: #111827;
+}
+.ortho-seg.seg-horizontal { height: 2px; }
+.ortho-seg.seg-vertical { width: 2px; }
+.ortho-arrowhead {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+.ortho-arrowhead.dir-right {
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid #111827;
+}
+.ortho-arrowhead.dir-left {
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 8px solid #111827;
+}
+.ortho-arrowhead.dir-down {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 8px solid #111827;
+}
+.ortho-arrowhead.dir-up {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 8px solid #111827;
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="shape rectangle" style="left:72.09374999999997px;top:113.20312499999994px;width:119.99999999999994px;height:39.99999999999998px;">HTML</div>
+<div class="shape text" style="left:40px;top:40px;width:31.656249999999982px;height:19.99999999999999px;">Front</div>
+<div class="shape text" style="left:345.3906249999998px;top:43.0625px;width:37.64062499999998px;height:19.99999999999999px;">Admin</div>
+<div class="shape rectangle" style="left:71.93749999999997px;top:74.60937499999997px;width:119.99999999999994px;height:39.99999999999998px;">CSS</div>
+<div class="shape rectangle" style="left:71.92187499999997px;top:151.92187499999991px;width:119.99999999999994px;height:39.99999999999998px;">JS?</div>
+<div class="shape rectangle" style="left:71.53124999999997px;top:235.74998779296865px;width:119.99999999999994px;height:39.99999999999998px;">PHP/Python</div>
+<div class="shape pill" style="left:190.78124999999991px;top:313.0156127929687px;width:119.99999999999994px;height:39.99999999999998px;">xSQL</div>
+<div class="shape rectangle" style="left:312.3906249999999px;top:68.21874999999997px;width:119.99999999999994px;height:39.99999999999998px;">CSS</div>
+<div class="shape rectangle" style="left:313.2031249999999px;top:107.42187499999997px;width:119.99999999999994px;height:39.99999999999998px;">HTML</div>
+<div class="shape rectangle" style="left:313.6093749999999px;top:147.03124999999991px;width:119.99999999999994px;height:39.99999999999998px;">JS?</div>
+<div class="shape rectangle" style="left:314.4062499999999px;top:232.21873779296865px;width:119.99999999999994px;height:39.99999999999998px;">PHP/Python</div>
+<div class="shape text" style="left:442.3906249999998px;top:131.82812499999997px;width:34.42187499999998px;height:19.99999999999999px;">CRUD</div>
+<div class="shape text" style="left:451.9999999999998px;top:147.81249999999991px;width:47.14062499999997px;height:19.99999999999999px;">CREATE</div>
+<div class="shape text" style="left:452.3906249999998px;top:167.40624999999991px;width:33.046874999999986px;height:19.99999999999999px;">READ</div>
+<div class="shape text" style="left:453.1874999999998px;top:184.21874999999991px;width:48.73437499999997px;height:19.99999999999999px;">UPDATE</div>
+<div class="shape text" style="left:453.6093749999998px;top:201.81249999999991px;width:45.96874999999998px;height:19.99999999999999px;">DELETE</div>
+<div class="shape text" style="left:206.79687499999991px;top:106.60937499999997px;width:33.046874999999986px;height:19.99999999999999px;">READ</div>
+<div class="shape text" style="left:205.98437499999991px;top:124.60937499999994px;width:51.24999999999997px;height:19.99999999999999px;">(INSERT)</div>
+<div class="shape text" style="left:150.78124999999997px;top:52.609375px;width:183.18749999999991px;height:19.99999999999999px;">Examen de lenguajes de marcas</div>
+<div class="shape text" style="left:172.39062499999991px;top:210.21874999999991px;width:146.95312499999991px;height:19.99998779296874px;">Examen de programación</div>
+<div class="shape text" style="left:175.59374999999991px;top:289.8281127929687px;width:151.24999999999991px;height:19.99999999999999px;">Examen de bases de datos</div>
+<div class="arrow" style="left:131.62444665849202px;top:235.74998779296865px;width:43.82858863314603px;transform:rotate(-1.5661365275977912rad);"></div>
+<div class="arrow" style="left:219.91370702730026px;top:313.0156127929687px;width:68.53241674819824px;transform:rotate(-2.566674156642625rad);"></div>
+<div class="arrow arrow-double" style="left:373.79646233421875px;top:187.03124999999991px;width:45.1894647966758px;transform:rotate(1.56144223291834rad);"></div>
+<div class="arrow arrow-double" style="left:343.80481894217735px;top:272.2187377929687px;width:74.57149795879829px;transform:rotate(2.562715919120164rad);"></div>
+</div>
+</body>
+</html>
+```
+
+### diagrama
+<small>Creado: 2026-01-07 09:01</small>
+
+`diagrama.json`
+
+```json
+{
+  "formas": [
+    {
+      "id": "forma-1",
+      "tipo": "rectangle",
+      "left": "285.769px",
+      "top": "241.917px",
+      "width": "",
+      "height": "",
+      "texto": "HTML"
+    },
+    {
+      "id": "forma-2",
+      "tipo": "text",
+      "left": "253.678px",
+      "top": "168.707px",
+      "width": "",
+      "height": "",
+      "texto": "Front"
+    },
+    {
+      "id": "forma-3",
+      "tipo": "text",
+      "left": "559.067px",
+      "top": "171.769px",
+      "width": "",
+      "height": "",
+      "texto": "Admin"
+    },
+    {
+      "id": "forma-4",
+      "tipo": "rectangle",
+      "left": "285.611px",
+      "top": "203.325px",
+      "width": "",
+      "height": "",
+      "texto": "CSS"
+    },
+    {
+      "id": "forma-5",
+      "tipo": "rectangle",
+      "left": "285.608px",
+      "top": "280.635px",
+      "width": "",
+      "height": "",
+      "texto": "JS?"
+    },
+    {
+      "id": "forma-6",
+      "tipo": "rectangle",
+      "left": "285.212px",
+      "top": "364.464px",
+      "width": "",
+      "height": "",
+      "texto": "PHP/Python"
+    },
+    {
+      "id": "forma-7",
+      "tipo": "pill",
+      "left": "404.462px",
+      "top": "441.725px",
+      "width": "",
+      "height": "",
+      "texto": "xSQL"
+    },
+    {
+      "id": "forma-8",
+      "tipo": "rectangle",
+      "left": "526.075px",
+      "top": "196.928px",
+      "width": "",
+      "height": "",
+      "texto": "CSS"
+    },
+    {
+      "id": "forma-9",
+      "tipo": "rectangle",
+      "left": "526.875px",
+      "top": "236.134px",
+      "width": "",
+      "height": "",
+      "texto": "HTML"
+    },
+    {
+      "id": "forma-10",
+      "tipo": "rectangle",
+      "left": "527.284px",
+      "top": "275.734px",
+      "width": "",
+      "height": "",
+      "texto": "JS?"
+    },
+    {
+      "id": "forma-11",
+      "tipo": "rectangle",
+      "left": "528.081px",
+      "top": "360.922px",
+      "width": "",
+      "height": "",
+      "texto": "PHP/Python"
+    },
+    {
+      "id": "forma-12",
+      "tipo": "text",
+      "left": "656.072px",
+      "top": "260.534px",
+      "width": "",
+      "height": "",
+      "texto": "CRUD"
+    },
+    {
+      "id": "forma-13",
+      "tipo": "text",
+      "left": "665.678px",
+      "top": "276.519px",
+      "width": "",
+      "height": "",
+      "texto": "CREATE"
+    },
+    {
+      "id": "forma-14",
+      "tipo": "text",
+      "left": "666.069px",
+      "top": "296.119px",
+      "width": "",
+      "height": "",
+      "texto": "READ"
+    },
+    {
+      "id": "forma-15",
+      "tipo": "text",
+      "left": "666.862px",
+      "top": "312.922px",
+      "width": "",
+      "height": "",
+      "texto": "UPDATE"
+    },
+    {
+      "id": "forma-16",
+      "tipo": "text",
+      "left": "667.287px",
+      "top": "330.528px",
+      "width": "",
+      "height": "",
+      "texto": "DELETE"
+    },
+    {
+      "id": "forma-17",
+      "tipo": "text",
+      "left": "420.469px",
+      "top": "235.325px",
+      "width": "",
+      "height": "",
+      "texto": "READ"
+    },
+    {
+      "id": "forma-18",
+      "tipo": "text",
+      "left": "419.662px",
+      "top": "253.322px",
+      "width": "",
+      "height": "",
+      "texto": "(INSERT)"
+    },
+    {
+      "id": "forma-20",
+      "tipo": "text",
+      "left": "364.466px",
+      "top": "181.325px",
+      "width": "",
+      "height": "",
+      "texto": "Examen de lenguajes de marcas"
+    },
+    {
+      "id": "forma-21",
+      "tipo": "text",
+      "left": "386.069px",
+      "top": "338.931px",
+      "width": "",
+      "height": "",
+      "texto": "Examen de programación"
+    },
+    {
+      "id": "forma-22",
+      "tipo": "text",
+      "left": "389.275px",
+      "top": "418.534px",
+      "width": "",
+      "height": "",
+      "texto": "Examen de bases de datos"
+    }
+  ],
+  "flechas": [
+    {
+      "desde": {
+        "shapeId": "forma-6",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-5",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-7",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-6",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-10",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-11",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "doble",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-11",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-7",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "doble",
+      "estilo": "straight"
+    }
+  ]
+}
+```
+
+### diagrama
+<small>Creado: 2026-01-07 09:02</small>
+
+`diagrama.svg`
+
+```
+<svg xmlns="http://www.w3.org/2000/svg" width="541.9218749999998" height="393.0156127929687" viewBox="0 0 541.9218749999998 393.0156127929687">
+
+  <defs>
+    <style>
+      text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 12px; fill: #111827; }
+      .shape-rect { fill: #ffffff; stroke: #9ca3af; stroke-width: 1; }
+      .shape-entity { fill: #ffffff; stroke: #111827; stroke-width: 2; }
+      .shape-circle { fill: #ffffff; stroke: #9ca3af; stroke-width: 1; }
+      .shape-pill { fill: #ffffff; stroke: #9ca3af; stroke-width: 1; }
+      .shape-db { fill: #ffffff; stroke: #9ca3af; stroke-width: 1; }
+      .conn { stroke: #111827; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="arrow-end" markerWidth="10" markerHeight="7" refX="10" refY="3.5"
+            orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#111827"/>
+    </marker>
+    <marker id="arrow-start" markerWidth="10" markerHeight="7" refX="0" refY="3.5"
+            orient="auto" markerUnits="strokeWidth">
+      <polygon points="10 0, 0 3.5, 10 7" fill="#111827"/>
+    </marker>
+  </defs>
+        
+<rect class="shape-rect" x="72.09374999999997" y="113.20312499999994" width="119.99999999999994" height="39.99999999999998" rx="4" ry="4" />
+<text x="132.09374999999994" y="137.20312499999994" text-anchor="middle">HTML</text>
+<text x="40" y="54">Front</text>
+<text x="345.3906249999998" y="57.0625">Admin</text>
+<rect class="shape-rect" x="71.93749999999997" y="74.60937499999997" width="119.99999999999994" height="39.99999999999998" rx="4" ry="4" />
+<text x="131.93749999999994" y="98.60937499999996" text-anchor="middle">CSS</text>
+<rect class="shape-rect" x="71.92187499999997" y="151.92187499999991" width="119.99999999999994" height="39.99999999999998" rx="4" ry="4" />
+<text x="131.92187499999994" y="175.92187499999991" text-anchor="middle">JS?</text>
+<rect class="shape-rect" x="71.53124999999997" y="235.74998779296865" width="119.99999999999994" height="39.99999999999998" rx="4" ry="4" />
+<text x="131.53124999999994" y="259.7499877929687" text-anchor="middle">PHP/Python</text>
+<rect class="shape-rect" x="190.78124999999991" y="313.0156127929687" width="119.99999999999994" height="39.99999999999998" rx="19.99999999999999" ry="19.99999999999999" />
+<text x="250.7812499999999" y="337.0156127929687" text-anchor="middle">xSQL</text>
+<rect class="shape-rect" x="312.3906249999999" y="68.21874999999997" width="119.99999999999994" height="39.99999999999998" rx="4" ry="4" />
+<text x="372.3906249999999" y="92.21874999999996" text-anchor="middle">CSS</text>
+<rect class="shape-rect" x="313.2031249999999" y="107.42187499999997" width="119.99999999999994" height="39.99999999999998" rx="4" ry="4" />
+<text x="373.2031249999999" y="131.42187499999994" text-anchor="middle">HTML</text>
+<rect class="shape-rect" x="313.6093749999999" y="147.03124999999991" width="119.99999999999994" height="39.99999999999998" rx="4" ry="4" />
+<text x="373.6093749999999" y="171.03124999999991" text-anchor="middle">JS?</text>
+<rect class="shape-rect" x="314.4062499999999" y="232.21873779296865" width="119.99999999999994" height="39.99999999999998" rx="4" ry="4" />
+<text x="374.4062499999999" y="256.2187377929687" text-anchor="middle">PHP/Python</text>
+<text x="442.3906249999998" y="145.82812499999997">CRUD</text>
+<text x="451.9999999999998" y="161.81249999999991">CREATE</text>
+<text x="452.3906249999998" y="181.40624999999991">READ</text>
+<text x="453.1874999999998" y="198.21874999999991">UPDATE</text>
+<text x="453.6093749999998" y="215.81249999999991">DELETE</text>
+<text x="206.79687499999991" y="120.60937499999997">READ</text>
+<text x="205.98437499999991" y="138.60937499999994">(INSERT)</text>
+<text x="150.78124999999997" y="66.609375">Examen de lenguajes de marcas</text>
+<text x="172.39062499999991" y="224.21874999999991">Examen de programación</text>
+<text x="175.59374999999991" y="303.8281127929687">Examen de bases de datos</text>
+<path class="conn" d="M 131.62444665849202 235.74998779296865 L 131.82867834150792 191.92187499999991" marker-end="url(#arrow-end)" />
+<path class="conn" d="M 219.91370702730026 313.0156127929687 L 162.39879297269962 275.7499877929687" marker-end="url(#arrow-end)" />
+<path class="conn" d="M 373.79646233421875 187.03124999999991 L 374.2191626657808 232.21873779296865" marker-start="url(#arrow-start)" marker-end="url(#arrow-end)" />
+<path class="conn" d="M 343.80481894217735 272.2187377929687 L 281.3826810578223 313.0156127929687" marker-start="url(#arrow-start)" marker-end="url(#arrow-end)" />
+</svg>
+```
 
 
 

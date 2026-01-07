@@ -1,6 +1,6 @@
 # programaciondam2526 — Estado de ejercicios
 
-Generado: 2026-01-07 09:00
+Generado: 2026-01-07 10:00
 
 ---
 
@@ -115,3 +115,8 @@ Generado: 2026-01-07 09:00
 
 - 🔴 Ejercicios
 - 🔴 Resumen
+
+
+## Repaso examen segunda evaluacion
+
+- 🟢 Miercoles 7 — 2026-01-07
