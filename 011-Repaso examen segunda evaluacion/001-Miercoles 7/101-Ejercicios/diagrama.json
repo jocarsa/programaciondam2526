@@ -1,0 +1,251 @@
+{
+  "formas": [
+    {
+      "id": "forma-1",
+      "tipo": "rectangle",
+      "left": "285.769px",
+      "top": "241.917px",
+      "width": "",
+      "height": "",
+      "texto": "HTML"
+    },
+    {
+      "id": "forma-2",
+      "tipo": "text",
+      "left": "253.678px",
+      "top": "168.707px",
+      "width": "",
+      "height": "",
+      "texto": "Front"
+    },
+    {
+      "id": "forma-3",
+      "tipo": "text",
+      "left": "559.067px",
+      "top": "171.769px",
+      "width": "",
+      "height": "",
+      "texto": "Admin"
+    },
+    {
+      "id": "forma-4",
+      "tipo": "rectangle",
+      "left": "285.611px",
+      "top": "203.325px",
+      "width": "",
+      "height": "",
+      "texto": "CSS"
+    },
+    {
+      "id": "forma-5",
+      "tipo": "rectangle",
+      "left": "285.608px",
+      "top": "280.635px",
+      "width": "",
+      "height": "",
+      "texto": "JS?"
+    },
+    {
+      "id": "forma-6",
+      "tipo": "rectangle",
+      "left": "285.212px",
+      "top": "364.464px",
+      "width": "",
+      "height": "",
+      "texto": "PHP/Python"
+    },
+    {
+      "id": "forma-7",
+      "tipo": "pill",
+      "left": "404.462px",
+      "top": "441.725px",
+      "width": "",
+      "height": "",
+      "texto": "xSQL"
+    },
+    {
+      "id": "forma-8",
+      "tipo": "rectangle",
+      "left": "526.075px",
+      "top": "196.928px",
+      "width": "",
+      "height": "",
+      "texto": "CSS"
+    },
+    {
+      "id": "forma-9",
+      "tipo": "rectangle",
+      "left": "526.875px",
+      "top": "236.134px",
+      "width": "",
+      "height": "",
+      "texto": "HTML"
+    },
+    {
+      "id": "forma-10",
+      "tipo": "rectangle",
+      "left": "527.284px",
+      "top": "275.734px",
+      "width": "",
+      "height": "",
+      "texto": "JS?"
+    },
+    {
+      "id": "forma-11",
+      "tipo": "rectangle",
+      "left": "528.081px",
+      "top": "360.922px",
+      "width": "",
+      "height": "",
+      "texto": "PHP/Python"
+    },
+    {
+      "id": "forma-12",
+      "tipo": "text",
+      "left": "656.072px",
+      "top": "260.534px",
+      "width": "",
+      "height": "",
+      "texto": "CRUD"
+    },
+    {
+      "id": "forma-13",
+      "tipo": "text",
+      "left": "665.678px",
+      "top": "276.519px",
+      "width": "",
+      "height": "",
+      "texto": "CREATE"
+    },
+    {
+      "id": "forma-14",
+      "tipo": "text",
+      "left": "666.069px",
+      "top": "296.119px",
+      "width": "",
+      "height": "",
+      "texto": "READ"
+    },
+    {
+      "id": "forma-15",
+      "tipo": "text",
+      "left": "666.862px",
+      "top": "312.922px",
+      "width": "",
+      "height": "",
+      "texto": "UPDATE"
+    },
+    {
+      "id": "forma-16",
+      "tipo": "text",
+      "left": "667.287px",
+      "top": "330.528px",
+      "width": "",
+      "height": "",
+      "texto": "DELETE"
+    },
+    {
+      "id": "forma-17",
+      "tipo": "text",
+      "left": "420.469px",
+      "top": "235.325px",
+      "width": "",
+      "height": "",
+      "texto": "READ"
+    },
+    {
+      "id": "forma-18",
+      "tipo": "text",
+      "left": "419.662px",
+      "top": "253.322px",
+      "width": "",
+      "height": "",
+      "texto": "(INSERT)"
+    },
+    {
+      "id": "forma-20",
+      "tipo": "text",
+      "left": "364.466px",
+      "top": "181.325px",
+      "width": "",
+      "height": "",
+      "texto": "Examen de lenguajes de marcas"
+    },
+    {
+      "id": "forma-21",
+      "tipo": "text",
+      "left": "386.069px",
+      "top": "338.931px",
+      "width": "",
+      "height": "",
+      "texto": "Examen de programación"
+    },
+    {
+      "id": "forma-22",
+      "tipo": "text",
+      "left": "389.275px",
+      "top": "418.534px",
+      "width": "",
+      "height": "",
+      "texto": "Examen de bases de datos"
+    }
+  ],
+  "flechas": [
+    {
+      "desde": {
+        "shapeId": "forma-6",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-5",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-7",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-6",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-10",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-11",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "doble",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-11",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-7",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "doble",
+      "estilo": "straight"
+    }
+  ]
+}
