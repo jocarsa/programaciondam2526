@@ -1,0 +1,1 @@
+la herramienta de selección por lazo nos permite definir zonas de selección simplemente pinchando y arrastrando en la pantalla dibujando a mano alzada cuando pulsamos enter comprobamos como la zona de selección la hemos dibujado completamente a mano alzada

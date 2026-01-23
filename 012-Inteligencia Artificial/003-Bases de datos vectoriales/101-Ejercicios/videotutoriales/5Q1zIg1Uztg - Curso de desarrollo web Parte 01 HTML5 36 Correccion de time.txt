@@ -1,0 +1,1 @@
+bien en este caso hay un error y es que la etiqueta time is time in time les voy a quitar la de que es la que se me había quedado antes del datetime y que era de la primera letra de la etiqueta time se abre como time y se cierra como time por tanto corregimos sabe que se me había quedado colgando por ahí en la etiqueta

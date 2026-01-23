@@ -1,0 +1,1 @@
+otra manera de abrir archivos consiste en seleccionar los directamente de una carpeta de explorador y simplemente pinchando y arrastrando dentro del programa el programa interpretará que la operación que tiene que realizar es abrir el archivo que hemos arrastrado

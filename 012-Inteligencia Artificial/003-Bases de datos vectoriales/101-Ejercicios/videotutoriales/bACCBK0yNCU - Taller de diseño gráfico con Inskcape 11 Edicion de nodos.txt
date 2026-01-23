@@ -1,0 +1,1 @@
+para evitar cualquier forma disponemos de la herramienta de edición de nodos editando los nodos podemos rehacer lo podemos modificar la apariencia de una línea ya sea poligonal o ya sea a mano alzada podremos comprobar que el programa al dibujar una línea mal alzada intentar siempre dotarla del mínimo número de nodos posible para que sea lo más manejable posible una vez creada

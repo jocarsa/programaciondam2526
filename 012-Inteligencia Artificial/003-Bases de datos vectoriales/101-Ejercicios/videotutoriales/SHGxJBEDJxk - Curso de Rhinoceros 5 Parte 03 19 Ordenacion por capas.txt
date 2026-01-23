@@ -1,0 +1,1 @@
+ya sabéis que tenéis que también crear nueva capa torre en la nueva capa torre creó una sub capa llamada superficies y una sub capa llamada líneas donde la superficie a en la capa correspondiente las líneas van en la capa correspondiente y así en nuestro proyecto siempre mantiene enorme

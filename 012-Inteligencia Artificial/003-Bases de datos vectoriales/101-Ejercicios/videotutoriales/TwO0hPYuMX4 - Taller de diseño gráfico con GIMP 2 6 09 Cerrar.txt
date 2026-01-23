@@ -1,0 +1,1 @@
+si en cualquier momento queremos cerrar un proyecto sin cerrar el programa simplemente tenemos que ir a archivo y escoger la opción cerrada cerrar cierra la imagen sin tener que cerrar el programa entero

@@ -1,0 +1,1 @@
+por último ya que el logotipo o el texto es un vector podemos aplicar las opciones que ya conocemos de rellenos y de trazados para darle color y para darle vida a este logotipo ya que es una forma vectorial puedo darle color interior color de trazo y cualquier operación de las que hemos visto previamente sobre las formas vectoriales

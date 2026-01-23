@@ -1,0 +1,1 @@
+ahora a continuación por tanto vamos a crear la navegación para este sitio trabajando con lo siguiente cuando sobre inicio haga clic ejecutaría una función que hará lo siguiente todas las páginas me las esconde aquí hoy así que vamos a poder empezar a hablar de refactorización y la página de inicio de la muestra

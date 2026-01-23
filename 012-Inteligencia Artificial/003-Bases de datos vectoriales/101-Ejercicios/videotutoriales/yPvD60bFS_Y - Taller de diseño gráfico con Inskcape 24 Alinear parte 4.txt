@@ -1,0 +1,1 @@
+las herramientas de alineación también funcionan con múltiples objetos a la vez alineamos la selección podemos centrarnos para asegurar que por ejemplo en este caso se encuentran con la misma línea vertical

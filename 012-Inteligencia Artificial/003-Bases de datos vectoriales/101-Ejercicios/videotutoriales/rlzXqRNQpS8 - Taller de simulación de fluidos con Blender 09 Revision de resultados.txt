@@ -1,0 +1,1 @@
+lo que hago ahora es visualizar el resultado de renderizado como secuencia de png y compruebo como una vez analizados el fluido se comporta como un agua y poco a poco va llenando la cubeta hasta llegar hasta la parte de arriba voy a mantener el botón pulsador para comprobar cómo sería el resultado de ejecutar esta simulación

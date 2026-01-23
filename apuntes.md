@@ -92,6 +92,7 @@
 - [Inteligencia Artificial](#inteligencia-artificial)
   - [Modelos de IA](#modelos-de-ia)
   - [Entrenamiento](#entrenamiento)
+  - [Bases de datos vectoriales](#bases-de-datos-vectoriales)
 - [.git](#git)
   - [branches](#branches)
   - [hooks](#hooks)
@@ -28255,6 +28256,414 @@ pip3 list
 beautifulsoup4
 requests
 PyPDF2
+```
+
+
+<a id="bases-de-datos-vectoriales"></a>
+## Bases de datos vectoriales
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/012-Inteligencia%20Artificial/003-Bases%20de%20datos%20vectoriales)
+
+### instalar chromadb
+<small>Creado: 2026-01-23 09:03</small>
+
+`001-instalar chromadb.sh`
+
+```bash
+pip3 install chromadb --break-system-packages
+```
+
+### vector perro
+<small>Creado: 2026-01-23 09:05</small>
+
+`002-vector perro.py`
+
+```python
+from sentence_transformers import SentenceTransformer
+import numpy as np
+
+# Load a small, fast multilingual embedding model
+model = SentenceTransformer("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
+
+# Word to embed
+word = "perro"
+
+# Generate embedding
+vector = model.encode(word)
+
+# Show results
+print("Word:", word)
+print("Vector length:", len(vector))
+print("Vector (first 10 values):")
+print(np.round(vector[:10], 6))
+```
+
+### vector completo
+<small>Creado: 2026-01-23 09:12</small>
+
+`003-vector completo.py`
+
+```python
+# ubuntu install chromadb and python support
+# now minimal example throwing the vector meaning of word perro
+from sentence_transformers import SentenceTransformer
+import numpy as np
+
+# Load a small, fast multilingual embedding model
+model = SentenceTransformer("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
+
+# Word to embed
+word = "gato"
+
+# Generate embedding
+vector = model.encode(word)
+
+# Show results
+print("Word:", word)
+print("Vector length:", len(vector))
+print("Vector (first 1000 values):")
+print(vector)
+```
+
+### insertar en chromadb
+<small>Creado: 2026-01-23 09:18</small>
+
+`004-insertar en chromadb.py`
+
+```python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import os
+from sentence_transformers import SentenceTransformer
+import chromadb
+from chromadb.config import Settings
+
+def main():
+    # 1) Modelo de embeddings
+    model = SentenceTransformer("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
+
+    # 2) Directorio persistente (queda en disco)
+    persist_dir = os.path.abspath("./chroma_data")
+
+    # 3) Cliente Chroma persistente
+    client = chromadb.PersistentClient(
+        path=persist_dir,
+        settings=Settings(anonymized_telemetry=False)
+    )
+
+    # 4) Colección (similar a una "tabla" lógica)
+    collection = client.get_or_create_collection(
+        name="diccionario_es",
+        metadata={"hnsw:space": "cosine"}  # opción típica para embeddings
+    )
+
+    # 5) Documentos a guardar
+    words = ["perro", "gato", "mesa"]
+    ids = [f"word:{w}" for w in words]
+    metadatas = [{"tipo": "palabra", "idioma": "es"} for _ in words]
+
+    # 6) Embeddings (lista de listas floats)
+    embeddings = model.encode(words, normalize_embeddings=True).tolist()
+
+    # 7) Insertar / upsert (si existe, se actualiza)
+    collection.upsert(
+        ids=ids,
+        documents=words,        # guardamos el texto original como documento
+        metadatas=metadatas,
+        embeddings=embeddings
+    )
+
+    # 8) Comprobación rápida: consulta por similitud
+    query = "animal doméstico"
+    q_emb = model.encode(query, normalize_embeddings=True).tolist()
+
+    results = collection.query(
+        query_embeddings=[q_emb],
+        n_results=3,
+        include=["documents", "metadatas", "distances"]
+    )
+
+    print("Persist dir:", persist_dir)
+    print("Inserted:", ids)
+    print("\nQuery:", query)
+    for doc, meta, dist in zip(results["documents"][0], results["metadatas"][0], results["distances"][0]):
+        print(f"- {doc} | {meta} | distance={dist:.6f}")
+
+if __name__ == "__main__":
+    main()
+```
+
+### devolver vectores
+<small>Creado: 2026-01-23 09:24</small>
+
+`005-devolver vectores.py`
+
+```python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import os
+import chromadb
+from chromadb.config import Settings
+
+def main():
+    # Directorio persistente (debe ser el mismo usado al insertar)
+    persist_dir = os.path.abspath("./chroma_data")
+
+    # Cliente Chroma persistente
+    client = chromadb.PersistentClient(
+        path=persist_dir,
+        settings=Settings(anonymized_telemetry=False)
+    )
+
+    # Obtener la colección existente
+    collection = client.get_collection(name="diccionario_es")
+
+    # IDs de las palabras a recuperar
+    ids = ["word:perro", "word:gato", "word:mesa"]
+
+    # Recuperar datos
+    result = collection.get(
+        ids=ids,
+        include=["documents", "embeddings", "metadatas"]
+    )
+
+    # Mostrar resultados
+    for doc, emb, meta in zip(
+        result["documents"],
+        result["embeddings"],
+        result["metadatas"]
+    ):
+        print("Palabra:", doc)
+        print("Metadatos:", meta)
+        print("Longitud del vector:", len(emb))
+        print("Vector (primeros 10 valores):", emb)
+        print("-" * 60)
+
+if __name__ == "__main__":
+    main()
+```
+
+### similitud por parejas
+<small>Creado: 2026-01-23 09:27</small>
+
+`006-similitud por parejas.py`
+
+```python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import os
+import math
+import chromadb
+from chromadb.config import Settings
+
+def cosine_similarity(a, b) -> float:
+    # cos(a,b) = dot(a,b) / (||a|| * ||b||)
+    dot = 0.0
+    na = 0.0
+    nb = 0.0
+    for x, y in zip(a, b):
+        dot += x * y
+        na += x * x
+        nb += y * y
+    denom = math.sqrt(na) * math.sqrt(nb)
+    return dot / denom if denom != 0.0 else 0.0
+
+def main():
+    persist_dir = os.path.abspath("./chroma_data")
+
+    client = chromadb.PersistentClient(
+        path=persist_dir,
+        settings=Settings(anonymized_telemetry=False)
+    )
+
+    collection = client.get_collection(name="diccionario_es")
+
+    words = ["perro", "gato", "mesa"]
+    ids = [f"word:{w}" for w in words]
+
+    res = collection.get(ids=ids, include=["documents", "embeddings"])
+
+    # Map palabra -> embedding
+    doc_to_emb = {doc: emb for doc, emb in zip(res["documents"], res["embeddings"])}
+
+    pairs = [("perro", "gato"), ("perro", "mesa"), ("gato", "mesa")]
+
+    print("Cosine similarity (pair by pair):")
+    for a, b in pairs:
+        sim = cosine_similarity(doc_to_emb[a], doc_to_emb[b])
+        print(f"- {a} vs {b}: {sim:.6f}")
+
+    # (Opcional) también mostrar "distancia coseno" = 1 - similitud
+    print("\nCosine distance (1 - similarity):")
+    for a, b in pairs:
+        sim = cosine_similarity(doc_to_emb[a], doc_to_emb[b])
+        dist = 1.0 - sim
+        print(f"- {a} vs {b}: {dist:.6f}")
+
+if __name__ == "__main__":
+    main()
+```
+
+### insertar frases
+<small>Creado: 2026-01-23 09:43</small>
+
+`007-insertar frases.py`
+
+```python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import os
+from sentence_transformers import SentenceTransformer
+import chromadb
+from chromadb.config import Settings
+
+def main():
+    # Embedding model (multilingual, fast, solid)
+    model = SentenceTransformer(
+        "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+    )
+
+    # Persistent storage directory
+    persist_dir = os.path.abspath("./chroma_data")
+
+    # Chroma persistent client
+    client = chromadb.PersistentClient(
+        path=persist_dir,
+        settings=Settings(anonymized_telemetry=False)
+    )
+
+    # Create or load collection
+    collection = client.get_or_create_collection(
+        name="sentencias_es",
+        metadata={"hnsw:space": "cosine"}
+    )
+
+    # Spanish sentences
+    sentences = [
+        "El perro duerme tranquilamente junto a la chimenea.",
+        "El gato observa atentamente a los pájaros desde la ventana.",
+        "La mesa de madera está cubierta de libros antiguos.",
+        "La inteligencia artificial está transformando el desarrollo de software.",
+        "Los estudiantes aprenden programación con ejercicios prácticos.",
+        "Me gusta tomar café por la mañana mientras leo las noticias.",
+        "El ordenador portátil se quedó sin batería durante la reunión.",
+        "La profesora explicó el concepto con un ejemplo muy claro."
+    ]
+
+    # IDs and metadata
+    ids = [f"sent:{i}" for i in range(len(sentences))]
+    metadatas = [
+        {"idioma": "es", "tipo": "oracion"} for _ in sentences
+    ]
+
+    # Generate embeddings
+    embeddings = model.encode(
+        sentences,
+        normalize_embeddings=True
+    ).tolist()
+
+    # Insert / update
+    collection.upsert(
+        ids=ids,
+        documents=sentences,
+        metadatas=metadatas,
+        embeddings=embeddings
+    )
+
+    print("Inserted sentences into ChromaDB:")
+    for i, s in zip(ids, sentences):
+        print(f"- {i}: {s}")
+
+    print("\nPersisted at:", persist_dir)
+
+if __name__ == "__main__":
+    main()
+```
+
+### buscador
+<small>Creado: 2026-01-23 09:40</small>
+
+`008-buscador.py`
+
+```python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import os
+import math
+from sentence_transformers import SentenceTransformer
+import chromadb
+from chromadb.config import Settings
+
+def cosine_similarity(a, b) -> float:
+    dot = 0.0
+    na = 0.0
+    nb = 0.0
+    for x, y in zip(a, b):
+        dot += x * y
+        na += x * x
+        nb += y * y
+    denom = math.sqrt(na) * math.sqrt(nb)
+    return dot / denom if denom != 0.0 else 0.0
+
+def main():
+    persist_dir = os.path.abspath("./chroma_data")
+    collection_name = "sentencias_es"
+
+    model = SentenceTransformer(
+        "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+    )
+
+    client = chromadb.PersistentClient(
+        path=persist_dir,
+        settings=Settings(anonymized_telemetry=False)
+    )
+    collection = client.get_collection(name=collection_name)
+
+    # ⚠️ NO usar "or []" con numpy arrays
+    stored = collection.get(include=["documents", "embeddings", "metadatas"])
+
+    ids = stored["ids"]
+    docs = stored["documents"]
+    embs = stored["embeddings"]
+    metas = stored["metadatas"]
+
+    if len(docs) == 0:
+        print("No hay frases almacenadas en la colección.")
+        return
+
+    print(f"Cargadas {len(docs)} frases desde Chroma")
+    print("Introduce una frase para comparar (ENTER para salir)\n")
+
+    while True:
+        query = input("Tu frase> ").strip()
+        if not query:
+            print("Saliendo.")
+            break
+
+        q_emb = model.encode(query, normalize_embeddings=True).tolist()
+
+        resultados = []
+
+        for doc_id, doc, emb in zip(ids, docs, embs):
+            sim = cosine_similarity(q_emb, emb)
+            porcentaje = max(0.0, min(sim, 1.0)) * 100.0
+            resultados.append((porcentaje, doc_id, doc))
+
+        resultados.sort(reverse=True, key=lambda x: x[0])
+
+        print("\nSimilitud semántica:")
+        for pct, doc_id, doc in resultados:
+            print(f"- {pct:6.2f}%  ({doc_id})  {doc}")
+
+        print()
+
+if __name__ == "__main__":
+    main()
 ```
 
 

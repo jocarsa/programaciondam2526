@@ -1,6 +1,6 @@
 # programaciondam2526 — Estado de ejercicios
 
-Generado: 2026-01-23 09:00
+Generado: 2026-01-23 10:00
 
 ---
 
@@ -126,3 +126,4 @@ Generado: 2026-01-23 09:00
 
 - 🟢 Modelos de IA — 2026-01-21
 - 🟢 Entrenamiento — 2025-12-02
+- 🟢 Bases de datos vectoriales — 2026-01-23

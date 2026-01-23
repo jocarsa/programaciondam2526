@@ -1,0 +1,1 @@
+una vez insertada a la imagen en bloody font podemos volver a editarla simplemente haciendo clic y volviendo a mostrar el editor svg tras lo cual realizaremos algún cambio por ejemplo introducir este rectángulo del centro vemos que aquí todavía no está elegimos menú insertar imagen en blog live on y obtenemos los cambios representados en pantalla

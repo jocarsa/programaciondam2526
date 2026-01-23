@@ -1,0 +1,1 @@
+otro retoque que podemos hacer mirando la el alzado posterior consiste en el muro que en los planos está mal no es que hayamos modelado nada mal sino que está mal en los planos y editando en modo edición la Arista vamos a llevar con el imán a vértice vamos a llevar la Arista hasta este punto vamos a bajar la Arista tal manera que ahora sí estará a ras y

@@ -1,0 +1,1 @@
+una herramienta muy parecido a la selección rectangular esa selección circular nos permite dibujar y redefinir círculos de selección funcionando de una manera exactamente igual que la selección rectangular

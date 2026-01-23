@@ -1,0 +1,2 @@
+Coloca aquí tus ficheros .txt de transcripciones.
+Cada archivo se procesará de forma independiente.
