@@ -1,6 +1,6 @@
 # programaciondam2526 — Estado de ejercicios
 
-Generado: 2026-01-07 10:00
+Generado: 2026-01-23 09:00
 
 ---
 
@@ -106,7 +106,7 @@ Generado: 2026-01-07 10:00
 
 ## Gestión de bases de datos
 
-- 🔴 Acceso a bases de datos. Estándares. Características
+- 🟢 Acceso a bases de datos. Estándares. Características — 2026-01-20
 - 🟢 Establecimiento de conexiones — 2025-10-14
 - 🔴 Almacenamiento, recuperación, actualización y eliminación de información en bases de datos
 
@@ -120,3 +120,9 @@ Generado: 2026-01-07 10:00
 ## Repaso examen segunda evaluacion
 
 - 🟢 Miercoles 7 — 2026-01-07
+
+
+## Inteligencia Artificial
+
+- 🟢 Modelos de IA — 2026-01-21
+- 🟢 Entrenamiento — 2025-12-02
