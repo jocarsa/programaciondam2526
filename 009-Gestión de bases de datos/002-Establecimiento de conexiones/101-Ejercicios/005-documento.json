@@ -1,0 +1,19 @@
+/** 
+* Paste one or more documents here
+*/
+{
+  "_id": {
+    "$oid": "6979d13544b8adb969763f57"
+  },"datos_cliente":{
+    "cliente":"Empresa receptora",
+    "direccion":"Dirección de la empresa receptora",
+    "CIF":"CIF de la empresa receptora"
+  },"datos_factura":{
+    "numero_factura":2026001,
+    "fecha":"2026-01-28"
+  },"lineas_pedido":[
+    {"producto":"zapatillas","precio":10,"unidades":4},
+    {"producto":"pantalones","precio":13,"unidades":2},
+    {"producto":"camiseta","precio":13,"unidades":5}
+  ]
+}

@@ -93,6 +93,7 @@
   - [Modelos de IA](#modelos-de-ia)
   - [Entrenamiento](#entrenamiento)
   - [Bases de datos vectoriales](#bases-de-datos-vectoriales)
+  - [Sanear texto](#sanear-texto)
 - [.git](#git)
   - [branches](#branches)
   - [hooks](#hooks)
@@ -25256,6 +25257,15 @@ mysqli_close($conn);
 
 En esta sección de ejercicios, te enfocarás en el establecimiento de conexiones con bases de datos utilizando lenguajes de programación como Python o PHP. El objetivo principal es que comprendas cómo configurar y abrir una conexión a una base de datos, manejar errores relacionados con la conexión y finalmente cerrarla adecuadamente. A través de este ejercicio, mejorarás tus habilidades en la gestión de bases de datos, lo que incluye la importancia de las buenas prácticas para asegurar la seguridad y eficiencia del sistema.
 
+### arrancar manualmente el servidor
+<small>Creado: 2026-01-28 09:07</small>
+
+`004-arrancar manualmente el servidor.nd`
+
+```
+sudo service mongod start
+```
+
 ### Actividades propuestas
 
 ### Actividad 1: Conexión a una Base de Datos Simulada
@@ -28664,6 +28674,481 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
+
+### guardar cachos
+<small>Creado: 2026-01-23 10:04</small>
+
+`009-guardar cachos.py`
+
+```python
+#now python script, parse all the txt files 
+#inside videotutoriales folder, create chunks with overlapping, 
+#compute vectors with chroma, and save to chroma database
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+Parse all .txt files inside a folder (default: ./videotutoriales),
+split into overlapping chunks, embed with SentenceTransformers,
+and store everything into a persistent ChromaDB collection.
+
+Install:
+  pip install chromadb sentence-transformers numpy
+
+Run:
+  python ingest_txt_to_chroma.py \
+    --input_dir "./videotutoriales" \
+    --persist_dir "./chroma_data" \
+    --collection "videotutoriales_es" \
+    --chunk_chars 1200 \
+    --overlap_chars 200 \
+    --batch_size 128
+"""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import os
+import re
+from pathlib import Path
+from typing import Iterator, List, Dict, Tuple
+
+import chromadb
+from chromadb.config import Settings
+from sentence_transformers import SentenceTransformer
+
+
+# -----------------------------
+# Chunking
+# -----------------------------
+def normalize_text(s: str) -> str:
+    # Keep it simple: normalize whitespace, preserve punctuation.
+    s = s.replace("\r\n", "\n").replace("\r", "\n")
+    s = re.sub(r"[ \t]+", " ", s)
+    s = re.sub(r"\n{3,}", "\n\n", s)
+    return s.strip()
+
+
+def chunk_text_chars(text: str, chunk_chars: int, overlap_chars: int) -> Iterator[Tuple[int, int, str]]:
+    """
+    Yield (start, end, chunk) with character windowing and overlap.
+    """
+    if chunk_chars <= 0:
+        raise ValueError("chunk_chars must be > 0")
+    if overlap_chars < 0:
+        raise ValueError("overlap_chars must be >= 0")
+    if overlap_chars >= chunk_chars:
+        raise ValueError("overlap_chars must be < chunk_chars")
+
+    n = len(text)
+    start = 0
+    while start < n:
+        end = min(start + chunk_chars, n)
+        chunk = text[start:end].strip()
+        if chunk:
+            yield start, end, chunk
+        if end == n:
+            break
+        start = max(0, end - overlap_chars)
+
+
+# -----------------------------
+# IDs
+# -----------------------------
+def stable_chunk_id(rel_path: str, start: int, end: int, chunk: str) -> str:
+    """
+    Stable ID so re-ingestion updates the same chunk instead of duplicating.
+    """
+    h = hashlib.sha1()
+    h.update(rel_path.encode("utf-8"))
+    h.update(b"|")
+    h.update(f"{start}:{end}".encode("utf-8"))
+    h.update(b"|")
+    # Include content hash too, so edits change ids (optional). If you prefer
+    # IDs stable even when content changes, remove the chunk part.
+    h.update(hashlib.sha1(chunk.encode("utf-8")).digest())
+    return "chunk:" + h.hexdigest()
+
+
+# -----------------------------
+# File discovery
+# -----------------------------
+def iter_txt_files(root: Path) -> Iterator[Path]:
+    for p in root.rglob("*.txt"):
+        if p.is_file():
+            yield p
+
+
+# -----------------------------
+# Main ingestion
+# -----------------------------
+def ingest(
+    input_dir: Path,
+    persist_dir: Path,
+    collection_name: str,
+    model_name: str,
+    chunk_chars: int,
+    overlap_chars: int,
+    batch_size: int,
+) -> None:
+    model = SentenceTransformer(model_name)
+
+    client = chromadb.PersistentClient(
+        path=str(persist_dir),
+        settings=Settings(anonymized_telemetry=False),
+    )
+
+    collection = client.get_or_create_collection(
+        name=collection_name,
+        metadata={"hnsw:space": "cosine"},
+    )
+
+    all_files = list(iter_txt_files(input_dir))
+    if not all_files:
+        print(f"No .txt files found in: {input_dir}")
+        return
+
+    print(f"Found {len(all_files)} .txt files in: {input_dir}")
+    print(f"Persist dir: {persist_dir}")
+    print(f"Collection: {collection_name}")
+    print(f"Model: {model_name}")
+    print(f"Chunk chars: {chunk_chars} | Overlap chars: {overlap_chars} | Batch: {batch_size}")
+    print("-" * 80)
+
+    batch_ids: List[str] = []
+    batch_docs: List[str] = []
+    batch_metas: List[Dict] = []
+
+    total_chunks = 0
+    total_files = 0
+
+    for file_path in all_files:
+        total_files += 1
+        rel_path = str(file_path.relative_to(input_dir))
+        try:
+            raw = file_path.read_text(encoding="utf-8", errors="replace")
+        except Exception as e:
+            print(f"[SKIP] Could not read {rel_path}: {e}")
+            continue
+
+        text = normalize_text(raw)
+        if not text:
+            print(f"[SKIP] Empty after normalization: {rel_path}")
+            continue
+
+        file_chunks = 0
+        for start, end, chunk in chunk_text_chars(text, chunk_chars, overlap_chars):
+            cid = stable_chunk_id(rel_path, start, end, chunk)
+
+            meta = {
+                "source_file": rel_path,
+                "start_char": start,
+                "end_char": end,
+                "chunk_chars": len(chunk),
+            }
+
+            batch_ids.append(cid)
+            batch_docs.append(chunk)
+            batch_metas.append(meta)
+
+            file_chunks += 1
+            total_chunks += 1
+
+            if len(batch_docs) >= batch_size:
+                _flush_batch(collection, model, batch_ids, batch_docs, batch_metas)
+                batch_ids.clear()
+                batch_docs.clear()
+                batch_metas.clear()
+
+        print(f"[OK] {rel_path} -> {file_chunks} chunks")
+
+    # Flush remaining
+    if batch_docs:
+        _flush_batch(collection, model, batch_ids, batch_docs, batch_metas)
+
+    print("-" * 80)
+    print(f"Done. Files processed: {total_files} | Total chunks stored: {total_chunks}")
+
+
+def _flush_batch(collection, model, ids: List[str], docs: List[str], metas: List[Dict]) -> None:
+    # Encode and upsert
+    embeddings = model.encode(docs, normalize_embeddings=True).tolist()
+    collection.upsert(
+        ids=ids,
+        documents=docs,
+        metadatas=metas,
+        embeddings=embeddings,
+    )
+    print(f"  -> Upserted batch: {len(docs)}")
+
+
+def main():
+    ap = argparse.ArgumentParser(description="Ingest .txt files into ChromaDB with overlapping chunks.")
+    ap.add_argument("--input_dir", default="./videotutoriales", help="Folder containing .txt files (recursive).")
+    ap.add_argument("--persist_dir", default="./chroma_data", help="ChromaDB persistent directory.")
+    ap.add_argument("--collection", default="videotutoriales_es", help="Chroma collection name.")
+    ap.add_argument(
+        "--model",
+        default="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+        help="SentenceTransformers model name/path.",
+    )
+    ap.add_argument("--chunk_chars", type=int, default=1200, help="Chunk size in characters.")
+    ap.add_argument("--overlap_chars", type=int, default=200, help="Overlap size in characters.")
+    ap.add_argument("--batch_size", type=int, default=128, help="Upsert batch size.")
+    args = ap.parse_args()
+
+    input_dir = Path(args.input_dir).resolve()
+    persist_dir = Path(args.persist_dir).resolve()
+
+    if not input_dir.exists() or not input_dir.is_dir():
+        raise SystemExit(f"input_dir does not exist or is not a directory: {input_dir}")
+
+    persist_dir.mkdir(parents=True, exist_ok=True)
+
+    ingest(
+        input_dir=input_dir,
+        persist_dir=persist_dir,
+        collection_name=args.collection,
+        model_name=args.model,
+        chunk_chars=args.chunk_chars,
+        overlap_chars=args.overlap_chars,
+        batch_size=args.batch_size,
+    )
+
+
+if __name__ == "__main__":
+    main()
+```
+
+### motor de busqueda
+<small>Creado: 2026-01-23 10:15</small>
+
+`010-motor de busqueda.py`
+
+```python
+#now please a search engine on python with input on console 
+#- over the database created
+
+# no CLI arguments, all hardcoded
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+Simple console semantic search over an existing ChromaDB collection.
+- No CLI arguments: everything is hardcoded below.
+- Reads queries from input()
+- Searches the ChromaDB collection created by your ingestion script
+- Prints Top-K results with similarity (%) and source metadata
+
+Requirements:
+  pip install chromadb sentence-transformers numpy
+"""
+
+import os
+from typing import Any, Dict, List
+
+import chromadb
+from chromadb.config import Settings
+from sentence_transformers import SentenceTransformer
+
+
+# =========================
+# HARDCODED CONFIG
+# =========================
+PERSIST_DIR = os.path.abspath("./chroma_data")     # same as ingestion
+COLLECTION_NAME = "videotutoriales_es"             # same as ingestion
+MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+
+TOP_K = 8                  # results per query
+SHOW_CHARS = 320           # snippet length to print
+
+
+def fmt_meta(meta: Dict[str, Any]) -> str:
+    if not meta:
+        return ""
+    src = meta.get("source_file", "?")
+    s = meta.get("start_char", "?")
+    e = meta.get("end_char", "?")
+    return f"{src} [{s}-{e}]"
+
+
+def clamp01(x: float) -> float:
+    if x < 0.0:
+        return 0.0
+    if x > 1.0:
+        return 1.0
+    return x
+
+
+def main():
+    # Load embedding model
+    model = SentenceTransformer(MODEL_NAME)
+
+    # Open Chroma persistent DB
+    client = chromadb.PersistentClient(
+        path=PERSIST_DIR,
+        settings=Settings(anonymized_telemetry=False)
+    )
+    collection = client.get_collection(name=COLLECTION_NAME)
+
+    print("Chroma semantic search (console)")
+    print(f"Persist dir : {PERSIST_DIR}")
+    print(f"Collection  : {COLLECTION_NAME}")
+    print(f"Model       : {MODEL_NAME}")
+    print(f"Top-K       : {TOP_K}")
+    print("\nWrite a query and press ENTER (empty line = exit)\n")
+
+    while True:
+        query = input("search> ").strip()
+        if not query:
+            print("Bye.")
+            break
+
+        q_emb = model.encode(query, normalize_embeddings=True).tolist()
+
+        # With cosine space: distance ~= 1 - cosine_similarity
+        res = collection.query(
+            query_embeddings=[q_emb],
+            n_results=TOP_K,
+            include=["documents", "metadatas", "distances"]
+        )
+
+        docs: List[str] = (res.get("documents") or [[]])[0]
+        metas: List[Dict[str, Any]] = (res.get("metadatas") or [[]])[0]
+        dists: List[float] = (res.get("distances") or [[]])[0]
+
+        if not docs:
+            print("No results.\n")
+            continue
+
+        print("\nResults:")
+        for i, (doc, meta, dist) in enumerate(zip(docs, metas, dists), start=1):
+            dist = float(dist)
+            sim = clamp01(1.0 - dist)
+            pct = sim * 100.0
+
+            snippet = (doc or "").replace("\n", " ").strip()
+            if len(snippet) > SHOW_CHARS:
+                snippet = snippet[:SHOW_CHARS].rstrip() + "…"
+
+            print(f"{i:02d}. {pct:6.2f}%  |  {fmt_meta(meta)}")
+            print(f"    {snippet}\n")
+
+        print("-" * 80)
+
+
+if __name__ == "__main__":
+    main()
+```
+
+
+<a id="sanear-texto"></a>
+## Sanear texto
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/012-Inteligencia%20Artificial/004-Sanear%20texto)
+
+### inicio
+<small>Creado: 2026-01-23 10:35</small>
+
+`001-inicio.php`
+
+```
+<?php
+
+// sudo apt install php php-curl
+// sudo service apache2 restart
+
+$OLLAMA_URL = "http://localhost:11434/api/generate";
+$MODEL = "qwen2.5:3b-instruct";
+
+$prompt = "Explica que es PHP. En español";
+
+$data = [
+    "model" => $MODEL,
+    "prompt" => $prompt,
+    "stream" => false
+];
+
+$ch = curl_init($OLLAMA_URL);
+
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    "Content-Type: application/json"
+]);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+
+$response = curl_exec($ch);
+
+if ($response === false) {
+    die("cURL error: " . curl_error($ch));
+}
+
+curl_close($ch);
+
+$result = json_decode($response, true);
+
+echo $result["response"];
+```
+
+### sanear cadena
+<small>Creado: 2026-01-23 10:38</small>
+
+`002-sanear cadena.php`
+
+```
+<?php
+
+// sudo apt install php php-curl
+// sudo service apache2 restart
+
+$OLLAMA_URL = "http://localhost:11434/api/generate";
+$MODEL = "qwen2.5:3b-instruct";
+
+$prompt = "Sanea la siguiente cadena, 
+	- pon comas, 
+  - puntos, 
+  - separa en frases,
+	- y si es necesario, separa en párrafos si existen diferentes temas. 
+  
+  -Devuelve frases y párrafos en HTML usando la etiqueta <p>, pon <br> al final de cada linea, y doble <br> al final de cada parrafo
+  -Detecta las cuatro palabras mas importantes de cada parrafo, y ponlas en negrita con la etiqueta <b> de HTML
+  -Pon en mayúsculas la primera letra de cada frase o párrafo
+  
+  La cadena es:
+  ahora a continuación lo que quiero al menos en mi objetivo para la clase de hoy es montar este bloque el bloque motor montar la placa de control montar en ultrasonidos y comprobar como el robot hace algo cuando digo algo lo que quiero decir es que mediante el ultrasonido es por ejemplo lo que quiero es que detecte lo que tiene delante y si detecta algún obstáculo pues por ejemplo que se pare es decir quiero empezar a hacer algo empezar a unir los componentes y que se vea como la unión de los componentes realmente nos permiten construir algo de utilidad enfocar lo que me interesa lo que podemos ir haciendo mientras tanto es ir preparando el sketch así dejamos que el pegamento vaya haciendo su labor y no te digo lo que podemos hacer es ir abriendo el proyecto de arduino e ir configurando lo y así también de paso vamos hablando de la programación y así también le damos tiempo al pegamento para que se acabe de unir y evidentemente para esto lo que voy a hacer es reutilizar gran parte del código que hemos utilizado en días anteriores pues no va a ser un proyecto desde cero sino que vamos a copiar y pegar código de días anteriores vale tenemos esto y a continuación voy a abrir y voy a abrir un proyecto por ejemplo por una parte de bueno fíjate vamos a abrir pero dónde estás servo 360 vamos a abrir ultrasonidos y vamos a abrir está un poco más ultrasonidos y servo pues todos los ejercicios que hemos hecho hasta ahora realmente son ejercicios que nos van a servir para diseñar combinando el código entre sí otros ejercicios voy a esto archivo guardar como no voy a guardar en curso arduino con el nombre de 30 24 robot ultrasonidos y ahora lo que hago es copiar y pegar esto es ultrasonidos pues no quería yo quería de hecho el servomotor muy bien incluyó el serbo copio y pego creó un servo de hecho el que ya hemos comentado anteriormente el código viene bien porque así sabemos qué es lo que ocurre en cada caso y ahora motor punto a touch a los puertos antes hemos dicho que voy a utilizar el 7 y el entonces claro tengo que hacer servo motor derecho y cervo motor izquierdo motor derecho a touch voy a decir de momento el número 8 y motor izquierdo va touch el puerto 7 hemos dicho 1 767 heces ahora lo que voy a
+  ";
+
+$data = [
+    "model" => $MODEL,
+    "prompt" => $prompt,
+    "stream" => false
+];
+
+$ch = curl_init($OLLAMA_URL);
+
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    "Content-Type: application/json"
+]);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+
+$response = curl_exec($ch);
+
+if ($response === false) {
+    die("cURL error: " . curl_error($ch));
+}
+
+curl_close($ch);
+
+$result = json_decode($response, true);
+
+echo $result["response"];
 ```
 
 
