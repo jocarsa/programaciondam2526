@@ -25266,6 +25266,33 @@ En esta sección de ejercicios, te enfocarás en el establecimiento de conexione
 sudo service mongod start
 ```
 
+### documento
+<small>Creado: 2026-01-28 10:12</small>
+
+`005-documento.json`
+
+```json
+/** 
+* Paste one or more documents here
+*/
+{
+  "_id": {
+    "$oid": "6979d13544b8adb969763f57"
+  },"datos_cliente":{
+    "cliente":"Empresa receptora",
+    "direccion":"Dirección de la empresa receptora",
+    "CIF":"CIF de la empresa receptora"
+  },"datos_factura":{
+    "numero_factura":2026001,
+    "fecha":"2026-01-28"
+  },"lineas_pedido":[
+    {"producto":"zapatillas","precio":10,"unidades":4},
+    {"producto":"pantalones","precio":13,"unidades":2},
+    {"producto":"camiseta","precio":13,"unidades":5}
+  ]
+}
+```
+
 ### Actividades propuestas
 
 ### Actividad 1: Conexión a una Base de Datos Simulada
