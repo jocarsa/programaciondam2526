@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div class="jocarsacarrusel">
+      <img src="5tC_A_wgQYw.jpg" alt="Texto alternativo">
+      <img src="7FBOjrjU7hw.jpg" alt="Texto alternativo">
+      <img src="9oxNiLHOsXM.jpg" alt="Texto alternativo">
+      <img src="56jDEvDWsdA.jpg" alt="Texto alternativo">
+      <img src="a9vOpco5Jg0.jpg" alt="Texto alternativo">
+      <img src="aeA7YvJCKwk.jpg" alt="Texto alternativo">
+      <img src="C3In5jD7lJA.jpg" alt="Texto alternativo">
+      <img src="cVfmrb97Wt0.jpg" alt="Texto alternativo">
+    </div>
+    <script>
+      // Cojo el contenedor externo (es un solo elemento)
+      let contenedor = document.querySelector(".jocarsacarrusel");
+      // Cojo las imagenes de dentro (es un array de elementos)
+      let contenido = document.querySelectorAll(".jocarsacarrusel img")
+      // Para cada una de las imagenes
+      contenido.forEach(function(elemento){
+        // Quito la imagen del html
+      	elemento.remove()
+      })
+      console.log(contenido)
+    </script>
+  </body>
+</html>

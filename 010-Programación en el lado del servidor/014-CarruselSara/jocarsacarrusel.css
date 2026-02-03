@@ -1,0 +1,9 @@
+.jocarsacarrusel{width:1280px;height:720px;overflow:hidden;position:relative;border-radius:10px;
+  box-shadow:0px 4px 10px rgba(0,0,0,0.3);}
+.jocarsacarrusel section{width:8960px;display:flex;left:0px;transition:all 1s;position:relative;}
+.jocarsacarrusel section img{width:1280px;height:720px;}
+button{border:none;background:rgba(255,255,255,0.5);width:60px;height:60px;
+  position:absolute;top:50%;border-radius:60px;font-size:30px;line-height:60px;text-align:center;}
+button:hover{background:rgba(255,255,255,1);transition:all 1s;}
+.jocarsacarrusel button:first-of-type {left:2%;}
+.jocarsacarrusel button:last-of-type {right:2%;}

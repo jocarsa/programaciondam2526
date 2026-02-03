@@ -1,6 +1,6 @@
 # programaciondam2526 — Estado de ejercicios
 
-Generado: 2026-01-29 10:00
+Generado: 2026-02-03 12:00
 
 ---
 
@@ -93,7 +93,7 @@ Generado: 2026-01-29 10:00
 
 ## Mantenimiento de la persistencia de los objetos
 
-- 🔴 Bases de datos orientadas a objetos
+- 🟢 Bases de datos orientadas a objetos — 2026-02-02
 - 🔴 Características de las bases de datos orientadas a objetos
 - 🔴 Instalación del gestor de bases de datos
 - 🔴 Creación de bases de datos
@@ -113,8 +113,22 @@ Generado: 2026-01-29 10:00
 
 ## Programación en el lado del servidor
 
-- 🔴 Ejercicios
-- 🔴 Resumen
+- 🟢 Fundamentos — 2025-12-02
+- 🟢 get y post — 2025-12-03
+- 🟢 Persistencia — 2025-12-03
+- 🟢 Proyecto Ana — 2025-12-04
+- 🟢 includes — 2025-12-05
+- 🔴 Repasito de cosas de GitHub
+- 🟢 Bloques — 2025-12-05
+- 🟢 Sesiones en PHP — 2025-12-05
+- 🟢 Implantacion crud — 2025-12-09
+- 🔴 Tienda online
+- 🔴 Supercontrolador
+- 🔴 Buscador Satori
+- 🟢 Idiomas en programacion — 2025-12-31
+- 🔴 CarruselSara
+- 🟢 Versionado y documentacion — 2026-01-30
+- 🔴 Proyecto Camaron
 
 
 ## Repaso examen segunda evaluacion

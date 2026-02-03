@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+  <head>
+    	<meta charset="utf-8">
+  </head>
+  <body>
+    <div class="jocarsacarrusel">
+      <img src="5tC_A_wgQYw.jpg" alt="Texto alternativo">
+      <img src="7FBOjrjU7hw.jpg" alt="Texto alternativo">
+      <img src="9oxNiLHOsXM.jpg" alt="Texto alternativo">
+      <img src="56jDEvDWsdA.jpg" alt="Texto alternativo">
+      <img src="a9vOpco5Jg0.jpg" alt="Texto alternativo">
+      <img src="aeA7YvJCKwk.jpg" alt="Texto alternativo">
+      <img src="C3In5jD7lJA.jpg" alt="Texto alternativo">
+      <img src="cVfmrb97Wt0.jpg" alt="Texto alternativo">
+    </div>
+    <style>
+      .jocarsacarrusel{width:1280px;height:720px;overflow:hidden;position:relative;border-radius:10px;
+        box-shadow:0px 4px 10px rgba(0,0,0,0.3);}
+      .jocarsacarrusel section{width:8960px;display:flex;left:0px;transition:all 1s;position:relative;}
+      .jocarsacarrusel section img{width:1280px;height:720px;}
+      button{border:none;background:rgba(255,255,255,0.5);width:60px;height:60px;
+      position:absolute;top:50%;border-radius:60px;font-size:30px;line-height:60px;text-align:center;}
+      button:hover{background:rgba(255,255,255,1);transition:all 1s;}
+      .jocarsacarrusel button:first-of-type {left:2%;}
+      .jocarsacarrusel button:last-of-type {right:2%;}
+    </style>
+    <script>
+      // Cojo el contenedor externo (es un solo elemento)
+      let contenedor = document.querySelector(".jocarsacarrusel");
+      // Cojo las imagenes de dentro (es un array de elementos)
+      let contenido = document.querySelectorAll(".jocarsacarrusel img")
+      // Para cada una de las imagenes
+      contenido.forEach(function(elemento){
+        // Quito la imagen del html
+      	elemento.remove()
+      })
+      // Creo un nuevo contenedor que es una seccion
+      let nuevo_contenedor = document.createElement("section")
+      nuevo_contenedor.style.left = 0
+      // Al contenedor antiguo le añado el nuevo contenedor
+      contenedor.appendChild(nuevo_contenedor)
+      
+      // Dentro del nuevo contenedor meto las imagenes una a una
+      contenido.forEach(function(elemento){
+      	nuevo_contenedor.appendChild(elemento)
+      })
+      // Ahora creo dos botones
+      let botonatras = document.createElement("button")
+      botonatras.textContent = "◀"
+      contenedor.appendChild(botonatras)
+      let botondelante = document.createElement("button")
+      botondelante.textContent = "▶"
+      contenedor.appendChild(botondelante)
+      var anchura = 1280;
+      var contador = 0;
+      // Cuando haga click en el boton delante
+      botondelante.onclick = function(){
+        // Le quito un elemento al contador
+        contador--;
+        // Actualizo la posicion del nuevo contenedor
+      	nuevo_contenedor.style.left = contador*anchura+"px"
+      }
+      // Cuando haga click en el boton atras
+      botonatras.onclick = function(){
+        // Le quito un elemento al contador
+        contador++;
+        // Actualizo la posicion del nuevo contenedor
+      	nuevo_contenedor.style.left = contador*anchura+"px"
+      }
+    </script>
+  </body>
+</html>
+
+
+
+
+
+

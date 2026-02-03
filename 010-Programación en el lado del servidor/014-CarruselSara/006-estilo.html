@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    	<meta charset="utf-8">
+  </head>
+  <body>
+    <div class="jocarsacarrusel">
+      <img src="5tC_A_wgQYw.jpg" alt="Texto alternativo">
+      <img src="7FBOjrjU7hw.jpg" alt="Texto alternativo">
+      <img src="9oxNiLHOsXM.jpg" alt="Texto alternativo">
+      <img src="56jDEvDWsdA.jpg" alt="Texto alternativo">
+      <img src="a9vOpco5Jg0.jpg" alt="Texto alternativo">
+      <img src="aeA7YvJCKwk.jpg" alt="Texto alternativo">
+      <img src="C3In5jD7lJA.jpg" alt="Texto alternativo">
+      <img src="cVfmrb97Wt0.jpg" alt="Texto alternativo">
+    </div>
+    <style>
+      .jocarsacarrusel{width:1280px;height:720px;}
+      .jocarsacarrusel section{width:8960px;display:flex;left:0px;transition:all 1s;}
+      .jocarsacarrusel section img{width:1280px;height:720px;}
+    </style>
+    <script>
+      // Cojo el contenedor externo (es un solo elemento)
+      let contenedor = document.querySelector(".jocarsacarrusel");
+      // Cojo las imagenes de dentro (es un array de elementos)
+      let contenido = document.querySelectorAll(".jocarsacarrusel img")
+      // Para cada una de las imagenes
+      contenido.forEach(function(elemento){
+        // Quito la imagen del html
+      	elemento.remove()
+      })
+      // Creo un nuevo contenedor que es una seccion
+      let nuevo_contenedor = document.createElement("section")
+      // Al contenedor antiguo le añado el nuevo contenedor
+      contenedor.appendChild(nuevo_contenedor)
+      // Dentro del nuevo contenedor meto las imagenes una a una
+      contenido.forEach(function(elemento){
+      	nuevo_contenedor.appendChild(elemento)
+      })
+      // Ahora creo dos botones
+      let botonatras = document.createElement("button")
+      botonatras.textContent = "◀"
+      contenedor.appendChild(botonatras)
+      let botondelante = document.createElement("button")
+      botondelante.textContent = "▶"
+      contenedor.appendChild(botondelante)
+    </script>
+  </body>
+</html>
+
+
+
+
+
+

@@ -85,8 +85,22 @@
   - [Establecimiento de conexiones](#establecimiento-de-conexiones)
   - [Almacenamiento, recuperación, actualización y eliminación de información en bases de datos](#almacenamiento-recuperacion-actualizacion-y-eliminacion-de-informacion-en-bases-de-datos)
 - [Programación en el lado del servidor](#programacion-en-el-lado-del-servidor)
-  - [Ejercicios](#ejercicios)
-  - [Resumen](#resumen)
+  - [Fundamentos](#fundamentos)
+  - [get y post](#get-y-post)
+  - [Persistencia](#persistencia)
+  - [Proyecto Ana](#proyecto-ana)
+  - [includes](#includes)
+  - [Repasito de cosas de GitHub](#repasito-de-cosas-de-github)
+  - [Bloques](#bloques)
+  - [Sesiones en PHP](#sesiones-en-php)
+  - [Implantacion crud](#implantacion-crud)
+  - [Tienda online](#tienda-online)
+  - [Supercontrolador](#supercontrolador)
+  - [Buscador Satori](#buscador-satori)
+  - [Idiomas en programacion](#idiomas-en-programacion)
+  - [CarruselSara](#carruselsara)
+  - [Versionado y documentacion](#versionado-y-documentacion)
+  - [Proyecto Camaron](#proyecto-camaron)
 - [Repaso examen segunda evaluacion](#repaso-examen-segunda-evaluacion)
   - [Miercoles 7](#miercoles-7)
 - [Inteligencia Artificial](#inteligencia-artificial)
@@ -24951,6 +24965,277 @@ imagen.save("modificado.jpg")
 
 [📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/008-Mantenimiento%20de%20la%20persistencia%20de%20los%20objetos/001-Bases%20de%20datos%20orientadas%20a%20objetos)
 
+### insercion
+<small>Creado: 2026-02-02 10:02</small>
+
+`002-insercion.php`
+
+```
+<?php
+// sudo apt install php-mongodb
+declare(strict_types=1);
+
+header('Content-Type: application/json; charset=utf-8');
+
+$order = [
+  'order_number' => 'MT-2026-000123',
+  'status' => 'paid',
+  'currency' => 'EUR'
+];
+
+$order['_created_at'] = new MongoDB\BSON\UTCDateTime((int)(microtime(true) * 1000));
+
+$manager = new MongoDB\Driver\Manager('mongodb://127.0.0.1:27017');
+
+$bulk = new MongoDB\Driver\BulkWrite();
+$id = $bulk->insert($order);
+
+$manager->executeBulkWrite('microtienda.pedidos', $bulk);
+
+echo json_encode([
+  'ok' => true,
+  'id' => (string)$id
+], JSON_UNESCAPED_UNICODE);
+```
+
+### me traigo la tienda
+<small>Creado: 2026-02-02 10:18</small>
+
+`003-me traigo la tienda.php`
+
+```
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Tienda</title>
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <style>
+      /* ===== Mobile-first enhancements ===== */
+@media (max-width: 768px){
+
+  body{
+    font-size:16px;
+  }
+
+  header h1{
+    margin:0;
+    font-size:1.4rem;
+  }
+
+  main{
+    padding:10px;
+  }
+
+  section{
+    margin-bottom:20px;
+  }
+
+  h3{
+    margin-bottom:10px;
+    font-size:1.2rem;
+    text-align:center;
+  }
+
+  /* Products layout */
+  #productos > div{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+
+  article{
+    border:1px solid #ddd;
+    padding:12px;
+    border-radius:8px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+
+  article h4{
+    margin:0;
+    font-size:1rem;
+  }
+
+  button{
+    padding:10px 14px;
+    font-size:1rem;
+    border:none;
+    border-radius:6px;
+    background:#000;
+    color:#fff;
+    cursor:pointer;
+  }
+
+  button:active{
+    transform:scale(0.97);
+  }
+
+  /* Client data form */
+  section:last-of-type > div{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+
+  input{
+    padding:10px;
+    font-size:1rem;
+    border-radius:6px;
+    border:1px solid #ccc;
+    width:100%;
+    box-sizing:border-box;
+  }
+
+  #enviar{
+    margin-top:10px;
+    padding:12px;
+    text-align:center;
+    background:#000;
+    color:#fff;
+    border-radius:8px;
+    font-size:1rem;
+    cursor:pointer;
+  }
+
+  #enviar:active{
+    transform:scale(0.98);
+  }
+
+  footer{
+    font-size:0.85rem;
+    padding:8px;
+  }
+}
+
+    </style>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <header>
+      <h1>Microtienda</h1>
+    </header>
+    <main>
+      <section id="productos">
+        <h3>Productos</h3>
+        <div>
+          <?php
+            $host = "localhost";
+            $user = "microtienda";
+            $pass = "Microtienda123$";
+            $db   = "microtienda";
+            $conexion = new mysqli($host, $user, $pass, $db);
+            $sql = "SELECT * FROM productos;";
+            $resultado = $conexion->query($sql);
+            while ($fila = $resultado->fetch_assoc()) {
+          ?>
+            <article>
+              <h4><?= $fila['nombre'] ?></h4>
+              <button nombre="<?= $fila['nombre'] ?>"><?= $fila['precio'] ?>€</button>
+            </article>
+          <?php }?>
+        </div>
+      </section>
+      <section>
+        <h3>Datos de cliente</h3>
+        <div>
+          <input type="text" id="nombre" placeholder="Nombre">
+          <input type="text" id="apellidos" placeholder="Apellidos">
+          <input type="text" id="email" placeholder="Email">
+          <div id="enviar">Enviar pedido</div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      (c) 2026 Jose Vicente Carratala
+    </footer>
+  </body>
+  <script>
+    var fecha = new Date();
+    var pedido = {
+    	cliente:{},
+      productos:[],
+      pedido:{
+      	"numero":Date.now(),
+        "fecha":fecha.getFullYear()+"-"+(fecha.getMonth()+1)+"-"+fecha.getDate()
+      }
+    };
+    /////// Atrapa productos y los mete en el carro
+    let botones = document.querySelectorAll("button");
+    botones.forEach(function(boton){
+    	boton.onclick = function(){
+      	pedido.productos.push({
+          "nombre":this.getAttribute("nombre"),
+        	"precio":this.textContent
+        })
+        console.log(pedido)
+      }
+    })
+    console.log(pedido)
+    /////// Atrapa los datos del cliente
+    let boton_enviar = document.querySelector("#enviar");
+    boton_enviar.onclick = function(){
+      let nombre_cliente = document.querySelector("#nombre").value;
+      let apellidos_cliente = document.querySelector("#apellidos").value;
+      let email_cliente = document.querySelector("#email").value;
+      pedido.cliente = {
+        "nombre":nombre_cliente,
+        "apellidos":apellidos_cliente,
+        "email":email_cliente
+      }
+      console.log(pedido)
+      // Y los envio para guardar
+      fetch("guardamongo.php", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(pedido)
+});
+    }
+  </script>
+</html>
+```
+
+### guardamongo
+<small>Creado: 2026-02-02 10:19</small>
+
+`guardamongo.php`
+
+```
+<?php
+declare(strict_types=1);
+
+header('Content-Type: application/json; charset=utf-8');
+
+try {
+    $json = file_get_contents('php://input');
+    if ($json === false || trim($json) === '') {
+        throw new RuntimeException('Body JSON vacío');
+    }
+
+    $document = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
+    if (!is_array($document)) {
+        throw new RuntimeException('JSON no es un objeto/array válido');
+    }
+
+    $document['_created_at'] = new MongoDB\BSON\UTCDateTime((int)(microtime(true) * 1000));
+
+    $manager = new MongoDB\Driver\Manager('mongodb://127.0.0.1:27017');
+
+    $bulk = new MongoDB\Driver\BulkWrite();
+    $id = $bulk->insert($document);
+
+    $manager->executeBulkWrite('microtienda.pedidos', $bulk);
+
+    echo json_encode(['ok' => true, 'id' => (string)$id], JSON_UNESCAPED_UNICODE);
+
+} catch (Throwable $e) {
+    http_response_code(500);
+    echo json_encode(['ok' => false, 'error' => $e->getMessage()], JSON_UNESCAPED_UNICODE);
+}
+```
+
 
 <a id="caracteristicas-de-las-bases-de-datos-orientadas-a-objetos"></a>
 ## Características de las bases de datos orientadas a objetos
@@ -25336,16 +25621,3144 @@ sudo service mongod start
 <a id="programacion-en-el-lado-del-servidor"></a>
 # Programación en el lado del servidor
 
-<a id="ejercicios"></a>
-## Ejercicios
+<a id="fundamentos"></a>
+## Fundamentos
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/101-Ejercicios)
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/001-Fundamentos)
+
+### Introducción a los ejercicios
+
+Este conjunto de ejercicios está diseñado para introducirte al mundo del lado servidor en programación, con un énfasis en PHP. Los problemas abarcan desde la creación básica de archivos PHP que contienen HTML hasta el uso de estructuras más complejas como arrays multidimensionales y clases. A través de estos ejercicios, aprenderás a manipular datos dinámicamente, utilizar operadores lógicos y condicionales, y definir funciones con parámetros. La práctica te permitirá adquirir una comprensión sólida sobre cómo interactuar entre HTML y PHP en un entorno servidor para generar contenido web interactivos.
+
+### diagrama
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este fragmento de código es un archivo JSON que describe gráficos y conexiones entre diferentes elementos. En el contexto de la formación profesional, este tipo de estructura suele ser utilizado para representar diagramas en aplicaciones web o para documentar relaciones en proyectos.
+
+El archivo contiene dos tipos principales de objetos: "formas" y "flechas". Las formas son cuadrados (rectangles) y un círculo que contienen información como su posición en la pantalla, dimensiones (aunque estas están vacías), y texto que se muestra dentro del rectángulo o el círculo. Por ejemplo, hay una forma con el ID "forma-1" que es un rectángulo y contiene el texto "PHP".
+
+Las flechas describen las conexiones entre diferentes formas. Cada flecha tiene dos propiedades principales: "desde", que indica desde qué forma parte la flecha, y "hasta", que indica hasta qué forma llega la flecha. En este caso, hay dos flechas definidas:
+
+1. Una flecha que va de la forma con ID "forma-3" (un rectángulo con texto "PHP") al círculo con ID "forma-6" (que contiene el texto "JSON").
+2. Otra flecha que va del círculo con ID "forma-6" hasta un rectángulo con ID "forma-5" (que tiene el texto "JS").
+
+Este archivo JSON es importante porque proporciona una estructura clara y organizada para representar diagramas o relaciones en proyectos web, especialmente cuando se trabaja con tecnologías como PHP, HTML, JavaScript y JSON.
+
+`000-diagrama.json`
+
+```json
+{
+  "formas": [
+    {
+      "id": "forma-1",
+      "tipo": "rectangle",
+      "left": "366.413px",
+      "top": "203.832px",
+      "width": "",
+      "height": "",
+      "texto": "PHP"
+    },
+    {
+      "id": "forma-2",
+      "tipo": "rectangle",
+      "left": "366.566px",
+      "top": "162.493px",
+      "width": "",
+      "height": "",
+      "texto": "HTML"
+    },
+    {
+      "id": "forma-3",
+      "tipo": "rectangle",
+      "left": "545.524px",
+      "top": "330.509px",
+      "width": "",
+      "height": "",
+      "texto": "PHP"
+    },
+    {
+      "id": "forma-4",
+      "tipo": "rectangle",
+      "left": "547.995px",
+      "top": "129.995px",
+      "width": "",
+      "height": "",
+      "texto": "HTML"
+    },
+    {
+      "id": "forma-5",
+      "tipo": "rectangle",
+      "left": "548.352px",
+      "top": "169.63px",
+      "width": "",
+      "height": "",
+      "texto": "JS"
+    },
+    {
+      "id": "forma-6",
+      "tipo": "circle",
+      "left": "546.189px",
+      "top": "229.623px",
+      "width": "",
+      "height": "",
+      "texto": "JSON"
+    }
+  ],
+  "flechas": [
+    {
+      "desde": {
+        "shapeId": "forma-3",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-6",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-6",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-5",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    }
+  ]
+}
+```
+
+### html en php
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este fragmento de código es un ejemplo simple que demuestra cómo puedes combinar HTML y PHP en el mismo archivo. En este caso, la mayor parte del contenido son comentarios en texto puro (no codificación PHP) que explican dónde debe ubicarse el archivo en tu sistema para que funcione correctamente cuando lo abres en un navegador web.
+
+Lo importante de entender aquí es que un archivo con extensión `.php` puede contener tanto código PHP como HTML. En este ejemplo, los bloques de texto dentro de etiquetas `<p>` son HTML puro y se mostrarán tal cual en la página web cuando el servidor los interprete. No hay ningún código PHP activo en esta parte del archivo; simplemente se incluye contenido HTML directamente.
+
+La última parte del comentario indica cómo debes configurar tu entorno (Linux o Windows) para que este archivo esté accesible desde un navegador web utilizando la URL proporcionada. Esto es útil para estudiantes que están aprendiendo a trabajar con servidores web locales como XAMPP o WAMP en su computadora.
+
+`003-html en php.php`
+
+```
+Un archivo PHP puede tener HTML
+<p>No, en serio, puede realmente tener HMTL</p>
+<p>Un archivo PHP no te obliga a poner PHP</p>
+
+Este archivo debe estar
+
+Linux: /var/www/html/(carpeta que queráis)
+
+Windows: C:/xampp/htdocs/(carpeta que queráis)
+
+Y luego en el navegador:
+http://localhost/(carpeta que queráis)
+
+En mi caso concreto:
+http://localhost/programaciondam2526/010-Programaci%c3%b3n%20en%20el%20lado%20del%20servidor/001-Fundamentos/101-Ejercicios/003-html%20en%20php.php
+```
+
+### Probamos PHP
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este fragmento de código está diseñado para demostrar cómo se integra el lenguaje PHP dentro de un documento HTML, aunque en este caso, el archivo podría ser simplemente una página web con instrucciones de PHP. La clave aquí son los delimitadores `<?php` y `?>`, que indican al servidor web dónde comienza y termina el código PHP.
+
+En el código, la línea `echo "Esto si que es php";` dentro de los delimitadores PHP imprime en pantalla el texto "Esto si que es php". Esto significa que cualquier salida generada por esta línea aparecerá en la página web cuando se cargue. Las líneas anteriores y posteriores a estos delimitadores, como "Esto no es PHP" y "Esto ya no es PHP", son simplemente texto plano y serán mostradas tal cual en el navegador.
+
+Este ejemplo es fundamental para entender cómo funciona la combinación de HTML con PHP, permitiendo que los desarrolladores mezclen código dinámico (PHP) con contenido estático (HTML) dentro del mismo archivo.
+
+`004-Probamos PHP.php`
+
+```
+Esto no es PHP
+
+<?php
+	echo "Esto si que es php";
+?>
+
+Esto ya no es PHP
+```
+
+### comentarios en php
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este fragmento de código es muy básico y se utiliza para mostrar cómo imprimir texto en pantalla usando PHP. La función `echo` es utilizada aquí para escribir la frase "Hola mundo en PHP" en el navegador cuando alguien accede a esta página web.
+
+Además, el código incluye dos tipos diferentes de comentarios que son importantes entender:
+1. Los comentarios de una sola línea se inician con `//`. Todo lo que está después del `//` hasta el final de la línea no será ejecutado por PHP y es únicamente para notas o explicaciones.
+2. Los comentarios multilínea comienzan con `/*` y terminan con `*/`, permitiendo así escribir múltiples líneas de texto sin que sean ejecutadas como código.
+
+Los comentarios son cruciales porque ayudan a otros desarrolladores (o a ti mismo en el futuro) a entender qué hace cada parte del código.
+
+`006-comentarios en php.php`
+
+```
+<?php
+	echo "Hola mundo en PHP"; 
+  // echo en PHP es como print en Python
+  // Esto es un comentario de una única línea
+  
+  /*
+  	Esto es una linea de comentario
+    Esto tambien es una linea de comentario
+  */
+?>
+```
+
+### operadores
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este código es una introducción básica a los operadores aritméticos en PHP. Cuando se ejecuta, muestra el resultado de varias operaciones matemáticas simples: suma, resta, multiplicación, división y módulo (resto de la división). Cada línea utiliza un parámetro `echo` para imprimir en pantalla el resultado de una expresión aritmética entre los números 4 y 3. Por ejemplo, `echo 4+3;` muestra "7" porque suma 4 y 3. De manera similar, `echo 4-3;`, `echo 4*3;`, `echo 4/3;` e `echo 4%3;` muestran los resultados de restar, multiplicar, dividir y obtener el módulo respectivamente entre estos números.
+
+Este tipo de código es fundamental para entender cómo PHP realiza cálculos matemáticos básicos, lo que es crucial en cualquier programa que requiera realizar operaciones aritméticas.
+
+`007-operadores.php`
+
+```
+<?php
+	echo 4+3;
+  echo 4-3;
+  echo 4*3;
+  echo 4/3;
+  echo 4%3;
+?>
+```
+
+### romper linea
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este fragmento de código combina tanto HTML como PHP, lo que demuestra cómo estos dos lenguajes pueden interactuar en un archivo. La primera línea "Esto es HTML<br>" y la última línea "Esto vuelve a ser HTML<br>" son parte del marcado HTML, utilizando la etiqueta `<br>` para indicar un salto de línea.
+
+Entre estas dos líneas está el bloque PHP que se encierra entre `<?php` y `?>`. Dentro de este bloque, el código PHP utiliza la función `echo` para imprimir "Esto es PHP<br>" en el navegador. El uso de `<br>` dentro del texto implica nuevamente un salto de línea.
+
+La importancia de este ejemplo radica en mostrar cómo se pueden mezclar bloques de código HTML y PHP en un mismo archivo, permitiendo a los desarrolladores enviar tanto contenido estático (HTML) como dinámico generado por el servidor (PHP).
+
+`008-romper linea.php`
+
+```
+Esto es HTML<br>
+<?php
+	echo "Esto es PHP<br>";
+?>	
+Esto vuelve a ser HTML<br>
+```
+
+### operadores de comparacion
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este fragmento de código PHP está utilizando operadores de comparación para evaluar diferentes condiciones entre dos números y mostrar los resultados en pantalla. Los operadores que se usan son menor que (`<`), menor o igual que (`<=`), mayor que (`>`), mayor o igual que (`>=`), igual a (`==`) y distinto de (`!=`). 
+
+Cada línea del código compara el número 4 con el número 3 utilizando uno de estos operadores. PHP evalúa estas comparaciones y muestra en la pantalla un `1` si la condición es verdadera, o un `0` si es falsa.
+
+Por ejemplo, cuando se ejecuta la línea `echo 4<3;`, PHP compara si 4 es menor que 3, lo cual no es cierto, por lo tanto muestra `0`. Sin embargo, en la línea `echo 4>3;`, PHP verifica si 4 es mayor que 3, lo cual es verdadero, así que muestra `1`.
+
+Estos operadores son fundamentales en programación ya que permiten tomar decisiones basadas en condiciones específicas dentro de un programa.
+
+`009-operadores de comparacion.php`
+
+```
+<?php
+	echo 4<3;
+  echo 4<=3;
+  echo 4>3;
+  echo 4>=3;
+  echo 4==3;
+  echo 4!=3;
+?>
+```
+
+### operadores booleanos
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este código muestra cómo funcionan los operadores booleanos en PHP, que son esenciales para la lógica de las decisiones en programación. Los operadores `&&` (AND) y `||` (OR) se usan para combinar varias condiciones.
+
+En el primer ejemplo, se evalúan tres comparaciones con el operador `&&`. Para que toda la expresión sea verdadera (`TRUE`) cuando utiliza `&&`, todas las comparaciones deben ser verdaderas. En este caso, "4 es igual a 4", "3 es igual a 3" y "2 es igual a 2" son ciertas, por lo que el resultado es verdadero.
+
+En la segunda línea, al cambiar una de las condiciones ("2 es igual a 1"), aunque dos son correctas, la tercera no lo está. Por tanto, como todos deben ser verdaderos para que `&&` devuelva verdadero, la salida final será falsa (`FALSE`).
+
+Luego, se utilizan ejemplos con el operador `||`. Con este operador, solo necesita una condición verdadera en toda la expresión para que esta sea verdadera. Por ejemplo, cuando comprobamos "4 es igual a 4" o "3 es igual a 2", aunque la segunda no sea cierta, la primera lo es y por eso el resultado es verdadero.
+
+El último ejemplo muestra que si ninguna de las condiciones es verdadera (como en "4 es igual a 3", "3 es igual a 2" y "2 es igual a 1"), entonces la expresión completa con `||` será falsa. Esto demuestra cómo estos operadores booleanos permiten crear lógicas complejas controlando el flujo del programa según las condiciones que se cumplan o no.
+
+`010-operadores booleanos.php`
+
+```
+<?php
+	echo 4 == 4 && 3 == 3 && 2 == 2; // Verdadero
+  echo 4 == 4 && 3 == 3 && 2 == 1; // Falso
+  
+  echo 4 == 4 || 3 == 3 || 2 == 2; // Verdadero
+  echo 4 == 4 || 3 == 3 || 2 == 1; // Verdadero
+  echo 4 == 4 || 3 == 2 || 2 == 1; // Verdadero
+  echo 4 == 3 || 3 == 2 || 2 == 1; // Falso
+?>
+```
+
+### variables
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este código es un ejemplo básico en PHP que muestra cómo declarar y utilizar variables. En primer lugar, se declara una variable llamada `$edad` e inicializa con el valor numérico `47`. Luego, se imprime este valor utilizando la función `echo`, seguida de un salto de línea para mejorar la legibilidad en la página web.
+
+Después del salto de línea, el código cambia el valor de la variable `$edad` a `48` y vuelve a imprimir su nuevo valor. Este ejemplo demuestra que las variables en PHP son dinámicas, lo que significa que puedes cambiar sus valores durante la ejecución del programa según sea necesario.
+
+Este bloque es importante porque ilustra cómo almacenar e interactuar con datos utilizando variables en PHP, una habilidad fundamental para cualquier programador web.
+
+`011-variables.php`
+
+```
+<?php
+	$edad = 47; // Las variables se declaran con dolar
+  echo $edad; // Podemos hacer echo de variables
+  echo "<br>"; // salto de linea
+  $edad = 48; // Podemos cambiar el valor de una variable
+  echo $edad;
+?>
+```
+
+### estructura for y calendario
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este código crea una página web que muestra los números del 1 al 30 en cuadros separados. La estructura principal es un documento HTML con CSS para estilizar los cuadros donde se muestran los días.
+
+En el cuerpo de la página, hay un bucle `for` en PHP que itera desde `$dia = 1` hasta `$dia < 31`. En cada iteración del bucle, utiliza la función `echo` para imprimir una etiqueta `<div>` con la clase CSS 'dia'. Dentro de esta etiqueta se imprime el valor actual de `$dia`, lo que resulta en un conteo numérico desde el día 1 hasta el día 30.
+
+El estilo aplicado a cada cuadro, definido por la clase CSS 'dia', asegura que estos números estén presentados dentro de cajas pequeñas con bordes negros y cierto relleno. Este tipo de estructura es común en calendarios simples o listas de días del mes.
+
+`012-estructura for y calendario.php`
+
+```
+<!doctype html>
+<html>
+	<head>
+  	<style>
+    	.dia{border:1px solid black;padding:10px;width:50px;
+      height:50px;display:inline-block;}
+    </style>
+  </head>
+  <body>
+    <?php
+      // El signo de encadenamiento es el . (y eso es superguay)
+
+      for($dia = 1;$dia < 31;$dia++){
+        echo "<div class='dia'>".$dia."</div>";
+      }
+    ?>
+  </body>
+</html>
+```
+
+### if
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este código PHP verifica si la variable `$edad` es menor que 30 y, dependiendo del resultado de esa comparación, imprime una frase en específico. En este caso, la variable `$edad` se ha inicializado con el valor 47 al inicio del script. Luego, el programa evalúa la condición dentro de la estructura `if`, es decir, comprueba si 47 (el valor de `$edad`) es menor que 30.
+
+Dado que 47 no es menor que 30, la parte interior del bloque `if` no se ejecuta, por lo que ningún texto "Eres un joven" aparecerá en la salida. Si cambias el valor de `$edad` a cualquier número menor que 30, entonces sí se imprimiría esa frase.
+
+Este tipo de estructura condicional es muy útil para tomar decisiones en programas basadas en diferentes condiciones y valores.
+
+`013-if.php`
+
+```
+<?php
+
+	$edad = 47;
+  if($edad < 30){
+  	echo "Eres un joven";
+  }
+  
+?>
+```
+
+### else
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este código PHP es una sencilla demostración de cómo utilizar la estructura condicional `if-else` para tomar decisiones en el programa. La variable `$edad`, que contiene el valor 47, se compara con el número 30 usando un operador menor que (`<`). Si la edad fuera menor a 30 años, el código imprimiría "Eres un joven". Sin embargo, ya que la edad es mayor o igual a 30, entra en el bloque `else` y muestra por pantalla "Ya no eres un joven".
+
+Esta estructura de control permite al programa ejecutar diferentes bloques de código según ciertas condiciones. En este caso, la condición es una forma simple de categorizar a las personas basándose en su edad, lo que es útil para mostrar información personalizada o tomar decisiones dentro del sistema basadas en los datos del usuario.
+
+`014-else.php`
+
+```
+<?php
+
+	$edad = 47;
+  if($edad < 30){
+  	echo "Eres un joven";
+  }else{
+  	echo "Ya no eres un joven";
+  }
+  
+?>
+```
+
+### else if
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este fragmento de código PHP es una secuencia de condiciones `if-elseif-else` que evalúa la edad de una persona y muestra diferentes mensajes dependiendo del rango en el que se encuentre dicha edad. La variable `$edad` está inicializada con un valor de 47.
+
+El programa primero comprueba si `$edad` es menor que 10, lo que significaría que la persona es considerada un niño. Si esta condición no se cumple, entonces evalúa otras condiciones consecutivas: si la edad está entre 10 y 20 años (inclusive el 10 pero excluyendo el 20), la persona sería clasificada como adolescente; si la edad está entre 20 y 30 años (inclusive el 20 pero excluyendo el 30), se considera a la persona como joven. Si ninguna de estas condiciones es verdadera, lo que incluiría cualquier valor igual o mayor a 30, entonces se imprime "Ya no eres joven".
+
+Este tipo de estructuras condicionales son comunes en programación para manejar diferentes casos según las características específicas del usuario o los datos ingresados.
+
+`015-else if.php`
+
+```
+<?php
+
+	$edad = 47;
+  
+  if($edad < 10){
+  	echo "Eres un niño";
+  }else if($edad >= 10 && $edad < 20){
+  	echo "Eres un adolescente";
+  }else if($edad >= 20 && $edad < 30){
+  	echo "Eres un joven";
+  }else{
+  	echo "Ya no eres joven";
+  }
+  
+?>
+```
+
+### switch
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+El código muestra cómo utilizar una estructura `switch` en PHP para determinar y mostrar un mensaje basado en el valor de la variable `$dia_de_la_semana`. En este caso, la variable está inicializada con el valor "martes". La estructura `switch` compara el valor de esta variable contra diferentes casos (como 'lunes', 'martes', etc.) para determinar qué bloque de código ejecutar.
+
+Cada caso dentro del `switch` tiene una declaración `echo` que imprime un mensaje específico sobre ese día de la semana. Por ejemplo, si `$dia_de_la_semana` es "martes", el código imprimirá "hoy es el segundo peor día de la semana". Al final de cada bloque `case`, se utiliza la instrucción `break` para evitar que el programa siga ejecutando líneas adicionales después del caso correspondiente, lo cual es crucial para asegurar que solo se imprima el mensaje correcto.
+
+Esta estructura es importante porque permite manejar múltiples condiciones de manera clara y concisa, en lugar de usar muchos `if-else` anidados. Esto mejora la legibilidad del código y facilita su mantenimiento a medida que se expande o se actualiza.
+
+`016-switch.php`
+
+```
+<?php
+	$dia_de_la_semana = "martes";
+	switch($dia_de_la_semana){
+  	case "lunes":
+    	echo "hoy es el peor dia de la semana";
+      break;
+    case "martes":
+    	echo "hoy es el segundo peor día de la semana";
+      break;
+    case "miercoles":
+    	echo "hoy ya estamos a mitad de semana";
+      break;
+    case "jueves":
+    	echo "Ya casi es viernes";
+      break;
+    case "viernes":
+    	echo "Por fin es viernes";
+      break;
+    case "sábado":
+    	echo "Este es el mejor dia de la semana";
+      break;
+    case "domingo":
+    	echo "Parece mentira que mañana ya sea lunes";
+      break;
+  }
+
+?>
+```
+
+### arrays
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este código PHP crea un array (también conocido como lista o vector en otros lenguajes de programación) llamado `$frutas` que contiene tres elementos: 'manzana', 'pera' y 'platano'. Luego, utiliza la función `var_dump()` para imprimir información detallada sobre el array, incluyendo su tipo (en este caso, un array), sus valores y algunos detalles adicionales sobre su estructura.
+
+La función `var_dump()` es útil cuando quieres tener una visibilidad completa de lo que contiene una variable. En este ejemplo, te mostrará exactamente qué frutas están en el array `$frutas`, junto con información sobre cómo está estructurado ese array dentro del código PHP. Esto ayuda a los programadores a depurar errores o simplemente a entender mejor las variables complejas como los arrays.
+
+`017-arrays.php`
+
+```
+<?php
+	$frutas = ['manzana','pera','platano'];
+  
+  var_dump($frutas);
+?>
+```
+
+### arrays multidimensionales
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este fragmento de código en PHP crea un array multidimensional llamado `$agenda`. En este caso, el array contiene información sobre varias personas, donde cada persona es representada por una submatriz que incluye su nombre, apellido y edad. Cada subarray dentro de `$agenda` corresponde a un individuo distinto.
+
+El código utiliza la función `var_dump()` para mostrar en pantalla toda la estructura del array `$agenda`, incluyendo el tipo de datos y los valores que contiene. Esto es útil para verificar cómo se ha construido el array y entender su contenido de manera detallada.
+
+Es importante destacar que este ejemplo ilustra cómo organizar información compleja en arrays multidimensionales, lo cual es una habilidad clave en la programación orientada a datos en PHP.
+
+`018-arrays multidimensionales.php`
+
+```
+<?php
+
+	$agenda = [
+  	["Jose Vicente","Carratala",47],
+    ["Juan","Martinez",45],
+    ["Jaime","Lopez",46]
+  ];
+  
+  var_dump($agenda);
+  
+?>
+```
+
+### declarar una funcion
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este fragmento de código es una función simple en PHP que se llama `diHola`. La función no toma ningún parámetro y cuando se ejecuta, simplemente imprime el texto "Hola como estás" en la página web o en la salida estándar del servidor. Las funciones son bloques de código reutilizables que permiten organizar mejor tu programa al agrupar instrucciones específicas para realizar tareas particulares. En este caso, cada vez que necesites saludar a alguien en una aplicación web, podrías llamar a esta función `diHola()` sin tener que escribir el mensaje de nuevo.
+
+El uso de funciones es fundamental en la programación ya que facilita la lectura y mantenimiento del código, permitiendo también reutilizar bloques de código que realizan tareas comunes a lo largo de tu programa.
+
+`019-declarar una funcion.php`
+
+```
+<?php
+	function diHola(){
+  	echo "Hola como estás";
+  }
+?>
+```
+
+### usar la funcion
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este fragmento de código es un ejemplo básico en PHP que muestra cómo declarar e invocar una función simple. La función se llama `diHola` y su propósito principal es imprimir el saludo "Hola como estás" cuando se ejecuta.
+
+La estructura de la función comienza con la palabra clave `function`, seguida del nombre de la función (`diHola`) en este caso, entre paréntesis. Dentro del bloque de código definido por las llaves `{}`, hay una instrucción `echo` que imprime el texto "Hola como estás". Esto significa que cada vez que se llama a la función `diHola`, esta mostrará ese saludo en pantalla.
+
+Después de definir la función, el código invoca o llama a dicha función con la línea `diHola();`. Esta llamada ejecuta todo lo que está dentro de la función `diHola`, es decir, imprime "Hola como estás".
+
+Este tipo de estructura es fundamental en programación ya que permite organizar y reutilizar bloques de código, facilitando la creación y mantenimiento de programas más grandes y complejos.
+
+`020-usar la funcion.php`
+
+```
+<?php
+	function diHola(){
+  	echo "Hola como estás";
+  }
+  
+  diHola();
+?>
+```
+
+### funciones con parametros
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este fragmento de código es un ejemplo sencillo de cómo definir y usar una función en PHP que recibe un parámetro. La función se llama `diHola` y toma un argumento que representa el nombre de una persona. Dentro de la función, utiliza la función `echo` para imprimir un saludo personalizado que incluye el nombre proporcionado.
+
+Cuando llamas a la función `diHola("Jose Vicente")`, el código imprime en la pantalla: "Hola, Jose Vicente como estás". Esta es una forma básica pero efectiva de usar funciones con parámetros en PHP para personalizar y reutilizar bloques de código.
+
+`021-funciones con parametros.php`
+
+```
+<?php
+	function diHola($nombre){
+  	echo "Hola, ".$nombre." como estás";
+  }
+  
+  diHola("Jose Vicente");
+?>
+```
+
+### varios parametros
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este fragmento de código en PHP es un ejemplo simple que demuestra cómo definir y utilizar una función con parámetros. La función se llama `diHola` y recibe dos argumentos: `$nombre`, que generalmente sería el nombre de una persona, y `$edad`, que indica la edad de esa persona.
+
+Dentro de la función, el código usa la función `echo` para imprimir un saludo personalizado en pantalla. La salida del texto combina las variables pasadas como parámetros con cadenas estáticas, creando así un mensaje amigable y personalizado que dice "Hola" seguido del nombre proporcionado, su edad y una pregunta sobre cómo están.
+
+Este tipo de código es importante porque muestra cómo encapsular funcionalidades en bloques reutilizables (en este caso, la función `diHola`) que pueden recibir datos variados para adaptar su salida. Esto facilita el mantenimiento del código y mejora la claridad al trabajar con programas más grandes.
+
+`022-varios parametros.php`
+
+```
+<?php
+	function diHola($nombre,$edad){
+  	echo "Hola, ".$nombre." tienes ".$edad." años, como estás";
+  }
+  
+  diHola("Jose Vicente",47);
+?>
+```
+
+### return en la funcion
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este fragmento de código PHP define una función llamada `diHola` que toma dos parámetros: `$nombre` y `$edad`. La función crea un mensaje personalizado que saluda al usuario por su nombre e indica cuántos años tiene, utilizando la información proporcionada en los parámetros. Luego, el código llama a esta función pasándole los valores "Jose Vicente" para el nombre y 47 para la edad. El resultado de llamar a `diHola` es un string que dice "Hola, Jose Vicente tienes 47 años, como estás". Finalmente, este mensaje se imprime en la página web usando `echo`.
+
+El uso del comando `return` dentro de una función es crucial porque permite que la función genere un resultado específico (en este caso, el saludo personalizado) que puede ser utilizado más adelante en el código, por ejemplo para mostrarlo en una pantalla o enviarlo a otra parte. Esto hace que las funciones sean muy útiles y flexibles en programación.
+
+`023-return en la funcion.php`
+
+```
+<?php
+	function diHola($nombre,$edad){
+  	return "Hola, ".$nombre." tienes ".$edad." años, como estás";
+  }
+  
+  echo diHola("Jose Vicente",47);
+?>
+```
+
+### vamos con los gatos
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este código te enseña cómo crear objetos en PHP usando clases. Una clase es como un plano para construir cosas, y en este caso, estamos creando gatos. La clase se llama `Gato` y tiene un constructor que recibe dos parámetros: el color del gato y su edad.
+
+Cuando creamos los objetos `$gato1` y `$gato2`, le damos a cada uno un color y una edad diferentes. Por ejemplo, `$gato1` es naranja y tiene 1 año, mientras que `$gato2` es blanco y tiene 2 años.
+
+Finalmente, el `var_dump($gato1);` muestra toda la información del objeto `$gato1`, incluyendo su color y edad. Esto te ayuda a ver cómo se ha guardado la información dentro del objeto después de crearlo con los valores específicos que le has dado.
+
+Este código es importante porque muestra cómo definir clases, inicializar objetos con propiedades específicas usando el constructor, y cómo visualizar los detalles internos de un objeto creado en PHP.
+
+`024-vamos con los gatos.php`
+
+```
+<?php
+
+	class Gato{
+  	function __construct($color,$edad){
+    	$this->color = $color;
+      $this->edad = $edad;
+    }
+  }
+  
+  $gato1 = new Gato("Naranja",1);
+  $gato2 = new Gato("Blanco",2);
+  
+  var_dump($gato1);
+
+?>
+```
+
+### Actividades propuestas
+
+### Actividades Propuestas
+
+#### **Actividad 1: Introducción a PHP**
+**Descripción:** Aprender los fundamentos de PHP, incluyendo cómo se ejecuta el código y cómo intercambia información entre HTML. Los estudiantes deben crear un archivo PHP simple que imprima "¡Hola Mundo!" en la página web.
+
+#### **Actividad 2: Uso de Comentarios**
+**Descripción:** Aprender a utilizar comentarios tanto para una línea como para múltiples líneas en PHP. Los estudiantes deberán comentar su código y añadir documentación adicional para cada función o bloque de código importante.
+
+#### **Actividad 3: Operaciones Básicas con PHP**
+**Descripción:** Practicar operadores aritméticos (suma, resta, multiplicación, división, módulo) en PHP. Los estudiantes deben escribir un programa que realice cálculos básos y los imprima en la página web.
+
+#### **Actividad 4: Condiciones y Control de Flujo**
+**Descripción:** Implementar estructuras condicionales (if/else) para manejar lógica compleja. Los estudiantes deben escribir un programa que clasifique a las personas según su edad, usando if, else-if y else.
+
+#### **Actividad 5: Estructura Switch en PHP**
+**Descripción:** Utilizar la estructura switch para simplificar el código cuando se necesitan múltiples condiciones de igualdad. Los estudiantes deben crear un programa que identifique el día de la semana basado en una entrada dada.
+
+#### **Actividad 6: Trabajo con Variables**
+**Descripción:** Aprender a declarar y manipular variables en PHP. Los estudiantes deberán escribir programas que cambien los valores de las variables y luego impriman dichos cambios.
+
+#### **Actividad 7: Creación de Arrays Simples**
+**Descripción:** Introducción a arrays unidimensionales. Los estudiantes deben crear arrays para almacenar listas de elementos (como frutas) e imprimir sus contenidos.
+
+#### **Actividad 8: Trabajo con Arrays Multidimensionales**
+**Descripción:** Aprender a trabajar con arrays multidimensionales en PHP, como tablas o matrices. Los estudiantes deberán crear un array que represente una agenda y mostrar su contenido utilizando `var_dump()`.
+
+#### **Actividad 9: Funciones Simples en PHP**
+**Descripción:** Crear funciones sin parámetros en PHP para realizar tareas específicas (como imprimir un mensaje). Los estudiantes deben escribir al menos dos funciones simples y llamarlas desde el código principal.
+
+Estas actividades están diseñadas para proporcionar una base sólida sobre los fundamentos de programación en PHP, adaptados al nivel y ritmo adecuado para estudiantes de ciclos formativos.
 
 
-<a id="resumen"></a>
-## Resumen
+<a id="get-y-post"></a>
+## get y post
 
-[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/301-Resumen)
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/002-get%20y%20post)
+
+### Introducción a los ejercicios
+
+Este conjunto de ejercicios está diseñado para ayudarte a comprender y practicar el manejo de las solicitudes GET y POST en la programación del lado del servidor. A través de una serie de archivos HTML y PHP, aprenderás cómo enviar y recibir datos mediante parámetros en la URL (GET) y formularios (POST), así como cómo validar y procesar esa información de manera segura y eficiente. Los ejercicios también te familiarizarán con el uso de variables superglobales como $_GET y $_POST, y con técnicas básicas de depuración y manejo de errores en PHP.
+
+### get
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este fragmento de código es una parte fundamental de cómo los programas web reciben información enviada desde el navegador. En este caso, específicamente, el programa espera recibir un parámetro llamado "nombre" en la URL del sitio web.
+
+La línea `echo $_GET['nombre'];` toma el valor que se ha enviado como 'nombre' en la URL (por ejemplo, si alguien visita tu página con "?nombre=Juan", esta línea imprimirá "Juan"). El símbolo `$_GET` es una variable superglobal de PHP que almacena todos los datos enviados por GET. Esta forma de enviar información es común cuando quieres que los usuarios vean en la URL qué tipo de información están proporcionando, como en las búsquedas web.
+
+Esta técnica es importante porque permite a los sitios web interactuar con los visitantes y obtener entradas sencillas desde el navegador del usuario sin necesidad de un formulario más complejo.
+
+`002-get.php`
+
+```
+<?php
+	// Espera que en la URL haya un parametro llamado nombre
+	echo $_GET['nombre'];
+?>
+```
+
+### dos parametros get
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este código es un fragmento de una página web en PHP que muestra los datos enviados mediante la técnica GET. Cuando se accede a esta página, se espera que en la URL haya dos parámetros: uno llamado "nombre" y otro llamado "apellidos". El programa simplemente imprime el valor del nombre y luego el valor de los apellidos separados por un salto de línea (que se ve como una nueva línea en la página web).
+
+Por ejemplo, si accedes a `http://ejemplo.com/programaciondam2526/010-Programación en el lado del servidor/002-get y post/101-Ejercicios/004-dos parametros get.php?nombre=Juan&apellidos=Pérez García`, verás "Juan" seguido de un salto de línea, y luego "Pérez García". Este tipo de código es útil para entender cómo los formularios web envían información a través de la URL y cómo puedes capturar esos datos en PHP.
+
+`004-dos parametros get.php`
+
+```
+<?php
+	echo $_GET['nombre'];
+  echo "<br>";
+  echo $_GET['apellidos'];
+?>
+```
+
+### formulario
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este fragmento de código HTML crea un formulario simple donde los usuarios pueden introducir su nombre. Cuando el usuario completa el campo del formulario y presiona el botón "Enviar", toda la información ingresada es enviada al archivo `006-post.php` usando el método HTTP POST.
+
+El atributo `action="006-post.php"` en la etiqueta `<form>` indica que los datos recopilados por este formulario deben ser procesados por el archivo PHP llamado `006-post.php`. El atributo `method="POST"` especifica que los datos del formulario se enviarán mediante una solicitud POST, lo cual es seguro y útil para transmitir información sensible o larga.
+
+La etiqueta `<input type="text" name="nombre">` crea un campo de entrada donde el usuario puede escribir su nombre. El atributo `name="nombre"` indica que la clave del dato enviado será "nombre", por lo que en `006-post.php`, este valor podrá ser accedido utilizando la variable `$_POST['nombre']`.
+
+En resumen, este código HTML establece una interacción básica entre un formulario y un archivo PHP para recoger datos de los usuarios de manera segura.
+
+`005-formulario.html`
+
+```html
+<form action="006-post.php" method="POST">
+  <p>Introduce tu nombre</p>
+  <input type="text" name="nombre">
+  <input type="submit">
+</form>
+
+006-post.php = quien te procesa
+POST = como se va a enviar y recibir la informacion
+name="nombre" = la clave que se va a enviar
+```
+
+### post
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este fragmento de código PHP está diseñado para recuperar y mostrar un valor enviado a través del método POST en una solicitud HTTP. Cuando un usuario envía información a través de un formulario web con el método POST, esa información se almacena en el array global `$_POST` dentro del servidor web.
+
+En este caso específico, el código imprime el valor asociado a la clave 'nombre' que fue enviado desde un formulario HTML. Esta clave ('nombre') es asignada en el atributo `name` de un elemento `<input>` en el formulario HTML cuando se envían los datos al servidor.
+
+Es importante usar el método POST para enviar información sensible o larga, ya que no aparece visible en la URL del navegador como sucede con GET. Además, asegura que cualquier dato enviado sea correctamente almacenado y recuperado dentro de `$_POST` en lugar de otros arrays, garantizando así que los datos enviados por POST se tratan adecuadamente en el lado del servidor.
+
+`006-post.php`
+
+```
+<?php
+	echo $_POST['nombre'];
+?>
+
+$_POST porque me envían la información por POST
+Y la tengo que recoger por la misma vía
+
+'nombre' porque es la clave que se ha enviado desde HTML
+```
+
+### autoprocesamiento
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este fragmento de código es una página PHP que se encarga de mostrar el nombre introducido por un usuario a través de un formulario. Cuando el usuario introduce su nombre en el campo del formulario y lo envía, la página PHP recoge ese dato usando `$_POST['nombre']` y lo muestra directamente en la pantalla.
+
+El código comienza con `<?php`, que indica el inicio de una sección de código PHP, seguido por `echo $_POST['nombre'];`. Aquí, `$_POST['nombre']` es un array en PHP que almacena los datos enviados a través del método POST desde un formulario HTML. En este caso, está buscando la entrada con el nombre "nombre" que fue especificada en el atributo `name` del campo de texto en el formulario.
+
+El formulario HTML proporciona una interfaz donde el usuario puede introducir su nombre. El atributo `method="POST"` indica que los datos enviados por el formulario deben ser tratados usando la técnica HTTP POST, lo cual es adecuado para enviar información sensible o larga sin riesgo de pérdida de datos importantes (como cuando se usa GET). La etiqueta `<form action="?">` especifica que el mismo archivo PHP debería procesar la entrada del usuario. Esto significa que el formulario vuelve a cargar la misma página después de que el usuario envíe sus datos.
+
+Esta técnica, en la que un archivo PHP procesa y muestra información directamente en sí mismo, se conoce como autoprocesamiento, y es una herramienta útil para validar y mostrar formularios en lenguajes web como PHP.
+
+`007-autoprocesamiento.php`
+
+```
+<?php
+	echo $_POST['nombre'];
+?>
+
+<form action="?" method="POST">
+  <p>Introduce tu nombre</p>
+  <input type="text" name="nombre">
+  <input type="submit">
+</form>
+```
+
+### comprobacion
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+El fragmento de código que has proporcionado es incorrecto y generará un error al intentar ejecutarlo. En PHP, no puedes escribir texto literal como "esto da error si o si" dentro del bloque de código entre las etiquetas `<?php ?>` sin usar comillas ni definir el texto como una cadena (string). Para evitar errores, siempre es necesario rodear cualquier texto con comillas simples ('') o dobles ("") cuando se incluye en un script PHP. En este caso, si quisieras imprimir esa frase en pantalla, deberías escribir `echo 'esto da error si o si';` o `echo "esto da error si o si";`. Esto es crucial para que el código funcione correctamente y no genere errores de sintaxis.
+
+`009-comprobacion.php`
+
+```
+<?php
+	esto da error si o si
+?>
+```
+
+### retomamos
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este fragmento de código es una parte simple pero importante del aprendizaje sobre formularios y envío de datos en PHP. La página web contiene un formulario donde el usuario puede ingresar su nombre, que luego se muestra debajo del formulario después de enviarlo.
+
+Primero, el código PHP `<?php echo $_POST['nombre']; ?>` imprime el valor que ha sido enviado al servidor a través de una solicitud POST con el nombre "nombre". Esto significa que si un usuario introduce algo en el campo de texto y luego envía el formulario, lo que haya escrito aparecerá justo donde está la línea PHP.
+
+A continuación, hay un formulario HTML `<form action="?" method="POST">...</form>`. Este formulario permite a los usuarios ingresar su nombre en una caja de texto. La acción del formulario es `?`, lo que significa que el formulario se enviará al mismo archivo donde se encuentra (en este caso, `retomamos.php`). El método usado para enviar el formulario es POST, que oculta los datos enviados en la URL y permite manejar cantidades más grandes de información.
+
+Este código es útil porque demuestra cómo recibir y mostrar información enviada por un usuario a través de un formulario web utilizando PHP. Es fundamental entender este concepto cuando se trabaja con formularios dinámicos en sitios web.
+
+`010-retomamos.php`
+
+```
+<?php
+	echo $_POST['nombre'];
+?>
+
+<form action="?" method="POST">
+  <p>Introduce tu nombre</p>
+  <input type="text" name="nombre">
+  <input type="submit">
+</form>
+```
+
+### comprobacion de existencia
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este código PHP está diseñado para comprobar si se ha enviado un dato a través del método POST y mostrar ese dato en caso de que sea así. El bloque `if(isset($_POST['nombre']))` verifica si el formulario enviado incluye un campo llamado 'nombre'. Si existe, muestra el valor introducido por el usuario en la página.
+
+El formulario HTML anexado permite al usuario ingresar su nombre en un campo de texto y enviarlo a través del método POST cuando hace clic en el botón "Enviar". El atributo `name="nombre"` del elemento `<input>` es clave para que PHP pueda identificar los datos enviados por el formulario.
+
+`011-comprobacion de existencia.php`
+
+```
+<?php
+	// Comprobación de existencia isset
+	if(isset($_POST['nombre'])){
+		echo $_POST['nombre'];
+  }
+?>
+
+<form action="?" method="POST">
+  <p>Introduce tu nombre</p>
+  <input type="text" name="nombre">
+  <input type="submit">
+</form>
+```
+
+### preguntas y respuestas
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este código HTML crea una página web simple que permite a los usuarios introducir preguntas y respuestas. La estructura principal de la página incluye un encabezado, un contenido principal donde se encuentra el formulario, y un pie de página.
+
+En la parte central del documento, hay un formulario con dos campos: uno para ingresar una pregunta y otro para ingresar una respuesta. El formulario utiliza el método POST para enviar los datos al servidor cuando el usuario hace clic en el botón "Enviar". La acción del formulario es "?", lo que significa que se envían los datos a la misma página desde donde proviene la solicitud.
+
+El estilo CSS integrado (incluido dentro de las etiquetas `<style>...</style>` en la cabecera) se encarga de dar un aspecto visual limpio y centrado al documento, asegurando que el contenido esté bien organizado y fácil de leer. El código CSS también establece márgenes y rellenos para cada elemento del formulario y estructura el diseño general de la página usando flexbox.
+
+Esta página es importante porque enseña cómo crear un formulario en HTML y enviar datos al servidor utilizando el método POST, que es más seguro que GET para transferir información sensible o larga.
+
+`012-preguntas y respuestas.php`
+
+```
+<!doctype html>
+<html>
+	<head>
+  	<style>
+    	body,html{width:100%;height:100%;padding:0px;margin:0px;}
+      body{
+      	display:flex;align-items:center;justify-content:center;
+        background:lightgray;flex-direction:column;}
+      header,footer,main{
+      	width:400px;padding:20px;background:white;
+        text-align:center;
+        }
+      form{display:flex;flex-direction:column;gap:10px;}
+      input{padding:10px;}
+    </style>
+  </head>
+  <body>
+  	<header>
+  		<h1>Preguntas y respuestas</h1>
+    </header>
+    <main>
+    	<form action="?" method="POST">
+      	<label for="pregunta">Introduce la pregunta</label>
+      	<input type="text" name="pregunta" id="pregunta">
+        <label for="respuesta">Introduce la respuesta</label>
+      	<input type="text" name="respuesta" id="respuesta">
+        <input type="submit">
+      </form>
+    </main>
+    <footer>
+    	(c) 2025 Jose Vicente Carratala
+    </footer>
+  </body>
+</html>
+```
+
+### atrapamos la informacion
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este código es una página web simple que permite a los usuarios introducir una pregunta y su respuesta mediante un formulario. Cuando se envía el formulario, los datos ingresados aparecen en la parte inferior de la misma página.
+
+En primer lugar, observa cómo se estructura todo usando HTML y CSS para darle estilo y formato a la página. La página tiene tres partes principales: encabezado (header), contenido principal (main) y pie de página (footer). El contenido del formulario está dentro de una etiqueta `<form>` que envía los datos al servidor utilizando el método POST.
+
+Lo más importante es lo que ocurre en la parte inferior del documento, donde se encuentra un bloque de código PHP. Este fragmento utiliza `$_POST['pregunta']` y `$_POST['respuesta']` para recuperar los valores ingresados por el usuario en el formulario y luego mostrarlos en la página web.
+
+Este tipo de código es importante porque muestra cómo recoger datos introducidos por los usuarios a través de un formulario HTML y procesar esos datos usando PHP. Es una base fundamental para interactuar con formularios en aplicaciones web dinámicas, permitiendo al servidor responder según las acciones del usuario.
+
+`013-atrapamos la informacion.php`
+
+```
+<!doctype html>
+<html>
+	<head>
+  	<style>
+    	body,html{width:100%;height:100%;padding:0px;margin:0px;}
+      body{
+      	display:flex;align-items:center;justify-content:center;
+        background:lightgray;flex-direction:column;}
+      header,footer,main{
+      	width:400px;padding:20px;background:white;
+        text-align:center;
+        }
+      form{display:flex;flex-direction:column;gap:10px;}
+      input{padding:10px;}
+    </style>
+  </head>
+  <body>
+  	<header>
+  		<h1>Preguntas y respuestas</h1>
+    </header>
+    <main>
+    	<form action="?" method="POST">
+      	<label for="pregunta">Introduce la pregunta</label>
+      	<input type="text" name="pregunta" id="pregunta">
+        <label for="respuesta">Introduce la respuesta</label>
+      	<input type="text" name="respuesta" id="respuesta">
+        <input type="submit">
+      </form>
+    </main>
+    <footer>
+    	(c) 2025 Jose Vicente Carratala
+      <?php
+      	echo $_POST['pregunta'];
+        echo "<br>";
+        echo $_POST['respuesta'];
+      ?>
+    </footer>
+  </body>
+</html>
+```
+
+### isset
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este código es una página web simple que permite a los usuarios enviar preguntas y respuestas mediante un formulario. La estructura HTML incluye estilos básicos para centrar el contenido y hacerlo más agradable visualmente.
+
+Lo importante en este fragmento es lo que sucede cuando se envía el formulario. Cuando el usuario completa los campos de "pregunta" y "respuesta" y hace clic en enviar, los datos son enviados al servidor usando el método POST (no visible en la URL). En el pie de la página web (`<footer>`), hay un bloque de código PHP que comprueba si se han enviado tanto la pregunta como la respuesta a través del formulario.
+
+El comando `if(isset($_POST['pregunta']) && isset($_POST['respuesta']))` verifica si los campos "pregunta" y "respuesta" han sido enviados correctamente. Si ambos están presentes, el código imprime las preguntas y respuestas directamente en la página web. Esto es útil para comprobar que los datos se envían correctamente y pueden ser utilizados por otros scripts PHP después.
+
+Esta práctica es importante porque te permite manejar datos enviados desde un formulario de manera segura y efectiva, asegurándote de que todos los campos necesarios han sido completados antes de intentar usar esos datos.
+
+`014-isset.php`
+
+```
+<!doctype html>
+<html>
+	<head>
+  	<style>
+    	body,html{width:100%;height:100%;padding:0px;margin:0px;}
+      body{
+      	display:flex;align-items:center;justify-content:center;
+        background:lightgray;flex-direction:column;}
+      header,footer,main{
+      	width:400px;padding:20px;background:white;
+        text-align:center;
+        }
+      form{display:flex;flex-direction:column;gap:10px;}
+      input{padding:10px;}
+    </style>
+  </head>
+  <body>
+  	<header>
+  		<h1>Preguntas y respuestas</h1>
+    </header>
+    <main>
+    	<form action="?" method="POST">
+      	<label for="pregunta">Introduce la pregunta</label>
+      	<input type="text" name="pregunta" id="pregunta">
+        <label for="respuesta">Introduce la respuesta</label>
+      	<input type="text" name="respuesta" id="respuesta">
+        <input type="submit">
+      </form>
+    </main>
+    <footer>
+    	(c) 2025 Jose Vicente Carratala
+      <?php
+      	if(isset($_POST['pregunta']) && isset($_POST['respuesta'])){
+          echo $_POST['pregunta'];
+          echo "<br>";
+          echo $_POST['respuesta'];
+        }
+      ?>
+    </footer>
+  </body>
+</html>
+```
+
+### Actividades propuestas
+
+### Actividad 1: Manejo de Parámetros GET
+**Descripción:** Los estudiantes deben crear una página PHP que reciba dos parámetros por URL y los muestre en la página. Este ejercicio les ayudará a comprender cómo manejar datos enviados mediante el método GET.
+
+### Actividad 2: Creación de Formularios HTML con Envío POST
+**Descripción:** Los estudiantes deben diseñar un formulario que recoja información del usuario y la envíe utilizando el método POST. Esto permitirá que los alumnos comprendan cómo enviar datos sensibles sin mostrarlos en la URL.
+
+### Actividad 3: Procesamiento de Formularios Autoprocesados
+**Descripción:** Los estudiantes deben crear una página PHP con un formulario autoprocesado que recoge y muestra información del usuario sin redirigirse. Esto les enseñará sobre el uso del método POST en formularios.
+
+### Actividad 4: Validación de Datos Recibidos por POST
+**Descripción:** Se requiere que los estudiantes validen la existencia de datos enviados mediante POST antes de procesarlos, utilizando la función `isset()`. Esto les ayudará a manejar errores comunes y mejorar la robustez del código.
+
+### Actividad 5: Integración HTML y PHP para Formularios Complejos
+**Descripción:** Los estudiantes deben crear una página que contenga un formulario complejo con varios campos de entrada, procesados por PHP. El objetivo es combinar HTML y PHP para manejar datos entrantes de manera efectiva.
+
+### Actividad 6: Configuración del Ambiente de Desarrollo (php.ini)
+**Descripción:** Los estudiantes deben aprender a configurar el archivo php.ini en su entorno local de desarrollo, especialmente cómo activar la visualización de errores. Esto les ayudará a depurar problemas técnicos con mayor facilidad.
+
+### Actividad 7: Manejo de Errores y Excepciones
+**Descripción:** Los estudiantes deben identificar y corregir un ejemplo dado que contiene errores lógicos en PHP. El objetivo es mejorar la capacidad para detectar y solucionar problemas comunes en el desarrollo web.
+
+### Actividad 8: Integración de Formularios Dinámicos con Validaciones
+**Descripción:** Los estudiantes deben crear formularios dinámicos utilizando HTML5 y CSS3, que validan automáticamente los datos del usuario antes de enviarlos al servidor para procesamiento. Esto les enseñará a mejorar la experiencia del usuario y reducir el trabajo en el lado del servidor.
+
+### Actividad 9: Creación de Preguntas y Respuestas Interactivas
+**Descripción:** Los estudiantes deben implementar un sistema sencillo que permita introducir preguntas y respuestas mediante formularios, mostrándolas al finalizar. Esto ayudará a comprender cómo integrar múltiples campos en un formulario.
+
+### Actividad 10: Uso de isset para Validar Datos Complejos
+**Descripción:** Los estudiantes deben crear una página que recibe varios datos por POST y utiliza `isset()` para validar cada uno de ellos antes de procesarlo. Esto les ayudará a manejar formularios complejos y evitar errores lógicos en el código.
+
+
+<a id="persistencia"></a>
+## Persistencia
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/003-Persistencia)
+
+### Introducción a los ejercicios
+
+En esta carpeta, encontrarás una serie de ejercicios que te permitirán aprender y practicar la persistencia en el lado del servidor mediante PHP. Los ejercicios abordan temas como la manipulación de archivos y permisos en sistemas UNIX/Linux, así como la interacción con formularios HTML para guardar datos en archivos JSON o texto plano. Estos ejercicios te ayudarán a mejorar tus habilidades en la gestión de datos dinámicos, el manejo de estructuras de datos como arrays asociativos y su conversión a formatos como JSON, además de aprender cómo controlar permisos de archivos para garantizar la seguridad del sistema.
+
+### escribir texto
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este fragmento de código es una pequeña secuencia que te enseña cómo escribir información en un archivo utilizando la programación en PHP. En primer lugar, el código abre o crea (si no existe) un archivo llamado "archivo.txt" en modo de anexo ("a"), lo que significa que cualquier texto nuevo se añadirá al final del contenido ya existente en el archivo, sin eliminar nada. Luego, utiliza la función `fwrite()` para agregar una línea específica de texto, que es "Nuevo texto escrito desde PHP", seguido de un salto de línea para mejorar la legibilidad si hay más entradas posteriores.
+
+Finalmente, se cierra el archivo con `fclose($archivo)`, lo cual es importante hacer siempre después de manipular un archivo para liberar recursos del sistema. Este proceso es fundamental en programación web cuando necesitas guardar datos permanentemente en el servidor, como por ejemplo registros de actividad o información proporcionada por los usuarios a través de formularios.
+
+`001-escribir texto.php`
+
+```
+<?php
+  $archivo = fopen("archivo.txt", "a"); // "a" = append
+  fwrite($archivo, "Nuevo texto escrito desde PHP\n");
+  fclose($archivo);
+?>
+```
+
+### leer
+<small>Creado: 2025-12-03 09:54</small>
+
+#### Explicación
+
+Este código PHP se encarga de leer el contenido de un archivo llamado "archivo.txt" y luego mostrar ese contenido en la página web. Primero, abre el archivo para lectura usando la función `fopen()`. Luego, lee todo el contenido del archivo utilizando la función `fread()`, donde especifica que debe leer hasta el final del archivo ("filesize("archivo.txt")"). Finalmente, imprime el contenido leído con `echo` y cierra el archivo con `fclose()` para asegurarse de que los recursos sean liberados correctamente. Este tipo de código es importante cuando necesitas mostrar datos almacenados en archivos o realizar operaciones basadas en la información del mismo.
+
+`003-leer.php`
+
+```
+<?php
+  $archivo = fopen("archivo.txt", "r"); // "r" = leer/read
+  
+  // Parámetros 1.-Lo que lees 2.-Longitud de lo que lees
+  $contenido = fread($archivo,filesize("archivo.txt"));
+  
+  echo $contenido;
+  fclose($archivo);
+?>
+```
+
+### array nombrado en php
+<small>Creado: 2025-12-03 10:12</small>
+
+#### Explicación
+
+Este código PHP crea un array asociativo llamado `$cliente` y le asigna valores a diferentes elementos del mismo. En este caso, se crean tres claves para el array: 'nombre', 'apellidos' y 'email'. A cada una de estas claves se les asigna un valor específico:
+
+- La clave 'nombre' contiene la cadena "Jose Vicente".
+- La clave 'apellidos' tiene el valor "Carratala Sanchis".
+- Y finalmente, la clave 'email' almacena el correo electrónico "info@jocarsa.com".
+
+Después de definir estos datos en el array `$cliente`, se utiliza la función `var_dump()` para mostrar en pantalla todos los detalles del array. Esto incluye tanto las claves como los valores que contiene cada una, lo cual es útil para verificar que todo está almacenado correctamente.
+
+Este tipo de estructura de datos es muy común en programación web cuando necesitas almacenar información relacionada de un usuario o cliente en un formato fácilmente accesible y legible por el programa.
+
+`004-array nombrado en php.php`
+
+```
+<?php
+  $cliente = [];
+  $cliente['nombre'] = "Jose Vicente";
+  $cliente['apellidos'] = "Carratala Sanchis";
+  $cliente['email'] = "info@jocarsa.com";
+  
+  var_dump($cliente);
+?>
+```
+
+### saco el array como json
+<small>Creado: 2025-12-03 10:12</small>
+
+#### Explicación
+
+Este código PHP crea un array llamado `$cliente` que almacena información personal de una persona, como su nombre, apellidos y email. Primero, se inicializa el array vacío y luego se le asignan valores a cada clave del array usando nombres descriptivos como 'nombre', 'apellidos' y 'email'. Luego, utiliza la función `json_encode()` para convertir este array en un formato JSON (que es una forma de almacenar datos de manera estructurada y que puede ser fácilmente leída por diferentes lenguajes de programación). Finalmente, imprime el contenido del string JSON usando la función `echo`.
+
+Este proceso es importante porque permite transformar los datos internos del programa en un formato estándar que otros sistemas o aplicaciones pueden entender y usar. Esto facilita la comunicación entre distintas partes de una aplicación web o incluso entre diferentes aplicaciones.
+
+`005-saco el array como json.php`
+
+```
+<?php
+  $cliente = [];
+  $cliente['nombre'] = "Jose Vicente";
+  $cliente['apellidos'] = "Carratala Sanchis";
+  $cliente['email'] = "info@jocarsa.com";
+  
+  $json = json_encode($cliente);
+  echo $json;  
+?>
+```
+
+### recuperamos el formulario
+<small>Creado: 2025-12-03 10:15</small>
+
+#### Explicación
+
+Este fragmento de código es una página web simple que permite a los usuarios enviar preguntas y respuestas. La estructura básica del documento es un HTML con CSS integrado para mejorar la presentación en el navegador.
+
+Cuando un usuario completa el formulario (que tiene campos para introducir tanto una pregunta como una respuesta) y hace clic en "Enviar", los datos ingresados se envían al mismo archivo PHP que está gestionando la página utilizando el método POST. Esto significa que los detalles del formulario no aparecerán en la URL, lo cual es seguro y apropiado para información sensible.
+
+En la parte inferior de la página HTML, hay un código PHP que convierte los datos enviados (almacenados en $_POST) a formato JSON y luego imprime este JSON en el navegador. Esto permite visualizar fácilmente los datos del formulario enviado como texto codificado en JSON, lo cual es útil para depurar o para trabajar con otros lenguajes de programación que utilizan JSON.
+
+Este código es especialmente importante porque demuestra cómo integrar HTML y PHP (un lenguaje de lado del servidor) para manejar formularios web básicos y procesar los datos enviados por usuarios.
+
+`006-recuperamos el formulario.php`
+
+```
+<!doctype html>
+<html>
+	<head>
+  	<style>
+    	body,html{width:100%;height:100%;padding:0px;margin:0px;}
+      body{
+      	display:flex;align-items:center;justify-content:center;
+        background:lightgray;flex-direction:column;}
+      header,footer,main{
+      	width:400px;padding:20px;background:white;
+        text-align:center;
+        }
+      form{display:flex;flex-direction:column;gap:10px;}
+      input{padding:10px;}
+    </style>
+  </head>
+  <body>
+  	<header>
+  		<h1>Preguntas y respuestas</h1>
+    </header>
+    <main>
+    	<form action="?" method="POST">
+      	<label for="pregunta">Introduce la pregunta</label>
+      	<input type="text" name="pregunta" id="pregunta">
+        <label for="respuesta">Introduce la respuesta</label>
+      	<input type="text" name="respuesta" id="respuesta">
+        <input type="submit">
+      </form>
+    </main>
+    <footer>
+    	(c) 2025 Jose Vicente Carratala
+      <?php
+      	$json = json_encode($_POST); 	// Convierte post a JSON
+        echo $json;										// Y lo saca por pantalla
+      ?>
+    </footer>
+  </body>
+</html>
+```
+
+### y lo guardamos en el disco
+<small>Creado: 2025-12-03 10:20</small>
+
+#### Explicación
+
+Este código es una página web simple que permite a los usuarios introducir una pregunta y su respuesta, almacenando esta información en un archivo JSON en el servidor. La parte visible del código está escrita principalmente en HTML y CSS para definir cómo se ve la página, mientras que PHP se utiliza en la parte inferior de la página (dentro de la etiqueta `<footer>`) para manejar las acciones cuando se envía el formulario.
+
+Cuando un usuario completa el formulario con una pregunta y respuesta y lo envía presionando el botón "submit", los datos enviados llegan al servidor como un método POST. El código PHP verifica si ha sido enviado algo a través del método POST usando la condición `if(isset($_POST['respuesta']))`. Si se ha enviado, el código convierte los datos de entrada (que están en formato array) a una cadena JSON utilizando la función `json_encode()`.
+
+Después, el script crea un archivo con un nombre basado en el tiempo actual (obtenido mediante la función PHP `date('U')` que devuelve el número de segundos desde el 1 de Enero de 1970), y escribe el contenido JSON dentro del archivo recién creado. Finalmente, cierra el archivo para asegurarse de que todos los datos se han guardado correctamente.
+
+Esta página web es importante porque demuestra cómo manejar formularios en HTML con PHP, cómo guardar datos estructurados (como JSON) en archivos y cómo combinar lenguajes de marcado (HTML/CSS) y scripting (PHP) para crear una funcionalidad web completa.
+
+`007-y lo guardamos en el disco.php`
+
+```
+<!doctype html>
+<html>
+	<head>
+  	<style>
+    	body,html{width:100%;height:100%;padding:0px;margin:0px;}
+      body{
+      	display:flex;align-items:center;justify-content:center;
+        background:lightgray;flex-direction:column;}
+      header,footer,main{
+      	width:400px;padding:20px;background:white;
+        text-align:center;
+        }
+      form{display:flex;flex-direction:column;gap:10px;}
+      input{padding:10px;}
+    </style>
+  </head>
+  <body>
+  	<header>
+  		<h1>Preguntas y respuestas</h1>
+    </header>
+    <main>
+    	<form action="?" method="POST">
+      	<label for="pregunta">Introduce la pregunta</label>
+      	<input type="text" name="pregunta" id="pregunta">
+        <label for="respuesta">Introduce la respuesta</label>
+      	<input type="text" name="respuesta" id="respuesta">
+        <input type="submit">
+      </form>
+    </main>
+    <footer>
+    	(c) 2025 Jose Vicente Carratala
+      <?php
+      	if(isset($_POST['respuesta'])){
+          $json = json_encode($_POST); 	// Convierte post a JSON
+          $archivo = fopen(date('U').".json",'w');	// Abre un arhivo
+          fwrite($archivo,$json);										// Guarda el json
+          fclose($archivo);													// Cierra el archivo
+        }
+      ?>
+    </footer>
+  </body>
+</html>
+```
+
+### 1764753558
+<small>Creado: 2025-12-03 10:19</small>
+
+#### Explicación
+
+Este fragmento de código es un array vacío en formato JSON. En términos simples, un array es una lista ordenada de elementos que pueden ser números, cadenas de texto u otros tipos de datos. Este específico está vacío, lo que significa que no contiene ningún elemento.
+
+En el contexto del desarrollo web y la programación en general, usar un array vacío como este puede servir para inicializar una estructura de datos antes de llenarla con información relevante. Es importante porque permite preparar variables o estructuras para recibir datos sin preocuparse por inicializaciones incorrectas que podrían causar errores.
+
+En el caso del archivo JSON que has compartido, podría ser útil en situaciones donde se desea crear un esquema de datos vacío y luego llenarlo dinámicamente con información recogida desde una base de datos o a través de formularios web.
+
+`1764753558.json`
+
+```json
+[]
+```
+
+### 1764753566
+<small>Creado: 2025-12-03 10:19</small>
+
+#### Explicación
+
+Este fragmento de código es un objeto JSON simple que almacena información sobre una pregunta y su respuesta. En este caso, la pregunta es "¿qué día es hoy?" y la respuesta proporcionada es "miércoles". El formato JSON (JavaScript Object Notation) se utiliza comúnmente para transmitir datos estructurados entre un servidor y una aplicación web o entre diferentes partes de una aplicación. Es importante porque permite almacenar y enviar información de manera clara y fácil de leer, facilitando la interacción entre sistemas y bases de datos. En este contexto específico, el archivo JSON podría ser utilizado en ejercicios de programación para practicar cómo manejar y procesar datos estructurados en lenguajes como PHP o JavaScript.
+
+`1764753566.json`
+
+```json
+{"pregunta":"que dia es hoy","respuesta":"miercoles"}
+```
+
+### archivo
+<small>Creado: 2025-12-03 09:51</small>
+
+#### Explicación
+
+Este fragmento de código parece ser simplemente un texto que ha sido escrito directamente en el cuerpo de un archivo, probablemente en PHP. Lo que está sucediendo aquí es que este texto: "Nuevo texto escrito desde PHP" se encuentra dentro de algún tipo de documento o archivo y está siendo mostrado como resultado de ejecutar un script de PHP.
+
+En el contexto de la ruta del archivo `/var/www/html/programaciondam2526/010-Programación en el lado del servidor/003-Persistencia/101-Ejercicios/archivo.txt`, este texto podría ser parte de un ejercicio donde se está escribiendo información directamente a un archivo desde PHP. Esto es importante porque demuestra cómo PHP puede manipular archivos y guardar datos permanentemente en ellos, lo cual es una habilidad básica pero fundamental para la persistencia de datos en aplicaciones web.
+
+Este tipo de práctica ayuda a entender cómo interactuar con el sistema de archivos del servidor web usando PHP, permitiendo almacenar y recuperar información desde archivos.
+
+`archivo.txt`
+
+```
+Nuevo texto escrito desde PHP
+```
+
+### Actividades propuestas
+
+### Actividades Propuestas:
+
+1. **Escritura de Texto en Archivo**
+   - **Descripción:** Los alumnos deben escribir un texto proporcionado por ellos mismos en un archivo `.txt` usando PHP y comprobar que el contenido se ha guardado correctamente. Se espera que aprendan cómo utilizar `fopen`, `fwrite` y `fclose`.
+
+2. **Lectura de Archivo**
+   - **Descripción:** Los alumnos tendrán que leer el contenido del archivo `.txt` creado en la actividad anterior utilizando PHP. La tarea consiste en mostrar el texto leído por pantalla con `echo`. Se espera que comprendan cómo usar `fread` y manejar archivos.
+
+3. **Manejo de Permisos**
+   - **Descripción:** Los estudiantes deben crear un script en línea de comandos (bash) que cambie los permisos del archivo `.txt` a 755, lo cual permite la lectura, escritura y ejecución para el propietario y sólo lectura y ejecución para otros. Se espera que aprendan sobre el sistema de permisos UNIX.
+
+4. **Array Nombrado en PHP**
+   - **Descripción:** Los alumnos deben crear un array nombrado con información personal (nombre, apellidos, email) utilizando PHP y mostrar los datos usando `var_dump`. Se espera que comprendan cómo definir e imprimir arrays asociativos en PHP.
+
+5. **Serialización de Datos a JSON**
+   - **Descripción:** Los estudiantes deben convertir el array creado en la actividad anterior a formato JSON con `json_encode` y mostrarlo por pantalla. Se espera que entiendan cómo serializar datos complejos a texto plano para almacenamiento o transmisión.
+
+6. **Formulario Simple en PHP**
+   - **Descripción:** Cada estudiante debe crear un formulario HTML básico que envíe los datos del usuario a un script PHP, el cual mostrará la información enviada en formato JSON. Se espera que aprendan cómo manejar formularios y procesar datos de entrada en PHP.
+
+7. **Guardado de Datos en Archivo**
+   - **Descripción:** Los alumnos deben modificar el formulario para guardar los datos recibidos en un archivo `.json` con nombres únicos basados en la fecha actual. Se espera que comprendan cómo escribir datos JSON directamente en archivos desde PHP.
+
+8. **Lectura y Mostrado de Datos JSON**
+   - **Descripción:** Los estudiantes deben leer el contenido del último archivo `.json` guardado por su formulario y mostrar los datos en una página web usando PHP. Se espera que aprendan a leer archivos JSON y manipular sus contenidos para presentación.
+
+9. **Manejo de Formularios Avanzado**
+   - **Descripción:** Los alumnos deben crear un sistema básico que permita agregar, listar y borrar entradas del formulario anteriormente creado en una única página PHP. Se espera que comprendan cómo gestionar múltiples operaciones CRUD (Crear, Leer, Actualizar, Borrar) con archivos.
+
+10. **Refactorización de Códigos**
+    - **Descripción:** Los estudiantes deben analizar y mejorar el código existente de varias actividades anteriores para mejor estilo y estructura, incluyendo la adición de funciones personalizadas y comentarios descriptivos. Se espera que aprendan a refactorizar código PHP existente para mejor mantenibilidad y legibilidad.
+
+Estas actividades están diseñadas para ayudar a los estudiantes de Formación Profesional a mejorar sus habilidades en programación web, manejo de archivos, uso de JSON y desarrollo básico con PHP.
+
+
+<a id="proyecto-ana"></a>
+## Proyecto Ana
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/004-Proyecto%20Ana)
+
+### Introducción a los ejercicios
+
+En esta carpeta se encuentran una serie de ejercicios que te ayudarán a familiarizarte con la implementación y configuración de un proyecto web en el lado del servidor utilizando tecnologías como HTML, CSS, JavaScript y Python (Flask). El objetivo principal es desarrollar un entorno interactivo donde los usuarios puedan escribir código y ver los resultados en tiempo real. Estos ejercicios te permitirán aprender cómo crear interfaces de usuario simples con HTML y CSS, añadir funcionalidad interactiva mediante JavaScript, y finalmente, implementar una API backend que reciba y ejecute el código enviado por el cliente.
+
+A través de estos problemas, practicarás competencias clave como la creación de interfaces web dinámicas, manejo del estado de sesiones en aplicaciones web, procesamiento de solicitudes HTTP POST, y ejecución segura de código Python.
+
+### front
+<small>Creado: 2025-12-04 10:50</small>
+
+#### Explicación
+
+Este fragmento de código HTML es la estructura básica del documento que se abrirá en un navegador web. Crea una página con tres secciones principales: encabezado (`header`), contenido principal (`main`) y pie de página (`footer`). La etiqueta `<!doctype html>` al principio indica que el documento sigue las reglas del HTML5.
+
+En la parte central, dentro de `<body>`, hay un elemento `<header>` vacío donde normalmente se incluirían elementos como el título o el logo. En el centro de la página, encontramos una sección `<main>` que contiene un bloque de texto editable identificado con `id="terminal"`. Esto significa que en esta parte del sitio web, los usuarios podrán escribir y modificar contenido directamente desde su navegador.
+
+La inclusión de este bloque editable puede ser útil para simular interfaces como terminales de comandos o campos interactivos donde el usuario pueda ingresar información. Es importante destacar que esta estructura básica permite una fácil extensión y personalización a medida que se añaden más características al sitio web, como estilos CSS o funcionalidades con JavaScript.
+
+`002-front.html`
+
+```html
+<!doctype html>
+<html lang="es">
+  <head>
+  </head>
+  <body>
+    	<header>
+    </header>
+    <main>
+      <div id="terminal" contenteditable=true>
+      </div>
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html>
+```
+
+### estilizamos un poco
+<small>Creado: 2025-12-04 10:58</small>
+
+#### Explicación
+
+Este fragmento de código HTML crea una página web simple que simula un entorno básico para programar y ejecutar códigos. La página se compone principalmente de tres partes: un área de texto editable donde puedes escribir o copiar código (llamada "editor"), un botón verde que dice "Compilar", y otra zona debajo del editor donde podrías ver resultados, similares a una terminal en sistemas operativos Unix (llamada "terminal").
+
+En el `<head>` del documento, se incluye CSS para estilizar estos elementos. La etiqueta `#editor` define cómo debe verse la área de texto editable: tiene un fondo gris claro, un borde con sombras y un tamaño fijo (400px de ancho por 100px de alto). El estilo para el botón incluye colores sólidos y bordes redondeados para que sea atractivo y fácil de usar. La sección `#terminal` tiene una apariencia similar, pero con un fondo negro y texto blanco, imitando la apariencia típica de una terminal en línea de comandos.
+
+Este tipo de interfaz es útil para aprender programación porque proporciona un entorno interactivo donde puedes ver los resultados inmediatamente después de escribir o editar código.
+
+`003-estilizamos un poco.html`
+
+```html
+<!doctype html>
+<html lang="es">
+  <head>
+    <style>
+      #editor{
+      	font-family:monospace;
+        background:lightgray;color:black;padding:20px;
+        width:400px;
+        height:100px;margin:auto;
+        margin-bottom:10px;
+      }
+      #terminal{
+      	font-family:monospace;
+        background:black;color:white;padding:20px;
+        width:400px;
+        height:50px;margin:auto;
+      }
+      .ventana{
+      	border:1px solid grey;
+        border-top:30px solid grey;
+        border-radius:5px;
+        box-shadow:0px 5px 10px rgba(0,0,0,0.3);
+      }
+      button{
+        margin:auto;background:green;
+        color:white;padding:10px;border-radius:5px;border:none;
+      margin:auto;margin-bottom:10px;display:block;}
+    </style>
+  </head>
+  <body>
+    	<header>
+    </header>
+    <main>
+      <div id="editor" contenteditable=true class="ventana"></div>
+      <button>Compilar</button>
+      <div id="terminal" contenteditable=true class="ventana"></div>
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html>
+```
+
+### javascript
+<small>Creado: 2025-12-04 11:01</small>
+
+#### Explicación
+
+Este fragmento de código HTML crea una página web sencilla que incluye un editor y un "terminal" para mostrar texto. La parte central del código se encuentra en la etiqueta `<style>`, donde se definen los estilos CSS para varios elementos como el div `#editor` y `#terminal`. Estos divs son áreas interactivas (por tener la propiedad `contenteditable=true`) que permiten a los usuarios escribir dentro de ellas.
+
+En el cuerpo del documento (`<body>`), hay un botón con texto "Compilar". Cuando este botón es presionado, se ejecuta una función JavaScript que obtiene el contenido escrito en el div `#editor` y lo muestra en la consola del navegador (mediante `console.log`). Esta funcionalidad permite a los usuarios escribir algo en el editor y luego verlo imprimirse en la consola cuando presionan el botón.
+
+Esta página es útil para estudiantes que están aprendiendo desarrollo web, ya que les proporciona un entorno simple donde pueden experimentar con código HTML y CSS, además de aprender cómo interactuar con JavaScript para controlar eventos como clics del mouse.
+
+`004-javascript.html`
+
+```html
+<!doctype html>
+<html lang="es">
+  <head>
+    <style>
+      #editor{
+      	font-family:monospace;
+        background:lightgray;color:black;padding:20px;
+        width:400px;
+        height:100px;margin:auto;
+        margin-bottom:10px;
+      }
+      #terminal{
+      	font-family:monospace;
+        background:black;color:white;padding:20px;
+        width:400px;
+        height:50px;margin:auto;
+      }
+      .ventana{
+      	border:1px solid grey;
+        border-top:30px solid grey;
+        border-radius:5px;
+        box-shadow:0px 5px 10px rgba(0,0,0,0.3);
+      }
+      button{
+        margin:auto;background:green;
+        color:white;padding:10px;border-radius:5px;border:none;
+      margin:auto;margin-bottom:10px;display:block;}
+    </style>
+  </head>
+  <body>
+    	<header>
+    </header>
+    <main>
+      <div id="editor" contenteditable=true class="ventana"></div>
+      <button>Compilar</button>
+      <div id="terminal" contenteditable=true class="ventana"></div>
+    </main>
+    <footer>
+    </footer>
+    <script>
+      let boton = document.querySelector("button")
+      boton.onclick = function(){
+      	console.log("Vamos a enviar algo al servidor")
+        let codigo = document.querySelector("#editor").textContent
+        console.log(codigo)
+      }
+    </script>
+  </body>
+</html>
+```
+
+### flask
+<small>Creado: 2025-12-04 11:04</small>
+
+#### Explicación
+
+Este fragmento de código está configurando una aplicación web simple utilizando el framework Flask en Python. La aplicación crea un servidor web básico que, cuando se accede a la dirección raíz (es decir, la URL base de tu sitio), muestra una página HTML llamada "frente.html" gracias al uso de `render_template`. Este método busca el archivo HTML en la carpeta `templates` dentro del directorio de trabajo actual.
+
+El código primero importa las clases necesarias de Flask. Luego crea una instancia de la aplicación Flask y la asigna a la variable `app`. La línea `@app.route("/")` define que cuando un usuario acceda al sitio web a través de la URL raíz (por ejemplo, `http://localhost:5000/`), se ejecutará la función `inicio()`. Dentro de esta función, se llama a `render_template("frente.html")`, lo cual indica a Flask que debe buscar y mostrar el archivo HTML llamado "frente.html" para este endpoint.
+
+Finalmente, el bloque `if __name__ == "__main__":` asegura que la aplicación solo se inicie si el script es ejecutado directamente (no importado como un módulo en otro script), lo cual es una buena práctica. La llamada a `app.run(debug=True)` arranca el servidor web y habilita el modo depuración, facilitando la resolución de errores durante el desarrollo.
+
+Esta configuración básica es muy útil para desarrollar aplicaciones web con Flask en un entorno de aprendizaje o desarrollo inicial.
+
+`005-flask.py`
+
+```python
+from flask import Flask, render_template 
+
+app = Flask(__name__)
+
+@app.route("/")
+def inicio():
+  return render_template("frente.html")
+
+if __name__ == "__main__":
+  app.run(debug=True)
+```
+
+### nuevo endpoint
+<small>Creado: 2025-12-04 11:08</small>
+
+#### Explicación
+
+Este fragmento de código Python utiliza la biblioteca Flask para crear una aplicación web simple. La aplicación tiene dos rutas definidas: la ruta raíz ("/") y la ruta "/api". 
+
+La función `inicio()` se encarga de mostrar un archivo HTML llamado "frente.html" cuando alguien visita la página principal del sitio web. Esta es la pantalla de inicio para los usuarios.
+
+Por otro lado, la función `api()` está diseñada para responder a solicitudes enviadas a la ruta "/api". Cuando una solicitud llega aquí, el programa imprime en la consola "He recibido algo" y devuelve un mensaje simple que dice "ok".
+
+Este código es importante porque permite a los desarrolladores crear endpoints (puntos de conexión) web que pueden ser consumidos por otros sistemas o aplicaciones. En este caso, `/api` puede ser útil para integrar con otras partes del sistema que necesitan interactuar con esta aplicación Flask.
+
+La línea `if __name__ == "__main__": app.run(debug=True)` asegura que la aplicación solo se ejecute si el archivo es ejecutado directamente (no importado como módulo), y también habilita el modo de depuración, lo cual ayuda a los desarrolladores durante la fase inicial del proyecto al proporcionar información útil en caso de errores.
+
+`006-nuevo endpoint.py`
+
+```python
+from flask import Flask, render_template 
+
+app = Flask(__name__)
+
+@app.route("/")
+def inicio():
+  return render_template("frente.html")
+
+@app.route("/api")
+def api():
+  print("He recibido algo")
+  return "ok"
+
+if __name__ == "__main__":
+  app.run(debug=True)
+```
+
+### estamos obligados a metodo
+<small>Creado: 2025-12-04 11:17</small>
+
+#### Explicación
+
+Este fragmento de código es una aplicación simple en Flask que permite a los usuarios ejecutar y ver el resultado del código Python enviado a través de una solicitud HTTP POST. La aplicación está estructurada para proporcionar un servicio web básico.
+
+En primer lugar, se importan las bibliotecas necesarias: `Flask` para crear la aplicación web, `render_template` y `request` también desde Flask para manejar el renderizado de plantillas HTML y gestionar las solicitudes entrantes respectivamente. Además, se utilizan `io.StringIO()` para manejar una salida temporal en memoria y `contextlib.redirect_stdout` para redirigir la salida estándar a este buffer.
+
+La aplicación define dos rutas principales: `/`, que simplemente devuelve el archivo HTML llamado "frente.html", presumiblemente una página de inicio, y `/api`, donde se recibe código Python desde el cliente. Cuando se envía un POST a `/api`, el código Python viene en el cuerpo de la solicitud (`request.data`). Este código es ejecutado usando `exec()`, lo que podría ser peligroso si no se controla adecuadamente, ya que permite la ejecución de cualquier comando enviado por el usuario.
+
+Después de intentar ejecutar el código proporcionado, cualquier salida generada (como impresiones en pantalla) se captura y devuelta al cliente. Si ocurre un error durante la ejecución del código, este se captura y se devuelve como respuesta HTTP con estado 400 Bad Request para indicar que algo ha salido mal.
+
+Esta aplicación puede ser útil para aprender cómo interactuar con APIs en Python o para proyectos de desarrollo web donde es necesario evaluar el comportamiento de diferentes piezas de código. Sin embargo, dado que permite ejecutar cualquier código enviado por el usuario, su uso debe limitarse a entornos controlados y no se recomienda usarlo en producción sin medidas adicionales de seguridad.
+
+`007-estamos obligados a metodo.py`
+
+```python
+from flask import Flask, render_template, request
+import io
+import contextlib
+
+
+app = Flask(__name__)
+
+@app.route("/")
+def inicio():
+  return render_template("frente.html")
+
+@app.route("/api", methods=['POST'])
+def api():
+    codigo = request.data.decode("utf-8")
+
+    buffer = io.StringIO()
+    try:
+        # Ejecuta el código y captura todo lo que se imprima
+        with contextlib.redirect_stdout(buffer):
+            exec(codigo, {})   # entorno global vacío (peligroso igualmente si no controlas el código)
+    except Exception as e:
+        return str(e), 400
+
+    salida = buffer.getvalue()
+    # Si no ha habido nada por pantalla, puedes devolver algo por defecto
+    return salida if salida else "OK"
+
+if __name__ == "__main__":
+  app.run(debug=True)
+```
+
+### soporte multilinea
+<small>Creado: 2025-12-04 11:58</small>
+
+#### Explicación
+
+Este fragmento de código es una aplicación web simple creada con Flask, un framework popular para Python que facilita la creación de aplicaciones web. La función principal de este script es proporcionar un endpoint ("/api") donde se puede enviar código Python y ejecutarlo dentro del servidor web. 
+
+Cuando alguien envía una solicitud POST a "/api", el servidor recibe el código fuente enviado (en formato texto) y lo guarda en la variable `codigo`. Luego, utiliza un objeto `StringIO` para capturar cualquier salida generada cuando se ejecuta ese código. El bloque de código dentro del try-except intenta ejecutar el código proporcionado utilizando la función `exec()`, que evalúa dinámicamente las cadenas como si fueran scripts Python reales.
+
+Si ocurre un error durante la ejecución, este es capturado y devuelto al cliente junto con un estado HTTP 400 (Bad Request) para indicar que algo ha ido mal. Si el código se ejecuta sin errores, cualquier texto impreso por `print` dentro del código enviado será recogido y devuelto como respuesta.
+
+Este tipo de servidor puede ser útil en entornos educativos o para pruebas rápidas de pequeños bloques de código Python desde una interfaz web. Sin embargo, es importante destacar que permitir la ejecución de código arbitrario tiene implicaciones de seguridad significativas y no se recomienda su uso en entornos de producción.
+
+`008-soporte multilinea.py`
+
+```python
+from flask import Flask, render_template, request
+import io
+import contextlib
+
+app = Flask(__name__)
+
+@app.route("/")
+def inicio():
+    return render_template("frente.html")
+
+@app.route("/api", methods=['POST'])
+def api():
+    codigo = request.data.decode("utf-8")
+
+    buffer = io.StringIO()
+    try:
+        # Ejecuta el código y captura todo lo que se imprima
+        with contextlib.redirect_stdout(buffer):
+            exec(codigo, {})
+    except Exception as e:
+        # devolvemos el error como texto y código 400
+        return str(e), 400
+
+    salida = buffer.getvalue()
+    return salida if salida else "OK"
+
+if __name__ == "__main__":
+    app.run(debug=True)
+```
+
+### ampliaciones
+<small>Creado: 2025-12-04 12:20</small>
+
+#### Explicación
+
+Este fragmento de código es una aplicación web simple creada con Flask que permite ejecutar código Python suministrado por el usuario. La idea principal es proporcionar un entorno seguro para probar y ejecutar pequeños bloques de código.
+
+La aplicación tiene dos rutas principales: la ruta inicial ("/") que simplemente muestra una página HTML llamada "frenteampliado.html", y la ruta "/api" configurada para aceptar solicitudes POST. Esta última ruta es donde el verdadero trabajo se realiza: recibe un JSON con un código Python (`code`) y posibles entradas (`inputs`), prepara ese entorno de ejecución, y ejecuta el código enviado.
+
+El código también incluye una función `custom_input()` para manejar cómo el programa procesa las entradas que recibió. Esto asegura que cualquier llamada a `input()` dentro del código proporcionado por el usuario use las entradas especificadas en lugar de solicitar ingresos al usuario en tiempo real.
+
+Finalmente, la aplicación redirige tanto la salida estándar como los errores estandar (stderr) a un buffer interno para capturar toda la salida generada durante la ejecución del código. Si ocurre algún error, este se captura y devuelve al cliente con un estado de respuesta 400 (Bad Request). Si todo va bien, el contenido de ese buffer es devuelto como respuesta.
+
+Este tipo de aplicación puede ser útil para sitios web que deseen permitir a los usuarios ejecutar código interactivo en un entorno controlado.
+
+`009-ampliaciones.py`
+
+```python
+from flask import Flask, render_template, request
+import io
+import contextlib
+import traceback
+
+app = Flask(__name__)
+
+@app.route("/")
+def inicio():
+    return render_template("frenteampliado.html")
+
+@app.route("/api", methods=['POST'])
+def api():
+    data = request.get_json(force=True)
+    codigo = data.get("code", "")
+    entradas = data.get("inputs", "")
+
+    # Preparamos las líneas de entrada para input()
+    input_lines = iter(entradas.splitlines())
+
+    buffer = io.StringIO()
+
+    def custom_input(prompt=""):
+        # Mostrar el prompt en la salida
+        print(prompt, end="", file=buffer)
+        try:
+            linea = next(input_lines)
+            # Mostrar lo que "escribe" el usuario en la misma terminal
+            print(linea, file=buffer)
+            return linea
+        except StopIteration:
+            # No quedan más líneas de entrada
+            print("\n[AVISO] No quedan más líneas de entrada (stdin). Se devuelve cadena vacía.", file=buffer)
+            return ""
+
+    # Entorno de ejecución
+    global_env = {
+        "__name__": "__main__",
+        "input": custom_input,
+    }
+
+    try:
+        with contextlib.redirect_stdout(buffer):
+            with contextlib.redirect_stderr(buffer):
+                exec(codigo, global_env)
+    except Exception:
+        error_text = traceback.format_exc()
+        return error_text, 400
+
+    salida = buffer.getvalue()
+    return salida if salida else "OK"
+
+if __name__ == "__main__":
+    app.run(debug=True)
+```
+
+### mejoras
+<small>Creado: 2025-12-04 12:23</small>
+
+#### Explicación
+
+Lo siento, pero no has proporcionado ningún código dentro del archivo que debes explicar. Por favor, comparte el fragmento de código específico que deseas que explique y estaré encantado de ayudarte con una explicación clara y concisa.
+
+`010-mejoras`
+
+```
+
+```
+
+### mejoras
+<small>Creado: 2025-12-04 12:27</small>
+
+#### Explicación
+
+Este fragmento de código es una aplicación web en Python que utiliza el framework Flask para permitir a los usuarios ejecutar y manipular sesiones de Python directamente desde un navegador. La aplicación crea una interfaz donde se puede enviar código Python, ejecutar líneas individuales del código y recibir la salida de esa ejecución.
+
+El código define una clase `PythonSession` que maneja las interacciones con el proceso de Python en segundo plano. Esta clase guarda el código enviado por el usuario en un archivo temporal y luego ejecuta ese archivo utilizando el módulo `subprocess`. Además, implementa un hilo separado que se encarga de leer la salida estándar y los errores del proceso y almacenarlos en una cola para ser recuperados más tarde.
+
+La aplicación Flask proporciona varios endpoints (rutas) a través de los cuales interactuar con las sesiones de Python:
+- `/api/start`: Inicia una nueva sesión de Python, ejecutando el código enviado por el usuario.
+- `/api/write`: Permite escribir en la entrada estándar del proceso de Python.
+- `/api/read`: Lee la salida y errores generados por el proceso de Python desde la cola.
+
+La aplicación gestiona múltiples sesiones a través de un diccionario `sessions`, donde cada sesión se identifica mediante un ID único generado por `uuid.uuid4()`.
+
+Este código es importante porque proporciona una forma interactiva y segura para los usuarios experimentar con el lenguaje Python directamente desde su navegador, lo que puede ser muy útil tanto en entornos educativos como de desarrollo colaborativo.
+
+**ÚLTIMO PÁRRAFO:**
+En comparación con la versión anterior (supuestamente sin código), este archivo introduce una aplicación web completa con múltiples endpoints para manejar sesiones interactivas de Python, lo que permite a los usuarios enviar y recibir comandos y respuestas en tiempo real.
+
+`010-mejoras.py`
+
+```python
+from flask import Flask, render_template, request, jsonify
+import subprocess
+import threading
+import queue
+import uuid
+import os
+import tempfile
+
+app = Flask(__name__)
+
+# Almacenar sesiones de procesos
+sessions = {}
+
+class PythonSession:
+    def __init__(self, code: str):
+        # Guardamos el código en un archivo temporal
+        fd, path = tempfile.mkstemp(suffix=".py", prefix="compilador_")
+        os.write(fd, code.encode("utf-8"))
+        os.close(fd)
+
+        self.path = path
+        self.proc = subprocess.Popen(
+            ["python3", self.path],
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            bufsize=1,  # line-buffered
+        )
+        self.queue = queue.Queue()
+        self.alive = True
+
+        # Hilo que lee stdout + stderr y los mete en la cola
+        self.thread = threading.Thread(target=self._reader_thread, daemon=True)
+        self.thread.start()
+
+    def _reader_thread(self):
+        try:
+            for line in self.proc.stdout:
+                self.queue.put(line)
+            # cuando stdout se cierra, leemos también stderr restante
+            err = self.proc.stderr.read()
+            if err:
+                self.queue.put(err)
+        finally:
+            self.proc.wait()
+            self.alive = False
+            # limpiar archivo temporal
+            try:
+                os.remove(self.path)
+            except OSError:
+                pass
+
+    def write(self, data: str):
+        if not self.alive:
+            return
+        try:
+            self.proc.stdin.write(data + "\n")
+            self.proc.stdin.flush()
+        except Exception:
+            self.alive = False
+
+    def read_all(self) -> str:
+        chunks = []
+        while not self.queue.empty():
+            try:
+                chunks.append(self.queue.get_nowait())
+            except queue.Empty:
+                break
+        return "".join(chunks)
+
+    def is_alive(self) -> bool:
+        return self.alive and self.proc.poll() is None
+
+
+@app.route("/")
+def inicio():
+    return render_template("frentemasampliado.html")
+
+
+@app.route("/api/start", methods=["POST"])
+def api_start():
+    data = request.get_json(force=True)
+    code = data.get("code", "")
+
+    session_id = str(uuid.uuid4())
+    sessions[session_id] = PythonSession(code)
+
+    return jsonify({"session_id": session_id})
+
+
+@app.route("/api/write", methods=["POST"])
+def api_write():
+    data = request.get_json(force=True)
+    session_id = data.get("session_id")
+    line = data.get("line", "")
+
+    sess = sessions.get(session_id)
+    if not sess:
+        return jsonify({"error": "Sesión no encontrada"}), 404
+
+    sess.write(line)
+    return jsonify({"ok": True})
+
+
+@app.route("/api/read", methods=["GET"])
+def api_read():
+    session_id = request.args.get("session_id")
+    sess = sessions.get(session_id)
+    if not sess:
+        return jsonify({"error": "Sesión no encontrada"}), 404
+
+    output = sess.read_all()
+    alive = sess.is_alive()
+
+    # Si el proceso ha terminado y no queda nada que leer, limpiar la sesión
+    if not alive and not output:
+        sessions.pop(session_id, None)
+
+    return jsonify({"output": output, "alive": alive})
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+```
+
+### Actividades propuestas
+
+### Actividades Propuestas para Estudiantes de Formación Profesional
+
+#### 1. **Configuración del Entorno de Desarrollo**
+- **Descripción:** Configura un entorno de desarrollo que permita ejecutar código HTML, CSS y JavaScript localmente. Además, instala y configura Flask (Python) para implementar una aplicación web básica.
+- **Objetivo:** Aprender a configurar correctamente el entorno de trabajo y entender cómo funcionan los servidores locales.
+
+#### 2. **Desarrollo Front-end Básico**
+- **Descripción:** Desarrolla un front-end básico que permita al usuario escribir código en un editor y ver la salida en una consola virtual.
+- **Objetivo:** Familiarizarse con HTML, CSS y JavaScript para crear interfaces web interactivas.
+
+#### 3. **Estilización de Elementos Web**
+- **Descripción:** Mejora el diseño del front-end implementado anteriormente agregando estilos adicionales utilizando CSS.
+- **Objetivo:** Aprender a utilizar selectores CSS y propiedades para mejorar la presentación visual de una página web.
+
+#### 4. **Integración de JavaScript en HTML**
+- **Descripción:** Agrega funcionalidades interactivas al front-end mediante el uso de JavaScript, como enviar datos del editor a un div terminal.
+- **Objetivo:** Comprender cómo interactuar con elementos HTML desde scripts JS y manipular eventos básicos.
+
+#### 5. **Conexión Front-end y Back-end Básica**
+- **Descripción:** Implementa una conexión básica entre el front-end (HTML, CSS, JavaScript) y el back-end (Flask en Python), permitiendo al usuario enviar código a través de un endpoint.
+- **Objetivo:** Aprender los fundamentos de comunicación entre el servidor y el cliente utilizando métodos HTTP.
+
+#### 6. **Manejo de Métodos HTTP**
+- **Descripción:** Modifica la aplicación Flask para manejar diferentes métodos HTTP (GET, POST) en función del endpoint.
+- **Objetivo:** Comprender cómo los diferentes métodos HTTP son utilizados para realizar operaciones CRUD básicas.
+
+#### 7. **Ejecución de Código Python desde un Servidor Web**
+- **Descripción:** Implementa una funcionalidad que permita ejecutar código Python enviado por el cliente a través del servidor Flask.
+- **Objetivo:** Aprender a utilizar Flask para procesar y responder solicitudes POST con datos dinámicos.
+
+#### 8. **Manejo de Entradas en Códigos Ejecutables**
+- **Descripción:** Mejora la funcionalidad existente permitiendo que el código ejecutable enviado por el cliente reciba entradas especificadas.
+- **Objetivo:** Aprender a gestionar las entradas y salidas del servidor cuando se ejecuta código externo.
+
+#### 9. **Mejoras en la Interactividad**
+- **Descripción:** Desarrolla una interfaz que permita al usuario interactuar en tiempo real con el código Python ejecutado en el servidor.
+- **Objetivo:** Aprender a utilizar hilos y colas para manejar interacciones asíncronas entre el cliente y el servidor.
+
+#### 10. **Implementación de Sesiones Persistentes**
+- **Descripción:** Implementa una funcionalidad que permita crear sesiones persistentes en la aplicación Flask, donde cada usuario pueda interactuar con su propio código Python.
+- **Objetivo:** Comprender cómo gestionar múltiples conexiones simultáneas y mantener el estado de las mismas en un entorno de desarrollo.
+
+
+<a id="includes"></a>
+## includes
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/005-includes)
+
+### Introducción a los ejercicios
+
+**Introducción a los ejercicios**
+
+En este conjunto de ejercicios, se enfoca en comprender la importancia de las inclusiones en PHP. Las inclusiones permiten combinar código de diferentes partes del programa para facilitar su mantenimiento y reutilizar funciones y variables.
+
+Estos ejercicios trabajan con archivos PHP que utilizan incluir bloques de código para organizar el contenido de una página web. En cada archivo, se utiliza la función `include` para incorporar otro archivo, lo cual permite crear estructuras más complejas sin tener que repetir código. Esto hace que estos ejercicios sean especialmente relevantes para aquellos que buscan mejorar su habilidad para gestionar proyectos y desarrollar soluciones escalables.
+
+En general, los estudiantes de Formación Profesional pueden beneficiarse de practicar estas inclusiones en PHP para comprender cómo mejorar la organización y el mantenimiento de sus propios proyectos.
+
+### contacto
+<small>Creado: 2025-12-05 09:27</small>
+
+#### Explicación
+
+**Incluir cabecera y pie de página en un archivo PHP**
+
+Este fragmento de código es responsable de incluir la sección de cabecera y pie de página de una página web en el archivo `contacto.php`. La cabecera general, o "header", suele contener información como el título de la página, el logo de la empresa y menús de navegación. Por otro lado, el pie de página, o "footer", contiene información como contactos de la empresa, direcciones, teléfonos, etc.
+
+El código se utiliza un bloque de `include` para importar dos archivos específicos: `cabecera.php` y `pie.php`. Estos archivos contienen el contenido del header y footer respectivamente. En este caso, solo se incluye el contenido de la página de contacto, pero en otros archivos es posible utilizar estos bloques de código para incluir diferentes secciones.
+
+`contacto.php`
+
+```
+<?php include "bloques/cabecera.php"; ?>
+<p>Aqui solo pongo el contenido de la pagina de contacto</p>
+<?php include "bloques/pie.php"; ?>
+```
+
+### index
+<small>Creado: 2025-12-05 09:25</small>
+
+#### Explicación
+
+¡Hola estudiantes! Hoy vamos a hablar sobre un tema fundamental en programación web: las includes. Una include es una función que permite incluir otro archivo de PHP dentro del nuestro, lo que nos permite compartir código y reducir la repetición.
+
+En este fragmento de código, vemos que se está utilizando la palabra clave `include` para incorporar dos archivos PHP: "bloques/cabecera.php" y "bloques/pie.php". Estos archivos probablemente contienen el código para crear la cabecera y el pie de página de nuestra página web, respectivamente. Al incluir estos archivos, podemos reutilizar ese código en nuestro archivo principal (`index.php`) sin tener que duplicarlo.
+
+La importancia de las includes es que nos permiten mantener la estructura y la organización del nuestro código de manera eficiente, lo que facilita la mantenibilidad y el desarrollo de proyectos más grandes.
+
+`index.php`
+
+```
+<?php include "bloques/cabecera.php"; ?>
+<p>Aqui solo pongo el contenido de la pagina principal</p>
+<?php include "bloques/pie.php"; ?>
+```
+
+### sobremi
+<small>Creado: 2025-12-05 09:27</small>
+
+#### Explicación
+
+Este fragmento de código es fundamental para entender cómo funcionan las estructuras básicas en PHP.
+
+El código incluye dos llamadas a funciones de inclusión, **"include"** y una línea que contiene el contenido de la página. 
+
+En primer lugar, se inicia una etiqueta <?php que indica al servidor que debe procesar lo que viene dentro del bloque de código. Esto permite utilizar comandos de lenguaje de programación. En este caso, se utiliza el comando **"include"** para incluir otro archivo PHP, en este caso "bloques/cabecera.php". Este archivo contenedore puede contener cualquier tipo de información que se pueda mostrar o procesar en la página y será utilizado después de ser incluido por este código. Esto permite tener una estructura organizada en el lado del servidor. 
+
+A continuación, se muestra un parrafo simple (<p>), en este caso se pone solo un texto "Aqui solo pongo el contenido de la página de sobre mi". Este es el contenido que será mostrado a los visitantes cuando accedan a la página.
+
+Finalmente, también se utiliza el comando **"include"** para incluir otro archivo PHP, en este caso "bloques/pie.php". Este archivo contenedore tiene una estructura similar y contiene información relacionada con el final de la página. En esta última parte del código, no hay ningún parrafo que aparezca.
+
+`sobremi.php`
+
+```
+<?php include "bloques/cabecera.php"; ?>
+<p>Aqui solo pongo el contenido de la página de sobre mi</p>
+<?php include "bloques/pie.php"; ?>
+```
+
+### Actividades propuestas
+
+**Actividades para estudiantes de Formación Profesional**
+
+A continuación, se presentan 10 actividades basadas en los ejercicios de código proporcionados:
+
+1. **Análisis de estructura de archivos**
+ * Descripción: Analizar el contenido de cada archivo de ejercicio (contacto.php, index.php y sobremi.php) para identificar patrones y estructuras comunes.
+ * Aprender a reconocer la importancia de incluir bloques de código en un orden lógico y coherente.
+
+2. **Incorporación de includes**
+ * Descripción: Crear un nuevo archivo de ejercicio que incorpore los bloques de código de contacto.php, index.php y sobremi.php utilizando la función include.
+ * Aprender a utilizar la función include para incluir contenido de otros archivos en el propio.
+
+3. **Estructura básica de una página web**
+ * Descripción: Crear un nuevo archivo de ejercicio que contenga la estructura básica de una página web, incluyendo cabecera, pie y contenido.
+ * Aprender a comprender la importancia de la estructura y organización en el diseño de páginas web.
+
+4. **Inserción de texto dinámico**
+ * Descripción: Modificar los archivos de ejercicio para insertar texto dinámico utilizando variables o datos almacenados en una base de datos.
+ * Aprender a utilizar variables y datos para agregar interactividad a la página web.
+
+5. **Uso de la función echo**
+ * Descripción: Crear un nuevo archivo de ejercicio que utilice la función echo para imprimir salida en la pantalla.
+ * Aprender a utilizar la función echo para enviar datos desde el servidor al navegador.
+
+6. **Creación de una cabecera dinámica**
+ * Descripción: Modificar el archivo contacto.php para crear una cabecera dinámica utilizando variables y datos almacenados en una base de datos.
+ * Aprender a utilizar variables y datos para personalizar la cabecera de la página web.
+
+7. **Incorporación de CSS**
+ * Descripción: Crear un nuevo archivo de ejercicio que incorpore estilos CSS para mejorar la presentación de la página web.
+ * Aprender a utilizar estilos CSS para agregar estética y coherencia a la página web.
+
+8. **Creación de una página de inicio con estructura**
+ * Descripción: Crear un nuevo archivo de ejercicio que contenga la estructura básica de una página de inicio, incluyendo cabecera, pie y contenido.
+ * Aprender a comprender la importancia de la estructura y organización en el diseño de páginas web.
+
+9. **Uso de variables para personalizar el contenido**
+ * Descripción: Modificar los archivos de ejercicio para utilizar variables para personalizar el contenido de la página web.
+ * Aprender a utilizar variables y datos para agregar interactividad y coherencia a la página web.
+
+10. **Creación de un menú dinámico**
+ * Descripción: Crear un nuevo archivo de ejercicio que cree un menú dinámico utilizando variables y datos almacenados en una base de datos.
+ * Aprender a utilizar variables y datos para agregar interactividad y coherencia al menú de la página web.
+
+
+<a id="repasito-de-cosas-de-github"></a>
+## Repasito de cosas de GitHub
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/006-Repasito%20de%20cosas%20de%20GitHub)
+
+
+<a id="bloques"></a>
+## Bloques
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/007-Bloques)
+
+### Introducción a los ejercicios
+
+¡Bienvenidos a nuestro conjunto de ejercicios de programación en el lado del servidor! En este curso, os presentamos un desafío interesante que os permitirá practicar y consolidar tus conocimientos en la creación de páginas web dinámicas utilizando PHP como lenguaje de programación.
+
+En general, estos ejercicios se centran en la creación de páginas web estructuradas y funcionales, mediante el uso de bloques de código reutilizables. La mayoría de los archivos de ejercicio presentan un patrón similar: una estructura HTML básica con elementos como `nav`, `main` y `body`, que se pueden personalizar y extender utilizando incluiriones de PHP para renderizar contenido dinámico.
+
+En este conjunto de ejercicios, os enfrentarás desafíos relacionados con la creación de páginas web estructuradas, la gestión de datos y la interacción entre diferentes bloques de código. Estos ejercicios te permitirán practicar y aplicar tus conocimientos en la programación en el lado del servidor, lo que es fundamental para crear sitios web dinámicos y interactivos. ¡Prepárense para un desafío emocionante!
+
+### paneldecontrol
+<small>Creado: 2025-12-05 10:04</small>
+
+#### Explicación
+
+Este código es el encabezado de una página web HTML, específicamente la parte que define la estructura de la página. 
+
+El código se comienza con el enlace `<!doctype html>` que indica al navegador que este archivo es una página HTML. A continuación, tenemos la etiqueta `<html>` que define el contenido de la página. La etiqueta `<head>` se utiliza para incluir información adicional sobre la página, como títulos, metadatos y enlaces a fuentes externas.
+
+En este caso, no hay contenido dentro de la etiqueta `<head>`, por lo que no se agregan nada más.
+
+La parte importante del código es la etiqueta `<body>`, donde se define el contenido visible de la página. Dentro de esta etiqueta se encuentra un `<nav>` que contiene un menú de navegación, generado mediante el uso de `<?php include "bloques/navegacion.php" ?>`. Esto significa que el código en `bloques/navegacion.php` se incluye dentro del HTML de esta página, permitiendo la creación de estructuras dinámicas.
+
+También hay una etiqueta `<main>` donde se encuentra otro componente dinámico, generado por el uso de `<?php include "bloques/tabla.php" ?>`. Ambas etiquetas `<nav>` y `<main>` son parte del modelo de contenido HTML5 y permiten estructurar la página de manera flexible.
+
+`paneldecontrol.php`
+
+```
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <nav>
+    	<?php include "bloques/navegacion.php" ?>
+    </nav>
+    <main>
+    	<?php include "bloques/tabla.php" ?>
+    </main>
+  </body>
+</html>
+```
+
+### Actividades propuestas
+
+**Actividades para estudiantes de Formación Profesional**
+
+Basadas en el código proporcionado, propone las siguientes actividades para el alumnado:
+
+1. **Análisis del estructura HTML**
+El estudiante debe analizar la estructura del archivo `paneldecontrol.php` y identificar los diferentes bloques HTML utilizados (navegación, tabla). Debe describir cómo se relacionan entre sí y qué función cumple en el contexto del documento.
+2. **Incorporar una imagen**
+El estudiante debe agregar una imagen al archivo `paneldecontrol.php` utilizando la etiqueta `img`. Debe explicar cómo se utiliza la sintaxis correcta para especificar la ruta de acceso a la imagen y su tamaño en la pantalla.
+3. **Cambiar el color de fondo**
+El estudiante debe cambiar el color de fondo del documento `paneldecontrol.php` utilizando CSS. Debe justificar por qué ha elegido ese color y cómo se puede aplicar con diferentes combinaciones de colores.
+4. **Incluir un enlace interno**
+El estudiante debe agregar un enlace interno al archivo `paneldecontrol.php` que rediriga a otro archivo dentro del mismo directorio. Debe explicar cómo se utiliza la sintaxis correcta para especificar la ruta de acceso y el nombre del archivo destino.
+5. **Crear una nueva etiqueta HTML**
+El estudiante debe crear una nueva etiqueta HTML personalizada (ej. `<h2>`) y agregarla al archivo `paneldecontrol.php`. Debe justificar por qué ha creado esa etiqueta y cómo se puede utilizar para mejorar la estructura del documento.
+6. **Modificación de la navegación**
+El estudiante debe modificar la navegación incluida en el archivo `paneldecontrol.php` para que apunte a una nueva ruta URL. Debe explicar cómo se utiliza la sintaxis correcta para especificar la ruta de acceso y cómo afectará al documento.
+7. **Estilo y responsividad**
+El estudiante debe aplicar un estilo CSS simple al archivo `paneldecontrol.php` para mejorar su visibilidad en diferentes pantallas. Debe justificar por qué ha elegido ese estilo y cómo se puede adaptar a diferentes tamaños de pantalla.
+8. **Uso de variables PHP**
+El estudiante debe modificar el archivo `paneldecontrol.php` para que utilice una variable PHP (`$nombre`) almacenada en una matriz. Debe explicar cómo se utiliza la sintaxis correcta para acceder y utilizar las variables PHP.
+
+Estas actividades permiten al alumnado aplicar sus conocimientos de programación web, HTML, CSS y PHP de manera práctica y reflexiva, utilizando el código proporcionado como contexto.
+
+
+<a id="sesiones-en-php"></a>
+## Sesiones en PHP
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/008-Sesiones%20en%20PHP)
+
+### Introducción a los ejercicios
+
+**Introducción**
+
+En esta carpeta de ejercicios, se presentan una serie de problemas relacionados con la programación en PHP, específicamente en el tema de las sesiones. Estos problemas están diseñados para ayudar a los estudiantes de Formación Profesional a practicar y mejorar sus habilidades en el uso de variables, inclusión de código y manejo de sesiones en el lado del servidor.
+
+**Competencias prácticas**
+
+A lo largo de estos ejercicios, se trabajan varias competencias prácticas importantes:
+
+*   Uso de variables para almacenar y recuperar información.
+*   Inclusión de código PHP en diferentes contextos (HTML, bloques PHP).
+*   Manejo de sesiones para persistir información entre peticiones.
+
+Estas habilidades son fundamentales para cualquier desarrollo web y son esenciales para crear aplicaciones complejas y dinámicas.
+
+### variables en el mismo archivo
+<small>Creado: 2025-12-05 10:08</small>
+
+#### Explicación
+
+¡Hola estudiantes! Hoy vamos a hablar sobre una de las partes fundamentales de la programación en PHP: las variables.
+
+El fragmento de código que estamos analizando asigna un valor a una variable y luego lo imprimimos en pantalla. La variable es un contenedor donde podemos almacenar información del lado del servidor, como datos de usuario o contenido de una base de datos.
+
+En este caso, la variable `$nombre` está siendo asignada el valor `"Jose Vicente"`. Luego, usamos la función `echo` para imprimir este valor en pantalla. La palabra clave `echo` significa "imprimir en pantalla" y es una forma común de mostrar resultados en PHP.
+
+`001-variables en el mismo archivo.php`
+
+```
+<?php
+	$nombre = "Jose Vicente";
+  echo $nombre;
+?>
+```
+
+### incluso en diferentes bloques
+<small>Creado: 2025-12-05 10:09</small>
+
+#### Explicación
+
+¡Hola estudiantes! Hoy vamos a hablar sobre una parte importante de la programación en PHP: las variables y cómo interactuar con ellas utilizando código HTML.
+
+En el fragmento de código que nos proporcionaron, hay dos partes interesantes. En primer lugar, podemos ver que se define una variable `$nombre` y le se asigna el valor "Jose Vicente". Esto significa que si en algún momento queremos utilizar este valor, podemos acceder a él mediante la variable `$nombre`. 
+
+En segundo lugar, cuando hablamos de código HTML, nos referimos a cualquier texto o elemento que forme parte de una página web. En este caso, vemos que se utiliza el comando `echo` para imprimir un mensaje en pantalla: "Esto es HTML pero no pasa nada". Además, se incluye una línea `<br>` para crear una nueva línea de texto.
+
+Lo importante aquí es entender cómo podemos combinar código PHP con código HTML para obtener resultados esperados. En este caso, la variable `$nombre` se utiliza dentro del código PHP y se imprime en pantalla como resultado del comando `echo`. Esto nos muestra cómo podemos utilizar variables en nuestra programación web de manera efectiva.
+
+`002-incluso en diferentes bloques.php`
+
+```
+<?php
+	$nombre = "Jose Vicente";
+?>
+Esto es HTML pero no pasa nada<br>
+<?php
+	echo $nombre;
+?>
+```
+
+### origen
+<small>Creado: 2025-12-05 10:10</small>
+
+#### Explicación
+
+Este fragmento de código es una parte de un script PHP que crea un enlace HTML para dirigir al usuario a otra página. 
+
+El valor del parámetro `href` se establece dinámicamente desde la variable `$nombre`, pero no se utiliza en este caso, simplemente apunta a una URL fija (`004-destino.php`). El código de PHP es ejecutado antes de crear el enlace HTML.
+
+En resumen, este fragmento de código permite que el usuario siga a otra página mediante un enlace.
+
+`003-origen.php`
+
+```
+<?php
+	$nombre = "Jose Vicente";
+?>
+<a href="004-destino.php">Vamos a otra página</a>
+```
+
+### destino
+<small>Creado: 2025-12-05 10:11</small>
+
+#### Explicación
+
+¡Hola estudiantes! Hoy vamos a analizar un pequeño fragmento de código que puede parecer simple, pero es fundamental en la programación con PHP.
+
+El código `<?php echo $nombre; ?>` es una instrucción que muestra el valor de una variable en la pantalla. La palabra clave `echo` es utilizada para enviar un valor a la pantalla, mientras que `$nombre` es una variable que contiene el texto que se va a mostrar.
+
+En otras palabras, cuando se ejecuta este código, PHP buscará la variable `$nombre` y la mostrará en la pantalla como si fuera texto. Por ejemplo, si la variable `$nombre` tiene un valor "Juan", el código se ejecutará de la siguiente manera: "Juan" aparecerá en la pantalla.
+
+`004-destino.php`
+
+```
+<?php
+	echo $nombre;
+?>
+```
+
+### origen y uso sesiones
+<small>Creado: 2025-12-05 10:14</small>
+
+#### Explicación
+
+El código que se encuentra en este archivo es el inicio de una sesión en PHP. La función `session_start()` es llamada para iniciar la sesión. Esto permite al servidor almacenar datos temporales en la memoria del usuario y accederlos desde cualquier parte de la aplicación.
+
+La línea `$$_SESSION['nombre'] = "Jose Vicente";` establece un valor en la variable de sesión llamada 'nombre'. Cuando se inicia una sesión, el servidor crea una nueva variable de sesión y, si ya existe una, se actualiza con los nuevos datos. En este caso, se está creando o modificando la variable de sesión 'nombre' para almacenar el nombre 'Jose Vicente'.
+
+Finalmente, hay un enlace HTML que redirige al usuario a otra página llamada `006-destino con sesiones.php`.
+
+`005-origen y uso sesiones.php`
+
+```
+<?php
+	session_start();
+	$_SESSION['nombre'] = "Jose Vicente";
+?>
+<a href="006-destino con sesiones.php">Vamos a otra página</a>
+```
+
+### destino con sesiones
+<small>Creado: 2025-12-05 10:14</small>
+
+#### Explicación
+
+¡Hola! Hoy vamos a analizar un fragmento de código importante en el desarrollo web con PHP.
+
+Este código es crucial para la implementación de sesiones en una aplicación web. Una sesión es una forma de almacenar información durante el tiempo que la sesión esté activa, lo cual es fundamental para mantener la integridad y coherencia de los datos del usuario.
+
+El fragmento de código comienza con `session_start()`. Esta función iniciará o reanudará una sesión existente en la superposición actual. Si no existe una sesión, se creará automáticamente.
+
+`006-destino con sesiones.php`
+
+```
+<?php
+	session_start();
+	echo $_SESSION['nombre'];
+?>
+```
+
+### Actividades propuestas
+
+Basándonos en el contenido de los archivos de ejercicio proporcionados, te propongo las siguientes actividades para el alumnado:
+
+**Actividad 1: Identificar y reproducir variables**
+
+* Título: "Variables en PHP"
+* Descripción: El alumnado debe identificar y reproducir la variable "$nombre" en los diferentes archivos de ejercicio. Deben comprender que las variables se pueden definir y utilizar en el código PHP.
+* Objetivo: Aprender a utilizar variables en PHP.
+
+**Actividad 2: Crear un archivo PHP con una variable**
+
+* Título: "Crear una página con una variable"
+* Descripción: El alumnado debe crear un archivo PHP que defina y utilice la variable "$nombre" de manera similar a cómo se hace en el ejercicio 001.
+* Objetivo: Practicar la creación de una página web utilizando variables en PHP.
+
+**Actividad 3: Incluir archivos PHP con código HTML**
+
+* Título: "Incluir contenido PHP con HTML"
+* Descripción: El alumnado debe modificar el ejercicio 002 para que incluya un archivo PHP con código HTML. Deben comprender cómo se pueden combinar código PHP y HTML en una misma página.
+* Objetivo: Aprender a combinar código PHP y HTML.
+
+**Actividad 4: Crear una página con enlaces**
+
+* Título: "Crear una página con enlaces"
+* Descripción: El alumnado debe crear un archivo PHP que defina una variable "$nombre" y utilice el elemento HTML `<a>` para crear un enlace a otro archivo PHP.
+* Objetivo: Practicar la creación de páginas web utilizando variables y enlaces.
+
+**Actividad 5: Utilizar sesiones**
+
+* Título: "Utilizar sesiones"
+* Descripción: El alumnado debe modificar el ejercicio 005 para que utilice sesiones. Deben comprender cómo se pueden utilizar sesiones para almacenar datos en el lado del servidor.
+* Objetivo: Aprender a utilizar sesiones en PHP.
+
+**Actividad 6: Crear una página con sesión**
+
+* Título: "Crear una página con sesión"
+* Descripción: El alumnado debe crear un archivo PHP que utilice sesiones para almacenar la variable "$nombre" y mostrar su valor en la página.
+* Objetivo: Practicar la creación de páginas web utilizando sesiones.
+
+Estas actividades se centran en el contenido del ejercicio proporcionado y permiten al alumnado practicar habilidades relacionadas con la programación web y la utilización de PHP.
+
+
+<a id="implantacion-crud"></a>
+## Implantacion crud
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/009-Implantacion%20crud)
+
+### Introducción a los ejercicios
+
+¡Bienvenidos a este conjunto de ejercicios de programación en el lado del servidor! En este módulo, se centrará la implementación de CRUD (Crear, Leer, Actualizar y Eliminar) en una base de datos. Los ejercicios que se presentan en esta carpeta están diseñados para que los estudiantes practiquen habilidades fundamentales en programación web, como la conexión a bases de datos, la creación de estructuras de datos y la implementación de lógica de negocio.
+
+A lo largo de estos ejercicios, se trabajarán con conceptos de seguridad, validación de datos y respuesta de servidor. Los estudiantes aprenderán a utilizar PHP para interactuar con una base de datos, crear vistas dinámicas y generar respuestas HTML personalizadas. Este conjunto de ejercicios está diseñado para que los estudiantes adquieran conocimientos prácticos en programación web y desarrollo de aplicaciones web en el lado del servidor.
+
+Los estudiantes necesitarán desarrollar habilidades en:
+
+*   Conexión a bases de datos
+*   Creación y actualización de registros
+*   Lectura y eliminación de registros
+*   Validación de datos
+*   Seguridad en la base de datos
+
+Esperamos que estos ejercicios te ayuden a consolidar tus conocimientos y mejorar tus habilidades en programación web.
+
+### index
+<small>Creado: 2025-12-11 10:38</small>
+
+#### Explicación
+
+Este fragmento de código es la parte HTML del archivo PHP que contiene el contenido principal de una página web. A continuación, te explico qué hace este código y cómo funciona:
+
+En primer lugar, esta página web utiliza un documento HTML estructurado con elementos como `header`, `main` y `footer`. El título de la página se establece en "El jocarsa - Noticias tecnológicas" y se especifica el carácter encoding para que el navegador muestre correctamente el texto.
+
+El código más interesante aquí es la línea `<?php include "inc/listar_articulos.php"; ?>`. Esta línea invoca un archivo PHP llamado `listar_articulos.php` que se encuentra en una carpeta secundaria llamada `inc`. Cuando se ejecuta esta línea, el contenido de ese archivo se inserta dentro del `main` de la página HTML.
+
+El uso de este código es importante porque permite separar la estructura lógica y visual de la página web. Por un lado, tenemos la parte HTML que define la estructura básica de la página, y por otro lado, tenemos el archivo PHP que contiene la lógica de negocio para renderizar contenido dinámico.
+
+En este caso específico, el código `listar_articulos.php` debe contener la lógica para mostrar una lista de noticias tecnológicas. Cuando se ejecuta esta línea en la página HTML, se muestra la lista de noticias dentro del `main`.
+
+`index.php`
+
+```
+<!doctype html>
+<html lang="es">
+	<head>
+  	<title>El jocarsa - Noticias tecnológicas</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/estilo.css">
+  </head>
+  <body>
+  	<header>
+    	<h1>El jocarsa</h1>
+      <h2>Noticias tecnológicas</h2>
+    </header>
+    <main>
+    	<?php include "inc/listar_articulos.php"; ?>
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html>
+```
+
+### Actividades propuestas
+
+**Actividades para el alumnado de Formación Profesional**
+
+A continuación, te presento una lista de actividades basadas en el ejercicio proporcionado:
+
+1. **Estructura básica de un archivo HTML**
+ * El alumnado debe analizar la estructura del archivo index.php y identificar los elementos que forman parte de la declaración de documento HTML (<!doctype html>, <html>, <head>, etc.). Aprenderá a reconocer la sintaxis básica de un archivo HTML.
+2. **Función de incrustar contenido PHP**
+ * El alumnado debe entender cómo se utiliza la función `include` para incrustar un archivo PHP dentro de otro archivo PHP. Aprenderá a aplicar esta función correctamente en diferentes contextos.
+3. **Título y meta datos del documento**
+ * El alumnado debe analizar el título y los metadatos del documento (character set, título, etc.) y explicar su importancia en la presentación de información en línea.
+4. **Estructura básica de un archivo CSS**
+ * El alumnado debe identificar la estructura básica de un archivo CSS (rel="stylesheet", href, etc.) y entender cómo se relaciona con el archivo HTML.
+5. **Incorporar estilos en un archivo HTML**
+ * El alumnado debe aprender a incorporar estilos CSS en un archivo HTML utilizando la etiqueta `<link>` y aplicarlos correctamente para mejorar la presentación del documento.
+6. **Ciclo de vida de una página web**
+ * El alumnado debe analizar el ciclo de vida de una página web ( petitions, solicitudes, respuesta) y explicar cómo se relaciona con la programación en el lado del servidor.
+7. **Tipos de archivos HTML**
+ * El alumnado debe identificar y explicar los diferentes tipos de archivos HTML (p. ej., index.php, listarticulos.php).
+8. **Principios básicos de seguridad en la web**
+ * El alumnado debe aprender a reconocer algunos principios básicos de seguridad en la web (verificación de origen, uso de codigos HTML, etc.) y explicar su importancia.
+
+**Importante**: Estas actividades están diseñadas para adaptarse a los niveles y habilidades del alumnado de Formación Profesional.
+
+
+<a id="tienda-online"></a>
+## Tienda online
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/010-Tienda%20online)
+
+
+<a id="supercontrolador"></a>
+## Supercontrolador
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/011-Supercontrolador)
+
+
+<a id="buscador-satori"></a>
+## Buscador Satori
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/012-Buscador%20Satori)
+
+
+<a id="idiomas-en-programacion"></a>
+## Idiomas en programacion
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/013-Idiomas%20en%20programacion)
+
+### selector
+<small>Creado: 2026-01-27 10:37</small>
+
+`001-selector.html`
+
+```html
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Multi idioma</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <select>
+      <option value="es">🇪🇸</option>
+      <option value="en">🇬🇧</option>
+    </select>
+  </body>
+</html>
+```
+
+### contenido a traducir
+<small>Creado: 2026-01-27 10:40</small>
+
+`002-contenido a traducir.html`
+
+```html
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Multi idioma</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <select>
+      <option value="es">🇪🇸</option>
+      <option value="en">🇬🇧</option>
+    </select>
+    <h1>Jose Vicente Carratala</h1>
+    <nav>
+      <a href="">Inicio</a>
+      <a href="">Sobre mi</a>
+      <a href="">Proyectos</a>
+      <a href="">Contacto</a>
+    </nav>
+  </body>
+</html>
+```
+
+### array interno
+<small>Creado: 2026-01-27 10:43</small>
+
+`003-array interno.php`
+
+```
+<?php
+	$idioma['es']['inicio'] = "Inicio";
+  $idioma['es']['sobremi'] = "Sobre mi";
+  $idioma['es']['proyectos'] = "Proyectos";
+  $idioma['es']['contacto'] = "Contacto";
+  
+  $idioma['en']['inicio'] = "Home";
+  $idioma['en']['sobremi'] = "About me";
+  $idioma['en']['proyectos'] = "Projects";
+  $idioma['en']['contacto'] = "Contact";
+?>
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Multi idioma</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <select>
+      <option value="es">🇪🇸</option>
+      <option value="en">🇬🇧</option>
+    </select>
+    <h1>Jose Vicente Carratala</h1>
+    <nav>
+      <a href="">Inicio</a>
+      <a href="">Sobre mi</a>
+      <a href="">Proyectos</a>
+      <a href="">Contacto</a>
+    </nav>
+  </body>
+</html>
+```
+
+### por defecto en español
+<small>Creado: 2026-01-27 10:45</small>
+
+`004-por defecto en español.php`
+
+```
+<?php
+	$idioma['es']['inicio'] = "Inicio";
+  $idioma['es']['sobremi'] = "Sobre mi";
+  $idioma['es']['proyectos'] = "Proyectos";
+  $idioma['es']['contacto'] = "Contacto";
+  
+  $idioma['en']['inicio'] = "Home";
+  $idioma['en']['sobremi'] = "About me";
+  $idioma['en']['proyectos'] = "Projects";
+  $idioma['en']['contacto'] = "Contact";
+?>
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Multi idioma</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <select>
+      <option value="es">🇪🇸</option>
+      <option value="en">🇬🇧</option>
+    </select>
+    <h1>Jose Vicente Carratala</h1>
+    <nav>
+      <a href=""><?= $idioma['es']['inicio'] ?></a>
+      <a href=""><?= $idioma['es']['sobremi'] ?></a>
+      <a href=""><?= $idioma['es']['proyectos'] ?></a>
+      <a href=""><?= $idioma['es']['contacto'] ?></a>
+    </nav>
+  </body>
+</html>
+```
+
+### cambio manual
+<small>Creado: 2026-01-27 10:46</small>
+
+`005-cambio manual.php`
+
+```
+<?php
+	$idioma['es']['inicio'] = "Inicio";
+  $idioma['es']['sobremi'] = "Sobre mi";
+  $idioma['es']['proyectos'] = "Proyectos";
+  $idioma['es']['contacto'] = "Contacto";
+  
+  $idioma['en']['inicio'] = "Home";
+  $idioma['en']['sobremi'] = "About me";
+  $idioma['en']['proyectos'] = "Projects";
+  $idioma['en']['contacto'] = "Contact";
+?>
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Multi idioma</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <select>
+      <option value="es">🇪🇸</option>
+      <option value="en">🇬🇧</option>
+    </select>
+    <h1>Jose Vicente Carratala</h1>
+    <nav>
+      <a href=""><?= $idioma['en']['inicio'] ?></a>
+      <a href=""><?= $idioma['en']['sobremi'] ?></a>
+      <a href=""><?= $idioma['en']['proyectos'] ?></a>
+      <a href=""><?= $idioma['en']['contacto'] ?></a>
+    </nav>
+  </body>
+</html>
+```
+
+### variable de sesion
+<small>Creado: 2026-01-27 10:54</small>
+
+`006-variable de sesion.php`
+
+```
+<?php
+	session_start(); // Esto para recordar cosas
+  // Si no existe la variable de sesion idioma
+  if(!isset($_SESSION['idioma'])){
+  	// En ese caso el idioma por defecto es español
+  	$_SESSION['idioma'] = 'es';
+  }
+  // Si la url transporta la variable idioma
+  if(isset($_GET['idioma'])){
+  	// La sesion es lo que diga la URL
+  	$_SESSION['idioma'] = $_GET['idioma'];
+  }
+	$idioma['es']['inicio'] = "Inicio";
+  $idioma['es']['sobremi'] = "Sobre mi";
+  $idioma['es']['proyectos'] = "Proyectos";
+  $idioma['es']['contacto'] = "Contacto";
+  
+  $idioma['en']['inicio'] = "Home";
+  $idioma['en']['sobremi'] = "About me";
+  $idioma['en']['proyectos'] = "Projects";
+  $idioma['en']['contacto'] = "Contact";
+?>
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Multi idioma</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <select>
+      <option value="es">🇪🇸</option>
+      <option value="en">🇬🇧</option>
+    </select>
+    <h1>Jose Vicente Carratala</h1>
+    <nav>
+      <a href=""><?= $idioma[$_SESSION['idioma']]['inicio'] ?></a>
+      <a href=""><?= $idioma[$_SESSION['idioma']]['sobremi'] ?></a>
+      <a href=""><?= $idioma[$_SESSION['idioma']]['proyectos'] ?></a>
+      <a href=""><?= $idioma[$_SESSION['idioma']]['contacto'] ?></a>
+    </nav>
+  </body>
+  <script>
+  	
+  </script>
+</html>
+```
+
+### hacemos que cambie
+<small>Creado: 2026-01-27 10:56</small>
+
+`007-hacemos que cambie.php`
+
+```
+<?php
+	session_start(); // Esto para recordar cosas
+  // Si no existe la variable de sesion idioma
+  if(!isset($_SESSION['idioma'])){
+  	// En ese caso el idioma por defecto es español
+  	$_SESSION['idioma'] = 'es';
+  }
+  // Si la url transporta la variable idioma
+  if(isset($_GET['idioma'])){
+  	// La sesion es lo que diga la URL
+  	$_SESSION['idioma'] = $_GET['idioma'];
+  }
+	$idioma['es']['inicio'] = "Inicio";
+  $idioma['es']['sobremi'] = "Sobre mi";
+  $idioma['es']['proyectos'] = "Proyectos";
+  $idioma['es']['contacto'] = "Contacto";
+  
+  $idioma['en']['inicio'] = "Home";
+  $idioma['en']['sobremi'] = "About me";
+  $idioma['en']['proyectos'] = "Projects";
+  $idioma['en']['contacto'] = "Contact";
+?>
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Multi idioma</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <select>
+      <option value="es">🇪🇸</option>
+      <option value="en">🇬🇧</option>
+    </select>
+    <h1>Jose Vicente Carratala</h1>
+    <nav>
+      <a href=""><?= $idioma[$_SESSION['idioma']]['inicio'] ?></a>
+      <a href=""><?= $idioma[$_SESSION['idioma']]['sobremi'] ?></a>
+      <a href=""><?= $idioma[$_SESSION['idioma']]['proyectos'] ?></a>
+      <a href=""><?= $idioma[$_SESSION['idioma']]['contacto'] ?></a>
+    </nav>
+  </body>
+  <script>
+  	let selector = document.querySelector("select") // Selecciono el select
+    selector.onchange = function(){	// Cuando cambie el selector
+    	window.location = "?idioma="+this.value	// Recargo y le paso el idioma en la url
+    }
+  </script>
+</html>
+```
+
+### idioma activo
+<small>Creado: 2026-01-27 10:59</small>
+
+`008-idioma activo.php`
+
+```
+<?php
+	session_start(); // Esto para recordar cosas
+  // Si no existe la variable de sesion idioma
+  if(!isset($_SESSION['idioma'])){
+  	// En ese caso el idioma por defecto es español
+  	$_SESSION['idioma'] = 'es';
+  }
+  // Si la url transporta la variable idioma
+  if(isset($_GET['idioma'])){
+  	// La sesion es lo que diga la URL
+  	$_SESSION['idioma'] = $_GET['idioma'];
+  }
+	$idioma['es']['inicio'] = "Inicio";
+  $idioma['es']['sobremi'] = "Sobre mi";
+  $idioma['es']['proyectos'] = "Proyectos";
+  $idioma['es']['contacto'] = "Contacto";
+  
+  $idioma['en']['inicio'] = "Home";
+  $idioma['en']['sobremi'] = "About me";
+  $idioma['en']['proyectos'] = "Projects";
+  $idioma['en']['contacto'] = "Contact";
+?>
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Multi idioma</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <select>
+      <option value="es" 
+      	<?php if($_SESSION['idioma'] == 'es'){echo ' selected ';} ?>
+      >🇪🇸</option>
+      <option value="en"
+      	<?php if($_SESSION['idioma'] == 'en'){echo ' selected ';} ?>
+      >🇬🇧</option>
+    </select>
+    <h1>Jose Vicente Carratala</h1>
+    <nav>
+      <a href=""><?= $idioma[$_SESSION['idioma']]['inicio'] ?></a>
+      <a href=""><?= $idioma[$_SESSION['idioma']]['sobremi'] ?></a>
+      <a href=""><?= $idioma[$_SESSION['idioma']]['proyectos'] ?></a>
+      <a href=""><?= $idioma[$_SESSION['idioma']]['contacto'] ?></a>
+    </nav>
+  </body>
+  <script>
+  	let selector = document.querySelector("select") // Selecciono el select
+    selector.onchange = function(){	// Cuando cambie el selector
+    	window.location = "?idioma="+this.value	// Recargo y le paso el idioma en la url
+    }
+  </script>
+</html>
+```
+
+### un poco de estilo
+<small>Creado: 2026-01-27 11:02</small>
+
+`009-un poco de estilo.php`
+
+```
+<?php
+	session_start(); // Esto para recordar cosas
+  // Si no existe la variable de sesion idioma
+  if(!isset($_SESSION['idioma'])){
+  	// En ese caso el idioma por defecto es español
+  	$_SESSION['idioma'] = 'es';
+  }
+  // Si la url transporta la variable idioma
+  if(isset($_GET['idioma'])){
+  	// La sesion es lo que diga la URL
+  	$_SESSION['idioma'] = $_GET['idioma'];
+  }
+	$idioma['es']['inicio'] = "Inicio";
+  $idioma['es']['sobremi'] = "Sobre mi";
+  $idioma['es']['proyectos'] = "Proyectos";
+  $idioma['es']['contacto'] = "Contacto";
+  
+  $idioma['en']['inicio'] = "Home";
+  $idioma['en']['sobremi'] = "About me";
+  $idioma['en']['proyectos'] = "Projects";
+  $idioma['en']['contacto'] = "Contact";
+?>
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Multi idioma</title>
+    <meta charset="utf-8">
+    <style>
+    	body,html{padding:0px;margin:0px;font-family:sans-serif;}
+    	header{display:flex;background:black;color:white;
+      justify-content:space-between;align-items:center;}
+      header a{text-decoration:none;color:inherit;margin:0px 10px;}
+      h1{font-size:20px;}
+      select{background:none;border:none;}
+    </style>
+  </head>
+  <body>
+  	<header>
+      <h1>Jose Vicente Carratala</h1>
+      <nav>
+        <a href=""><?= $idioma[$_SESSION['idioma']]['inicio'] ?></a>
+        <a href=""><?= $idioma[$_SESSION['idioma']]['sobremi'] ?></a>
+        <a href=""><?= $idioma[$_SESSION['idioma']]['proyectos'] ?></a>
+        <a href=""><?= $idioma[$_SESSION['idioma']]['contacto'] ?></a>
+      </nav>
+      <select>
+        <option value="es" 
+          <?php if($_SESSION['idioma'] == 'es'){echo ' selected ';} ?>
+        >🇪🇸</option>
+        <option value="en"
+          <?php if($_SESSION['idioma'] == 'en'){echo ' selected ';} ?>
+        >🇬🇧</option>
+      </select>
+    </header>
+  </body>
+  <script>
+  	let selector = document.querySelector("select") // Selecciono el select
+    selector.onchange = function(){	// Cuando cambie el selector
+    	window.location = "?idioma="+this.value	// Recargo y le paso el idioma en la url
+    }
+  </script>
+</html>
+```
+
+### side quest video
+<small>Creado: 2026-01-27 12:34</small>
+
+`010-side quest video.html`
+
+```html
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Multi idioma</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <video src="codificado.mp4"></video>
+  </body>
+</html>
+```
+
+### video con controles
+<small>Creado: 2026-01-27 12:35</small>
+
+`011-video con controles.html`
+
+```html
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Multi idioma</title>
+    <meta charset="utf-8">
+    <style>
+      video{width:300px;}
+    </style>
+  </head>
+  <body>
+    <video src="codificado.mp4" controls></video>
+  </body>
+</html>
+```
+
+### poner una cancion
+<small>Creado: 2026-01-27 12:38</small>
+
+`012-poner una cancion.html`
+
+```html
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Multi idioma</title>
+    <meta charset="utf-8">
+    <style>
+      video{width:300px;}
+    </style>
+  </head>
+  <body>
+    <audio src="A Long Weekend.mp3" controls></audio>
+  </body>
+</html>
+```
+
+### cargar csv
+<small>Creado: 2026-01-27 12:41</small>
+
+`013-cargar csv.php`
+
+```
+<?php
+
+$rows = array_map('str_getcsv', file('idiomas.csv'));
+
+var_dump($rows);
+
+?>
+```
+
+### array asociativo
+<small>Creado: 2026-01-27 12:45</small>
+
+`014-array asociativo.php`
+
+```
+<?php
+
+$csv = array_map('str_getcsv', file('idiomas.csv'));
+$header = array_shift($csv);
+
+$idiomas = array_map(
+    fn($row) => array_combine($header, $row),
+    $csv
+);
+
+var_dump($idiomas);
+```
+
+### adaptado al ejercicio
+<small>Creado: 2026-01-27 12:47</small>
+
+`015-adaptado al ejercicio.php`
+
+```
+<?php
+
+$csv = array_map('str_getcsv', file('idiomas.csv'));
+$header = array_shift($csv); // e.g. ['clave','es','en']
+
+foreach ($csv as $row) {
+    $data = array_combine($header, $row);
+    $clave = $data['clave'];
+
+    foreach ($data as $lang => $value) {
+        if ($lang === 'clave') continue;
+
+        // escape quotes safely
+        $value = addslashes($value);
+
+        echo "\$idioma['{$lang}']['{$clave}'] = \"{$value}\";\n";
+    }
+
+    echo "\n";
+}
+```
+
+### fusion
+<small>Creado: 2026-01-27 12:50</small>
+
+`016-fusion.php`
+
+```
+<?php
+// PREPARAMOS LA SESION ///////////////////////////////////////
+session_start();
+
+if (!isset($_SESSION['idioma'])) {
+  $_SESSION['idioma'] = 'es';
+}
+if (isset($_GET['idioma'])) {
+  $_SESSION['idioma'] = $_GET['idioma'];
+}
+
+// CARGAMOS IDIOMAS DEL CSV /////////////////////////////
+$idioma = [];
+
+$rows = array_map('str_getcsv', file(__DIR__ . '/idiomas.csv'));
+$header = array_shift($rows); // ['clave','es','en',...]
+
+foreach ($rows as $row) {
+  if (!$row) continue;
+  // Normaliza longitud (por si alguna fila viene más corta)
+  $row = array_pad($row, count($header), '');
+
+  $data = array_combine($header, $row);
+  if (!isset($data['clave'])) continue;
+
+  $clave = trim($data['clave']);
+  if ($clave === '') continue;
+
+  foreach ($data as $lang => $value) {
+    if ($lang === 'clave') continue;
+    $idioma[$lang][$clave] = $value; // <-- aquí se rellena de verdad
+  }
+}
+
+// Si el idioma pedido no existe en el CSV, vuelve a 'es'
+if (!isset($idioma[$_SESSION['idioma']])) {
+  $_SESSION['idioma'] = 'es';
+}
+?>
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Multi idioma</title>
+    <meta charset="utf-8">
+    <style>
+      body,html{padding:0px;margin:0px;font-family:sans-serif;}
+      header{display:flex;background:black;color:white;justify-content:space-between;align-items:center;}
+      header a{text-decoration:none;color:inherit;margin:0px 10px;}
+      h1{font-size:20px;}
+      select{background:none;border:none;color:white;}
+      option{color:black;}
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Jose Vicente Carratala</h1>
+      <nav>
+        <a href=""><?= htmlspecialchars($idioma[$_SESSION['idioma']]['inicio'] ?? 'Inicio') ?></a>
+        <a href=""><?= htmlspecialchars($idioma[$_SESSION['idioma']]['sobremi'] ?? 'Sobre mí') ?></a>
+        <a href=""><?= htmlspecialchars($idioma[$_SESSION['idioma']]['proyectos'] ?? 'Proyectos') ?></a>
+        <a href=""><?= htmlspecialchars($idioma[$_SESSION['idioma']]['contacto'] ?? 'Contacto') ?></a>
+      </nav>
+
+      <select id="idioma">
+        <option value="es" <?= ($_SESSION['idioma'] === 'es') ? 'selected' : '' ?>>🇪🇸</option>
+        <option value="en" <?= ($_SESSION['idioma'] === 'en') ? 'selected' : '' ?>>🇬🇧</option>
+      </select>
+    </header>
+
+    <script>
+      const selector = document.querySelector("#idioma");
+      selector.addEventListener("change", function () {
+        window.location = "?idioma=" + encodeURIComponent(this.value);
+      });
+    </script>
+  </body>
+</html>
+```
+
+### idiomas
+<small>Creado: 2026-01-27 12:47</small>
+
+`idiomas.csv`
+
+```
+clave,es,en
+inicio,Inicio,Home
+sobremi,Sobre mi,About me
+proyectos,Proyectos,Projects
+contacto,Contacto,Contact
+```
+
+
+<a id="carruselsara"></a>
+## CarruselSara
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/014-CarruselSara)
+
+
+<a id="versionado-y-documentacion"></a>
+## Versionado y documentacion
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/015-Versionado%20y%20documentacion)
+
+
+<a id="proyecto-camaron"></a>
+## Proyecto Camaron
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/010-Programaci%C3%B3n%20en%20el%20lado%20del%20servidor/016-Proyecto%20Camaron)
 
 
 
