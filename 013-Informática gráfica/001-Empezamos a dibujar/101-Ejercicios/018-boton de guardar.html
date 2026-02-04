@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      canvas{border:1px solid grey;}
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+    <button>Guardar</button>
+    <script>
+      let lienzo = document.querySelector("canvas");
+      let contexto = lienzo.getContext("2d");
+      lienzo.width = 512
+      lienzo.height = 512
+      let imagen = new Image()						// Creo una nueva imagen en memoria
+      imagen.src = "josevicente.jpg"			// Indico que archivo carga en esa imagen
+      imagen.onload = function(){					// Solo cuando la imagen haya cargado
+      	contexto.drawImage(imagen,50,50,10,10)		// Pinto la imagen en el canvas
+      }
+      let boton = document.querySelector("button")
+      boton.onclick = function(){
+      	let datos = contexto.getImageData(0,0,512,512)
+        console.log(datos)
+      }
+    </script>
+  </body>
+</html>
