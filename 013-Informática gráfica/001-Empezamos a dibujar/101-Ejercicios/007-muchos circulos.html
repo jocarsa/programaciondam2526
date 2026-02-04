@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      canvas{border:1px solid grey;}
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+      let lienzo = document.querySelector("canvas");
+      let contexto = lienzo.getContext("2d");
+      lienzo.width = 512;
+      lienzo.height = 512;
+      for(let i = 0;i<1000;i++){
+        let rojo = Math.round(Math.random()*255) 	// rojo entre 0 y 255
+        let verde = Math.round(Math.random()*255) // Verde entre 0 y 255
+        let azul = Math.round(Math.random()*255) 	// Azul entre 0 y 255
+        let color = "rgb("+rojo+","+verde+","+azul+")"
+        contexto.fillStyle = color
+        contexto.beginPath();
+        let x = Math.random()*512
+        let y = Math.random()*512
+        contexto.arc(x,y,10,0,Math.PI*2)// x,y,r,ang_inicio,ang_final
+        contexto.fill()
+      }
+    </script>
+  </body>
+</html>

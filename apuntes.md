@@ -108,6 +108,8 @@
   - [Entrenamiento](#entrenamiento)
   - [Bases de datos vectoriales](#bases-de-datos-vectoriales)
   - [Sanear texto](#sanear-texto)
+- [Informática gráfica](#informatica-grafica)
+  - [Empezamos a dibujar](#empezamos-a-dibujar)
 - [.git](#git)
   - [branches](#branches)
   - [hooks](#hooks)
@@ -32589,6 +32591,239 @@ curl_close($ch);
 $result = json_decode($response, true);
 
 echo $result["response"];
+```
+
+
+
+<a id="informatica-grafica"></a>
+# Informática gráfica
+
+<a id="empezamos-a-dibujar"></a>
+## Empezamos a dibujar
+
+[📁 Ver carpeta en GitHub](https://github.com/jocarsa/programaciondam2526/tree/main/013-Inform%C3%A1tica%20gr%C3%A1fica/001-Empezamos%20a%20dibujar)
+
+### lienzo
+<small>Creado: 2026-02-04 08:38</small>
+
+`001-lienzo.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <canvas></canvas>
+  </body>
+</html>
+```
+
+### lienzo y contexto
+<small>Creado: 2026-02-04 08:40</small>
+
+`002-lienzo y contexto.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+      let lienzo = document.querySelector("canvas");
+      let contexto = lienzo.getContext("2d");
+      
+    </script>
+  </body>
+</html>
+```
+
+### le pongo dimensiones
+<small>Creado: 2026-02-04 08:41</small>
+
+`003-le pongo dimensiones.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      canvas{border:1px solid grey;}
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+      let lienzo = document.querySelector("canvas");
+      let contexto = lienzo.getContext("2d");
+      lienzo.width = 512;
+      lienzo.height = 512;
+    </script>
+  </body>
+</html>
+```
+
+### dibujamos un rectangulo
+<small>Creado: 2026-02-04 08:43</small>
+
+`004-dibujamos un rectangulo.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      canvas{border:1px solid grey;}
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+      let lienzo = document.querySelector("canvas");
+      let contexto = lienzo.getContext("2d");
+      lienzo.width = 512;
+      lienzo.height = 512;
+      contexto.fillRect(40,40,60,60); // x,y,w,h
+    </script>
+  </body>
+</html>
+```
+
+### dibujamos un circulo
+<small>Creado: 2026-02-04 08:45</small>
+
+`005-dibujamos un circulo.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      canvas{border:1px solid grey;}
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+      let lienzo = document.querySelector("canvas");
+      let contexto = lienzo.getContext("2d");
+      lienzo.width = 512;
+      lienzo.height = 512;
+      contexto.fillRect(40,40,60,60); // x,y,w,h
+     // Circulo
+      contexto.beginPath();
+      contexto.arc(150,150,50,0,Math.PI*2)
+      contexto.fill()
+    </script>
+  </body>
+</html>
+```
+
+### color de relleno
+<small>Creado: 2026-02-04 08:49</small>
+
+`006-color de relleno.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      canvas{border:1px solid grey;}
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+      let lienzo = document.querySelector("canvas");
+      let contexto = lienzo.getContext("2d");
+      lienzo.width = 512;
+      lienzo.height = 512;
+      for(let i = 0,i<100;i++){
+        contexto.fillStyle = "green"
+        contexto.beginPath();
+        contexto.arc(150,150,50,0,Math.PI*2)// x,y,r,ang_inicio,ang_final
+        contexto.fill()
+      }
+    </script>
+  </body>
+</html>
+```
+
+### muchos circulos
+<small>Creado: 2026-02-04 08:58</small>
+
+`007-muchos circulos.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      canvas{border:1px solid grey;}
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+      let lienzo = document.querySelector("canvas");
+      let contexto = lienzo.getContext("2d");
+      lienzo.width = 512;
+      lienzo.height = 512;
+      for(let i = 0;i<1000;i++){
+        let rojo = Math.round(Math.random()*255) 	// rojo entre 0 y 255
+        let verde = Math.round(Math.random()*255) // Verde entre 0 y 255
+        let azul = Math.round(Math.random()*255) 	// Azul entre 0 y 255
+        let color = "rgb("+rojo+","+verde+","+azul+")"
+        contexto.fillStyle = color
+        contexto.beginPath();
+        let x = Math.random()*512
+        let y = Math.random()*512
+        contexto.arc(x,y,10,0,Math.PI*2)// x,y,r,ang_inicio,ang_final
+        contexto.fill()
+      }
+    </script>
+  </body>
+</html>
+```
+
+### relleno y trazo
+<small>Creado: 2026-02-04 08:59</small>
+
+`008-relleno y trazo.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <style>
+      canvas{border:1px solid grey;}
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+      let lienzo = document.querySelector("canvas");
+      let contexto = lienzo.getContext("2d");
+      lienzo.width = 512;
+      lienzo.height = 512;
+      for(let i = 0;i<1000;i++){
+        let rojo = Math.round(Math.random()*255) 	// rojo entre 0 y 255
+        let verde = Math.round(Math.random()*255) // Verde entre 0 y 255
+        let azul = Math.round(Math.random()*255) 	// Azul entre 0 y 255
+        let color = "rgb("+rojo+","+verde+","+azul+")"
+        contexto.fillStyle = color
+        contexto.beginPath();
+        let x = Math.random()*512
+        let y = Math.random()*512
+        contexto.arc(x,y,10,0,Math.PI*2)// x,y,r,ang_inicio,ang_final
+        contexto.fill()
+      }
+    </script>
+  </body>
+</html>
 ```
 
 

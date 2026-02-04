@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      canvas{border:1px solid grey;}
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+    <input type="color" id="selectorcolor">
+    <input type="range" id="grosortrazo">
+    <script>
+      var pulsado = false
+      let lienzo = document.querySelector("canvas");
+      let contexto = lienzo.getContext("2d");
+      let color = document.querySelector("#selectorcolor")
+      let grosor = document.querySelector("#grosortrazo")
+      lienzo.width = 512
+      lienzo.height = 512
+      // Cuando mueva el raton por el lienzo
+      lienzo.onmousemove = function(e){	
+        if(pulsado){
+          contexto.fillStyle = color.value					// Cojo el color del input
+          contexto.beginPath()
+      		contexto.arc(e.offsetX,e.offsetY,grosor.value,0,Math.PI*2)// Y dibujo
+          contexto.fill()
+        }
+      }
+      document.onmousedown = function(){
+      	pulsado = true
+      }
+      document.onmouseup = function(){
+      	pulsado = false;
+      }
+    </script>
+  </body>
+</html>

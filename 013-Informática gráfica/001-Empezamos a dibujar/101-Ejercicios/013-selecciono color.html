@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      canvas{border:1px solid grey;}
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+    <input type="color" id="selectorcolor">
+    <script>
+      var pulsado = false
+      let lienzo = document.querySelector("canvas");
+      let contexto = lienzo.getContext("2d");
+      let color = document.querySelector("#selectorcolor")
+      lienzo.width = 512
+      lienzo.height = 512
+      // Cuando mueva el raton por el lienzo
+      lienzo.onmousemove = function(e){	
+        if(pulsado){
+          contexto.fillStyle = color.value					// Cojo el color del input
+      		contexto.fillRect(e.offsetX,e.offsetY,3,3)// Y dibujo
+        }
+      }
+      document.onmousedown = function(){
+      	pulsado = true
+      }
+      document.onmouseup = function(){
+      	pulsado = false;
+      }
+    </script>
+  </body>
+</html>
