@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Factura</title>
+    <style>
+      /* A4 */
+      @page {
+        size: A4;
+        margin: 20mm;
+      }
+
+      @media print {
+        body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      }
+
+      :root{
+        --ink:#111;
+        --muted:#555;
+        --line:#d9d9d9;
+        --soft:#f5f5f5;
+      }
+
+      body{
+        margin:0;
+        padding:0;
+        font-family: serif;
+        font-size: 12pt;
+        color: var(--ink);
+      }
+
+      main{
+        width: 170mm; /* 210 - 20 - 20 = 170mm */
+        min-height: 257mm; /* 297 - 20 - 20 = 257mm */
+        box-sizing: border-box;
+      }
+
+      /* Layout */
+      .row{ display:flex; gap: 10mm; }
+      .col{ flex:1; }
+      .right{ text-align:right; }
+      .muted{ color: var(--muted); }
+
+      /* Blocks */
+      .header{
+        display:flex;
+        justify-content: space-between;
+        align-items:flex-start;
+        gap: 10mm;
+        padding-bottom: 6mm;
+        border-bottom: 1px solid var(--line);
+        margin-bottom: 8mm;
+      }
+
+      .brand h1{
+        font-size: 20pt;
+        margin: 0 0 2mm 0;
+        letter-spacing: .5px;
+      }
+      .brand .small{ font-size: 10pt; margin:0; }
+
+      .badge{
+        display:inline-block;
+        padding: 2mm 4mm;
+        border: 1px solid var(--ink);
+        font-weight: 700;
+        letter-spacing: .8px;
+      }
+
+      .box{
+        border: 1px solid var(--line);
+        padding: 4mm;
+        border-radius: 2mm;
+      }
+
+      .meta{
+        margin-top: 4mm;
+        font-size: 10.5pt;
+      }
+      .meta table{
+        width:100%;
+        border-collapse: collapse;
+      }
+      .meta td{
+        padding: 1mm 0;
+        vertical-align: top;
+      }
+      .meta td:first-child{ color: var(--muted); width: 38%; }
+
+      /* Items table */
+      table.items{
+        width:100%;
+        border-collapse: collapse;
+        margin-top: 8mm;
+        font-size: 11pt;
+      }
+      table.items thead th{
+        text-align:left;
+        background: var(--soft);
+        padding: 2.5mm 2mm;
+        border-bottom: 1px solid var(--line);
+      }
+      table.items tbody td{
+        padding: 2.5mm 2mm;
+        border-bottom: 1px solid var(--line);
+        vertical-align: top;
+      }
+      table.items .num{ text-align:right; white-space: nowrap; }
+      table.items .desc{ width: 55%; }
+
+      /* Totals */
+      .totals{
+        margin-top: 6mm;
+        display:flex;
+        justify-content: flex-end;
+      }
+      .totals table{
+        width: 70mm;
+        border-collapse: collapse;
+        font-size: 11pt;
+      }
+      .totals td{
+        padding: 1.8mm 0;
+      }
+      .totals td:first-child{ color: var(--muted); }
+      .totals .grand td{
+        border-top: 2px solid var(--ink);
+        padding-top: 2.5mm;
+        font-weight: 700;
+        font-size: 12pt;
+      }
+
+      /* Footer info */
+      .footer{
+        margin-top: 10mm;
+        display:flex;
+        gap: 10mm;
+      }
+      .footer .box{ font-size: 10.5pt; }
+      .notes{
+        margin-top: 6mm;
+        font-size: 10.5pt;
+        color: var(--muted);
+      }
+
+      /* Page bottom signature line (optional) */
+      .sign{
+        margin-top: 10mm;
+        display:flex;
+        justify-content: space-between;
+        gap: 10mm;
+      }
+      .line{
+        border-top: 1px solid var(--line);
+        padding-top: 2mm;
+        width: 80mm;
+        font-size: 10.5pt;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <!-- CABECERA -->
+      <section class="header">
+        <div class="brand">
+          <h1>FACTURA</h1>
+          <p class="small"><strong>Empresa Ejemplo S.L.</strong></p>
+          <p class="small muted">CIF: B12345678</p>
+          <p class="small muted">C/ Ejemplo 123, 46000 Valencia (España)</p>
+          <p class="small muted">Email: info@empresa.com · Tel: +34 600 000 000</p>
+        </div>
+
+        <div class="right">
+          <div class="badge">A4</div>
+          <div class="meta">
+            <table>
+              <tr><td>Nº factura</td><td><strong>2026-0001</strong></td></tr>
+              <tr><td>Fecha</td><td>06/02/2026</td></tr>
+              <tr><td>Vencimiento</td><td>20/02/2026</td></tr>
+              <tr><td>Moneda</td><td>EUR (€)</td></tr>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- DATOS CLIENTE / EMISOR -->
+      <section class="row">
+        <div class="col box">
+          <strong>Facturar a</strong>
+          <div class="meta">
+            <table>
+              <tr><td>Cliente</td><td><strong>Cliente Ejemplo S.L.</strong></td></tr>
+              <tr><td>CIF/NIF</td><td>B87654321</td></tr>
+              <tr><td>Dirección</td><td>Av. Cliente 45, 28000 Madrid</td></tr>
+              <tr><td>Email</td><td>compras@cliente.com</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="col box">
+          <strong>Datos del emisor</strong>
+          <div class="meta">
+            <table>
+              <tr><td>Razón social</td><td>Empresa Ejemplo S.L.</td></tr>
+              <tr><td>CIF</td><td>B12345678</td></tr>
+              <tr><td>Dirección</td><td>C/ Ejemplo 123, 46000 Valencia</td></tr>
+              <tr><td>IBAN</td><td>ES00 0000 0000 0000 0000 0000</td></tr>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- LÍNEAS -->
+      <table class="items" aria-label="Líneas de factura">
+        <thead>
+          <tr>
+            <th class="desc">Concepto</th>
+            <th class="num">Cantidad</th>
+            <th class="num">Precio</th>
+            <th class="num">Dto.</th>
+            <th class="num">IVA</th>
+            <th class="num">Importe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="desc">
+              <strong>Servicio de desarrollo</strong><br />
+              <span class="muted">Implementación de mejoras en módulo de gestión.</span>
+            </td>
+            <td class="num">10</td>
+            <td class="num">60,00 €</td>
+            <td class="num">0%</td>
+            <td class="num">21%</td>
+            <td class="num">600,00 €</td>
+          </tr>
+
+          <tr>
+            <td class="desc">
+              <strong>Mantenimiento mensual</strong><br />
+              <span class="muted">Soporte y actualizaciones.</span>
+            </td>
+            <td class="num">1</td>
+            <td class="num">120,00 €</td>
+            <td class="num">0%</td>
+            <td class="num">21%</td>
+            <td class="num">120,00 €</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- TOTALES -->
+      <section class="totals">
+        <table aria-label="Totales">
+          <tr><td>Base imponible</td><td class="right">720,00 €</td></tr>
+          <tr><td>IVA (21%)</td><td class="right">151,20 €</td></tr>
+          <tr><td class="muted">Retención</td><td class="right muted">0,00 €</td></tr>
+          <tr class="grand"><td>Total</td><td class="right">871,20 €</td></tr>
+        </table>
+      </section>
+
+      <!-- PIE: PAGO + NOTAS -->
+      <section class="footer">
+        <div class="col box">
+          <strong>Forma de pago</strong>
+          <div class="meta">
+            <table>
+              <tr><td>Método</td><td>Transferencia bancaria</td></tr>
+              <tr><td>IBAN</td><td>ES00 0000 0000 0000 0000 0000</td></tr>
+              <tr><td>Concepto</td><td>Factura 2026-0001</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="col box">
+          <strong>Observaciones</strong>
+          <p class="notes">
+            Gracias por su confianza. Esta factura se emite conforme a la normativa vigente.
+            En caso de duda, contacte con nosotros indicando el número de factura.
+          </p>
+        </div>
+      </section>
+
+      <!-- (Opcional) Firmas -->
+      <section class="sign">
+        <div class="line">Firma y sello (emisor)</div>
+        <div class="line">Recibí (cliente)</div>
+      </section>
+    </main>
+  </body>
+</html>
