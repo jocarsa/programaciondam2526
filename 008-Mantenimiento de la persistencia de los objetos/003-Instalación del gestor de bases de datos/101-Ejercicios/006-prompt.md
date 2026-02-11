@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <canvas>
+    </canvas>
+    <script>
+      var lienzo = document.querySelector("canvas");
+      var contexto = lienzo.getContext("2d");
+      
+      lienzo.width = 512
+      lienzo.height = 512
+      
+      class Npc{
+      	constructor(){
+        	this.x = Math.random()*512
+          this.y = Math.random()*512
+          this.radio = Math.random()*10
+          this.color = [
+          	Math.round(Math.random()*255),
+            Math.round(Math.random()*255),
+            Math.round(Math.random()*255)
+          ]
+        }
+      }
+      var npcs = []
+      if(localStorage.getItem("npcs") != undefined){
+        // Si hay npcs guardados vamos a cargarlos
+        npcs = JSON.parse(localStorage.getItem("npcs"))
+      }else{
+        // Si no hay npcs guardados los creamos
+        var numeronpc = 50;
+        for(let i = 0;i<numeronpc;i++){
+          npcs.push(new Npc);
+        }
+      }
+      
+      // Los pinto en la pantalla
+      
+      npcs.forEach(function(npc){
+      	contexto.beginPath()
+        contexto.arc(npc.x,npc.y,npc.radio,0,Math.PI*2)
+        contexto.fill()
+      })
+      
+      var cadenificado = JSON.stringify(npcs)
+      console.log(cadenificado)
+      localStorage.setItem("npcs",cadenificado);
+      
+    </script>
+  </body>
+</html> - turn this into a "farm" videogame, 1.-create initial conditions 2.-create init function 3.-create loop function 4.-give npcs angle and speed 5.-make them move and avoid themselves 6.-make them collide with borders to not escape 7.-apply color

@@ -1,0 +1,427 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Farm (Canvas) - Age/Gender/Energy/Food/Reproduction</title>
+    <style>
+      html, body { margin:0; padding:0; background:#111; }
+      canvas { display:block; margin:16px auto; background:#1f5a2a; border:2px solid #2b2b2b; }
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+
+    <script>
+      // =========================================================
+      // INITIAL CONDITIONS
+      // =========================================================
+      const lienzo = document.querySelector("canvas");
+      const contexto = lienzo.getContext("2d");
+
+      const W = 512, H = 512;
+      lienzo.width = W; lienzo.height = H;
+
+      // Simulation tuning
+      const NUM_NPCS = 250;
+
+      const BORDER_BOUNCE = 0.95;
+
+      const SEPARATION_RADIUS = 18;
+      const SEPARATION_FORCE = 0.08;
+
+      const MAX_SPEED = 1.6;
+      const ANGLE_JITTER = 0.08;
+
+      // Time: we simulate in frames (60fps-ish)
+      const FPS = 60;
+      const AGE_UP_EVERY_FRAMES = FPS * 2; // +1 year every ~2 seconds (adjust to taste)
+
+      // Life rules
+      const AGE_MIN = 1;
+      const AGE_MAX = 20;           // 8) age limit -> die
+      const REPRO_MIN = 5;          // 4) reproduction age range
+      const REPRO_MAX = 15;
+
+      // Energy
+      const ENERGY_MAX = 100;       // 5) energy
+      const ENERGY_LOSS_PER_FRAME = 0.05;   // moving costs energy
+      const ENERGY_DEATH = 0;       // if <= 0 -> die
+      const FOOD_ENERGY_GAIN = 35;  // 6) food restores energy
+
+      // Food collectibles
+      const FOOD_COUNT = 25;
+      const FOOD_RADIUS = 4;
+      const FOOD_RESPAWN_DELAY = FPS * 2;
+
+      // Reproduction
+      const REPRO_COOLDOWN_FRAMES = FPS * 5;
+      const MATE_DISTANCE = 16;
+      const OFFSPRING_ENERGY = 70;
+
+      // Storage keys
+      const KEY_NPCS = "npcs_farm_v2";
+      const KEY_FOOD = "food_farm_v2";
+
+      // =========================================================
+      // ENTITIES
+      // =========================================================
+      function clamp(v, a, b){ return Math.max(a, Math.min(b, v)); }
+      function randInt(a, b){ return Math.floor(a + Math.random() * (b - a + 1)); }
+
+      class Animal {
+        constructor(x, y) {
+          this.x = x ?? Math.random() * W;
+          this.y = y ?? Math.random() * H;
+
+          this.radio = 6 + Math.random() * 6;
+
+          this.angulo = Math.random() * Math.PI * 2;
+          this.velocidad = 0.4 + Math.random() * 1.2;
+
+          this.vx = Math.cos(this.angulo) * this.velocidad;
+          this.vy = Math.sin(this.angulo) * this.velocidad;
+
+          // 7) APPLY COLOR (kept from before)
+          this.color = [
+            Math.round(Math.random() * 255),
+            Math.round(Math.random() * 255),
+            Math.round(Math.random() * 255)
+          ];
+
+          // 1) have age
+          this.edad = randInt(AGE_MIN, AGE_MAX); // 3) age from 1-20
+
+          // 2) have gender
+          this.genero = (Math.random() < 0.5) ? "M" : "F";
+
+          // 5) energy
+          this.energia = randInt(50, ENERGY_MAX);
+
+          // reproduction management
+          this.reproCooldown = randInt(0, REPRO_COOLDOWN_FRAMES);
+        }
+      }
+
+      class Food {
+        constructor(x, y) {
+          this.x = x ?? Math.random() * W;
+          this.y = y ?? Math.random() * H;
+          this.r = FOOD_RADIUS;
+          this.active = true;
+          this.respawnIn = 0;
+        }
+      }
+
+      let animales = [];
+      let comidas = [];
+      let frame = 0;
+
+      // =========================================================
+      // INIT
+      // =========================================================
+      function init() {
+        // load animals
+        const savedA = localStorage.getItem(KEY_NPCS);
+        const savedF = localStorage.getItem(KEY_FOOD);
+
+        if (savedA) {
+          try {
+            animales = JSON.parse(savedA);
+            // ensure missing fields exist if older saves
+            animales.forEach(a => {
+              if (a.radio === undefined) a.radio = 8;
+              if (a.angulo === undefined) a.angulo = Math.random() * Math.PI * 2;
+              if (a.velocidad === undefined) a.velocidad = 1;
+              if (a.vx === undefined) a.vx = Math.cos(a.angulo) * a.velocidad;
+              if (a.vy === undefined) a.vy = Math.sin(a.angulo) * a.velocidad;
+              if (!a.color) a.color = [200,200,200];
+              if (a.edad === undefined) a.edad = randInt(AGE_MIN, AGE_MAX);
+              if (!a.genero) a.genero = (Math.random() < 0.5) ? "M" : "F";
+              if (a.energia === undefined) a.energia = randInt(50, ENERGY_MAX);
+              if (a.reproCooldown === undefined) a.reproCooldown = randInt(0, REPRO_COOLDOWN_FRAMES);
+            });
+          } catch { animales = []; }
+        }
+
+        if (animales.length === 0) {
+          for (let i = 0; i < NUM_NPCS; i++) animales.push(new Animal());
+        }
+
+        // load food
+        if (savedF) {
+          try {
+            comidas = JSON.parse(savedF);
+            comidas.forEach(f => {
+              if (f.r === undefined) f.r = FOOD_RADIUS;
+              if (f.active === undefined) f.active = true;
+              if (f.respawnIn === undefined) f.respawnIn = 0;
+            });
+          } catch { comidas = []; }
+        }
+
+        if (comidas.length === 0) {
+          for (let i = 0; i < FOOD_COUNT; i++) comidas.push(new Food());
+        }
+      }
+
+      // =========================================================
+      // SAVE (throttled)
+      // =========================================================
+      function saveStateOccasionally() {
+        if (frame % 60 === 0) {
+          localStorage.setItem(KEY_NPCS, JSON.stringify(animales));
+          localStorage.setItem(KEY_FOOD, JSON.stringify(comidas));
+        }
+      }
+
+      // =========================================================
+      // LOOP
+      // =========================================================
+      function loop() {
+        frame++;
+        update();
+        draw();
+        saveStateOccasionally();
+        requestAnimationFrame(loop);
+      }
+
+      // =========================================================
+      // UPDATE
+      // =========================================================
+      function update() {
+        // age up
+        if (frame % AGE_UP_EVERY_FRAMES === 0) {
+          for (let i = 0; i < animales.length; i++) {
+            animales[i].edad += 1;
+          }
+        }
+
+        // update food respawn timers
+        for (let i = 0; i < comidas.length; i++) {
+          const f = comidas[i];
+          if (!f.active) {
+            f.respawnIn--;
+            if (f.respawnIn <= 0) {
+              f.active = true;
+              f.x = Math.random() * W;
+              f.y = Math.random() * H;
+              f.respawnIn = 0;
+            }
+          }
+        }
+
+        // --- separation and motion ---
+        for (let i = 0; i < animales.length; i++) {
+          const a = animales[i];
+
+          // cooldown down
+          if (a.reproCooldown > 0) a.reproCooldown--;
+
+          // random wander
+          a.angulo += (Math.random() - 0.5) * ANGLE_JITTER;
+
+          // separation
+          let pushX = 0, pushY = 0;
+          for (let j = 0; j < animales.length; j++) {
+            if (i === j) continue;
+            const b = animales[j];
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+            const dist2 = dx*dx + dy*dy;
+
+            const minDist = a.radio + b.radio + SEPARATION_RADIUS;
+            const minDist2 = minDist * minDist;
+
+            if (dist2 > 0 && dist2 < minDist2) {
+              const dist = Math.sqrt(dist2);
+              const nx = dx / dist;
+              const ny = dy / dist;
+              const strength = (minDist - dist) / minDist;
+              pushX += nx * strength;
+              pushY += ny * strength;
+            }
+          }
+
+          const baseVx = Math.cos(a.angulo) * a.velocidad;
+          const baseVy = Math.sin(a.angulo) * a.velocidad;
+
+          a.vx = baseVx + pushX * SEPARATION_FORCE;
+          a.vy = baseVy + pushY * SEPARATION_FORCE;
+
+          // cap speed
+          const sp = Math.hypot(a.vx, a.vy);
+          if (sp > MAX_SPEED) {
+            a.vx = (a.vx / sp) * MAX_SPEED;
+            a.vy = (a.vy / sp) * MAX_SPEED;
+          }
+        }
+
+        // move + border collision + energy loss + food pickup
+        for (let i = 0; i < animales.length; i++) {
+          const a = animales[i];
+
+          a.x += a.vx;
+          a.y += a.vy;
+
+          // border bounce
+          if (a.x < a.radio) { a.x = a.radio; a.vx = -a.vx * BORDER_BOUNCE; }
+          if (a.x > W - a.radio) { a.x = W - a.radio; a.vx = -a.vx * BORDER_BOUNCE; }
+          if (a.y < a.radio) { a.y = a.radio; a.vy = -a.vy * BORDER_BOUNCE; }
+          if (a.y > H - a.radio) { a.y = H - a.radio; a.vy = -a.vy * BORDER_BOUNCE; }
+
+          a.angulo = Math.atan2(a.vy, a.vx);
+
+          // energy drain
+          a.energia -= ENERGY_LOSS_PER_FRAME * (0.5 + a.velocidad);
+
+          // pick up food
+          for (let k = 0; k < comidas.length; k++) {
+            const f = comidas[k];
+            if (!f.active) continue;
+            const dx = a.x - f.x;
+            const dy = a.y - f.y;
+            const dist2 = dx*dx + dy*dy;
+            const pickR = a.radio + f.r + 2;
+            if (dist2 < pickR * pickR) {
+              // eat
+              a.energia = clamp(a.energia + FOOD_ENERGY_GAIN, 0, ENERGY_MAX);
+              f.active = false;
+              f.respawnIn = FOOD_RESPAWN_DELAY;
+            }
+          }
+        }
+
+        // 7) ON REPRODUCTION SPAWN NEW ANIMALS
+        reproduce();
+
+        // 8) ON AGE LIMIT, MAKE THEM DIE (+ energy death)
+        animales = animales.filter(a => a.edad <= AGE_MAX && a.energia > ENERGY_DEATH);
+      }
+
+      function canReproduce(a) {
+        return (
+          a.edad >= REPRO_MIN && a.edad <= REPRO_MAX &&
+          a.energia >= 60 &&
+          a.reproCooldown <= 0
+        );
+      }
+
+      function reproduce() {
+        // naive pairing: scan for close male/female pairs
+        // (kept simple and readable)
+        for (let i = 0; i < animales.length; i++) {
+          const a = animales[i];
+          if (!canReproduce(a)) continue;
+
+          for (let j = i + 1; j < animales.length; j++) {
+            const b = animales[j];
+            if (!canReproduce(b)) continue;
+            if (a.genero === b.genero) continue; // needs M + F
+
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+            const dist2 = dx*dx + dy*dy;
+
+            if (dist2 < MATE_DISTANCE * MATE_DISTANCE) {
+              // spawn new offspring near parents
+              const babyX = (a.x + b.x) / 2 + (Math.random() - 0.5) * 10;
+              const babyY = (a.y + b.y) / 2 + (Math.random() - 0.5) * 10;
+
+              const baby = new Animal(babyX, babyY);
+              baby.edad = 1; // newborn
+              baby.energia = OFFSPRING_ENERGY;
+
+              // optional: inherit blended color (still simple)
+              baby.color = [
+                Math.round((a.color[0] + b.color[0]) / 2),
+                Math.round((a.color[1] + b.color[1]) / 2),
+                Math.round((a.color[2] + b.color[2]) / 2),
+              ];
+
+              // reproduction costs energy and sets cooldown
+              a.energia = clamp(a.energia - 25, 0, ENERGY_MAX);
+              b.energia = clamp(b.energia - 25, 0, ENERGY_MAX);
+              a.reproCooldown = REPRO_COOLDOWN_FRAMES;
+              b.reproCooldown = REPRO_COOLDOWN_FRAMES;
+
+              animales.push(baby);
+              return; // keep it simple: one birth per frame max
+            }
+          }
+        }
+      }
+
+      // =========================================================
+      // DRAW
+      // =========================================================
+      function draw() {
+        contexto.clearRect(0, 0, W, H);
+
+        // grass
+        contexto.fillStyle = "#1f5a2a";
+        contexto.fillRect(0, 0, W, H);
+
+        // fence
+        contexto.strokeStyle = "#caa46a";
+        contexto.lineWidth = 6;
+        contexto.strokeRect(3, 3, W - 6, H - 6);
+
+        // food
+        for (let i = 0; i < comidas.length; i++) {
+          const f = comidas[i];
+          if (!f.active) continue;
+
+          contexto.beginPath();
+          contexto.fillStyle = "#ffd34d";
+          contexto.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+          contexto.fill();
+        }
+
+        // animals
+        for (let i = 0; i < animales.length; i++) {
+          const a = animales[i];
+
+          // body
+          contexto.fillStyle = `rgb(${a.color[0]},${a.color[1]},${a.color[2]})`;
+          contexto.beginPath();
+          contexto.arc(a.x, a.y, a.radio, 0, Math.PI * 2);
+          contexto.fill();
+
+          // direction line
+          contexto.strokeStyle = "rgba(0,0,0,0.35)";
+          contexto.lineWidth = 2;
+          contexto.beginPath();
+          contexto.moveTo(a.x, a.y);
+          contexto.lineTo(a.x + Math.cos(a.angulo) * (a.radio + 6), a.y + Math.sin(a.angulo) * (a.radio + 6));
+          contexto.stroke();
+
+          // HUD: energy bar
+          const barW = 22, barH = 4;
+          const ex = a.x - barW / 2;
+          const ey = a.y - a.radio - 10;
+
+          contexto.fillStyle = "rgba(0,0,0,0.4)";
+          contexto.fillRect(ex, ey, barW, barH);
+
+          const fillW = (clamp(a.energia, 0, ENERGY_MAX) / ENERGY_MAX) * barW;
+          contexto.fillStyle = "rgba(255,255,255,0.8)";
+          contexto.fillRect(ex, ey, fillW, barH);
+
+          // tiny label: gender + age
+          contexto.fillStyle = "rgba(255,255,255,0.85)";
+          contexto.font = "10px sans-serif";
+          contexto.fillText(`${a.genero}${a.edad}`, a.x - 10, a.y + a.radio + 12);
+        }
+
+        // corner stats
+        contexto.fillStyle = "rgba(255,255,255,0.85)";
+        contexto.font = "12px sans-serif";
+        contexto.fillText(`Animals: ${animales.length}`, 10, 18);
+      }
+
+      // Boot
+      init();
+      loop();
+    </script>
+  </body>
+</html>

@@ -1,6 +1,6 @@
 # programaciondam2526 — Estado de ejercicios
 
-Generado: 2026-02-06 07:00
+Generado: 2026-02-11 00:00
 
 ---
 
@@ -94,8 +94,8 @@ Generado: 2026-02-06 07:00
 ## Mantenimiento de la persistencia de los objetos
 
 - 🟢 Bases de datos orientadas a objetos — 2026-02-02
-- 🔴 Características de las bases de datos orientadas a objetos
-- 🔴 Instalación del gestor de bases de datos
+- 🟢 Características de las bases de datos orientadas a objetos — 2026-02-09
+- 🟢 Instalación del gestor de bases de datos — 2026-02-10
 - 🔴 Creación de bases de datos
 - 🔴 Mecanismos de consulta
 - 🔴 El lenguaje de consultas sintaxis, expresiones, operadores
@@ -129,6 +129,7 @@ Generado: 2026-02-06 07:00
 - 🔴 CarruselSara
 - 🟢 Versionado y documentacion — 2026-01-30
 - 🔴 Proyecto Camaron
+- 🟢 css para impresion — 2026-02-06
 
 
 ## Repaso examen segunda evaluacion
@@ -147,3 +148,8 @@ Generado: 2026-02-06 07:00
 ## Informática gráfica
 
 - 🟢 Empezamos a dibujar — 2026-02-04
+
+
+## Implantacion en servidor
+
+- 🟢 Inicio — 2026-02-10

@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <canvas>
+    </canvas>
+    <script>
+      var lienzo = document.querySelector("canvas");
+      var contexto = lienzo.getContext("2d");
+      
+      lienzo.width = 512
+      lienzo.height = 512
+      
+      class Npc{
+      	constructor(){
+        	this.x = Math.random()*512
+          this.y = Math.random()*512
+          this.radio = Math.random()*10
+          this.color = [
+          	Math.round(Math.random()*255),
+            Math.round(Math.random()*255),
+            Math.round(Math.random()*255)
+          ]
+        }
+      }
+      
+      var numeronpc = 50;
+      
+      
+    </script>
+  </body>
+</html>

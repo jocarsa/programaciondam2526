@@ -1,0 +1,267 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Farm (Canvas)</title>
+    <style>
+      html, body { margin:0; padding:0; background:#111; }
+      canvas { display:block; margin:16px auto; background:#1f5a2a; border:2px solid #2b2b2b; }
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+
+    <script>
+      // =========================================================
+      // 1) CREATE INITIAL CONDITIONS
+      // =========================================================
+      const lienzo = document.querySelector("canvas");
+      const contexto = lienzo.getContext("2d");
+
+      const W = 512;
+      const H = 512;
+      lienzo.width = W;
+      lienzo.height = H;
+
+      // "Farm" settings
+      const NUM_NPCS = 50;
+      const BORDER_BOUNCE = 0.95;      // energy loss on bounce
+      const SEPARATION_RADIUS = 18;    // personal space (avoid others)
+      const SEPARATION_FORCE = 0.08;   // how strongly they push away
+      const MAX_SPEED = 1.6;           // cap speed
+      const ANGLE_JITTER = 0.08;       // small random wander each frame
+
+      // Simple farm visuals
+      const farm = {
+        // a few "pond/rock" obstacles just for farm feel (optional visuals only)
+        decorations: [
+          { x: 90,  y: 90,  r: 28, color: "#2a78b8" },  // pond
+          { x: 420, y: 120, r: 18, color: "#777" },     // rock
+          { x: 380, y: 410, r: 22, color: "#777" }      // rock
+        ]
+      };
+
+      class Npc {
+        constructor() {
+          this.x = Math.random() * W;
+          this.y = Math.random() * H;
+
+          this.radio = 6 + Math.random() * 6;
+
+          // 4) GIVE NPCS ANGLE AND SPEED
+          this.angulo = Math.random() * Math.PI * 2;
+          this.velocidad = 0.4 + Math.random() * 1.2;
+
+          // velocity components derived from angle/speed
+          this.vx = Math.cos(this.angulo) * this.velocidad;
+          this.vy = Math.sin(this.angulo) * this.velocidad;
+
+          // 7) APPLY COLOR
+          this.color = [
+            Math.round(Math.random() * 255),
+            Math.round(Math.random() * 255),
+            Math.round(Math.random() * 255)
+          ];
+        }
+      }
+
+      let npcs = [];
+
+      // =========================================================
+      // 2) CREATE INIT FUNCTION
+      // =========================================================
+      function init() {
+        // load if exists
+        const guardado = localStorage.getItem("npcs_farm");
+        if (guardado !== null) {
+          try {
+            npcs = JSON.parse(guardado);
+
+            // ensure old saves still have needed fields
+            npcs.forEach(npc => {
+              if (npc.radio === undefined) npc.radio = 8;
+              if (npc.angulo === undefined) npc.angulo = Math.random() * Math.PI * 2;
+              if (npc.velocidad === undefined) npc.velocidad = 1;
+              if (npc.vx === undefined) npc.vx = Math.cos(npc.angulo) * npc.velocidad;
+              if (npc.vy === undefined) npc.vy = Math.sin(npc.angulo) * npc.velocidad;
+              if (!npc.color) npc.color = [200, 200, 200];
+            });
+          } catch (e) {
+            // if corrupted, start fresh
+            npcs = [];
+          }
+        }
+
+        // if nothing loaded, create new NPCs
+        if (npcs.length === 0) {
+          for (let i = 0; i < NUM_NPCS; i++) npcs.push(new Npc());
+        }
+      }
+
+      // =========================================================
+      // Utility: save state (throttled by frame count)
+      // =========================================================
+      let frame = 0;
+      function saveStateOccasionally() {
+        frame++;
+        if (frame % 60 === 0) { // about once per second at ~60fps
+          localStorage.setItem("npcs_farm", JSON.stringify(npcs));
+        }
+      }
+
+      // =========================================================
+      // 3) CREATE LOOP FUNCTION
+      // =========================================================
+      function loop() {
+        update();
+        draw();
+        saveStateOccasionally();
+        requestAnimationFrame(loop);
+      }
+
+      // =========================================================
+      // 5) MAKE THEM MOVE AND AVOID THEMSELVES
+      // 6) MAKE THEM COLLIDE WITH BORDERS TO NOT ESCAPE
+      // =========================================================
+      function update() {
+        // --- separation / avoid others ---
+        for (let i = 0; i < npcs.length; i++) {
+          const a = npcs[i];
+
+          let pushX = 0;
+          let pushY = 0;
+
+          for (let j = 0; j < npcs.length; j++) {
+            if (i === j) continue;
+            const b = npcs[j];
+
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+            const dist2 = dx * dx + dy * dy;
+
+            const minDist = a.radio + b.radio + SEPARATION_RADIUS;
+            const minDist2 = minDist * minDist;
+
+            if (dist2 > 0 && dist2 < minDist2) {
+              const dist = Math.sqrt(dist2);
+              const nx = dx / dist;
+              const ny = dy / dist;
+
+              // stronger push when closer
+              const strength = (minDist - dist) / minDist;
+              pushX += nx * strength;
+              pushY += ny * strength;
+            }
+          }
+
+          // small random wandering (farm animals vibe)
+          a.angulo += (Math.random() - 0.5) * ANGLE_JITTER;
+
+          // base velocity from angle+speed
+          const baseVx = Math.cos(a.angulo) * a.velocidad;
+          const baseVy = Math.sin(a.angulo) * a.velocidad;
+
+          // apply separation force
+          a.vx = baseVx + pushX * SEPARATION_FORCE;
+          a.vy = baseVy + pushY * SEPARATION_FORCE;
+
+          // cap max speed
+          const sp = Math.hypot(a.vx, a.vy);
+          if (sp > MAX_SPEED) {
+            a.vx = (a.vx / sp) * MAX_SPEED;
+            a.vy = (a.vy / sp) * MAX_SPEED;
+          }
+        }
+
+        // --- move + border collision ---
+        for (let i = 0; i < npcs.length; i++) {
+          const npc = npcs[i];
+
+          npc.x += npc.vx;
+          npc.y += npc.vy;
+
+          // bounce on borders (keep inside)
+          if (npc.x < npc.radio) {
+            npc.x = npc.radio;
+            npc.vx = -npc.vx * BORDER_BOUNCE;
+            npc.angulo = Math.atan2(npc.vy, npc.vx);
+          } else if (npc.x > W - npc.radio) {
+            npc.x = W - npc.radio;
+            npc.vx = -npc.vx * BORDER_BOUNCE;
+            npc.angulo = Math.atan2(npc.vy, npc.vx);
+          }
+
+          if (npc.y < npc.radio) {
+            npc.y = npc.radio;
+            npc.vy = -npc.vy * BORDER_BOUNCE;
+            npc.angulo = Math.atan2(npc.vy, npc.vx);
+          } else if (npc.y > H - npc.radio) {
+            npc.y = H - npc.radio;
+            npc.vy = -npc.vy * BORDER_BOUNCE;
+            npc.angulo = Math.atan2(npc.vy, npc.vx);
+          }
+        }
+      }
+
+      // =========================================================
+      // Drawing: farm background + NPCs
+      // =========================================================
+      function draw() {
+        // background
+        contexto.clearRect(0, 0, W, H);
+
+        // grass base
+        contexto.fillStyle = "#1f5a2a";
+        contexto.fillRect(0, 0, W, H);
+
+        // subtle "field rows"
+        contexto.globalAlpha = 0.12;
+        contexto.fillStyle = "#000";
+        for (let y = 0; y < H; y += 18) {
+          contexto.fillRect(0, y, W, 2);
+        }
+        contexto.globalAlpha = 1;
+
+        // fence border
+        contexto.strokeStyle = "#caa46a";
+        contexto.lineWidth = 6;
+        contexto.strokeRect(3, 3, W - 6, H - 6);
+
+        // decorations
+        farm.decorations.forEach(d => {
+          contexto.beginPath();
+          contexto.fillStyle = d.color;
+          contexto.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+          contexto.fill();
+        });
+
+        // NPCs
+        for (let i = 0; i < npcs.length; i++) {
+          const npc = npcs[i];
+
+          // 7) APPLY COLOR
+          contexto.fillStyle = `rgb(${npc.color[0]},${npc.color[1]},${npc.color[2]})`;
+
+          contexto.beginPath();
+          contexto.arc(npc.x, npc.y, npc.radio, 0, Math.PI * 2);
+          contexto.fill();
+
+          // tiny direction indicator (so it feels "alive")
+          contexto.strokeStyle = "rgba(0,0,0,0.35)";
+          contexto.lineWidth = 2;
+          contexto.beginPath();
+          contexto.moveTo(npc.x, npc.y);
+          contexto.lineTo(
+            npc.x + Math.cos(npc.angulo) * (npc.radio + 6),
+            npc.y + Math.sin(npc.angulo) * (npc.radio + 6)
+          );
+          contexto.stroke();
+        }
+      }
+
+      // Boot
+      init();
+      loop();
+    </script>
+  </body>
+</html>
