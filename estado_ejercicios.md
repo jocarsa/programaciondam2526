@@ -1,6 +1,6 @@
 # programaciondam2526 — Estado de ejercicios
 
-Generado: 2026-02-11 00:00
+Generado: 2026-02-11 09:00
 
 ---
 
@@ -148,6 +148,7 @@ Generado: 2026-02-11 00:00
 ## Informática gráfica
 
 - 🟢 Empezamos a dibujar — 2026-02-04
+- 🟢 Vectores — 2026-02-11
 
 
 ## Implantacion en servidor

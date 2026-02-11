@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gráfica de barras SVG (JSON + animación + tooltip)</title>
+  <style>
+    :root{
+      --bg: #0b1220;
+      --grid: rgba(255,255,255,.08);
+      --text: rgba(255,255,255,.9);
+      --muted: rgba(255,255,255,.65);
+      --bar: #4f8cff;
+      --barHover: #79a9ff;
+      --axis: rgba(255,255,255,.25);
+      --tooltipBg: rgba(10, 14, 22, .95);
+      --tooltipBorder: rgba(255,255,255,.16);
+    }
+
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 20% 0%, #15264a, var(--bg));
+      color: var(--text);
+      display:grid;
+      place-items:center;
+      min-height:100vh;
+      padding:24px;
+    }
+
+    .card{
+      width:min(920px, 100%);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 14px;
+      padding: 18px 18px 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+
+    .header{
+      display:flex;
+      gap:12px;
+      justify-content:space-between;
+      align-items:flex-end;
+      margin-bottom: 10px;
+    }
+
+    .header h1{ font-size:16px; margin:0; letter-spacing:.2px; }
+    .header .sub{ font-size:12px; color: var(--muted); }
+
+    #chart{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius: 12px;
+      background: rgba(0,0,0,.10);
+    }
+
+    .gridline{ stroke: var(--grid); stroke-width: 1; shape-rendering: crispEdges; }
+    .axis{ stroke: var(--axis); stroke-width: 1; shape-rendering: crispEdges; }
+    .label{ fill: var(--muted); font-size: 12px; }
+    .value{ fill: var(--text); font-size: 12px; }
+
+    .bar{
+      fill: var(--bar);
+      rx: 8px; ry: 8px;
+      cursor: pointer;
+      transition: fill .15s ease, filter .15s ease;
+      filter: drop-shadow(0 8px 14px rgba(0,0,0,.25));
+    }
+    .bar:hover{
+      fill: var(--barHover);
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.35));
+    }
+
+    #tooltip{
+      position: fixed;
+      transform: translate(-9999px, -9999px);
+      pointer-events: none;
+      background: var(--tooltipBg);
+      border: 1px solid var(--tooltipBorder);
+      color: var(--text);
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-size: 12px;
+      line-height: 1.2;
+      box-shadow: 0 14px 28px rgba(0,0,0,.35);
+      white-space: nowrap;
+      z-index: 9999;
+      backdrop-filter: blur(8px);
+    }
+    #tooltip .t1{ color: var(--muted); display:block; margin-bottom:2px; }
+    #tooltip .t2{ font-weight: 650; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <div>
+        <h1>Gráfica de barras (SVG) — ventas por mes</h1>
+        <div class="sub">Animación (rAF) + tooltip + datos desde JSON</div>
+      </div>
+      <div class="sub" id="meta"></div>
+    </div>
+
+    <svg id="chart" viewBox="0 0 900 420" role="img" aria-label="Gráfica de barras"></svg>
+  </div>
+
+  <div id="tooltip" aria-hidden="true">
+    <span class="t1" id="ttLabel"></span>
+    <span class="t2" id="ttValue"></span>
+  </div>
+
+  <script type="application/json" id="chart-data">
+  {
+    "title": "Ventas",
+    "unit": "€",
+    "data": [
+      {"label":"Ene", "value": 120},
+      {"label":"Feb", "value": 190},
+      {"label":"Mar", "value": 80},
+      {"label":"Abr", "value": 240},
+      {"label":"May", "value": 160},
+      {"label":"Jun", "value": 310},
+      {"label":"Jul", "value": 260},
+      {"label":"Ago", "value": 140},
+      {"label":"Sep", "value": 210},
+      {"label":"Oct", "value": 170},
+      {"label":"Nov", "value": 280},
+      {"label":"Dic", "value": 340}
+    ]
+  }
+  </script>
+
+  <script>
+    "use strict";
+
+    const svg = document.getElementById("chart");
+    const tooltip = document.getElementById("tooltip");
+    const ttLabel = document.getElementById("ttLabel");
+    const ttValue = document.getElementById("ttValue");
+    const meta = document.getElementById("meta");
+    const NS = "http://www.w3.org/2000/svg";
+
+    function el(name, attrs = {}) {
+      const n = document.createElementNS(NS, name);
+      for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, String(v));
+      return n;
+    }
+
+    function clamp(n, a, b){ return Math.max(a, Math.min(b, n)); }
+
+    function niceMax(maxVal){
+      if (maxVal <= 0) return 1;
+      const pow = Math.pow(10, Math.floor(Math.log10(maxVal)));
+      const scaled = maxVal / pow;
+      const step = scaled <= 1 ? 1 : scaled <= 2 ? 2 : scaled <= 5 ? 5 : 10;
+      return step * pow;
+    }
+
+    function formatValue(v, unit){
+      return unit ? `${v} ${unit}` : String(v);
+    }
+
+    function showTooltip(x, y, label, valueText){
+      ttLabel.textContent = label;
+      ttValue.textContent = valueText;
+      tooltip.style.transform = `translate(${x + 14}px, ${y + 14}px)`;
+      tooltip.setAttribute("aria-hidden", "false");
+    }
+    function hideTooltip(){
+      tooltip.style.transform = `translate(-9999px, -9999px)`;
+      tooltip.setAttribute("aria-hidden", "true");
+    }
+
+    async function loadData(){
+      const raw = document.getElementById("chart-data").textContent.trim();
+      return JSON.parse(raw);
+
+      // Alternativa fichero:
+      // const res = await fetch("./datos.json", { cache: "no-store" });
+      // if (!res.ok) throw new Error("No se pudo cargar datos.json");
+      // return await res.json();
+    }
+
+    // Easing suave
+    function easeOutCubic(t){ return 1 - Math.pow(1 - t, 3); }
+
+    // Animador rAF para atributos SVG
+    function animateBar(rect, fromY, fromH, toY, toH, durationMs, delayMs){
+      const startAt = performance.now() + delayMs;
+
+      function frame(now){
+        if (now < startAt) return requestAnimationFrame(frame);
+
+        const t = clamp((now - startAt) / durationMs, 0, 1);
+        const k = easeOutCubic(t);
+
+        const y = fromY + (toY - fromY) * k;
+        const h = fromH + (toH - fromH) * k;
+
+        rect.setAttribute("y", y.toFixed(3));
+        rect.setAttribute("height", h.toFixed(3));
+
+        if (t < 1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    }
+
+    function renderChart(model){
+      svg.innerHTML = "";
+
+      const W = 900, H = 420;
+      const pad = { top: 22, right: 18, bottom: 58, left: 64 };
+      const plotW = W - pad.left - pad.right;
+      const plotH = H - pad.top - pad.bottom;
+
+      const data = model.data ?? [];
+      const unit = model.unit ?? "";
+      if (!data.length){
+        const t = el("text", { x: W/2, y: H/2, "text-anchor":"middle", class:"label" });
+        t.textContent = "Sin datos";
+        svg.appendChild(t);
+        return;
+      }
+
+      const maxVal = Math.max(...data.map(d => Number(d.value) || 0));
+      const yMax = niceMax(maxVal);
+      meta.textContent = `Máximo: ${formatValue(yMax, unit)}`;
+
+      // Ejes
+      svg.appendChild(el("line", { x1: pad.left, y1: pad.top + plotH, x2: pad.left + plotW, y2: pad.top + plotH, class:"axis" }));
+      svg.appendChild(el("line", { x1: pad.left, y1: pad.top, x2: pad.left, y2: pad.top + plotH, class:"axis" }));
+
+      // Grid + etiquetas Y
+      const ticks = 5;
+      for (let i=0; i<=ticks; i++){
+        const t = i / ticks;
+        const y = pad.top + plotH - (t * plotH);
+        const val = Math.round((t * yMax));
+
+        svg.appendChild(el("line", { x1: pad.left, y1: y, x2: pad.left + plotW, y2: y, class:"gridline" }));
+
+        const txt = el("text", { x: pad.left - 10, y: y + 4, "text-anchor":"end", class:"label" });
+        txt.textContent = val;
+        svg.appendChild(txt);
+      }
+
+      const n = data.length;
+      const gap = 12;
+      const barW = (plotW - gap * (n - 1)) / n;
+      const baseY = pad.top + plotH;
+
+      // Barras
+      data.forEach((d, idx) => {
+        const v = clamp(Number(d.value) || 0, 0, yMax);
+        const h = (v / yMax) * plotH;
+        const x = pad.left + idx * (barW + gap);
+        const y = baseY - h;
+
+        const rect = el("rect", {
+          class: "bar",
+          x: x,
+          y: baseY,     // start
+          width: barW,
+          height: 0,    // start
+          "data-label": d.label,
+          "data-value": v
+        });
+
+        // Fallback tooltip nativo
+        const title = el("title", {});
+        title.textContent = `${d.label}: ${formatValue(v, unit)}`;
+        rect.appendChild(title);
+
+        svg.appendChild(rect);
+
+        // Label X
+        const tx = el("text", {
+          x: x + barW/2,
+          y: pad.top + plotH + 26,
+          "text-anchor":"middle",
+          class: "label"
+        });
+        tx.textContent = d.label;
+        svg.appendChild(tx);
+
+        // Valor (opcional)
+        const tv = el("text", {
+          x: x + barW/2,
+          y: y - 8,
+          "text-anchor":"middle",
+          class: "value",
+          opacity: "0"
+        });
+        tv.textContent = v;
+        svg.appendChild(tv);
+
+        // Animación
+        const delay = idx * 35;
+        animateBar(rect, baseY, 0, y, h, 900, delay);
+
+        // Aparición del texto de valor
+        const showAt = performance.now() + delay + 650;
+        function fade(now){
+          const t = clamp((now - showAt) / 300, 0, 1);
+          tv.setAttribute("opacity", String(t));
+          if (t < 1) requestAnimationFrame(fade);
+        }
+        requestAnimationFrame(fade);
+      });
+
+      // Tooltip
+      svg.addEventListener("pointermove", (e) => {
+        const t = e.target;
+        if (!(t instanceof SVGRectElement) || !t.classList.contains("bar")) return;
+
+        const label = t.getAttribute("data-label") || "";
+        const value = Number(t.getAttribute("data-value") || 0);
+        showTooltip(e.clientX, e.clientY, label, formatValue(value, unit));
+      });
+      svg.addEventListener("pointerleave", hideTooltip);
+      svg.addEventListener("pointerdown", (e) => {
+        const t = e.target;
+        if (t instanceof SVGRectElement && t.classList.contains("bar")) {
+          const label = t.getAttribute("data-label") || "";
+          const value = Number(t.getAttribute("data-value") || 0);
+          showTooltip(e.clientX, e.clientY, label, formatValue(value, unit));
+        } else {
+          hideTooltip();
+        }
+      });
+    }
+
+    (async function main(){
+      try{
+        const model = await loadData();
+        renderChart(model);
+      }catch(err){
+        svg.innerHTML = "";
+        const msg = el("text", { x: 450, y: 210, "text-anchor":"middle", class:"label" });
+        msg.textContent = "Error cargando datos";
+        svg.appendChild(msg);
+        console.error(err);
+      }
+    })();
+  </script>
+</body>
+</html>

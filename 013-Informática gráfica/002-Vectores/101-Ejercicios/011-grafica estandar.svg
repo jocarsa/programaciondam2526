@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="256"
+   height="256"
+   viewBox="0 0 67.733332 67.733333"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1">
+    <path
+       style="fill:none;stroke:#0000ff;stroke-width:8.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       id="path1"
+       d="M 17.26264,54.11275 A 25.520548,25.520548 0 0 1 10.258856,25.899397 25.520548,25.520548 0 0 1 34.214244,9.4316797 25.520548,25.520548 0 0 1 58.047177,26.076125 25.520548,25.520548 0 0 1 50.834914,54.236905" />
+    <path
+       style="fill:none;stroke:#c83737;stroke-width:8.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       id="path1-3"
+       d="M 17.209298,54.12175 A 25.520548,25.520548 0 0 1 9.0741698,29.726605 25.520548,25.520548 0 0 1 26.302984,10.635472 25.520548,25.520548 0 0 1 51.402263,16.232755" />
+    <text
+       xml:space="preserve"
+       style="font-size:15.7593px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke:#0000ff;stroke-width:1.164;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       x="18.904112"
+       y="39.492363"
+       id="text1"><tspan
+         id="tspan1"
+         style="fill:#0000ff;fill-opacity:1;stroke:#0000ff;stroke-width:1.164;stroke-dasharray:none;stroke-opacity:1"
+         x="18.904112"
+         y="39.492363">70%</tspan></text>
+  </g>
+</svg>
