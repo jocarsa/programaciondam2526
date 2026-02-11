@@ -1,6 +1,6 @@
 # programaciondam2526 — Estado de ejercicios
 
-Generado: 2026-02-11 09:00
+Generado: 2026-02-11 10:00
 
 ---
 
@@ -154,3 +154,4 @@ Generado: 2026-02-11 09:00
 ## Implantacion en servidor
 
 - 🟢 Inicio — 2026-02-10
+- 🟢 Instalar cosas — 2026-02-11
