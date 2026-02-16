@@ -1,0 +1,1 @@
+https://openai.com/es-ES/api/pricing/

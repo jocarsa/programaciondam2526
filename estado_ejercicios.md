@@ -1,6 +1,6 @@
 # programaciondam2526 — Estado de ejercicios
 
-Generado: 2026-02-11 10:00
+Generado: 2026-02-16 10:00
 
 ---
 
@@ -143,12 +143,16 @@ Generado: 2026-02-11 10:00
 - 🟢 Entrenamiento — 2025-12-02
 - 🟢 Bases de datos vectoriales — 2026-01-23
 - 🟢 Sanear texto — 2026-01-23
+- 🟢 Proyecto preocupante — 2026-02-13
+- 🟢 repaso chatbot — 2026-02-13
+- 🟢 API externa — 2026-02-16
 
 
 ## Informática gráfica
 
 - 🟢 Empezamos a dibujar — 2026-02-04
 - 🟢 Vectores — 2026-02-11
+- 🟢 cuenta atras — 2026-02-16
 
 
 ## Implantacion en servidor

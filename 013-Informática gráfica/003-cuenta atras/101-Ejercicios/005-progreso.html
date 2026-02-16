@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div id="tiempo">00:60</div>
+    <progress></progress>
+    <button>Comenzar</button>
+    <script>
+      // Primero declaro condiciones iniciales
+      let boton = document.querySelector("button")
+      let tiempo = 60;
+      let temporizador
+      let progreso = document.querySelector("progress")
+      // Escucho cuando se pulsa el boton
+      boton.onclick = function(){
+      	temporizador = setTimeout(bucle,1000)
+      }
+      // Entro en el bucle
+      function bucle(){
+        if(tiempo > 0){
+        	tiempo--																							// Quito un segundo
+        	document.querySelector("#tiempo").textContent = "00:"+tiempo	// Actualizo marcador
+        	progreso.value = tiempo/60
+          clearTimeout(temporizador)														// Limpio temporizador
+        	temporizador = setTimeout(bucle,1000)									// Rearranco temporizador
+
+        }
+        if(tiempo == 0){
+        	let alarma = new Audio()
+          alarma.src = "pitipiti.mp3"
+          alarma.play()
+        }
+        
+      }
+    </script>
+  </body>
+</html>

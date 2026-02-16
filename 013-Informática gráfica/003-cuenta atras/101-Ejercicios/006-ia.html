@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Temporizador</title>
+  <style>
+    :root{
+      --bg: #0b1020;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.10);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.66);
+      --ring-bg: rgba(255,255,255,.10);
+      --ring: #8be9fd;
+      --ring2: #a78bfa;
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      display:grid;
+      place-items:center;
+      background:
+        radial-gradient(1200px 600px at 20% 10%, rgba(167,139,250,.25), transparent 55%),
+        radial-gradient(900px 500px at 80% 30%, rgba(139,233,253,.22), transparent 55%),
+        radial-gradient(700px 500px at 50% 90%, rgba(34,197,94,.10), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .wrap{
+      width:min(440px, 92vw);
+      padding: 22px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, var(--card2), var(--card));
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,.10);
+      backdrop-filter: blur(10px);
+    }
+
+    .top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom: 14px;
+    }
+
+    .title{
+      font-size: 15px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 2px 0 0;
+    }
+    .subtitle{
+      margin: 8px 0 0;
+      font-size: 12.5px;
+      color: rgba(255,255,255,.58);
+      line-height: 1.35;
+    }
+
+    .badge{
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: rgba(255,255,255,.75);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      user-select:none;
+      white-space:nowrap;
+    }
+
+    .ring{
+      position: relative;
+      width: min(320px, 72vw);
+      aspect-ratio: 1/1;
+      margin: 16px auto 10px;
+      display:grid;
+      place-items:center;
+    }
+
+    svg{ width:100%; height:100%; display:block; }
+    .center{
+      position:absolute;
+      inset:0;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      pointer-events:none;
+    }
+
+    #tiempo{
+      font-variant-numeric: tabular-nums;
+      font-size: 52px;
+      font-weight: 800;
+      letter-spacing: .02em;
+      text-shadow: 0 8px 26px rgba(0,0,0,.45);
+    }
+    .hint{
+      margin-top: 6px;
+      font-size: 13px;
+      color: rgba(255,255,255,.62);
+    }
+
+    .controls{
+      display:flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    button{
+      flex:1;
+      cursor:pointer;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-weight: 650;
+      transition: transform .08s ease, background .2s ease, border-color .2s ease, opacity .2s ease;
+    }
+    button:hover{
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.18);
+    }
+    button:active{ transform: translateY(1px); }
+    button[disabled]{ opacity:.55; cursor:not-allowed; }
+
+    .primary{
+      background: linear-gradient(135deg, rgba(139,233,253,.20), rgba(167,139,250,.20));
+      border-color: rgba(255,255,255,.18);
+    }
+
+    .bar{
+      margin-top: 14px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.10);
+      overflow:hidden;
+    }
+    .bar > div{
+      height:100%;
+      width: 100%;
+      transform-origin: left center;
+      transform: scaleX(1);
+      background: linear-gradient(90deg, rgba(139,233,253,.85), rgba(167,139,250,.85));
+      transition: transform .15s linear;
+    }
+
+    /* Hidden native progress (kept for semantics) */
+    progress{
+      position:absolute;
+      width:1px;
+      height:1px;
+      opacity:0;
+      pointer-events:none;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <div class="title">Temporizador</div>
+        <div class="subtitle">Anillo decreciente en SVG con el tiempo centrado.</div>
+      </div>
+      <div class="badge" id="estado">Listo · 60s</div>
+    </div>
+
+    <div class="ring" aria-label="Temporizador circular">
+      <!-- SVG ring -->
+      <svg viewBox="0 0 120 120" role="img" aria-hidden="true">
+        <defs>
+          <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="var(--ring)"/>
+            <stop offset="100%" stop-color="var(--ring2)"/>
+          </linearGradient>
+          <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="2.2" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- Background circle -->
+        <circle cx="60" cy="60" r="46"
+                fill="none"
+                stroke="var(--ring-bg)"
+                stroke-width="10"
+                stroke-linecap="round" />
+
+        <!-- Progress circle (stroke-dashoffset controlled by JS) -->
+        <circle id="ring"
+                cx="60" cy="60" r="46"
+                fill="none"
+                stroke="url(#grad)"
+                stroke-width="10"
+                stroke-linecap="round"
+                transform="rotate(-90 60 60)"
+                filter="url(#glow)"/>
+      </svg>
+
+      <div class="center">
+        <div>
+          <div id="tiempo">01:00</div>
+          <div class="hint" id="hint">Pulsa “Comenzar”</div>
+        </div>
+      </div>
+    </div>
+
+    <progress id="progreso" max="1" value="1"></progress>
+
+    <div class="controls">
+      <button class="primary" id="btnStart">Comenzar</button>
+      <button id="btnReset">Reiniciar</button>
+    </div>
+
+    <div class="bar" aria-hidden="true"><div id="barFill"></div></div>
+  </div>
+
+  <script>
+    // ====== Config ======
+    const DURACION = 60;          // segundos
+    let tiempo = DURACION;
+    let temporizador = null;
+    let corriendo = false;
+
+    // ====== DOM ======
+    const btnStart = document.querySelector("#btnStart");
+    const btnReset = document.querySelector("#btnReset");
+    const tiempoEl = document.querySelector("#tiempo");
+    const progreso = document.querySelector("#progreso");
+    const estado = document.querySelector("#estado");
+    const hint = document.querySelector("#hint");
+    const ring = document.querySelector("#ring");
+    const barFill = document.querySelector("#barFill");
+
+    // ====== SVG ring math ======
+    const r = 46;
+    const C = 2 * Math.PI * r; // circumference
+    ring.style.strokeDasharray = `${C}`;
+    ring.style.strokeDashoffset = `0`;
+
+    function pad2(n){ return String(n).padStart(2, "0"); }
+    function formatTime(sec){
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return `${pad2(m)}:${pad2(s)}`;
+    }
+
+    function setProgress(frac){ // 1 -> full, 0 -> empty
+      frac = Math.max(0, Math.min(1, frac));
+      const offset = C * (1 - frac);
+      ring.style.strokeDashoffset = `${offset}`;
+      progreso.value = frac;
+      barFill.style.transform = `scaleX(${frac})`;
+    }
+
+    function pintar(){
+      tiempoEl.textContent = formatTime(tiempo);
+      const frac = tiempo / DURACION;
+      setProgress(frac);
+      estado.textContent = (corriendo ? "En curso" : "Listo") + ` · ${tiempo}s`;
+    }
+
+    function detener(){
+      if (temporizador !== null) {
+        clearTimeout(temporizador);
+        temporizador = null;
+      }
+      corriendo = false;
+      btnStart.disabled = false;
+      hint.textContent = "Pausa / listo";
+    }
+
+    function terminar(){
+      detener();
+      hint.textContent = "¡Tiempo!";
+      estado.textContent = "Finalizado · 0s";
+
+      const alarma = new Audio();
+      alarma.src = "pitipiti.mp3";
+      alarma.play().catch(()=>{ /* silencio si el navegador bloquea autoplay */ });
+    }
+
+    function bucle(){
+      if (!corriendo) return;
+
+      if (tiempo > 0) {
+        tiempo--;
+        pintar();
+        temporizador = setTimeout(bucle, 1000);
+      } else {
+        terminar();
+      }
+    }
+
+    // ====== Events ======
+    btnStart.onclick = function(){
+      if (corriendo) return;
+      corriendo = true;
+      btnStart.disabled = true;
+      hint.textContent = "Contando...";
+      temporizador = setTimeout(bucle, 1000);
+    };
+
+    btnReset.onclick = function(){
+      detener();
+      tiempo = DURACION;
+      hint.textContent = "Pulsa “Comenzar”";
+      pintar();
+    };
+
+    // init
+    pintar();
+  </script>
+</body>
+</html>
