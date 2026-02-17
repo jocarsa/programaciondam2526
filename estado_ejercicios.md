@@ -1,6 +1,6 @@
 # programaciondam2526 — Estado de ejercicios
 
-Generado: 2026-02-16 10:00
+Generado: 2026-02-17 12:00
 
 ---
 
@@ -146,6 +146,7 @@ Generado: 2026-02-16 10:00
 - 🟢 Proyecto preocupante — 2026-02-13
 - 🟢 repaso chatbot — 2026-02-13
 - 🟢 API externa — 2026-02-16
+- 🟢 entrenamiento — 2026-02-17
 
 
 ## Informática gráfica
