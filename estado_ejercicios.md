@@ -1,6 +1,6 @@
 # programaciondam2526 — Estado de ejercicios
 
-Generado: 2026-02-17 12:00
+Generado: 2026-02-18 10:00
 
 ---
 
@@ -147,6 +147,8 @@ Generado: 2026-02-17 12:00
 - 🟢 repaso chatbot — 2026-02-13
 - 🟢 API externa — 2026-02-16
 - 🟢 entrenamiento — 2026-02-17
+- 🟢 Entrenamiento dia 2 — 2026-02-18
+- 🟢 preentrenamiento — 2026-02-18
 
 
 ## Informática gráfica

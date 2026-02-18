@@ -1,0 +1,1 @@
+python3 003-inferir.py "Escribe aqui tu pregunta"
