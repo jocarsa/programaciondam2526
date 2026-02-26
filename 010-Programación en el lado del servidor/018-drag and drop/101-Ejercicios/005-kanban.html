@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#f6f7fb;color:#111}
+      .kanban{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:16px;max-width:1100px;margin:0 auto}
+      .col{background:#fff;border:1px solid #e7e7ee;border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+      .col h3{margin:0;padding:12px 12px;border-bottom:1px solid #eee;font-size:14px;letter-spacing:.2px}
+      .zona{padding:12px;min-height:320px}
+      .card{background:#fff;border:1px solid #e9e9f2;border-radius:10px;padding:10px;margin:0 0 10px;cursor:grab;box-shadow:0 3px 10px rgba(0,0,0,.05)}
+      .card:active{cursor:grabbing}
+      .dragover{outline:2px dashed #b9b9c9;outline-offset:-6px;background:#fafaff}
+    </style>
+  </head>
+  <body>
+    <div class="kanban">
+      <div class="col">
+        <h3>Por hacer</h3>
+        <div class="zona" id="suelta-1"></div>
+      </div>
+      <div class="col">
+        <h3>En curso</h3>
+        <div class="zona" id="suelta-2"></div>
+      </div>
+      <div class="col">
+        <h3>En revisión</h3>
+        <div class="zona" id="suelta-3"></div>
+      </div>
+      <div class="col">
+        <h3>Hecho</h3>
+        <div class="zona" id="suelta-4"></div>
+      </div>
+    </div>
+
+    <!-- Plantilla original: un draggable y un dropzone (aquí hay varios) -->
+    <div id="arrastra" draggable="true" class="card" style="display:none"></div>
+
+    <script>
+    	let arrastra = document.querySelector("#arrastra")
+      let sueltas = document.querySelectorAll(".zona")
+      let elementoArrastrado = null
+
+      // Crear tarjetas (lo mínimo)
+      function creaTarjeta(texto){
+        let t = document.createElement("div")
+        t.className = "card"
+        t.draggable = true
+        t.textContent = texto
+
+        t.ondragstart = function(e){
+          elementoArrastrado = t
+          console.log("has empezado a arrastrar")
+        }
+        t.ondragend = function(){
+          console.log("has acabado de arrastrar")
+          elementoArrastrado = null
+        }
+        return t
+      }
+
+      // Poner algunas tarjetas en la primera columna
+      document.querySelector("#suelta-1").appendChild(creaTarjeta("Preparar temario"))
+      document.querySelector("#suelta-1").appendChild(creaTarjeta("Grabar vídeo 1"))
+      document.querySelector("#suelta-1").appendChild(creaTarjeta("Diseñar ejercicios"))
+
+      sueltas.forEach(function(suelta){
+        // ✅ NECESARIO
+        suelta.ondragover = function(e){
+          e.preventDefault()
+          suelta.classList.add("dragover")
+        }
+        suelta.ondragleave = function(){
+          suelta.classList.remove("dragover")
+        }
+        suelta.ondrop = function(){
+          suelta.classList.remove("dragover")
+          console.log("Alguien me ha soltado algo")
+          if(elementoArrastrado) suelta.appendChild(elementoArrastrado)
+        }
+      })
+
+      // Mantengo tu draggable original con logs (no se usa, pero respeta la plantilla)
+      arrastra.ondragstart = function(){
+      	console.log("has empezado a arrastrar")
+      }
+      arrastra.ondragend = function(){
+      	console.log("has acabado de arrastrar")
+      }
+  	</script>
+  </body>
+</html>

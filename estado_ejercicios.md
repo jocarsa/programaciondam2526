@@ -1,6 +1,6 @@
 # programaciondam2526 — Estado de ejercicios
 
-Generado: 2026-02-18 10:00
+Generado: 2026-02-26 10:00
 
 ---
 
@@ -130,6 +130,9 @@ Generado: 2026-02-18 10:00
 - 🟢 Versionado y documentacion — 2026-01-30
 - 🔴 Proyecto Camaron
 - 🟢 css para impresion — 2026-02-06
+- 🟢 drag and drop — 2026-02-19
+- 🟢 git — 2026-02-23
+- 🟢 git deploy — 2026-02-24
 
 
 ## Repaso examen segunda evaluacion

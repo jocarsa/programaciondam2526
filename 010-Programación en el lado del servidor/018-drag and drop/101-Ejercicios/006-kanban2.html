@@ -1,0 +1,287 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#f6f7fb;color:#111}
+      header{max-width:1200px;margin:0 auto;padding:16px 16px 6px;display:flex;align-items:baseline;justify-content:space-between}
+      .brand{font-weight:700;letter-spacing:.2px}
+      .brand small{font-weight:600;color:#666}
+      .kanban{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:10px 16px 16px;max-width:1200px;margin:0 auto}
+      .col{background:#fff;border:1px solid #e7e7ee;border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+      .col h3{margin:0;padding:12px 12px;border-bottom:1px solid #eee;font-size:14px;letter-spacing:.2px}
+      .top{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:10px 12px;border-bottom:1px solid #eee}
+      .top button{border:1px solid #e3e3ee;background:#111;color:#fff;border-radius:10px;padding:8px 10px;font-size:12px;cursor:pointer}
+      .top button:active{transform:translateY(1px)}
+      .zona{padding:12px;min-height:360px}
+      .dragover{outline:2px dashed #b9b9c9;outline-offset:-6px;background:#fafaff}
+
+      /* Tarjeta estilo "ventana" */
+      .card{border:1px solid #e9e9f2;border-radius:12px;margin:0 0 10px;box-shadow:0 3px 10px rgba(0,0,0,.05);cursor:grab;overflow:hidden}
+      .card:active{cursor:grabbing}
+      .cardTop{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-bottom:1px solid rgba(0,0,0,.06);background:rgba(255,255,255,.65);backdrop-filter:saturate(140%) blur(6px)}
+      .dots{display:flex;gap:7px;align-items:center}
+      .dotBtn{width:12px;height:12px;border-radius:999px;border:1px solid rgba(0,0,0,.14);cursor:pointer;padding:0;display:inline-block}
+      .dotClose{background:#ff5f57}
+      .dotColor{background:#febc2e}
+      .titleMini{font-size:12px;color:#333;opacity:.9;user-select:none}
+      .content{padding:10px}
+      .txt{min-height:22px;outline:none}
+      .picker{position:absolute;left:-9999px;top:-9999px}
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="brand">jocarsa <small>| kanban</small></div>
+      <div style="font-size:12px;color:#666;">arrastrar y soltar · editable · autosave</div>
+    </header>
+
+    <div class="kanban">
+      <div class="col" data-col="todo">
+        <h3>Por hacer</h3>
+        <div class="top">
+          <span></span>
+          <button class="add">+ Añadir</button>
+        </div>
+        <div class="zona" id="suelta-1"></div>
+      </div>
+
+      <div class="col" data-col="doing">
+        <h3>En curso</h3>
+        <div class="top">
+          <span></span>
+          <button class="add">+ Añadir</button>
+        </div>
+        <div class="zona" id="suelta-2"></div>
+      </div>
+
+      <div class="col" data-col="review">
+        <h3>En revisión</h3>
+        <div class="top">
+          <span></span>
+          <button class="add">+ Añadir</button>
+        </div>
+        <div class="zona" id="suelta-3"></div>
+      </div>
+
+      <div class="col" data-col="done">
+        <h3>Hecho</h3>
+        <div class="top">
+          <span></span>
+          <button class="add">+ Añadir</button>
+        </div>
+        <div class="zona" id="suelta-4"></div>
+      </div>
+    </div>
+
+    <!-- Plantilla original -->
+    <div id="arrastra" draggable="true" class="card" style="display:none"></div>
+
+    <script>
+    	let arrastra = document.querySelector("#arrastra")
+      let sueltas = document.querySelectorAll(".zona")
+      let elementoArrastrado = null
+
+      // ----------------------------
+      // Persistencia
+      // ----------------------------
+      const KEY = "jocarsa_kanban_v1"
+
+      function guardar(){
+        let data = {}
+        document.querySelectorAll(".col").forEach(function(col){
+          let colKey = col.getAttribute("data-col")
+          let zona = col.querySelector(".zona")
+          data[colKey] = []
+          zona.querySelectorAll(".card").forEach(function(card){
+            data[colKey].push({
+              id: card.getAttribute("data-id"),
+              text: card.querySelector(".txt").innerText,
+              color: card.getAttribute("data-color") || "#ffffff"
+            })
+          })
+        })
+        localStorage.setItem(KEY, JSON.stringify(data))
+      }
+
+      function cargar(){
+        let raw = localStorage.getItem(KEY)
+        if(!raw) return false
+        let data = null
+        try{ data = JSON.parse(raw) }catch(e){ return false }
+
+        document.querySelectorAll(".zona").forEach(function(z){ z.innerHTML = "" })
+
+        const map = {
+          todo: document.querySelector('[data-col="todo"] .zona'),
+          doing: document.querySelector('[data-col="doing"] .zona'),
+          review: document.querySelector('[data-col="review"] .zona'),
+          done: document.querySelector('[data-col="done"] .zona')
+        }
+
+        Object.keys(map).forEach(function(k){
+          (data[k] || []).forEach(function(item){
+            map[k].appendChild(creaTarjeta(item.text, item.color, item.id))
+          })
+        })
+        return true
+      }
+
+      // ----------------------------
+      // Tarjetas
+      // ----------------------------
+      function uid(){
+        return Date.now().toString(36) + Math.random().toString(36).slice(2,7)
+      }
+
+      function aplicaColor(card, color){
+        card.setAttribute("data-color", color)
+        card.style.background = color
+      }
+
+      function creaTarjeta(texto, color, id){
+        let t = document.createElement("div")
+        t.className = "card"
+        t.draggable = true
+        t.setAttribute("data-id", id || uid())
+
+        // top tipo mac
+        let top = document.createElement("div")
+        top.className = "cardTop"
+
+        let dots = document.createElement("div")
+        dots.className = "dots"
+
+        let btnClose = document.createElement("button")
+        btnClose.className = "dotBtn dotClose"
+        btnClose.title = "Eliminar"
+
+        let btnColor = document.createElement("button")
+        btnColor.className = "dotBtn dotColor"
+        btnColor.title = "Cambiar color"
+
+        dots.appendChild(btnClose)
+        dots.appendChild(btnColor)
+
+        let title = document.createElement("div")
+        title.className = "titleMini"
+        title.innerText = "tarjeta"
+
+        top.appendChild(dots)
+        top.appendChild(title)
+
+        // content editable
+        let content = document.createElement("div")
+        content.className = "content"
+
+        let txt = document.createElement("div")
+        txt.className = "txt"
+        txt.contentEditable = "true"
+        txt.spellcheck = true
+        txt.innerText = texto || "Nueva tarjeta"
+
+        // color picker oculto
+        let picker = document.createElement("input")
+        picker.className = "picker"
+        picker.type = "color"
+        picker.value = color || "#ffffff"
+
+        content.appendChild(txt)
+        content.appendChild(picker)
+
+        t.appendChild(top)
+        t.appendChild(content)
+
+        aplicaColor(t, picker.value)
+
+        // Drag logs (como tu plantilla)
+        t.ondragstart = function(){
+          elementoArrastrado = t
+          console.log("has empezado a arrastrar")
+        }
+        t.ondragend = function(){
+          console.log("has acabado de arrastrar")
+          elementoArrastrado = null
+          guardar()
+        }
+
+        // Editado -> guardar
+        txt.oninput = function(){
+          guardar()
+        }
+
+        // Botón color -> abre picker
+        btnColor.onclick = function(e){
+          e.stopPropagation()
+          picker.click()
+        }
+
+        // Cambia color -> guardar
+        picker.oninput = function(){
+          aplicaColor(t, picker.value)
+          guardar()
+        }
+
+        // Botón cerrar -> eliminar
+        btnClose.onclick = function(e){
+          e.stopPropagation()
+          t.remove()
+          guardar()
+        }
+
+        return t
+      }
+
+      // ----------------------------
+      // Dropzones
+      // ----------------------------
+      sueltas.forEach(function(suelta){
+        suelta.ondragover = function(e){
+          e.preventDefault()
+          suelta.classList.add("dragover")
+        }
+        suelta.ondragleave = function(){
+          suelta.classList.remove("dragover")
+        }
+        suelta.ondrop = function(){
+          suelta.classList.remove("dragover")
+          console.log("Alguien me ha soltado algo")
+          if(elementoArrastrado) suelta.appendChild(elementoArrastrado)
+          guardar()
+        }
+      })
+
+      // ----------------------------
+      // Botones "Añadir"
+      // ----------------------------
+      document.querySelectorAll(".col .add").forEach(function(btn){
+        btn.onclick = function(){
+          let col = btn.closest(".col")
+          let zona = col.querySelector(".zona")
+          let card = creaTarjeta("Nueva tarjeta", "#ffffff")
+          zona.appendChild(card)
+          card.querySelector(".txt").focus()
+          guardar()
+        }
+      })
+
+      // ----------------------------
+      // Estado inicial
+      // ----------------------------
+      if(!cargar()){
+        document.querySelector("#suelta-1").appendChild(creaTarjeta("Preparar temario", "#ffffff"))
+        document.querySelector("#suelta-1").appendChild(creaTarjeta("Grabar vídeo 1", "#ffffff"))
+        document.querySelector("#suelta-1").appendChild(creaTarjeta("Diseñar ejercicios", "#ffffff"))
+        guardar()
+      }
+
+      // Mantengo tu draggable original con logs (no se usa, pero respeta la plantilla)
+      arrastra.ondragstart = function(){
+      	console.log("has empezado a arrastrar")
+      }
+      arrastra.ondragend = function(){
+      	console.log("has acabado de arrastrar")
+      }
+  	</script>
+  </body>
+</html>

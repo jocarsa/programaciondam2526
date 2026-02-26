@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      div{width:200px;height:200px;}
+      #arrastra{background:red;}
+      #suelta{background:green;}
+    </style>
+  </head>
+  <body>
+    <div id="arrastra" draggable="true">
+    </div>
+    <div id="suelta">
+    </div>
+    <script>
+    	let arrastra = document.querySelector("#arrastra")
+      let suelta = document.querySelector("#suelta")
+      arrastra.ondragstart = function(){
+      	console.log("has empezado a arrastrar")
+      }
+      arrastra.ondragend = function(){
+      	console.log("has acabado de arrastrar")
+      }
+      // ✅ NECESARIO
+      suelta.ondragover = function(e){
+        e.preventDefault()
+      }
+      suelta.ondrop = function(){
+      	console.log("Alguien me ha soltado algo")
+      }
+  	</script>
+  </body>
+</html>

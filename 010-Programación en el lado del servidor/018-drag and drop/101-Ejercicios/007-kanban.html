@@ -1,0 +1,486 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#f6f7fb;color:#111}
+      header{max-width:1200px;margin:0 auto;padding:16px 16px 10px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+      .brand{font-weight:700;letter-spacing:.2px}
+      .brand small{font-weight:600;color:#666}
+      .hdrRight{display:flex;align-items:center;gap:10px}
+      .hint{font-size:12px;color:#666}
+      .hdrBtn{border:1px solid #e3e3ee;background:#111;color:#fff;border-radius:10px;padding:8px 10px;font-size:12px;cursor:pointer}
+      .hdrBtn:active{transform:translateY(1px)}
+
+      .kanban{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:10px 16px 16px;max-width:1200px;margin:0 auto}
+      @media (max-width:1000px){ .kanban{grid-template-columns:repeat(2,1fr)} }
+      @media (max-width:560px){ .kanban{grid-template-columns:1fr} }
+
+      .col{background:#fff;border:1px solid #e7e7ee;border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+      .colHead{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;border-bottom:1px solid #eee}
+      .colTitle{font-size:14px;letter-spacing:.2px;font-weight:700;outline:none}
+      .colTitle[contenteditable="true"]{border-radius:8px;padding:4px 6px;background:#f4f5fb}
+      .colActions{display:flex;align-items:center;gap:6px}
+      .iconBtn{border:1px solid #e3e3ee;background:#fff;color:#111;border-radius:10px;padding:6px 8px;font-size:12px;cursor:pointer}
+      .iconBtn:hover{background:#f7f7ff}
+      .iconBtn:active{transform:translateY(1px)}
+
+      .top{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:10px 12px;border-bottom:1px solid #eee}
+      .top button{border:1px solid #e3e3ee;background:#111;color:#fff;border-radius:10px;padding:8px 10px;font-size:12px;cursor:pointer}
+      .top button:active{transform:translateY(1px)}
+      .zona{padding:12px;min-height:360px}
+      .dragover{outline:2px dashed #b9b9c9;outline-offset:-6px;background:#fafaff}
+
+      /* Tarjeta estilo "ventana" */
+      .card{
+        --cardColor:#ffffff;
+        border:1px solid #e9e9f2;
+        border-radius:12px;
+        margin:0 0 10px;
+        box-shadow:0 3px 10px rgba(0,0,0,.05);
+        cursor:grab;
+        overflow:hidden;                 /* (1) asegura que el color no “se salga” */
+        background:transparent;          /* el color real va en .cardBody */
+      }
+      .card:active{cursor:grabbing}
+
+      /* (1) El color se aplica a un contenedor interior para evitar artefactos */
+      .cardBody{background:var(--cardColor);}
+
+      .cardTop{
+        display:flex;align-items:center;justify-content:space-between;
+        padding:8px 10px;border-bottom:1px solid rgba(0,0,0,.06);
+        background:rgba(255,255,255,.70);
+        backdrop-filter:saturate(140%) blur(6px);
+      }
+      .dots{display:flex;gap:7px;align-items:center}
+      .dotBtn{width:12px;height:12px;border-radius:999px;border:1px solid rgba(0,0,0,.14);cursor:pointer;padding:0;display:inline-block}
+      .dotClose{background:#ff5f57}
+      .dotColor{background:#febc2e}
+      .titleMini{font-size:12px;color:#333;opacity:.9;user-select:none}
+      .content{padding:10px}
+      .txt{min-height:22px;outline:none}
+
+      /* (3) Popover del color al lado de la tarjeta */
+      .colorPopover{
+        position:fixed;
+        z-index:9999;
+        display:none;
+        padding:10px;
+        background:#fff;
+        border:1px solid #e7e7ee;
+        border-radius:12px;
+        box-shadow:0 10px 30px rgba(0,0,0,.16);
+      }
+      .colorRow{display:flex;align-items:center;gap:10px}
+      .colorPopover input[type="color"]{
+        width:42px;height:34px;border:0;padding:0;background:transparent;cursor:pointer;
+      }
+      .popoverClose{
+        border:1px solid #e3e3ee;background:#fff;border-radius:10px;
+        padding:7px 10px;font-size:12px;cursor:pointer
+      }
+      .popoverClose:hover{background:#f7f7ff}
+
+      /* Plantilla original (no se usa, pero queda) */
+      #arrastra{display:none}
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="brand">janban <small>· editable · autosave</small></div>
+      <div class="hdrRight">
+        <div class="hint">arrastrar y soltar</div>
+        <button id="addCol" class="hdrBtn">+ Añadir columna</button>
+      </div>
+    </header>
+
+    <div class="kanban" id="board"></div>
+
+    <!-- Popover color (único, reutilizable) -->
+    <div id="colorPopover" class="colorPopover">
+      <div class="colorRow">
+        <input id="colorPicker" type="color" value="#ffffff">
+        <button id="closePopover" class="popoverClose">Cerrar</button>
+      </div>
+    </div>
+
+    <!-- Plantilla original -->
+    <div id="arrastra" draggable="true" class="card"></div>
+
+    <script>
+      // ----------------------------
+      // Persistencia
+      // ----------------------------
+      const KEY = "jocarsa_kanban_v2"
+
+      // Modelo:
+      // state = { columns:[{id,title}], cards:{[colId]:[{id,text,color}]} }
+      function defaultState(){
+        const c1 = uid()
+        const c2 = uid()
+        const c3 = uid()
+        const c4 = uid()
+        return {
+          columns: [
+            {id:c1, title:"Por hacer"},
+            {id:c2, title:"En curso"},
+            {id:c3, title:"En revisión"},
+            {id:c4, title:"Hecho"}
+          ],
+          cards: {
+            [c1]: [
+              {id: uid(), text:"Preparar temario", color:"#ffffff"},
+              {id: uid(), text:"Grabar vídeo 1", color:"#ffffff"},
+              {id: uid(), text:"Diseñar ejercicios", color:"#ffffff"}
+            ],
+            [c2]: [],
+            [c3]: [],
+            [c4]: []
+          }
+        }
+      }
+
+      function loadState(){
+        const raw = localStorage.getItem(KEY)
+        if(!raw) return null
+        try { return JSON.parse(raw) } catch(e){ return null }
+      }
+
+      function saveState(state){
+        localStorage.setItem(KEY, JSON.stringify(state))
+      }
+
+      let state = loadState() || defaultState()
+
+      // ----------------------------
+      // Utilidades
+      // ----------------------------
+      function uid(){
+        return Date.now().toString(36) + Math.random().toString(36).slice(2,7)
+      }
+
+      function escapeText(s){
+        return (s ?? "").toString()
+      }
+
+      // ----------------------------
+      // Color popover (3)
+      // ----------------------------
+      const pop = document.querySelector("#colorPopover")
+      const colorPicker = document.querySelector("#colorPicker")
+      const closePopover = document.querySelector("#closePopover")
+      let tarjetaColorActiva = null
+
+      function openColorPopoverFor(card, anchorEl){
+        tarjetaColorActiva = card
+        const current = card.getAttribute("data-color") || "#ffffff"
+        colorPicker.value = current
+
+        const r = anchorEl.getBoundingClientRect()
+        const pad = 8
+        let left = r.right + pad
+        let top = r.top - 6
+
+        // Ajustes simples para no salir de pantalla
+        const popW = 170
+        const popH = 64
+        if(left + popW > window.innerWidth) left = r.left - popW - pad
+        if(top + popH > window.innerHeight) top = window.innerHeight - popH - pad
+        if(top < pad) top = pad
+
+        pop.style.left = left + "px"
+        pop.style.top = top + "px"
+        pop.style.display = "block"
+      }
+
+      function closeColorPopover(){
+        pop.style.display = "none"
+        tarjetaColorActiva = null
+      }
+
+      closePopover.onclick = closeColorPopover
+      window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeColorPopover() })
+      document.addEventListener("mousedown", (e)=>{
+        if(pop.style.display === "none") return
+        if(pop.contains(e.target)) return
+        // si clicas el botón de color, no cierres aquí (lo gestiona el click)
+        if(e.target && e.target.classList && e.target.classList.contains("dotColor")) return
+        closeColorPopover()
+      })
+
+      colorPicker.oninput = function(){
+        if(!tarjetaColorActiva) return
+        const c = colorPicker.value
+        aplicaColor(tarjetaColorActiva, c)
+        persistFromDOM()
+      }
+
+      // ----------------------------
+      // Render
+      // ----------------------------
+      const board = document.querySelector("#board")
+      let elementoArrastrado = null
+
+      function render(){
+        board.innerHTML = ""
+        board.style.gridTemplateColumns = `repeat(${Math.max(1, state.columns.length)}, 1fr)`
+
+        state.columns.forEach(col=>{
+          const colEl = document.createElement("div")
+          colEl.className = "col"
+          colEl.setAttribute("data-col-id", col.id)
+
+          // Cabecera con renombrar y borrar (2)
+          const head = document.createElement("div")
+          head.className = "colHead"
+
+          const title = document.createElement("div")
+          title.className = "colTitle"
+          title.innerText = col.title
+          title.setAttribute("data-role","colTitle")
+
+          const actions = document.createElement("div")
+          actions.className = "colActions"
+
+          const btnRename = document.createElement("button")
+          btnRename.className = "iconBtn"
+          btnRename.innerText = "Renombrar"
+
+          const btnRemove = document.createElement("button")
+          btnRemove.className = "iconBtn"
+          btnRemove.innerText = "Eliminar"
+
+          actions.appendChild(btnRename)
+          actions.appendChild(btnRemove)
+
+          head.appendChild(title)
+          head.appendChild(actions)
+
+          // Top con + Añadir tarjeta
+          const top = document.createElement("div")
+          top.className = "top"
+          const spacer = document.createElement("span")
+          const add = document.createElement("button")
+          add.className = "add"
+          add.innerText = "+ Añadir"
+          top.appendChild(spacer)
+          top.appendChild(add)
+
+          // Zona drop
+          const zona = document.createElement("div")
+          zona.className = "zona"
+          zona.setAttribute("data-role","zona")
+
+          // Pintar tarjetas
+          ;(state.cards[col.id] || []).forEach(cardData=>{
+            zona.appendChild(creaTarjeta(cardData.text, cardData.color, cardData.id))
+          })
+
+          // Eventos columna
+          add.onclick = function(){
+            const card = creaTarjeta("Nueva tarjeta", "#ffffff")
+            zona.appendChild(card)
+            card.querySelector(".txt").focus()
+            persistFromDOM()
+          }
+
+          btnRename.onclick = function(){
+            title.contentEditable = "true"
+            title.focus()
+            // seleccionar todo
+            const range = document.createRange()
+            range.selectNodeContents(title)
+            const sel = window.getSelection()
+            sel.removeAllRanges()
+            sel.addRange(range)
+          }
+
+          title.onblur = function(){
+            if(title.isContentEditable){
+              title.contentEditable = "false"
+              col.title = (title.innerText || "").trim() || "Columna"
+              saveState(state)
+              render() // refresca títulos normalizados
+            }
+          }
+
+          title.onkeydown = function(e){
+            if(!title.isContentEditable) return
+            if(e.key === "Enter"){
+              e.preventDefault()
+              title.blur()
+            }
+          }
+
+          btnRemove.onclick = function(){
+            // elimina columna + sus tarjetas
+            state.columns = state.columns.filter(c=>c.id !== col.id)
+            delete state.cards[col.id]
+            saveState(state)
+            render()
+          }
+
+          // Drag & drop por columna
+          zona.ondragover = function(e){
+            e.preventDefault()
+            zona.classList.add("dragover")
+          }
+          zona.ondragleave = function(){
+            zona.classList.remove("dragover")
+          }
+          zona.ondrop = function(){
+            zona.classList.remove("dragover")
+            if(elementoArrastrado) zona.appendChild(elementoArrastrado)
+            elementoArrastrado = null
+            persistFromDOM()
+          }
+
+          colEl.appendChild(head)
+          colEl.appendChild(top)
+          colEl.appendChild(zona)
+          board.appendChild(colEl)
+        })
+
+        // si solo queda 1 columna, que no se vea raro
+        if(state.columns.length === 1) board.style.gridTemplateColumns = "1fr"
+      }
+
+      // ----------------------------
+      // Tarjetas
+      // ----------------------------
+      function aplicaColor(card, color){
+        card.setAttribute("data-color", color)
+        card.style.setProperty("--cardColor", color)   // (1) color sin overflow
+      }
+
+      function creaTarjeta(texto, color, id){
+        let t = document.createElement("div")
+        t.className = "card"
+        t.draggable = true
+        t.setAttribute("data-id", id || uid())
+
+        // Contenedor interno con el color real (1)
+        let body = document.createElement("div")
+        body.className = "cardBody"
+
+        let top = document.createElement("div")
+        top.className = "cardTop"
+
+        let dots = document.createElement("div")
+        dots.className = "dots"
+
+        let btnClose = document.createElement("button")
+        btnClose.className = "dotBtn dotClose"
+        btnClose.title = "Eliminar"
+
+        let btnColor = document.createElement("button")
+        btnColor.className = "dotBtn dotColor"
+        btnColor.title = "Cambiar color"
+
+        btnClose.onmousedown = function(e){ e.preventDefault() }
+        btnColor.onmousedown = function(e){ e.preventDefault() }
+
+        dots.appendChild(btnClose)
+        dots.appendChild(btnColor)
+
+        let title = document.createElement("div")
+        title.className = "titleMini"
+        title.innerText = "tarjeta"
+
+        top.appendChild(dots)
+        top.appendChild(title)
+
+        let content = document.createElement("div")
+        content.className = "content"
+
+        let txt = document.createElement("div")
+        txt.className = "txt"
+        txt.contentEditable = "true"
+        txt.spellcheck = true
+        txt.innerText = escapeText(texto || "Nueva tarjeta")
+
+        content.appendChild(txt)
+
+        body.appendChild(top)
+        body.appendChild(content)
+        t.appendChild(body)
+
+        aplicaColor(t, color || "#ffffff")
+
+        t.ondragstart = function(){
+          elementoArrastrado = t
+        }
+        t.ondragend = function(){
+          elementoArrastrado = null
+          persistFromDOM()
+        }
+
+        txt.oninput = function(){
+          persistFromDOM()
+        }
+
+        // (3) Color al lado de la tarjeta/botón
+        btnColor.onclick = function(e){
+          e.stopPropagation()
+          openColorPopoverFor(t, btnColor)
+        }
+
+        btnClose.onclick = function(e){
+          e.stopPropagation()
+          closeColorPopover()
+          t.remove()
+          persistFromDOM()
+        }
+
+        return t
+      }
+
+      // ----------------------------
+      // Sincronizar DOM -> state
+      // ----------------------------
+      function persistFromDOM(){
+        const newState = { columns: [], cards: {} }
+
+        document.querySelectorAll(".col").forEach(colEl=>{
+          const colId = colEl.getAttribute("data-col-id")
+          const colTitle = (colEl.querySelector('[data-role="colTitle"]').innerText || "").trim() || "Columna"
+          newState.columns.push({id: colId, title: colTitle})
+          newState.cards[colId] = []
+
+          colEl.querySelectorAll(".zona .card").forEach(card=>{
+            newState.cards[colId].push({
+              id: card.getAttribute("data-id"),
+              text: (card.querySelector(".txt").innerText || ""),
+              color: card.getAttribute("data-color") || "#ffffff"
+            })
+          })
+        })
+
+        state = newState
+        saveState(state)
+      }
+
+      // ----------------------------
+      // Añadir / quitar / renombrar columnas (2)
+      // ----------------------------
+      document.querySelector("#addCol").onclick = function(){
+        const newId = uid()
+        state.columns.push({id:newId, title:"Nueva columna"})
+        state.cards[newId] = []
+        saveState(state)
+        render()
+      }
+
+      // ----------------------------
+      // Estado inicial
+      // ----------------------------
+      render()
+
+      // Mantengo tu draggable original con logs (no se usa)
+      let arrastra = document.querySelector("#arrastra")
+      arrastra.ondragstart = function(){ console.log("has empezado a arrastrar") }
+      arrastra.ondragend = function(){ console.log("has acabado de arrastrar") }
+    </script>
+  </body>
+</html>
