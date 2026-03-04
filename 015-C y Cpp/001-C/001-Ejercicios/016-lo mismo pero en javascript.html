@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Medición de tiempo en JavaScript</title>
+</head>
+<body>
+
+<button onclick="ejecutar()">Ejecutar prueba</button>
+
+<pre id="resultado"></pre>
+
+<script>
+
+function ejecutar(){
+
+    let inicio = performance.now();
+
+    let numero = 1.0000000432;
+
+    for(let contador = 0; contador <= 235324543; contador++){
+        numero = numero * 1.00000000645;
+    }
+
+    let fin = performance.now();
+
+    let tiempo = (fin - inicio) / 1000;
+
+    document.getElementById("resultado").textContent =
+        "El resultado es: " + numero + "\n" +
+        "Tiempo de ejecución: " + tiempo + " segundos";
+}
+
+</script>
+
+</body>
+</html>
