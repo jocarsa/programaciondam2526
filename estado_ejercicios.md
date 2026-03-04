@@ -1,6 +1,6 @@
 # programaciondam2526 — Estado de ejercicios
 
-Generado: 2026-03-02 09:00
+Generado: 2026-03-04 09:00
 
 ---
 
@@ -133,6 +133,8 @@ Generado: 2026-03-02 09:00
 - 🟢 drag and drop — 2026-02-19
 - 🟢 git — 2026-02-23
 - 🟢 git deploy — 2026-02-24
+- 🔴 scapeo
+- 🟢 SaaS IA — 2026-03-03
 
 
 ## Repaso examen segunda evaluacion
@@ -165,3 +167,8 @@ Generado: 2026-03-02 09:00
 
 - 🟢 Inicio — 2026-02-10
 - 🟢 Instalar cosas — 2026-02-11
+
+
+## C y Cpp
+
+- 🔴 C
