@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bouncing Circle</title>
+
+<style>
+html, body{
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+canvas{
+    display:block;
+}
+</style>
+
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+
+<script>
+
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+function resize(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
+window.addEventListener("resize", resize);
+resize();
+
+let x = canvas.width/2;
+let y = canvas.height/2;
+
+const radius = 20;
+const speed = 10;
+
+// random direction
+let angle = Math.random() * Math.PI * 2;
+
+let vx = Math.cos(angle) * speed;
+let vy = Math.sin(angle) * speed;
+
+function draw(){
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    ctx.beginPath();
+    ctx.arc(x,y,radius,0,Math.PI*2);
+    ctx.fill();
+
+    x += vx;
+    y += vy;
+
+    // bounce horizontal
+    if(x - radius <= 0 || x + radius >= canvas.width){
+        vx *= -1;
+    }
+
+    // bounce vertical
+    if(y - radius <= 0 || y + radius >= canvas.height){
+        vy *= -1;
+    }
+
+    setTimeout(draw,10);
+}
+
+draw();
+
+</script>
+
+</body>
+</html>

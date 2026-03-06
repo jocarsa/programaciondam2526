@@ -1,6 +1,6 @@
 # programaciondam2526 — Estado de ejercicios
 
-Generado: 2026-03-04 09:00
+Generado: 2026-03-06 10:00
 
 ---
 
@@ -135,6 +135,8 @@ Generado: 2026-03-04 09:00
 - 🟢 git deploy — 2026-02-24
 - 🔴 scapeo
 - 🟢 SaaS IA — 2026-03-03
+- 🟢 Proxy inverso — 2026-03-06
+- 🟢 nodejs introduccion — 2026-03-05
 
 
 ## Repaso examen segunda evaluacion
@@ -172,3 +174,4 @@ Generado: 2026-03-04 09:00
 ## C y Cpp
 
 - 🔴 C
+- 🟢 repaso POV — 2026-03-04

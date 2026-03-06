@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Moving Circle</title>
+</head>
+<body>
+
+<canvas id="canvas" width="500" height="200" style="border:1px solid black;"></canvas>
+
+<script>
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+let x = 50;
+const y = 100;
+const radius = 20;
+
+function draw() {
+    // clear canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // draw circle
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2);
+    ctx.fill();
+
+    // move circle
+    x += 20;
+
+    // repeat after 1 second
+    setTimeout(draw, 100);
+}
+
+// start animation
+draw();
+</script>
+
+</body>
+</html>
